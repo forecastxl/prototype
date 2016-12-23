@@ -1,7 +1,7 @@
 # prototype
 
-[![Build Status](https://travis-ci.org/forecastxl/prototype.svg?branch=master)](https://travis-ci.org/forecastxl/prototype)
-[![Coverage Status](https://coveralls.io/repos/github/forecastxl/prototype/badge.svg?branch=master)](https://coveralls.io/github/forecastxl/prototype?branch=master)
+[![Build Status](https://travis-ci.org/ForecastXL/prototype.svg?branch=develop)](https://travis-ci.org/ForecastXL/prototype)
+[![Coverage Status](https://coveralls.io/repos/github/ForecastXL/prototype/badge.svg?branch=develop)](https://coveralls.io/github/ForecastXL/prototype?branch=develop)
 
 ## requirements
 
