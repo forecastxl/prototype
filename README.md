@@ -19,4 +19,5 @@
 ```bash
 DEV_BASE=http://localhost
 DEV_PORT=8888
+PROD_BASE=https://forecastxl.com
 ```
