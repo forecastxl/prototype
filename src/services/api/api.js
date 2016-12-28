@@ -15,5 +15,6 @@ export const getJson = endpoint => {
   return fetch(request)
     .then(checkStatus)
     .then(response => response.json())
-    .catch(error => error)
+    .then(response => ({ response }))
+    .catch(error => ({ error }))
 }
