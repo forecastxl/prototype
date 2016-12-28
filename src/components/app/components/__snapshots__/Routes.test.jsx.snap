@@ -3,7 +3,7 @@ exports[`<Routes /> renders correctly 1`] = `
   <Header />
   <Match
     component={[Function]}
-    exactly={true}
-    pattern="/" />
+    exactly={false}
+    pattern="/login" />
 </div>
 `;

@@ -3,6 +3,9 @@ import 'babel-polyfill'
 import 'isomorphic-fetch'
 import 'normalize.css'
 
+// polyfill touch/tap until browsers natively support this
+import injectTapEventPlugin from 'react-tap-event-plugin'
+
 // import dependencies
 import React from 'react'
 import { AppContainer } from 'react-hot-loader'
@@ -12,6 +15,9 @@ import configureStore from './store'
 
 // globally scoped css
 import './index.css'
+
+// enable tap event plugin polyfill
+injectTapEventPlugin()
 
 // create empty store
 const store = configureStore({})

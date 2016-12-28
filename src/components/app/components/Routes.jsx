@@ -7,7 +7,7 @@ function Routes() {
   return (
     <div>
       <Header />
-      <Match exactly pattern="/" component={Login} />
+      <Match pattern="/login" component={Login} />
     </div>
   )
 }
