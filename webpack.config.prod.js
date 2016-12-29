@@ -58,15 +58,9 @@ module.exports = {
     new webpack.LoaderOptionsPlugin({ minimize: true }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        SPACE_ID: JSON.stringify(process.env.SPACE_ID),
-        ACCESS_TOKEN: JSON.stringify(process.env.ACCESS_TOKEN)
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
     }),
-    new HtmlWebpackPlugin({ template: 'src/index.ejs' }),
-    new HtmlWebpackPlugin({
-      template: 'src/index.ejs',
-      filename: '200.html'
-    })
+    new HtmlWebpackPlugin({ template: 'src/index.ejs' })
   ]
 }
