@@ -5,9 +5,9 @@ function LoginForm({ onSubmit, onChange, user }) {
   return (
     <form action="/" onSubmit={onSubmit}>
       <TextField
-        floatingLabelText="Name"
-        name="name"
-        value={user.name}
+        floatingLabelText="Email"
+        name="email"
+        value={user.email}
         onChange={onChange}
       /><br />
       <TextField
@@ -26,7 +26,7 @@ LoginForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   user: PropTypes.shape({
-    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired
   })
 }

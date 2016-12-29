@@ -8,7 +8,7 @@ export class LoginFormContainer extends Component {
     super(props)
     this.state = {
       user: {
-        name: '',
+        email: '',
         password: ''
       }
     }

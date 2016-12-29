@@ -10,7 +10,7 @@ describe('<LoginForm />', () => {
         onChange={() => {}}
         onSubmit={() => {}}
         user={{
-          name: '',
+          email: '',
           password: ''
         }}
       />

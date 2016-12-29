@@ -4,7 +4,7 @@ exports[`<LoginFormContainer /> renders correctly 1`] = `
   onSubmit={[Function]}
   user={
     Object {
-      "name": "",
+      "email": "",
       "password": "",
     }
   } />

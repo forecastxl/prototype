@@ -5,10 +5,10 @@ exports[`<LoginForm /> renders correctly 1`] = `
   <TextField
     disabled={false}
     floatingLabelFixed={false}
-    floatingLabelText="Name"
+    floatingLabelText="Email"
     fullWidth={false}
     multiLine={false}
-    name="name"
+    name="email"
     onChange={[Function]}
     rows={1}
     type="text"
