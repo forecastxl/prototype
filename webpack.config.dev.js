@@ -62,15 +62,9 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         DEV_BASE: JSON.stringify(process.env.DEV_BASE),
         DEV_PORT: JSON.stringify(process.env.DEV_PORT),
-        PROD_BASE: JSON.stringify(process.env.PROD_BASE),
-        SPACE_ID: JSON.stringify(process.env.SPACE_ID),
-        ACCESS_TOKEN: JSON.stringify(process.env.ACCESS_TOKEN)
+        PROD_BASE: JSON.stringify(process.env.PROD_BASE)
       }
     }),
-    new HtmlWebpackPlugin({ template: 'src/index.ejs' }),
-    new HtmlWebpackPlugin({
-      template: 'src/index.ejs',
-      filename: '200.html'
-    })
+    new HtmlWebpackPlugin({ template: 'src/index.ejs' })
   ]
 }
