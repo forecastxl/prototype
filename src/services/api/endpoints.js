@@ -1,5 +1,6 @@
 let base
 
+// istanbul ignore if: this will never be reached when testing
 if (process.env.NODE_ENV === 'production') {
   base = 'https://www.forecastxl.com/api/v2'
 } else {
