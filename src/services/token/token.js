@@ -7,11 +7,11 @@ export default class Token {
     return sessionStorage.getItem('token')
   }
 
-  static hasToken() {
+  static exists() {
     return sessionStorage.getItem('token') !== null
   }
 
   static destroyToken() {
-    sessionStorage.removeItem('token', null)
+    sessionStorage.removeItem('token')
   }
 }

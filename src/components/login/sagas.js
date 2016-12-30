@@ -1,7 +1,7 @@
 import { takeLatest } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
 import { api, endpoints } from '../../services/api'
-import { Token } from '../../services/token'
+import Token from '../../services/token'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
