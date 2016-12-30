@@ -62,6 +62,7 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         DEV_BASE: JSON.stringify(process.env.DEV_BASE),
         DEV_PORT: JSON.stringify(process.env.DEV_PORT),
+        DEV_API: JSON.stringify(process.env.DEV_API),
         PROD_BASE: JSON.stringify(process.env.PROD_BASE)
       }
     }),
