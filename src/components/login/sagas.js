@@ -8,7 +8,7 @@ import * as types from './actionTypes'
 export function* loginUser(action) {
   const { response, error } = yield call(api.postJson, endpoints.LOGIN_ENDPOINT, action.payload)
   if (response) {
-    yield put(actions.loginUserSuccess(response))
+    yield put(actions.loginUserSuccess())
     yield call(Token.setToken, response.token)
   } else {
     yield put(actions.loginUserFail(error))

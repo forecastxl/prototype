@@ -31,7 +31,7 @@ describe('login sagas', () => {
     it('should put loginUserSuccess on success', () => {
       const response = 'response'
       const generator = sagas.loginUser(action)
-      const expected = put(actions.loginUserSuccess(response))
+      const expected = put(actions.loginUserSuccess())
 
       generator.next()
       const actual = generator.next({ response }).value
