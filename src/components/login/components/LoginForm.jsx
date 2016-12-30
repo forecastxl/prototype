@@ -1,24 +1,36 @@
 import React, { PropTypes } from 'react'
-import { TextField, RaisedButton } from 'material-ui'
+import styled from 'styled-components'
+import {
+  RaisedButton,
+  TextField
+} from 'material-ui'
+
+const Aligner = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 function LoginForm({ onSubmit, onChange, user }) {
   return (
-    <form action="/" onSubmit={onSubmit}>
-      <TextField
-        floatingLabelText="Email"
-        name="email"
-        value={user.email}
-        onChange={onChange}
-      /><br />
-      <TextField
-        floatingLabelText="Password"
-        name="password"
-        type="password"
-        value={user.password}
-        onChange={onChange}
-      /><br />
-      <RaisedButton type="submit" label="Log in" primary />
-    </form>
+    <Aligner>
+      <form action="/" onSubmit={onSubmit}>
+        <TextField
+          floatingLabelText="Email"
+          name="email"
+          value={user.email}
+          onChange={onChange}
+        /><br />
+        <TextField
+          floatingLabelText="Password"
+          name="password"
+          type="password"
+          value={user.password}
+          onChange={onChange}
+        /><br />
+        <RaisedButton type="submit" label="Log in" primary />
+      </form>
+    </Aligner>
   )
 }
 
