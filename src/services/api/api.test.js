@@ -60,7 +60,7 @@ describe('api service', () => {
       const expected = { response }
 
       window.fetch.mockImplementationOnce(() => Promise.resolve(new Response(body, init)))
-      return postJson('endpoint').then(actual => expect(actual).toEqual(expected))
+      return postJson('endpoint', 'data').then(actual => expect(actual).toEqual(expected))
     })
 
     it('should return an error if the response is not ok', () => {
@@ -70,7 +70,7 @@ describe('api service', () => {
       const expected = { error }
 
       window.fetch.mockImplementationOnce(() => Promise.resolve(new Response(body, init)))
-      return postJson('endpoint').then(actual => expect(actual).toEqual(expected))
+      return postJson('endpoint', 'data').then(actual => expect(actual).toEqual(expected))
     })
 
     it('should return an error on network errors', () => {
@@ -79,7 +79,7 @@ describe('api service', () => {
       const expected = { error }
 
       window.fetch.mockImplementationOnce(() => Promise.reject(new Error(message)))
-      return postJson('endpoint').then(actual => expect(actual).toEqual(expected))
+      return postJson('endpoint', 'data').then(actual => expect(actual).toEqual(expected))
     })
   })
 })

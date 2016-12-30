@@ -1,6 +1,8 @@
 import checkStatus from './check-status'
 
 export const getJson = endpoint => {
+  if (!endpoint) throw new Error('An endpoint must be passed')
+
   const headers = new Headers({
     Authorization: `Bearer ${process.env.NODE_ENV}`
   })
@@ -20,6 +22,9 @@ export const getJson = endpoint => {
 }
 
 export const postJson = (endpoint, data) => {
+  if (!endpoint) throw new Error('An endpoint must be passed')
+  if (!data) throw new Error('Data must be passed')
+
   const headers = new Headers({
     Authorization: `Bearer ${process.env.NODE_ENV}`,
     'Content-Type': 'application/json'
