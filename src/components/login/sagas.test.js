@@ -1,6 +1,7 @@
 import { takeLatest } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
 import { api, endpoints } from '../../services/api'
+import Token from '../../services/token'
 import * as sagas from './sagas'
 import * as actions from './actions'
 import * as types from './actionTypes'
@@ -30,10 +31,22 @@ describe('login sagas', () => {
     it('should put loginUserSuccess on success', () => {
       const response = 'response'
       const generator = sagas.loginUser(action)
-      const expected = put(actions.loginUserSuccess(response))
+      const expected = put(actions.loginUserSuccess())
 
       generator.next()
       const actual = generator.next({ response }).value
+
+      expect(actual).toEqual(expected)
+    })
+
+    it('should set a token on success', () => {
+      const response = { token: 'token' }
+      const generator = sagas.loginUser(action)
+      const expected = call(Token.setToken, response.token)
+
+      generator.next()
+      generator.next({ response })
+      const actual = generator.next().value
 
       expect(actual).toEqual(expected)
     })

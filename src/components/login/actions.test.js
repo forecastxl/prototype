@@ -12,10 +12,9 @@ describe('login actioncreators', () => {
   })
 
   it('should create a LOGIN_USER_SUCCESS action', () => {
-    const actual = actions.loginUserSuccess('payload')
+    const actual = actions.loginUserSuccess()
     const expected = {
-      type: types.LOGIN_USER_SUCCESS,
-      payload: 'payload'
+      type: types.LOGIN_USER_SUCCESS
     }
 
     expect(actual).toEqual(expected)

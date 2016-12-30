@@ -5,9 +5,8 @@ export const loginUser = payload => ({
   payload
 })
 
-export const loginUserSuccess = payload => ({
-  type: types.LOGIN_USER_SUCCESS,
-  payload
+export const loginUserSuccess = () => ({
+  type: types.LOGIN_USER_SUCCESS
 })
 
 export const loginUserFail = () => ({
