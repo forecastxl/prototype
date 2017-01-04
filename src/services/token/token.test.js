@@ -9,18 +9,18 @@ describe('Token service', () => {
     }
   })
 
-  describe('setToken', () => {
+  describe('set', () => {
     it('should set a token', () => {
-      Token.setToken('value')
+      Token.set('value')
       expect(window.sessionStorage.setItem).toHaveBeenCalledWith('token', 'value')
     })
   })
 
-  describe('getToken', () => {
+  describe('get', () => {
     it('should return a token', () => {
       window.sessionStorage.getItem.mockImplementationOnce(() => 'value')
 
-      const actual = Token.getToken()
+      const actual = Token.get()
       expect(actual).toEqual('value')
     })
   })
@@ -34,9 +34,9 @@ describe('Token service', () => {
     })
   })
 
-  describe('destroyToken', () => {
+  describe('destroy', () => {
     it('should destroy the token', () => {
-      Token.destroyToken()
+      Token.destroy()
       expect(window.sessionStorage.removeItem).toHaveBeenCalledWith('token')
     })
   })

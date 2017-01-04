@@ -9,7 +9,7 @@ export function* loginUser(action) {
   const { response, error } = yield call(Api.post, endpoints.LOGIN_ENDPOINT, action.payload)
   if (response) {
     yield put(actions.loginUserSuccess())
-    yield call(Token.setToken, response.token)
+    yield call(Token.set, response.token)
   } else {
     yield put(actions.loginUserFail(error))
   }
