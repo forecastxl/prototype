@@ -6,7 +6,7 @@ const initialState = {
   token: ''
 }
 
-export default function session(state = initialState, action) {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case types.LOGIN_USER:
       return {

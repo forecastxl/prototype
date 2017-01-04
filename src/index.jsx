@@ -48,6 +48,3 @@ if (module.hot) {
     store.replaceReducer(connectRouter(history)(nextRootReducer))
   })
 }
-
-// export the store for outside access
-export { store }

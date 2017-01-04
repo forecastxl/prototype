@@ -1,12 +1,15 @@
 import reducer from './reducer'
 import * as types from './actionTypes'
 
-describe('login reducer', () => {
+describe('reducer', () => {
   const initialState = {
-    isFetching: false
+    isFetching: false,
+    isLoggedIn: false,
+    token: ''
   }
 
   const fetchingState = {
+    ...initialState,
     isFetching: true
   }
 
@@ -26,9 +29,14 @@ describe('login reducer', () => {
 
   it('should handle LOGIN_USER_SUCCESS', () => {
     const actual = reducer(fetchingState, {
-      type: types.LOGIN_USER_SUCCESS
+      type: types.LOGIN_USER_SUCCESS,
+      payload: { token: 'token' }
     })
-    const expected = initialState
+    const expected = {
+      isFetching: false,
+      isLoggedIn: true,
+      token: 'token'
+    }
 
     expect(actual).toEqual(expected)
   })

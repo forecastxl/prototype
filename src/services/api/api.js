@@ -1,12 +1,9 @@
 import checkStatus from './check-status'
-import { store } from '../../index'
 
 export default class Api {
   static get(endpoint) {
-    const state = store.getState()
-    const token = state.session.token
     const headers = new Headers({
-      Authorization: `Bearer ${token}`
+      Authorization: 'Bearer '
     })
     const init = {
       headers,
@@ -17,10 +14,8 @@ export default class Api {
   }
 
   static post(endpoint, data) {
-    const state = store.getState()
-    const token = state.session.token
     const headers = new Headers({
-      Authorization: `Bearer ${token}`,
+      Authorization: 'Bearer ',
       'Content-Type': 'application/json'
     })
     const init = {
