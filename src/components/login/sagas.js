@@ -11,7 +11,7 @@ export function* loginUser(action) {
   if (response) {
     yield put(actions.loginUserSuccess())
     yield call(Token.set, response.token)
-    yield put(push('/'))
+    yield put(push('/home'))
   } else {
     yield put(actions.loginUserFail(error))
   }

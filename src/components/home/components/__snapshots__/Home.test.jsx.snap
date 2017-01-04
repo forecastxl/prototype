@@ -1,0 +1,5 @@
+exports[`<Home /> renders correctly 1`] = `
+<div>
+  Home
+</div>
+`;

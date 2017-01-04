@@ -52,10 +52,10 @@ describe('login sagas', () => {
       expect(actual).toEqual(expected)
     })
 
-    it('should redirect to root after a succesful login', () => {
+    it('should redirect to home after a succesful login', () => {
       const response = { token: 'token' }
       const generator = sagas.loginUser(action)
-      const expected = put(push('/'))
+      const expected = put(push('/home'))
 
       generator.next()
       generator.next({ response })
