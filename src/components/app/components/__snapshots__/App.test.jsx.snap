@@ -1,10 +1,20 @@
 exports[`<App /> renders correctly 1`] = `
 <Provider
-  store={Object {}}>
-  <MuiThemeProvider>
-    <BrowserRouter>
-      <mockConstructor />
-    </BrowserRouter>
-  </MuiThemeProvider>
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }>
+  <Connect(ConnectedRouter)
+    history={Object {}}>
+    <MuiThemeProvider>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    </MuiThemeProvider>
+  </Connect(ConnectedRouter)>
 </Provider>
 `;
