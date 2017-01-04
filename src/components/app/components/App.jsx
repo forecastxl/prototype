@@ -1,6 +1,5 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import React, { PropTypes } from 'react'
-import Router from 'react-router/BrowserRouter'
 import { ConnectedRouter } from 'connected-react-router'
 import { Provider } from 'react-redux'
 import Routes from './Routes'
@@ -8,13 +7,11 @@ import Routes from './Routes'
 function App({ store, history }) {
   return (
     <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <MuiThemeProvider>
-          <Router>
-            <Routes />
-          </Router>
-        </MuiThemeProvider>
-      </ConnectedRouter>
+      <MuiThemeProvider>
+        <ConnectedRouter history={history}>
+          <Routes />
+        </ConnectedRouter>
+      </MuiThemeProvider>
     </Provider>
   )
 }

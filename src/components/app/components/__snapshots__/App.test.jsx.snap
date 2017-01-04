@@ -8,13 +8,11 @@ exports[`<App /> renders correctly 1`] = `
       "subscribe": [Function],
     }
   }>
-  <Connect(ConnectedRouter)
-    history={Object {}}>
-    <MuiThemeProvider>
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
-    </MuiThemeProvider>
-  </Connect(ConnectedRouter)>
+  <MuiThemeProvider>
+    <Connect(ConnectedRouter)
+      history={Object {}}>
+      <Routes />
+    </Connect(ConnectedRouter)>
+  </MuiThemeProvider>
 </Provider>
 `;
