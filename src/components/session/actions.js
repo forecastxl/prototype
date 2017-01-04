@@ -5,18 +5,16 @@ export const loginUser = payload => ({
   payload
 })
 
-export const loginUserSuccess = () => ({
-  type: types.LOGIN_USER_SUCCESS
+export const loginUserSuccess = payload => ({
+  type: types.LOGIN_USER_SUCCESS,
+  payload
 })
 
-export const loginUserFail = () => ({
-  type: types.LOGIN_USER_FAIL
+export const loginUserFail = payload => ({
+  type: types.LOGIN_USER_FAIL,
+  payload
 })
 
 export const logoutUser = () => ({
   type: types.LOGOUT_USER
-})
-
-export const logoutUserSuccess = () => ({
-  type: types.LOGOUT_USER_SUCCESS
 })
