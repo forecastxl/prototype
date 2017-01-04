@@ -20,3 +20,12 @@ export function* loginUser(action) {
 export function* watchLoginUser() {
   yield call(takeLatest, types.LOGIN_USER, loginUser)
 }
+
+export function* logoutUser() {
+  yield call(Token.destroy)
+  yield put(actions.logoutUserSuccess())
+}
+
+export function* watchLogoutUser() {
+  yield call(takeLatest, types.LOGOUT_USER, logoutUser)
+}

@@ -45,7 +45,5 @@ LoginFormContainer.propTypes = {
   loginUser: PropTypes.func.isRequired
 }
 
-export default connect(
-  // istanbul ignore next: we only test the unconnected component
-  () => ({}), { loginUser })(LoginFormContainer
-)
+// istanbul ignore next: we only test the unconnected component
+export default connect(null, { loginUser })(LoginFormContainer)
