@@ -42,7 +42,7 @@ describe('login sagas', () => {
     it('should set a token on success', () => {
       const response = { token: 'token' }
       const generator = sagas.loginUser(action)
-      const expected = call(Token.setToken, response.token)
+      const expected = call(Token.set, response.token)
 
       generator.next()
       generator.next({ response })

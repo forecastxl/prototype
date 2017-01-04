@@ -1,9 +1,9 @@
 export default class Token {
-  static setToken(token) {
+  static set(token) {
     sessionStorage.setItem('token', token)
   }
 
-  static getToken() {
+  static get() {
     return sessionStorage.getItem('token')
   }
 
@@ -11,7 +11,7 @@ export default class Token {
     return sessionStorage.getItem('token') !== null
   }
 
-  static destroyToken() {
+  static destroy() {
     sessionStorage.removeItem('token')
   }
 }
