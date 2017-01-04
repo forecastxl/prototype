@@ -1,8 +1,8 @@
 import 'isomorphic-fetch'
-import { getJson, postJson } from './api'
+import Api from './api'
 
 describe('api service', () => {
-  describe('getJson', () => {
+  describe('get', () => {
     beforeEach(() => {
       window.fetch = jest.fn()
     })
@@ -14,7 +14,7 @@ describe('api service', () => {
       const expected = { response }
 
       window.fetch.mockImplementationOnce(() => Promise.resolve(new Response(body, init)))
-      return getJson('endpoint').then(actual => expect(actual).toEqual(expected))
+      return Api.get('endpoint').then(actual => expect(actual).toEqual(expected))
     })
 
     it('should return an error if the response is not ok', () => {
@@ -24,7 +24,7 @@ describe('api service', () => {
       const expected = { error }
 
       window.fetch.mockImplementationOnce(() => Promise.resolve(new Response(body, init)))
-      return getJson('endpoint').then(actual => expect(actual).toEqual(expected))
+      return Api.get('endpoint').then(actual => expect(actual).toEqual(expected))
     })
 
     it('should return an error on network errors', () => {
@@ -33,11 +33,11 @@ describe('api service', () => {
       const expected = { error }
 
       window.fetch.mockImplementationOnce(() => Promise.reject(new Error(message)))
-      return getJson('endpoint').then(actual => expect(actual).toEqual(expected))
+      return Api.get('endpoint').then(actual => expect(actual).toEqual(expected))
     })
   })
 
-  describe('postJson', () => {
+  describe('post', () => {
     beforeEach(() => {
       window.fetch = jest.fn()
     })
@@ -50,7 +50,7 @@ describe('api service', () => {
       window.fetch.mockImplementationOnce(
         request => Promise.resolve(new Response(JSON.stringify(request.body), init))
       )
-      return postJson('endpoint', data).then(({ response }) => expect(response).toEqual(expected))
+      return Api.post('endpoint', data).then(({ response }) => expect(response).toEqual(expected))
     })
 
     it('should return the destringified response if it is ok', () => {
@@ -60,7 +60,7 @@ describe('api service', () => {
       const expected = { response }
 
       window.fetch.mockImplementationOnce(() => Promise.resolve(new Response(body, init)))
-      return postJson('endpoint', 'data').then(actual => expect(actual).toEqual(expected))
+      return Api.post('endpoint', 'data').then(actual => expect(actual).toEqual(expected))
     })
 
     it('should return an error if the response is not ok', () => {
@@ -70,7 +70,7 @@ describe('api service', () => {
       const expected = { error }
 
       window.fetch.mockImplementationOnce(() => Promise.resolve(new Response(body, init)))
-      return postJson('endpoint', 'data').then(actual => expect(actual).toEqual(expected))
+      return Api.post('endpoint', 'data').then(actual => expect(actual).toEqual(expected))
     })
 
     it('should return an error on network errors', () => {
@@ -79,7 +79,7 @@ describe('api service', () => {
       const expected = { error }
 
       window.fetch.mockImplementationOnce(() => Promise.reject(new Error(message)))
-      return postJson('endpoint', 'data').then(actual => expect(actual).toEqual(expected))
+      return Api.post('endpoint', 'data').then(actual => expect(actual).toEqual(expected))
     })
   })
 })
