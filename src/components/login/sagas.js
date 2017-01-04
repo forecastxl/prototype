@@ -1,5 +1,6 @@
-import { takeLatest } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
+import { push } from 'connected-react-router'
+import { takeLatest } from 'redux-saga'
 import Api, { endpoints } from '../../services/api'
 import Token from '../../services/token'
 import * as actions from './actions'
@@ -10,6 +11,7 @@ export function* loginUser(action) {
   if (response) {
     yield put(actions.loginUserSuccess())
     yield call(Token.set, response.token)
+    yield put(push('/'))
   } else {
     yield put(actions.loginUserFail(error))
   }

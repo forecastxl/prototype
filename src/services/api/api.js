@@ -10,7 +10,7 @@ export default class Api {
       method: 'GET'
     }
 
-    return this.fetch(new Request(endpoint, init))
+    return Api.fetch(new Request(endpoint, init))
   }
 
   static post(endpoint, data) {
@@ -24,7 +24,7 @@ export default class Api {
       method: 'POST'
     }
 
-    return this.fetch(new Request(endpoint, init))
+    return Api.fetch(new Request(endpoint, init))
   }
 
   static fetch(request) {

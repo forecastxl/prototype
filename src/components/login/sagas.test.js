@@ -1,5 +1,6 @@
-import { takeLatest } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
+import { push } from 'connected-react-router'
+import { takeLatest } from 'redux-saga'
 import Api, { endpoints } from '../../services/api'
 import Token from '../../services/token'
 import * as sagas from './sagas'
@@ -46,6 +47,19 @@ describe('login sagas', () => {
 
       generator.next()
       generator.next({ response })
+      const actual = generator.next().value
+
+      expect(actual).toEqual(expected)
+    })
+
+    it('should redirect to root after a succesful login', () => {
+      const response = { token: 'token' }
+      const generator = sagas.loginUser(action)
+      const expected = put(push('/'))
+
+      generator.next()
+      generator.next({ response })
+      generator.next()
       const actual = generator.next().value
 
       expect(actual).toEqual(expected)
