@@ -4,7 +4,7 @@ const initialState = {
   isFetching: false
 }
 
-export default function login(state = initialState, action) {
+export default function session(state = initialState, action) {
   switch (action.type) {
     case types.LOGIN_USER:
       return {

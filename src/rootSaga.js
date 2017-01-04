@@ -1,9 +1,9 @@
-import { sagas as login } from './components/login'
+import { sagas as session } from './components/session'
 
 const rootSaga = function* () {
   yield [
-    login.watchLoginUser(),
-    login.watchLogoutUser()
+    session.watchLoginUser(),
+    session.watchLogoutUser()
   ]
 }
 

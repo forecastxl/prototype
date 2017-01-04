@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { RaisedButton } from 'material-ui'
 import { logoutUser } from '../actions'
 
-function LogoutButton({ logoutUser }) {
+function LogoutButtonContainer({ logoutUser }) {
   return (
     <RaisedButton
       type="button"
@@ -14,8 +14,8 @@ function LogoutButton({ logoutUser }) {
   )
 }
 
-LogoutButton.propTypes = {
+LogoutButtonContainer.propTypes = {
   logoutUser: PropTypes.func.isRequired
 }
 
-export default connect(null, { logoutUser })(LogoutButton)
+export default connect(null, { logoutUser })(LogoutButtonContainer)
