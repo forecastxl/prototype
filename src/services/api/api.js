@@ -1,10 +1,13 @@
 import checkStatus from './check-status'
 
 export default class Api {
-  static get(endpoint) {
-    const headers = new Headers({
-      Authorization: 'Bearer '
-    })
+  static get(endpoint, token) {
+    const headers = new Headers()
+
+    if (token) {
+      headers.append('Authorization', `Bearer ${token}`)
+    }
+
     const init = {
       headers,
       method: 'GET'
@@ -13,11 +16,15 @@ export default class Api {
     return Api.fetch(new Request(endpoint, init))
   }
 
-  static post(endpoint, data) {
+  static post(endpoint, data, token) {
     const headers = new Headers({
-      Authorization: 'Bearer ',
       'Content-Type': 'application/json'
     })
+
+    if (token) {
+      headers.append('Authorization', `Bearer ${token}`)
+    }
+
     const init = {
       body: JSON.stringify(data),
       headers,
