@@ -33,9 +33,9 @@ describe('actioncreators', () => {
   })
 
   it('should create a LOGOUT_USER action', () => {
-    const actual = actions.loginUserFail()
+    const actual = actions.logoutUser()
     const expected = {
-      type: types.LOGIN_USER_FAIL
+      type: types.LOGOUT_USER
     }
 
     expect(actual).toEqual(expected)

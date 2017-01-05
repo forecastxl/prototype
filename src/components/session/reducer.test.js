@@ -13,6 +13,12 @@ describe('reducer', () => {
     isFetching: true
   }
 
+  const loggedInState = {
+    isFetching: false,
+    isLoggedIn: true,
+    token: 'token'
+  }
+
   it('should return the initial state', () => {
     const actual = reducer(undefined, {})
     const expected = initialState
@@ -32,18 +38,22 @@ describe('reducer', () => {
       type: types.LOGIN_USER_SUCCESS,
       payload: { token: 'token' }
     })
-    const expected = {
-      isFetching: false,
-      isLoggedIn: true,
-      token: 'token'
-    }
 
-    expect(actual).toEqual(expected)
+    expect(actual).toEqual(loggedInState)
   })
 
   it('should handle LOGIN_USER_FAIL', () => {
     const actual = reducer(fetchingState, {
       type: types.LOGIN_USER_FAIL
+    })
+    const expected = initialState
+
+    expect(actual).toEqual(expected)
+  })
+
+  it('should handle LOGOUT_USER', () => {
+    const actual = reducer(loggedInState, {
+      type: types.LOGOUT_USER
     })
     const expected = initialState
 
