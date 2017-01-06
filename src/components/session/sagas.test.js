@@ -29,23 +29,23 @@ describe('sagas', () => {
     })
 
     it('should put loginUserSuccess on success', () => {
-      const response = 'response'
+      const data = 'data'
       const generator = sagas.loginUser(action)
-      const expected = put(actions.loginUserSuccess(response))
+      const expected = put(actions.loginUserSuccess(data))
 
       generator.next()
-      const actual = generator.next({ response }).value
+      const actual = generator.next({ data }).value
 
       expect(actual).toEqual(expected)
     })
 
     it('should redirect to home after a succesful login', () => {
-      const response = 'response'
+      const data = 'data'
       const generator = sagas.loginUser(action)
       const expected = put(push('/home'))
 
       generator.next()
-      generator.next({ response })
+      generator.next({ data })
       const actual = generator.next().value
 
       expect(actual).toEqual(expected)

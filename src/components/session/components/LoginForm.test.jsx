@@ -7,6 +7,7 @@ describe('<LoginForm />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(
       <LoginForm
+        errors={{}}
         onChange={() => {}}
         onSubmit={() => {}}
         user={{

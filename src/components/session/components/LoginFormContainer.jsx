@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { loginUser } from '../actions'
 import LoginForm from './LoginForm'
+import { NAME } from '../constants'
 
 export class LoginFormContainer extends Component {
   constructor(props) {
@@ -33,8 +34,9 @@ export class LoginFormContainer extends Component {
   render() {
     return (
       <LoginForm
-        onSubmit={this.processForm}
+        errors={this.props.errors}
         onChange={this.changeUser}
+        onSubmit={this.processForm}
         user={this.state.user}
       />
     )
@@ -42,7 +44,12 @@ export class LoginFormContainer extends Component {
 }
 
 LoginFormContainer.propTypes = {
+  errors: PropTypes.object.isRequired,
   loginUser: PropTypes.func.isRequired
 }
 
-export default connect(null, { loginUser })(LoginFormContainer)
+const mapStateToProps = state => ({
+  errors: state[NAME].errors
+})
+
+export default connect(mapStateToProps, { loginUser })(LoginFormContainer)

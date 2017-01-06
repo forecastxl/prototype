@@ -1,6 +1,7 @@
 import * as types from './actionTypes'
 
 const initialState = {
+  errors: {},
   isFetching: false,
   isLoggedIn: false,
   token: ''
@@ -15,15 +16,16 @@ export default function reducer(state = initialState, action) {
       }
     case types.LOGIN_USER_SUCCESS:
       return {
+        errors: {},
         isFetching: false,
         isLoggedIn: true,
         token: action.payload.token
       }
     case types.LOGIN_USER_FAIL:
       return {
-        isFetching: false,
-        isLoggedIn: false,
-        token: ''
+        ...state,
+        errors: action.payload.errors,
+        isFetching: false
       }
     case types.LOGOUT_USER:
       return {

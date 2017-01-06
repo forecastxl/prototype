@@ -9,6 +9,7 @@ describe('<LoginFormContainer />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(
       <LoginFormContainer
+        errors={{}}
         loginUser={() => {}}
       />
     )
@@ -18,6 +19,7 @@ describe('<LoginFormContainer />', () => {
   it('updates user state', () => {
     const wrapper = shallow(
       <LoginFormContainer
+        errors={{}}
         loginUser={() => {}}
       />
     )
@@ -39,6 +41,7 @@ describe('<LoginFormContainer />', () => {
   it('processes logins', () => {
     const wrapper = mount(
       <LoginFormContainer
+        errors={{}}
         loginUser={jest.fn()}
       />
     )
