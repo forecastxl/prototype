@@ -1,1 +1,1 @@
-export { default } from './token'
+export { default } from './middleware'

@@ -17,10 +17,13 @@
 * create `./.env` with your preferred settings
 
 ```bash
+# Where the app will be served during development
 DEV_BASE=http://localhost
 DEV_PORT=8080
+
+# Where to point api requests to
 DEV_API=//192.168.100.3:3000
-PROD_BASE=https://forecastxl.com
+PROD_API=https://forecastxl.com
 ```
 
 [build-badge]: https://img.shields.io/travis/forecastxl/prototype.svg

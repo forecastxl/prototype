@@ -59,7 +59,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        PROD_BASE: JSON.stringify(process.env.PROD_BASE)
+        PROD_API: JSON.stringify(process.env.PROD_API)
       }
     }),
     new HtmlWebpackPlugin({ template: 'src/index.ejs' })

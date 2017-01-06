@@ -7,11 +7,31 @@ describe('api service', () => {
       window.fetch = jest.fn()
     })
 
+    it('should include a token when passed', () => {
+      // save references for unmocking
+      const originalFetch = Api.fetch
+      const originalHeaders = window.Headers
+
+      // mock headers and local fetch
+      Api.fetch = jest.fn()
+      const spy = jest.fn()
+      window.Headers = function Headers() {
+        this.append = spy
+      }
+
+      Api.get('endpoint', 'token')
+      expect(spy).toHaveBeenCalledWith('Authorization', 'Bearer token')
+
+      // restore mocks to originals
+      window.Headers = originalHeaders
+      Api.fetch = originalFetch
+    })
+
     it('should return the destringified response if it is ok', () => {
-      const response = { data: ['data'] }
-      const body = JSON.stringify(response)
+      const data = { key: 'value' }
+      const body = JSON.stringify(data)
       const init = { status: 200, statusText: 'OK' }
-      const expected = { response }
+      const expected = { data }
 
       window.fetch.mockImplementationOnce(() => Promise.resolve(new Response(body, init)))
       return Api.get('endpoint').then(actual => expect(actual).toEqual(expected))
@@ -42,25 +62,45 @@ describe('api service', () => {
       window.fetch = jest.fn()
     })
 
+    it('should include a token when passed', () => {
+      // save references for unmocking
+      const originalFetch = Api.fetch
+      const originalHeaders = window.Headers
+
+      // mock headers and local fetch
+      Api.fetch = jest.fn()
+      const spy = jest.fn()
+      window.Headers = function Headers() {
+        this.append = spy
+      }
+
+      Api.post('endpoint', {}, 'token')
+      expect(spy).toHaveBeenCalledWith('Authorization', 'Bearer token')
+
+      // restore mocks to originals
+      window.Headers = originalHeaders
+      Api.fetch = originalFetch
+    })
+
     it('should post stringified data', () => {
       const init = { status: 200, statusText: 'OK' }
-      const data = { data: 'data' }
+      const data = { key: 'value' }
       const expected = JSON.stringify(data)
 
       window.fetch.mockImplementationOnce(
         request => Promise.resolve(new Response(JSON.stringify(request.body), init))
       )
-      return Api.post('endpoint', data).then(({ response }) => expect(response).toEqual(expected))
+      return Api.post('endpoint', data).then(({ data }) => expect(data).toEqual(expected))
     })
 
     it('should return the destringified response if it is ok', () => {
-      const response = { data: ['data'] }
-      const body = JSON.stringify(response)
+      const data = { key: 'value' }
+      const body = JSON.stringify(data)
       const init = { status: 200, statusText: 'OK' }
-      const expected = { response }
+      const expected = { data }
 
       window.fetch.mockImplementationOnce(() => Promise.resolve(new Response(body, init)))
-      return Api.post('endpoint', 'data').then(actual => expect(actual).toEqual(expected))
+      return Api.post('endpoint', {}).then(actual => expect(actual).toEqual(expected))
     })
 
     it('should return an error if the response is not ok', () => {

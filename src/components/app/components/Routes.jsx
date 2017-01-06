@@ -1,12 +1,14 @@
 import React from 'react'
 import Match from 'react-router/Match'
 import { Header } from '../../header'
-import { LoginFormContainer } from '../../login'
+import { Home } from '../../home'
+import { LoginFormContainer } from '../../session'
 
 function Routes() {
   return (
     <div>
       <Header />
+      <Match pattern="/home" component={Home} />
       <Match pattern="/login" component={LoginFormContainer} />
     </div>
   )

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import { constants as LOGIN, reducer as login } from './components/login'
+import { constants as SESSION, reducer as session } from './components/session'
 
 export default combineReducers({
-  [LOGIN.NAME]: login
+  [SESSION.NAME]: session
 })

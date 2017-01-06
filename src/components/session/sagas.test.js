@@ -2,12 +2,11 @@ import { call, put } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
 import Api, { endpoints } from '../../services/api'
-import Token from '../../services/token'
 import * as sagas from './sagas'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
-describe('login sagas', () => {
+describe('sagas', () => {
   describe('watchLoginUser', () => {
     it('should respond to LOGIN_USER', () => {
       const generator = sagas.watchLoginUser()
@@ -30,36 +29,23 @@ describe('login sagas', () => {
     })
 
     it('should put loginUserSuccess on success', () => {
-      const response = 'response'
+      const data = 'data'
       const generator = sagas.loginUser(action)
-      const expected = put(actions.loginUserSuccess())
+      const expected = put(actions.loginUserSuccess(data))
 
       generator.next()
-      const actual = generator.next({ response }).value
+      const actual = generator.next({ data }).value
 
       expect(actual).toEqual(expected)
     })
 
-    it('should set a token on success', () => {
-      const response = { token: 'token' }
+    it('should redirect to home after a succesful login', () => {
+      const data = 'data'
       const generator = sagas.loginUser(action)
-      const expected = call(Token.set, response.token)
+      const expected = put(push('/home'))
 
       generator.next()
-      generator.next({ response })
-      const actual = generator.next().value
-
-      expect(actual).toEqual(expected)
-    })
-
-    it('should redirect to root after a succesful login', () => {
-      const response = { token: 'token' }
-      const generator = sagas.loginUser(action)
-      const expected = put(push('/'))
-
-      generator.next()
-      generator.next({ response })
-      generator.next()
+      generator.next({ data })
       const actual = generator.next().value
 
       expect(actual).toEqual(expected)

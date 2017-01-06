@@ -4,6 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
 import rootReducer from './rootReducer'
 import rootSaga from './rootSaga'
+import injectTokenMiddleware from './services/token'
 
 const configureStore = (preloadedState, history) => {
   const sagaMiddleware = createSagaMiddleware()
@@ -13,7 +14,8 @@ const configureStore = (preloadedState, history) => {
     composeWithDevTools(
       applyMiddleware(
         sagaMiddleware,
-        routerMiddleware(history)
+        routerMiddleware(history),
+        injectTokenMiddleware
       )
     )
   )

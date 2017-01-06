@@ -63,7 +63,7 @@ module.exports = {
         DEV_BASE: JSON.stringify(process.env.DEV_BASE),
         DEV_PORT: JSON.stringify(process.env.DEV_PORT),
         DEV_API: JSON.stringify(process.env.DEV_API),
-        PROD_BASE: JSON.stringify(process.env.PROD_BASE)
+        PROD_API: JSON.stringify(process.env.PROD_API)
       }
     }),
     new HtmlWebpackPlugin({ template: 'src/index.ejs' })
