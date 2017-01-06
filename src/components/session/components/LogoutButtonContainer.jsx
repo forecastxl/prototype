@@ -1,14 +1,11 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { RaisedButton } from 'material-ui'
 import { logoutUser } from '../actions'
+import LogoutButton from './LogoutButton'
 
 export function LogoutButtonContainer({ logoutUser }) {
   return (
-    <RaisedButton
-      type="button"
-      label="Log out"
-      primary
+    <LogoutButton
       onClick={logoutUser}
     />
   )
