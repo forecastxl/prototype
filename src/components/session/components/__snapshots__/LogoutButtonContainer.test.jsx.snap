@@ -1,11 +1,4 @@
 exports[`<LogoutButtonContainer /> renders correctly 1`] = `
-<RaisedButton
-  disabled={false}
-  fullWidth={false}
-  label="Log out"
-  labelPosition="after"
-  onClick={[Function]}
-  primary={true}
-  secondary={false}
-  type="button" />
+<LogoutButton
+  onClick={[Function]} />
 `;
