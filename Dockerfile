@@ -1,6 +1,5 @@
 # To build a new version:
-# $ PROD_API=staging.forecastxl.com
-# $ webpack --env production --config webpack.config.prod.js --optimize-minimize
+# NODE_ENV=production PROD_API=https://staging2.forecastxl.com webpack -p --config webpack.config.prod.js
 
 FROM node:alpine
 
