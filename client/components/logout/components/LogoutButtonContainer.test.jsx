@@ -9,7 +9,7 @@ describe('<LogoutButtonContainer />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(
       <LogoutButtonContainer
-        logoutUser={() => {}}
+        destroyToken={() => {}}
       />
     )
     expect(shallowToJson(wrapper)).toMatchSnapshot()
