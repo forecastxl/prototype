@@ -1,8 +1,8 @@
-import { sagas as session } from './components/session'
+import { sagas as session } from './data/session'
 
 const rootSaga = function* () {
   yield [
-    session.watchLoginUser()
+    session.watchRequestToken()
   ]
 }
 

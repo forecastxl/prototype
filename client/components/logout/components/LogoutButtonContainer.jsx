@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { logoutUser } from '../actions'
+import { actions } from '../../../data/session'
 import LogoutButton from './LogoutButton'
 
 export function LogoutButtonContainer({ logoutUser }) {
@@ -15,4 +15,8 @@ LogoutButtonContainer.propTypes = {
   logoutUser: PropTypes.func.isRequired
 }
 
-export default connect(null, { logoutUser })(LogoutButtonContainer)
+const mapActionsToProps = {
+  destroyToken: actions.destroyToken
+}
+
+export default connect(null, mapActionsToProps)(LogoutButtonContainer)

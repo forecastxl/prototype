@@ -3,34 +3,34 @@ import * as types from './actionTypes'
 const initialState = {
   errors: {},
   isFetching: false,
-  isLoggedIn: false,
+  isValid: false,
   token: ''
 }
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case types.LOGIN_USER:
+    case types.REQUEST_TOKEN:
       return {
         ...state,
         isFetching: true
       }
-    case types.LOGIN_USER_SUCCESS:
+    case types.REQUEST_TOKEN_SUCCESS:
       return {
         errors: {},
         isFetching: false,
-        isLoggedIn: true,
+        isValid: true,
         token: action.payload.token
       }
-    case types.LOGIN_USER_FAIL:
+    case types.REQUEST_TOKEN_FAIL:
       return {
         ...state,
         errors: action.payload.errors,
         isFetching: false
       }
-    case types.LOGOUT_USER:
+    case types.DESTROY_TOKEN:
       return {
         ...state,
-        isLoggedIn: false,
+        isValid: false,
         token: ''
       }
     default:

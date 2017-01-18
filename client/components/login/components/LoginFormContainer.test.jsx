@@ -10,7 +10,7 @@ describe('<LoginFormContainer />', () => {
     const wrapper = shallow(
       <LoginFormContainer
         errors={{}}
-        loginUser={() => {}}
+        requestToken={() => {}}
       />
     )
     expect(shallowToJson(wrapper)).toMatchSnapshot()
@@ -20,7 +20,7 @@ describe('<LoginFormContainer />', () => {
     const wrapper = shallow(
       <LoginFormContainer
         errors={{}}
-        loginUser={() => {}}
+        requestToken={() => {}}
       />
     )
     const event = {
@@ -42,7 +42,7 @@ describe('<LoginFormContainer />', () => {
     const wrapper = mount(
       <LoginFormContainer
         errors={{}}
-        loginUser={jest.fn()}
+        requestToken={jest.fn()}
       />
     )
     const event = {
@@ -51,7 +51,7 @@ describe('<LoginFormContainer />', () => {
 
     wrapper.instance().processForm(event)
     expect(event.preventDefault).toHaveBeenCalled()
-    expect(wrapper.prop('loginUser')).toHaveBeenCalledWith(wrapper.state('user'))
+    expect(wrapper.prop('requestToken')).toHaveBeenCalledWith(wrapper.state('user'))
   })
 })
 

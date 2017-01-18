@@ -2,7 +2,7 @@ import React from 'react'
 import Match from 'react-router/Match'
 import { Header } from '../../header'
 import { Home } from '../../home'
-import { LoginFormContainer } from '../../session'
+import { LoginFormContainer } from '../../login'
 
 function Routes() {
   return (

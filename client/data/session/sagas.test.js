@@ -7,31 +7,31 @@ import * as actions from './actions'
 import * as types from './actionTypes'
 
 describe('sagas', () => {
-  describe('watchLoginUser', () => {
-    it('should respond to LOGIN_USER', () => {
-      const generator = sagas.watchLoginUser()
+  describe('watchRequestToken', () => {
+    it('should respond to REQUEST_TOKEN', () => {
+      const generator = sagas.watchRequestToken()
       const actual = generator.next().value
-      const expected = call(takeLatest, types.LOGIN_USER, sagas.loginUser)
+      const expected = call(takeLatest, types.REQUEST_TOKEN, sagas.requestToken)
 
       expect(actual).toEqual(expected)
     })
   })
 
-  describe('loginUser', () => {
+  describe('requestToken', () => {
     const action = { payload: 'payload' }
 
     it('should post the login data', () => {
-      const generator = sagas.loginUser(action)
+      const generator = sagas.requestToken(action)
       const actual = generator.next().value
       const expected = call(Api.post, endpoints.LOGIN_ENDPOINT, action.payload)
 
       expect(actual).toEqual(expected)
     })
 
-    it('should put loginUserSuccess on success', () => {
+    it('should put requestTokenSuccess on success', () => {
       const data = 'data'
-      const generator = sagas.loginUser(action)
-      const expected = put(actions.loginUserSuccess(data))
+      const generator = sagas.requestToken(action)
+      const expected = put(actions.requestTokenSuccess(data))
 
       generator.next()
       const actual = generator.next({ data }).value
@@ -41,7 +41,7 @@ describe('sagas', () => {
 
     it('should redirect to home after a succesful login', () => {
       const data = 'data'
-      const generator = sagas.loginUser(action)
+      const generator = sagas.requestToken(action)
       const expected = put(push('/home'))
 
       generator.next()
@@ -51,10 +51,10 @@ describe('sagas', () => {
       expect(actual).toEqual(expected)
     })
 
-    it('should put loginUserFail on errors', () => {
+    it('should put requestTokenFail on errors', () => {
       const error = 'error'
-      const generator = sagas.loginUser(action)
-      const expected = put(actions.loginUserFail(error))
+      const generator = sagas.requestToken(action)
+      const expected = put(actions.requestTokenFail(error))
 
       generator.next()
       const actual = generator.next({ error }).value

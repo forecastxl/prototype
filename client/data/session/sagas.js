@@ -5,16 +5,16 @@ import Api, { endpoints } from '../../services/api'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
-export function* loginUser(action) {
+export function* requestToken(action) {
   const { data, error } = yield call(Api.post, endpoints.LOGIN_ENDPOINT, action.payload)
   if (data) {
-    yield put(actions.loginUserSuccess(data))
+    yield put(actions.requestTokenSuccess(data))
     yield put(push('/home'))
   } else {
-    yield put(actions.loginUserFail(error))
+    yield put(actions.requestTokenFail(error))
   }
 }
 
-export function* watchLoginUser() {
-  yield call(takeLatest, types.LOGIN_USER, loginUser)
+export function* watchRequestToken() {
+  yield call(takeLatest, types.REQUEST_TOKEN, requestToken)
 }
