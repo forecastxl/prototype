@@ -12,22 +12,31 @@ export class SignupFormContainer extends Component {
         lastName: '',
         companyName: '',
         phoneNumber: '',
-        locale: '',
         email: '',
         password: '',
         passwordConfirmation: '',
-        agreedToGeneralTerms: ''
+        agreedToGeneralTerms: false
       }
     }
-    this.changeAccount = this.changeAccount.bind(this)
+    this.changeAccountText = this.changeAccountText.bind(this)
+    this.changeAccountCheckbox = this.changeAccountCheckbox.bind(this)
     this.processForm = this.processForm.bind(this)
   }
 
-  changeAccount(event) {
+  changeAccountText(event) {
     this.setState({
       account: {
         ...this.state.account,
         [event.target.name]: event.target.value
+      }
+    })
+  }
+
+  changeAccountCheckbox(event) {
+    this.setState({
+      account: {
+        ...this.state.account,
+        [event.target.name]: event.target.checked
       }
     })
   }
@@ -41,7 +50,8 @@ export class SignupFormContainer extends Component {
     return (
       <SignupForm
         errors={this.props.errors}
-        onChange={this.changeAccount}
+        onTextChange={this.changeAccountText}
+        onCheckboxChange={this.changeAccountCheckbox}
         onSubmit={this.processForm}
         account={this.state.account}
       />
