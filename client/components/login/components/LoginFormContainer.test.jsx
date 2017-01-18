@@ -3,7 +3,8 @@ import { shallow, mount } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 import { LoginFormContainer } from './LoginFormContainer'
 
-jest.mock('material-ui')
+jest.mock('material-ui/TextField')
+jest.mock('material-ui/RaisedButton')
 
 describe('<LoginFormContainer />', () => {
   it('renders correctly', () => {

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
-import { RaisedButton, TextField } from 'material-ui'
+import RaisedButton from 'material-ui/RaisedButton'
+import TextField from 'material-ui/TextField'
 
 const Aligner = styled.div`
   display: flex;

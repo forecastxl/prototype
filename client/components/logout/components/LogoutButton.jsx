@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { RaisedButton } from 'material-ui'
+import RaisedButton from 'material-ui/RaisedButton'
 
 function LogoutButton({ onClick }) {
   return (
