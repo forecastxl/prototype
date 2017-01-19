@@ -50,15 +50,15 @@ describe('<SignupFormContainer />', () => {
     const event = {
       target: {
         name: 'agreedToGeneralTerms',
-        value: true
+        checked: true
       }
     }
     const expected = {
       ...wrapper.state('account'),
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.checked
     }
 
-    wrapper.instance().changeAccountText(event)
+    wrapper.instance().changeAccountCheckbox(event)
     expect(wrapper.state('account')).toEqual(expected)
   })
 
