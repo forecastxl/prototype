@@ -11,7 +11,7 @@ var extractVendor = new ExtractTextPlugin('vendor-[hash].css')
 module.exports = {
   entry: {
     main: [
-      path.join(process.cwd(), '/src/index')
+      path.join(process.cwd(), '/client/index')
     ]
   },
   output: {
@@ -21,7 +21,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
-      path.join(process.cwd(), '/src'),
+      path.join(process.cwd(), '/client'),
       'node_modules'
     ]
   },
@@ -62,6 +62,6 @@ module.exports = {
         PROD_API: JSON.stringify(process.env.PROD_API)
       }
     }),
-    new HtmlWebpackPlugin({ template: 'src/index.ejs' })
+    new HtmlWebpackPlugin({ template: 'client/index.ejs' })
   ]
 }

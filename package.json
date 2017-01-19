@@ -6,7 +6,7 @@
     "start": "webpack-dev-server --content-base dist/ --watch-poll",
     "build": "NODE_ENV=production webpack -p --bail",
     "coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "lint": "eslint src/**/*.{js,jsx}",
+    "lint": "eslint client/**/*.{js,jsx}",
     "test": "jest --watch"
   },
   "repository": {
@@ -15,10 +15,10 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!src/index.jsx",
-      "!src/{rootReducer,rootSaga,store}.js",
-      "!src/{components,data,services}/*/index.js"
+      "client/**/*.{js,jsx}",
+      "!client/index.jsx",
+      "!client/{rootReducer,rootSaga,store}.js",
+      "!client/{components,data,services}/*/index.js"
     ]
   },
   "devDependencies": {
