@@ -1,0 +1,19 @@
+exports[`<SignupFormContainer /> renders correctly 1`] = `
+<LoginForm
+  account={
+    Object {
+      "agreedToGeneralTerms": false,
+      "companyName": "",
+      "email": "",
+      "firstName": "",
+      "lastName": "",
+      "password": "",
+      "passwordConfirmation": "",
+      "phoneNumber": "",
+    }
+  }
+  errors={Object {}}
+  onCheckboxChange={[Function]}
+  onSubmit={[Function]}
+  onTextChange={[Function]} />
+`;
