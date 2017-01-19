@@ -1,6 +1,32 @@
+sudo: required
 language: node_js
 cache: yarn
 node_js:
-  - "node"
+  - node
 notifications:
   email: false
+services:
+  - docker
+script:
+  - yarn run coverage
+  - yarn run lint
+  - yarn run build
+after_success:
+  # login to docker hub and set repo location
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - export REPO=forecastxl/prototype
+  # set branch and tags
+  - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+  - export TAG=`if [ "$BRANCH" == "master" ]; then echo "latest"; else echo $BRANCH; fi`
+  # build container
+  - docker build -f Dockerfile -t $REPO:$TRAVIS_COMMIT .
+  # tag and push to dockerhub
+  - docker tag $REPO:$TRAVIS_COMMIT $REPO:$TAG
+  - docker tag $REPO:$TRAVIS_COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+  - docker push $REPO
+env:
+  global:
+    - PROD_API=138.68.121.133
+    - DOCKER_USER=forecastxl
+    # DOCKER_PASS
+    - secure: "R00Du5zjb0sApbU4ZpfxKnv9RQtgkhdAvLOvDnes+olPFyM/ekbgPgl5f0B7vLWO8RkNwsLcQC3Q3hn/jFkPtlphvPZI2bTe/HZUd+7wb76mxY8ThagPW1LTB2u+PMwRUyCHjq/T2aIOuayxs4tHNXFyjMdsCNvz04fpTqFj88nUqBCEwxOOPg9k3pPFretyCj+N20s3M1TIRxzQhgrVaTQlUqS0bgd2YMeGUfOzQOcYZOQhYSUEu8rV2lbE0cGTw/fDTya2qjKEUk6QJoTw0EhiWEYr5IWrajKfYpm0Rj+5YxiHaVUyy6jncoSba4WH4mTobXC4WM1kVU0LOn2Zfs823QJBVp/pTLQNL9M4HtrgWyHWC/cdCKXPBPNyuRAU3ecC8TVpCFcBfgeKE9n2aUe7aGWRv44+iudabQdSMRMuZh4MJuI1Aoiblyrfz8bOOsmE4BLo3vCO+pOABBHTK5AzfkwfRu8hlWQmH8TrLNkMUfx/vA4gcISDD604SM8hiuzo2K4k/EtnOI3EjuIl23m056/IkKxA1hnX/YtQUNw45+IgWZo6EEmDINyd9ZkBx0uH1eY8TBhNpABkHS+HrjCbeB/6zGs9PO5C99/wmNNPA55fVzVVw0a6Ucf5CmJlNuKVyPwoOpTkpM8vgukvSEHWB1N1ZIwFiHYOKOK1VJA="
