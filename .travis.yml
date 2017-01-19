@@ -26,7 +26,7 @@ after_success:
   - docker push $REPO
 env:
   global:
-    - PROD_API=138.68.121.133
+    - PROD_API=http://api.forecastxl.com
     - DOCKER_USER=forecastxl
     # DOCKER_PASS
     - secure: "R00Du5zjb0sApbU4ZpfxKnv9RQtgkhdAvLOvDnes+olPFyM/ekbgPgl5f0B7vLWO8RkNwsLcQC3Q3hn/jFkPtlphvPZI2bTe/HZUd+7wb76mxY8ThagPW1LTB2u+PMwRUyCHjq/T2aIOuayxs4tHNXFyjMdsCNvz04fpTqFj88nUqBCEwxOOPg9k3pPFretyCj+N20s3M1TIRxzQhgrVaTQlUqS0bgd2YMeGUfOzQOcYZOQhYSUEu8rV2lbE0cGTw/fDTya2qjKEUk6QJoTw0EhiWEYr5IWrajKfYpm0Rj+5YxiHaVUyy6jncoSba4WH4mTobXC4WM1kVU0LOn2Zfs823QJBVp/pTLQNL9M4HtrgWyHWC/cdCKXPBPNyuRAU3ecC8TVpCFcBfgeKE9n2aUe7aGWRv44+iudabQdSMRMuZh4MJuI1Aoiblyrfz8bOOsmE4BLo3vCO+pOABBHTK5AzfkwfRu8hlWQmH8TrLNkMUfx/vA4gcISDD604SM8hiuzo2K4k/EtnOI3EjuIl23m056/IkKxA1hnX/YtQUNw45+IgWZo6EEmDINyd9ZkBx0uH1eY8TBhNpABkHS+HrjCbeB/6zGs9PO5C99/wmNNPA55fVzVVw0a6Ucf5CmJlNuKVyPwoOpTkpM8vgukvSEHWB1N1ZIwFiHYOKOK1VJA="

@@ -27,6 +27,7 @@ DEV_PORT=8080
 
 # Where to point api requests to
 DEV_API=//192.168.100.3:3000
+# Only used for local builds, for travis/docker builds this is set in .travis.yml
 PROD_API=https://forecastxl.com
 ```
 
