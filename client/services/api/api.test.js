@@ -1,5 +1,6 @@
 import 'isomorphic-fetch'
 import Api from './api'
+import decamelize from '../decamelize'
 
 describe('api service', () => {
   describe('get', () => {
@@ -86,6 +87,17 @@ describe('api service', () => {
       const init = { status: 200, statusText: 'OK' }
       const data = { key: 'value' }
       const expected = JSON.stringify(data)
+
+      window.fetch.mockImplementationOnce(
+        request => Promise.resolve(new Response(JSON.stringify(request.body), init))
+      )
+      return Api.post('endpoint', data).then(({ data }) => expect(data).toEqual(expected))
+    })
+
+    it('should decamelize data', () => {
+      const init = { status: 200, statusText: 'OK' }
+      const data = { camelCase: 'value' }
+      const expected = JSON.stringify(decamelize(data))
 
       window.fetch.mockImplementationOnce(
         request => Promise.resolve(new Response(JSON.stringify(request.body), init))

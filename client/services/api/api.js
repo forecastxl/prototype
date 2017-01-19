@@ -1,3 +1,5 @@
+import decamelize from '../decamelize'
+
 export default class Api {
   static get(endpoint, token) {
     const headers = new Headers()
@@ -24,7 +26,7 @@ export default class Api {
     }
 
     const init = {
-      body: JSON.stringify(data),
+      body: JSON.stringify(decamelize(data)),
       headers,
       method: 'POST'
     }
