@@ -4,24 +4,27 @@ import TextField from 'material-ui/TextField'
 
 function LoginForm({ onSubmit, onChange, user, errors }) {
   return (
-    <form action="/" onSubmit={onSubmit}>
-      <TextField
-        floatingLabelText="Email"
-        name="email"
-        value={user.email}
-        onChange={onChange}
-        errorText={errors.base && errors.base.join(', ')}
-      /><br />
-      <TextField
-        floatingLabelText="Password"
-        name="password"
-        type="password"
-        value={user.password}
-        onChange={onChange}
-        errorText={errors.base && errors.base.join(', ')}
-      /><br />
-      <RaisedButton type="submit" label="Log in" primary />
-    </form>
+    <div>
+      <p>{errors && errors.base}</p>
+      <form action="/" onSubmit={onSubmit}>
+        <TextField
+          floatingLabelText="Email"
+          name="email"
+          value={user.email}
+          onChange={onChange}
+          errorText={errors && errors.email}
+        /><br />
+        <TextField
+          floatingLabelText="Password"
+          name="password"
+          type="password"
+          value={user.password}
+          onChange={onChange}
+          errorText={errors && errors.password}
+        /><br />
+        <RaisedButton type="submit" label="Log in" primary />
+      </form>
+    </div>
   )
 }
 

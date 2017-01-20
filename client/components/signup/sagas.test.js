@@ -1,7 +1,8 @@
 import { call, put } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
-import Api, { endpoints } from '../../services/api'
+import { endpoints } from '../../services/endpoints'
+import post from '../../services/post'
 import * as sagas from './sagas'
 import * as actions from './actions'
 import * as types from './actionTypes'
@@ -23,7 +24,7 @@ describe('sagas', () => {
     it('should post the account data', () => {
       const generator = sagas.requestAccount(action)
       const actual = generator.next().value
-      const expected = call(Api.post, endpoints.SIGNUP_ENDPOINT, action.payload)
+      const expected = call(post, endpoints.SIGNUP_ENDPOINT, action.payload)
 
       expect(actual).toEqual(expected)
     })
@@ -39,10 +40,10 @@ describe('sagas', () => {
       expect(actual).toEqual(expected)
     })
 
-    it('should redirect to login after a succesful request', () => {
+    it('should redirect to signup/success after a succesful request', () => {
       const data = 'data'
       const generator = sagas.requestAccount(action)
-      const expected = put(push('/login'))
+      const expected = put(push('/signup/success'))
 
       generator.next()
       generator.next({ data })

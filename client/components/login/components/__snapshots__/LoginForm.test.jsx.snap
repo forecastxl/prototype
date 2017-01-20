@@ -1,40 +1,43 @@
 exports[`<LoginForm /> renders correctly 1`] = `
-<form
-  action="/"
-  onSubmit={[Function]}>
-  <TextField
-    disabled={false}
-    floatingLabelFixed={false}
-    floatingLabelText="Email"
-    fullWidth={false}
-    multiLine={false}
-    name="email"
-    onChange={[Function]}
-    rows={1}
-    type="text"
-    underlineShow={true}
-    value="" />
-  <br />
-  <TextField
-    disabled={false}
-    floatingLabelFixed={false}
-    floatingLabelText="Password"
-    fullWidth={false}
-    multiLine={false}
-    name="password"
-    onChange={[Function]}
-    rows={1}
-    type="password"
-    underlineShow={true}
-    value="" />
-  <br />
-  <RaisedButton
-    disabled={false}
-    fullWidth={false}
-    label="Log in"
-    labelPosition="after"
-    primary={true}
-    secondary={false}
-    type="submit" />
-</form>
+<div>
+  <p />
+  <form
+    action="/"
+    onSubmit={[Function]}>
+    <TextField
+      disabled={false}
+      floatingLabelFixed={false}
+      floatingLabelText="Email"
+      fullWidth={false}
+      multiLine={false}
+      name="email"
+      onChange={[Function]}
+      rows={1}
+      type="text"
+      underlineShow={true}
+      value="" />
+    <br />
+    <TextField
+      disabled={false}
+      floatingLabelFixed={false}
+      floatingLabelText="Password"
+      fullWidth={false}
+      multiLine={false}
+      name="password"
+      onChange={[Function]}
+      rows={1}
+      type="password"
+      underlineShow={true}
+      value="" />
+    <br />
+    <RaisedButton
+      disabled={false}
+      fullWidth={false}
+      label="Log in"
+      labelPosition="after"
+      primary={true}
+      secondary={false}
+      type="submit" />
+  </form>
+</div>
 `;

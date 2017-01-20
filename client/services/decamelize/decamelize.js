@@ -1,14 +1,9 @@
 import decamelize from 'decamelize'
+import mapObj from 'map-obj'
 
-// converts all top-level keys of the passed object from camelcase to snakecase
-const decamelizeWrapper = camelized => {
-  const decamelized = {}
+const decamelizeKey = (key, value) => [decamelize(key), value]
 
-  Object.keys(camelized).forEach(key => {
-    decamelized[decamelize(key)] = camelized[key]
-  })
-
-  return decamelized
-}
+// recursively converts all keys of the passed object to snakecase
+const decamelizeWrapper = camelCased => mapObj(camelCased, decamelizeKey, { deep: true })
 
 export default decamelizeWrapper

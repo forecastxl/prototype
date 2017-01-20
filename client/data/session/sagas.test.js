@@ -1,7 +1,8 @@
 import { call, put } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
-import Api, { endpoints } from '../../services/api'
+import { endpoints } from '../../services/endpoints'
+import post from '../../services/post'
 import * as sagas from './sagas'
 import * as actions from './actions'
 import * as types from './actionTypes'
@@ -23,7 +24,7 @@ describe('sagas', () => {
     it('should post the login data', () => {
       const generator = sagas.requestToken(action)
       const actual = generator.next().value
-      const expected = call(Api.post, endpoints.LOGIN_ENDPOINT, action.payload)
+      const expected = call(post, endpoints.LOGIN_ENDPOINT, action.payload)
 
       expect(actual).toEqual(expected)
     })
