@@ -12,18 +12,18 @@ script:
   - yarn run lint
   - yarn run build
 after_success:
-  # login to docker hub and set repo location
+  # login to docker hub
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  # set repo location
   - export REPO=forecastxl/prototype
-  # set branch and tags
+  # set branch that's currently being built
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
-  - export TAG=`if [ "$BRANCH" == "master" ]; then echo "latest"; else echo $BRANCH; fi`
-  # build container
-  - docker build -f Dockerfile -t $REPO:$TRAVIS_COMMIT .
-  # tag and push to dockerhub
-  - docker tag $REPO:$TRAVIS_COMMIT $REPO:$TAG
-  - docker tag $REPO:$TRAVIS_COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
-  - docker push $REPO
+  # build container with branch name as tag if on master, staging or develop
+  - if [ "$BRANCH" == "master" ] || [ "$BRANCH" == "staging" ] || [ "$BRANCH" == "develop" ]; then docker build -f Dockerfile -t $REPO:$BRANCH .; fi
+  # tag with commit message as well if on master
+  - if [ "$BRANCH" == "master" ]; then docker tag $REPO:$BRANCH $REPO:$(git log -n 1 --pretty=format:%f $TRAVIS_COMMIT); fi
+  # push to dockerhub
+  - if [ "$BRANCH" == "master" ] || [ "$BRANCH" == "staging" ] || [ "$BRANCH" == "develop" ]; then docker push $REPO; fi
 env:
   global:
     - PROD_API=http://api.forecastxl.com
