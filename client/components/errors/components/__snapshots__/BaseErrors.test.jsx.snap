@@ -1,0 +1,7 @@
+exports[`<BaseErrors /> renders correctly 1`] = `
+<div>
+  <styled.p>
+    error
+  </styled.p>
+</div>
+`;
