@@ -3,7 +3,7 @@
   "name": "prototype",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack-dev-server --content-base dist/ --watch-poll",
+    "start": "webpack-dev-server --content-base dist/",
     "build": "NODE_ENV=production webpack -p --bail",
     "coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint client/**/*.{js,jsx}",
