@@ -65,6 +65,21 @@ describe('reducer', () => {
     expect(actual).toEqual(expected)
   })
 
+  it('should handle RECEIVE_TOKEN', () => {
+    const actual = reducer(initialState, {
+      type: types.RECEIVE_TOKEN,
+      payload: { token: 'token' }
+    })
+    const expected = {
+      errors: {},
+      isFetching: false,
+      isValid: true,
+      token: 'token'
+    }
+
+    expect(actual).toEqual(expected)
+  })
+
   it('should handle DESTROY_TOKEN', () => {
     const tokenState = {
       ...initialState,

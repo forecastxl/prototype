@@ -32,6 +32,16 @@ describe('actioncreators', () => {
     expect(actual).toEqual(expected)
   })
 
+  it('should create a RECEIVE_TOKEN action', () => {
+    const actual = actions.receiveToken('payload')
+    const expected = {
+      type: types.RECEIVE_TOKEN,
+      payload: 'payload'
+    }
+
+    expect(actual).toEqual(expected)
+  })
+
   it('should create a DESTROY_TOKEN action', () => {
     const actual = actions.destroyToken()
     const expected = {

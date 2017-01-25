@@ -3,7 +3,7 @@ import Match from 'react-router/Match'
 import { Header } from '../../header'
 import { Home } from '../../home'
 import { LoginFormContainer } from '../../login'
-import { SignupFormContainer, SignupSuccess } from '../../signup'
+import { SignupFormContainer, SignupConfirm, SignupSuccess } from '../../signup'
 
 function Routes() {
   return (
@@ -12,6 +12,7 @@ function Routes() {
       <Match pattern="/home" component={Home} />
       <Match pattern="/login" component={LoginFormContainer} />
       <Match exactly pattern="/signup" component={SignupFormContainer} />
+      <Match pattern="/signup/confirm" component={SignupConfirm} />
       <Match pattern="/signup/success" component={SignupSuccess} />
     </div>
   )

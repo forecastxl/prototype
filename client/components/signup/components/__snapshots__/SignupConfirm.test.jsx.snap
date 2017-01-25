@@ -1,0 +1,61 @@
+exports[`<SignupConfirm /> renders a message on success 1`] = `
+<SignupConfirm
+  confirmAccount={[Function]}
+  errors={Object {}}
+  isFetching={false}>
+  <div>
+    Confirmation successful, logging you in...
+  </div>
+</SignupConfirm>
+`;
+
+exports[`<SignupConfirm /> renders a message while fetching 1`] = `
+<SignupConfirm
+  confirmAccount={[Function]}
+  errors={Object {}}
+  isFetching={true}>
+  <div>
+    Confirming account...
+  </div>
+</SignupConfirm>
+`;
+
+exports[`<SignupConfirm /> renders a warning on a missing token 1`] = `
+<SignupConfirm
+  confirmAccount={[Function]}
+  errors={Object {}}
+  isFetching={false}>
+  <div>
+    Could not find a token. Did you use the correct link?
+  </div>
+</SignupConfirm>
+`;
+
+exports[`<SignupConfirm /> renders errors 1`] = `
+<SignupConfirm
+  confirmAccount={[Function]}
+  errors={
+    Object {
+      "base": Array [
+        "error message",
+      ],
+    }
+  }
+  isFetching={false}>
+  <BaseErrors
+    errors={
+      Array [
+        "error message",
+      ]
+    }>
+    <div>
+      <styled.p>
+        <p
+          className="jldpnK">
+          error message
+        </p>
+      </styled.p>
+    </div>
+  </BaseErrors>
+</SignupConfirm>
+`;
