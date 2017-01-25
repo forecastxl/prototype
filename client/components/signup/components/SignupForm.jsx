@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import Checkbox from 'material-ui/Checkbox'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
+import SignupFormErrors from './SignupFormErrors'
 
 function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }) {
   return (
@@ -13,21 +14,25 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
           name="firstName"
           value={account.firstName}
           onChange={onTextChange}
-          errorText={errors && errors.firstName}
+          errorText={errors && errors.firstName && <SignupFormErrors errors={errors.firstName} />}
         /><br />
         <TextField
           floatingLabelText="Last Name"
           name="lastName"
           value={account.lastName}
           onChange={onTextChange}
-          errorText={errors.base && errors.base.join(', ')}
+          errorText={errors && errors.lastName && <SignupFormErrors errors={errors.lastName} />}
         /><br />
         <TextField
           floatingLabelText="Company Name"
           name="companyName"
           value={account.companyName}
           onChange={onTextChange}
-          errorText={errors.base && errors.base.join(', ')}
+          errorText={
+            errors &&
+            errors.companyName &&
+            <SignupFormErrors errors={errors.companyName} />
+          }
         /><br />
         <TextField
           floatingLabelText="Phone Number"
@@ -35,7 +40,11 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
           type="tel"
           value={account.phoneNumber}
           onChange={onTextChange}
-          errorText={errors.base && errors.base.join(', ')}
+          errorText={
+            errors &&
+            errors.phoneNumber &&
+            <SignupFormErrors errors={errors.phoneNumber} />
+          }
         /><br />
         <TextField
           floatingLabelText="Email"
@@ -43,7 +52,7 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
           type="email"
           value={account.email}
           onChange={onTextChange}
-          errorText={errors.base && errors.base.join(', ')}
+          errorText={errors && errors.email && <SignupFormErrors errors={errors.email} />}
         /><br />
         <TextField
           floatingLabelText="Password"
@@ -51,7 +60,7 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
           type="password"
           value={account.password}
           onChange={onTextChange}
-          errorText={errors.base && errors.base.join(', ')}
+          errorText={errors && errors.password && <SignupFormErrors errors={errors.password} />}
         /><br />
         <TextField
           floatingLabelText="Repeat password"
@@ -59,7 +68,11 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
           type="password"
           value={account.passwordConfirmation}
           onChange={onTextChange}
-          errorText={errors.base && errors.base.join(', ')}
+          errorText={
+            errors &&
+            errors.passwordConfirmation &&
+            <SignupFormErrors errors={errors.passwordConfirmation} />
+          }
         /><br />
         <Checkbox
           label="I agree to the terms and conditions"

@@ -1,0 +1,7 @@
+exports[`<SignupFormErrors /> renders correctly 1`] = `
+<div>
+  <p>
+    error
+  </p>
+</div>
+`;

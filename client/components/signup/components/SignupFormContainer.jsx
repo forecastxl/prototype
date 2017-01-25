@@ -65,7 +65,7 @@ SignupFormContainer.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  errors: state.session.errors
+  errors: state.signup.errors
 })
 
 export default connect(mapStateToProps, { requestAccount })(SignupFormContainer)
