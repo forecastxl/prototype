@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AfterSignup() {
+function SignupSuccess() {
   return (
     <div>
       <h1>Signup successful</h1>
@@ -9,4 +9,4 @@ function AfterSignup() {
   )
 }
 
-export default AfterSignup
+export default SignupSuccess
