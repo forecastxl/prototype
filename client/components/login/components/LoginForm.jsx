@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
-import { TextFieldErrors } from '../../errors'
+import { BaseErrors, TextFieldErrors } from '../../errors'
 
 function LoginForm({ onSubmit, onChange, user, errors }) {
   return (
     <div>
-      <p>{errors && errors.base}</p>
+      {errors && errors.base && <BaseErrors errors={errors.base} />}
       <form action="/" onSubmit={onSubmit}>
         <TextField
           floatingLabelText="Email"
