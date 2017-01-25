@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
-import { constants as SESSION, reducer as session } from './components/session'
+import { reducer as session } from './data/session'
+import { reducer as signup } from './components/signup'
 
 export default combineReducers({
-  [SESSION.NAME]: session
+  session,
+  signup
 })

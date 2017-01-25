@@ -50,8 +50,11 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.16.0",
+    "camelcase": "^4.0.0",
     "connected-react-router": "^2.0.0-alpha.2",
+    "decamelize": "^1.2.0",
     "isomorphic-fetch": "^2.2.1",
+    "map-obj": "^2.0.0",
     "material-ui": "^0.16.6",
     "normalize.css": "^5.0.0",
     "normalizr": "^2.3.0",

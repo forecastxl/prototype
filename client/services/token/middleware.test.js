@@ -1,11 +1,10 @@
 import middleware from './middleware'
 import configureStore from '../../store'
-import { constants } from '../../components/session'
 
 describe('token middleware', () => {
   it('should include a token if the token prop is true', () => {
     const store = configureStore({
-      [constants.NAME]: { token: 'token' }
+      session: { token: 'token' }
     }, {})
     const action = {
       type: 'TYPE',
@@ -22,7 +21,7 @@ describe('token middleware', () => {
 
   it('should not include a token if the token prop is falsey', () => {
     const store = configureStore({
-      [constants.NAME]: { token: 'token' }
+      session: { token: 'token' }
     }, {})
     const action = {
       type: 'TYPE'
