@@ -50,7 +50,7 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     historyApiFallback: true,
-    port: process.env.DEV_PORT
+    port: parseInt(process.env.DEV_PORT)
   },
   performance: {
     hints: false
