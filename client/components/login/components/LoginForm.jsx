@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
+import { TextFieldErrors } from '../../errors'
 
 function LoginForm({ onSubmit, onChange, user, errors }) {
   return (
@@ -12,7 +13,7 @@ function LoginForm({ onSubmit, onChange, user, errors }) {
           name="email"
           value={user.email}
           onChange={onChange}
-          errorText={errors && errors.email}
+          errorText={errors && errors.email && <TextFieldErrors errors={errors.email} />}
         /><br />
         <TextField
           floatingLabelText="Password"
@@ -20,7 +21,7 @@ function LoginForm({ onSubmit, onChange, user, errors }) {
           type="password"
           value={user.password}
           onChange={onChange}
-          errorText={errors && errors.password}
+          errorText={errors && errors.password && <TextFieldErrors errors={errors.password} />}
         /><br />
         <RaisedButton type="submit" label="Log in" primary />
       </form>

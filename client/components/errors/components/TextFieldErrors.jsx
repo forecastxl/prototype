@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-function SignupFormErrors({ errors }) {
+function TextFieldErrors({ errors }) {
   return (
     <div>
       {errors.map((error, index) => <p key={index}>{error}</p>)}
@@ -8,8 +8,9 @@ function SignupFormErrors({ errors }) {
   )
 }
 
-SignupFormErrors.propTypes = {
+TextFieldErrors.propTypes = {
   errors: PropTypes.array.isRequired
 }
 
-export default SignupFormErrors
+export default TextFieldErrors
+

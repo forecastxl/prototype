@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import SignupFormErrors from './SignupFormErrors'
+import TextFieldErrors from './TextFieldErrors'
 
-describe('<SignupFormErrors />', () => {
+describe('<TextFieldErrors />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(<SignupFormErrors errors={['error']} />)
+    const wrapper = shallow(<TextFieldErrors errors={['error']} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })
