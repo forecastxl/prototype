@@ -1,5 +1,7 @@
 # prototype
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/forecastxl/prototype.svg)](https://greenkeeper.io/)
+
 [![build status][build-badge]][build-url]
 [![coverage status][coverage-badge]][coverage-url]
 [![dependency status][dependency-badge]][dependency-url]
