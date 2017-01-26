@@ -74,6 +74,11 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
             <TextFieldErrors errors={errors.passwordConfirmation} />
           }
         /><br />
+        {
+          errors &&
+          errors.agreedToGeneralTerms &&
+          <ErrorList errors={errors.agreedToGeneralTerms} />
+        }
         <Checkbox
           label="I agree to the terms and conditions"
           name="agreedToGeneralTerms"
