@@ -15,6 +15,11 @@ export const requestTokenFail = payload => ({
   payload
 })
 
+export const receiveToken = payload => ({
+  type: types.RECEIVE_TOKEN,
+  payload
+})
+
 export const destroyToken = () => ({
   type: types.DESTROY_TOKEN
 })

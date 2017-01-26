@@ -16,6 +16,10 @@ exports[`<Routes /> renders correctly 1`] = `
   <Match
     component={[Function]}
     exactly={false}
+    pattern="/signup/confirm" />
+  <Match
+    component={[Function]}
+    exactly={false}
     pattern="/signup/success" />
 </div>
 `;

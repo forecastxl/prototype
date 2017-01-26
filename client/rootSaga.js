@@ -3,6 +3,7 @@ import { sagas as signup } from './components/signup'
 
 const rootSaga = function* () {
   yield [
+    signup.watchConfirmAccount(),
     signup.watchRequestAccount(),
     session.watchRequestToken()
   ]

@@ -27,6 +27,12 @@ export default function reducer(state = initialState, action) {
         errors: action.payload.errors,
         isFetching: false
       }
+    case types.RECEIVE_TOKEN:
+      return {
+        ...state,
+        isValid: true,
+        token: action.payload.token
+      }
     case types.DESTROY_TOKEN:
       return {
         ...state,
