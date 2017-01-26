@@ -3,12 +3,16 @@ exports[`<Routes /> renders correctly 1`] = `
   <Header />
   <Match
     component={[Function]}
-    exactly={false}
+    exactly={true}
     pattern="/home" />
   <Match
     component={[Function]}
-    exactly={false}
+    exactly={true}
     pattern="/login" />
+  <Match
+    component={[Function]}
+    exactly={true}
+    pattern="/login/forgot-password" />
   <Match
     component={[Function]}
     exactly={true}
@@ -19,7 +23,7 @@ exports[`<Routes /> renders correctly 1`] = `
     pattern="/signup/confirm" />
   <Match
     component={[Function]}
-    exactly={false}
+    exactly={true}
     pattern="/signup/success" />
 </div>
 `;
