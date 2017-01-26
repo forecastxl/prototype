@@ -4,6 +4,31 @@ import { mountToJson } from 'enzyme-to-json'
 import { SignupConfirm } from './SignupConfirm'
 
 describe('<SignupConfirm />', () => {
+  afterEach(() => {
+    Object.defineProperty(window.location, 'search', {
+      writable: true,
+      value: ''
+    })
+  })
+
+  it('confirms the account when mounted', () => {
+    Object.defineProperty(window.location, 'search', {
+      writable: true,
+      value: '?token=token'
+    })
+
+    const spy = jest.fn()
+    mount(
+      <SignupConfirm
+        confirmAccount={spy}
+        errors={{}}
+        isFetching={false}
+      />
+    )
+
+    expect(spy).toBeCalledWith({ token: 'token' })
+  })
+
   it('renders a warning on a missing token', () => {
     const wrapper = mount(
       <SignupConfirm
