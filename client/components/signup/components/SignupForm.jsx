@@ -2,12 +2,12 @@ import React, { PropTypes } from 'react'
 import Checkbox from 'material-ui/Checkbox'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
-import { BaseErrors, TextFieldErrors } from '../../errors'
+import { ErrorList, TextFieldErrors } from '../../errors'
 
 function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }) {
   return (
     <div>
-      {errors && errors.base && <BaseErrors errors={errors.base} />}
+      {errors && errors.base && <ErrorList errors={errors.base} />}
       <form action="/" onSubmit={onSubmit}>
         <TextField
           floatingLabelText="First Name"

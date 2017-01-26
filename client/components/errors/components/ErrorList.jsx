@@ -5,7 +5,7 @@ const Error = styled.p`
   color: red;
 `
 
-function BaseErrors({ errors }) {
+function ErrorList({ errors }) {
   return (
     <div>
       {errors.map((error, index) => <Error key={index}>{error}</Error>)}
@@ -13,8 +13,8 @@ function BaseErrors({ errors }) {
   )
 }
 
-BaseErrors.propTypes = {
+ErrorList.propTypes = {
   errors: PropTypes.array.isRequired
 }
 
-export default BaseErrors
+export default ErrorList

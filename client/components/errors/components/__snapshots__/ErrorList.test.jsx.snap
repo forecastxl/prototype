@@ -1,4 +1,4 @@
-exports[`<BaseErrors /> renders correctly 1`] = `
+exports[`<ErrorList /> renders correctly 1`] = `
 <div>
   <styled.p>
     error

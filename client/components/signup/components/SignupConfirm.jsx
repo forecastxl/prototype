@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import getParam from '../../../services/getParam'
-import { BaseErrors } from '../../errors'
+import { ErrorList } from '../../errors'
 import { confirmAccount } from '../actions'
 
 export class SignupConfirm extends Component {
@@ -38,7 +38,7 @@ export class SignupConfirm extends Component {
     }
 
     if (this.props.errors.base) {
-      return <BaseErrors errors={this.props.errors.base} />
+      return <ErrorList errors={this.props.errors.base} />
     }
 
     return <div>Confirmation successful, logging you in...</div>

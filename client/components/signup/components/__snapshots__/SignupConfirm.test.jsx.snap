@@ -42,7 +42,7 @@ exports[`<SignupConfirm /> renders errors 1`] = `
     }
   }
   isFetching={false}>
-  <BaseErrors
+  <ErrorList
     errors={
       Array [
         "error message",
@@ -56,6 +56,6 @@ exports[`<SignupConfirm /> renders errors 1`] = `
         </p>
       </styled.p>
     </div>
-  </BaseErrors>
+  </ErrorList>
 </SignupConfirm>
 `;
