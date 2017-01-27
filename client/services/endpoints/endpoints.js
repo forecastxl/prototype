@@ -10,3 +10,5 @@ if (process.env.NODE_ENV === 'production') {
 export const LOGIN_ENDPOINT = `${base}/users/login`
 export const SIGNUP_ENDPOINT = `${base}/users/signup`
 export const CONFIRM_ENDPOINT = `${base}/users/confirm`
+export const RESET_PASSWORD_ENDPOINT = `${base}/users/reset_password`
+export const FORGOT_PASSWORD_ENDPOINT = `${base}/users/forgot_password`

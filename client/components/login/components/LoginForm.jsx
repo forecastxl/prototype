@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import { ErrorList, TextFieldErrors } from '../../errors'
@@ -25,6 +26,7 @@ function LoginForm({ onSubmit, onChange, user, errors }) {
         /><br />
         <RaisedButton type="submit" label="Log in" primary />
       </form>
+      <Link to="/login/forgot-password">Forgot your password?</Link>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { LoginFormContainer } from './LoginFormContainer'
 
 jest.mock('material-ui/TextField')
 jest.mock('material-ui/RaisedButton')
+jest.mock('react-router')
 
 describe('<LoginFormContainer />', () => {
   it('renders correctly', () => {

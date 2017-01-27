@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import getParam from '../../../services/getParam'
 import { ErrorList } from '../../errors'
-import { confirmAccount } from '../actions'
+import { resetPassword } from '../actions'
 
-export class SignupConfirm extends Component {
+export class ResetPasswordContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -24,7 +24,7 @@ export class SignupConfirm extends Component {
 
   componentDidMount() {
     if (this.state.parsedToken && this.state.token && !this.props.isFetching) {
-      this.props.confirmAccount({ token: this.state.token })
+      this.props.resetPassword({ token: this.state.token })
     }
   }
 
@@ -34,26 +34,26 @@ export class SignupConfirm extends Component {
     }
 
     if (this.props.isFetching) {
-      return <div>Confirming account...</div>
+      return <div>Resetting password...</div>
     }
 
     if (this.props.errors.token) {
       return <ErrorList errors={this.props.errors.token} />
     }
 
-    return <div>Confirmation successful, logging you in...</div>
+    return <div>Reset successful, logging you in...</div>
   }
 }
 
-SignupConfirm.propTypes = {
-  confirmAccount: PropTypes.func.isRequired,
+ResetPasswordContainer.propTypes = {
+  resetPassword: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   isFetching: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = state => ({
-  errors: state.signup.errors,
-  isFetching: state.signup.isFetching
+  errors: state.login.errors,
+  isFetching: state.login.isFetching
 })
 
-export default connect(mapStateToProps, { confirmAccount })(SignupConfirm)
+export default connect(mapStateToProps, { resetPassword })(ResetPasswordContainer)
