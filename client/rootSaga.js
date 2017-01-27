@@ -1,11 +1,8 @@
-import { sagas as session } from './data/session'
-import { sagas as signup } from './components/signup'
+import { sagas as user } from './components/user'
 
 const rootSaga = function* () {
   yield [
-    signup.watchConfirmAccount(),
-    signup.watchRequestAccount(),
-    session.watchRequestToken()
+    user.watchLogin()
   ]
 }
 

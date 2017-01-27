@@ -7,6 +7,6 @@ if (process.env.NODE_ENV === 'production') {
   base = `${process.env.DEV_API}/api/v2`
 }
 
-export const LOGIN_ENDPOINT = `${base}/users/login`
-export const SIGNUP_ENDPOINT = `${base}/users/signup`
-export const CONFIRM_ENDPOINT = `${base}/users/confirm`
+export const LOGIN = `${base}/users/login`
+export const SIGNUP = `${base}/users/signup`
+export const CONFIRM = `${base}/users/confirm`
