@@ -37,8 +37,8 @@ export class SignupConfirm extends Component {
       return <div>Confirming account...</div>
     }
 
-    if (this.props.errors.base) {
-      return <ErrorList errors={this.props.errors.base} />
+    if (this.props.errors.token) {
+      return <ErrorList errors={this.props.errors.token} />
     }
 
     return <div>Confirmation successful, logging you in...</div>
@@ -52,8 +52,8 @@ SignupConfirm.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  errors: state.signup.errors,
-  isFetching: state.signup.isFetching
+  errors: state.user.confirmAccount.errors,
+  isFetching: state.user.confirmAccount.isFetching
 })
 
 export default connect(mapStateToProps, { confirmAccount })(SignupConfirm)

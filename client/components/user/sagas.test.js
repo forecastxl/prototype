@@ -109,10 +109,10 @@ describe('sagas', () => {
       expect(actual).toEqual(expected)
     })
 
-    it('should redirect to home after a succesful confirm', () => {
+    it('should redirect to root after a succesful confirm', () => {
       const data = 'data'
       const generator = sagas.confirmAccount(action)
-      const expected = put(push('/home'))
+      const expected = put(push('/'))
 
       generator.next()
       generator.next({ data })

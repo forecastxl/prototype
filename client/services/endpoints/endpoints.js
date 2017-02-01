@@ -8,5 +8,5 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 export const LOGIN = `${base}/users/login`
-export const SIGNUP = `${base}/users/signup`
-export const CONFIRM = `${base}/users/confirm`
+export const CREATE_ACCOUNT = `${base}/users/signup`
+export const CONFIRM_ACCOUNT = `${base}/users/confirm`

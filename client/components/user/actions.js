@@ -8,9 +8,10 @@ export const confirmAccount = token => ({
   token
 })
 
-export const confirmAccountSuccess = () => ({
+export const confirmAccountSuccess = token => ({
   type: types.CONFIRM_ACCOUNT_SUCCESS,
-  fetch: { key: 'confirmAccount', isFetching: false, errors: {} }
+  fetch: { key: 'confirmAccount', isFetching: false, errors: {} },
+  token
 })
 
 export const confirmAccountFail = errors => ({
@@ -53,6 +54,12 @@ export const loginSuccess = token => ({
 export const loginFail = errors => ({
   type: types.LOGIN_FAIL,
   fetch: { key: 'login', isFetching: false, errors }
+})
+
+// destroy the current token
+
+export const logout = () => ({
+  type: types.LOGOUT
 })
 
 // request a password change, for users who forgot it

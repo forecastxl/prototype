@@ -28,12 +28,18 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case types.LOGIN_SUCCESS:
+    case types.CONFIRM_ACCOUNT_SUCCESS:
       return {
         ...state,
         hasToken: true,
         token: action.token
       }
-
+    case types.LOGOUT:
+      return {
+        ...state,
+        hasToken: false,
+        token: ''
+      }
     default:
       if (action.fetch) {
         const { isFetching, errors } = action.fetch

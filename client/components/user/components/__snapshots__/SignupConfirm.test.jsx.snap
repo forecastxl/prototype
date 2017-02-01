@@ -42,20 +42,8 @@ exports[`<SignupConfirm /> renders errors 1`] = `
     }
   }
   isFetching={false}>
-  <ErrorList
-    errors={
-      Array [
-        "error message",
-      ]
-    }>
-    <div>
-      <styled.p>
-        <p
-          className="jldpnK">
-          error message
-        </p>
-      </styled.p>
-    </div>
-  </ErrorList>
+  <div>
+    Confirmation successful, logging you in...
+  </div>
 </SignupConfirm>
 `;
