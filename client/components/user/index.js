@@ -1,7 +1,8 @@
+import * as actionTypes from './actionTypes'
 import * as actions from './actions'
 import * as sagas from './sagas'
 
-export { actions, sagas }
+export { actionTypes, actions, sagas }
 export { default as LoginFormContainer } from './components/LoginFormContainer'
 export { default as LogoutButtonContainer } from './components/LogoutButtonContainer'
 export { default as SignupConfirm } from './components/SignupConfirm'

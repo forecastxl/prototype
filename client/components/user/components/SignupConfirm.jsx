@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import getParam from '../../../services/getParam'
 import { ErrorList } from '../../errors'
+import * as types from '../actionTypes'
 import { confirmAccount } from '../actions'
 
 export class SignupConfirm extends Component {
@@ -52,8 +53,8 @@ SignupConfirm.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  errors: state.user.confirmAccount.errors,
-  isFetching: state.user.confirmAccount.isFetching
+  errors: state.api[types.CONFIRM_ACCOUNT].errors,
+  isFetching: state.api[types.CONFIRM_ACCOUNT].isFetching
 })
 
 export default connect(mapStateToProps, { confirmAccount })(SignupConfirm)

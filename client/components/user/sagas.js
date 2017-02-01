@@ -3,6 +3,7 @@ import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
 import { endpoints } from '../../services/endpoints'
 import post from '../../services/post'
+import { actions as fetchActions } from '../../data/fetch'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
@@ -11,11 +12,10 @@ export function* login(action) {
   if (data) {
     yield put(actions.loginSuccess(data.token))
     yield put(push('/'))
+  } else if (error.errors) {
+    yield put(actions.loginFail(error.errors))
   } else {
-    if (error.errors) {
-      yield put(actions.loginFail(error.errors))
-    }
-    // TODO: put fetch errors here
+    yield put(fetchActions.fetchFail(error.message))
   }
 }
 
@@ -28,11 +28,10 @@ export function* createAccount(action) {
   if (data) {
     yield put(actions.createAccountSuccess(data.token))
     yield put(push('/signup/success'))
+  } else if (error.errors) {
+    yield put(actions.createAccountFail(error.errors))
   } else {
-    if (error.errors) {
-      yield put(actions.createAccountFail(error.errors))
-    }
-    // TODO: put fetch errors here
+    yield put(fetchActions.fetchFail(error.message))
   }
 }
 
@@ -45,11 +44,10 @@ export function* confirmAccount(action) {
   if (data) {
     yield put(actions.confirmAccountSuccess(data.token))
     yield put(push('/'))
+  } else if (error.errors) {
+    yield put(actions.confirmAccountFail(error.errors))
   } else {
-    if (error.errors) {
-      yield put(actions.confirmAccountFail(error.errors))
-    }
-    // TODO: put fetch errors here
+    yield put(fetchActions.fetchFail(error.message))
   }
 }
 

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import * as types from '../actionTypes'
 import { createAccount } from '../actions'
 import SignupForm from './SignupForm'
 
@@ -65,7 +66,7 @@ SignupFormContainer.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  errors: state.user.createAccount.errors
+  errors: state.api[types.CREATE_ACCOUNT].errors
 })
 
 export default connect(mapStateToProps, { createAccount })(SignupFormContainer)

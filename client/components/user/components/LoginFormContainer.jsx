@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import * as types from '../actionTypes'
 import { login } from '../actions'
 import LoginForm from './LoginForm'
 
@@ -48,7 +49,7 @@ LoginFormContainer.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  errors: state.user.login.errors
+  errors: state.api[types.LOGIN].errors
 })
 
 const mapActionsToProps = {
