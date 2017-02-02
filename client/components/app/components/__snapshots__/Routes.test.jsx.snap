@@ -7,8 +7,20 @@ exports[`<Routes /> renders correctly 1`] = `
     pattern="/" />
   <Match
     component={[Function]}
-    exactly={false}
+    exactly={true}
     pattern="/login" />
+  <Match
+    component={[Function]}
+    exactly={true}
+    pattern="/login/forgot-password" />
+  <Match
+    component={[Function]}
+    exactly={false}
+    pattern="/login/forgot-password/success" />
+  <Match
+    component={[Function]}
+    exactly={false}
+    pattern="/login/reset-password" />
   <Match
     component={[Function]}
     exactly={true}

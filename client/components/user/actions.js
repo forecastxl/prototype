@@ -64,38 +64,38 @@ export const logout = () => ({
 
 // request a password change, for users who forgot it
 
-export const requestPasswordChange = email => ({
-  type: types.REQUEST_PASSWORD_CHANGE,
-  api: { key: 'requestPasswordChange', isFetching: true, errors: {} },
+export const requestResetPassword = email => ({
+  type: types.REQUEST_RESET_PASSWORD,
+  api: { key: types.REQUEST_RESET_PASSWORD, isFetching: true, errors: {} },
   email
 })
 
-export const requestPasswordChangeSuccess = () => ({
-  type: types.REQUEST_PASSWORD_CHANGE_SUCCESS,
-  api: { key: 'requestPasswordChange', isFetching: false, errors: {} }
+export const requestResetPasswordSuccess = () => ({
+  type: types.REQUEST_RESET_PASSWORD_SUCCESS,
+  api: { key: types.REQUEST_RESET_PASSWORD, isFetching: false, errors: {} }
 })
 
-export const requestPasswordChangeFail = errors => ({
-  type: types.REQUEST_PASSWORD_CHANGE_FAIL,
-  api: { key: 'requestPasswordChange', isFetching: false, errors }
+export const requestResetPasswordFail = errors => ({
+  type: types.REQUEST_RESET_PASSWORD_FAIL,
+  api: { key: types.REQUEST_RESET_PASSWORD, isFetching: false, errors }
 })
 
 // change the existing password and login the user on success
 
-export const changePassword = (passwords, token) => ({
-  type: types.CHANGE_PASSWORD,
-  api: { key: 'changePassword', isFetching: true, errors: {} },
+export const resetPassword = (passwords, token) => ({
+  type: types.RESET_PASSWORD,
+  api: { key: types.RESET_PASSWORD, isFetching: true, errors: {} },
   passwords,
   token
 })
 
-export const changePasswordSuccess = token => ({
-  type: types.CHANGE_PASSWORD_SUCCESS,
-  api: { key: 'changePassword', isFetching: false, errors: {} },
+export const resetPasswordSuccess = token => ({
+  type: types.RESET_PASSWORD_SUCCESS,
+  api: { key: types.RESET_PASSWORD, isFetching: false, errors: {} },
   token
 })
 
-export const changePasswordFail = errors => ({
-  type: types.CHANGE_PASSWORD_FAIL,
-  api: { key: 'changePassword', isFetching: false, errors }
+export const resetPasswordFail = errors => ({
+  type: types.RESET_PASSWORD_FAIL,
+  api: { key: types.RESET_PASSWORD, isFetching: false, errors }
 })

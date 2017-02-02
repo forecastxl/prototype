@@ -92,7 +92,7 @@ describe('sagas', () => {
     it('should post the account data', () => {
       const generator = sagas.createAccount(action)
       const actual = generator.next().value
-      const expected = call(post, endpoints.CREATE_ACCOUNT, action.account)
+      const expected = call(post, endpoints.CREATE_ACCOUNT, action)
 
       expect(actual).toEqual(expected)
     })
@@ -159,7 +159,7 @@ describe('sagas', () => {
     it('should post the account data', () => {
       const generator = sagas.confirmAccount(action)
       const actual = generator.next().value
-      const expected = call(post, endpoints.CONFIRM_ACCOUNT, action.token)
+      const expected = call(post, endpoints.CONFIRM_ACCOUNT, action)
 
       expect(actual).toEqual(expected)
     })

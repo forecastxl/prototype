@@ -26,7 +26,7 @@ describe('<SignupConfirmContainer />', () => {
       />
     )
 
-    expect(spy).toBeCalledWith({ token: 'token' })
+    expect(spy).toBeCalledWith('token')
   })
 
   it('renders a warning on a missing token', () => {
