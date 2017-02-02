@@ -2,6 +2,10 @@ import fetch from '../fetch'
 import decamelize from '../decamelize'
 
 const post = (endpoint, data, token) => {
+  if (data && typeof data !== 'object') {
+    throw new Error('The data argument must be an object')
+  }
+
   const options = {
     body: JSON.stringify(decamelize(data)),
     method: 'POST'

@@ -7,6 +7,10 @@ jest.mock('../fetch', () => jest.fn())
 jest.mock('../decamelize', () => jest.fn())
 
 describe('post', () => {
+  it('throws an error if data is not an object', () => {
+    expect(() => { post('endpoint', 'string') }).toThrowError('The data argument must be an object')
+  })
+
   it('calls fetch with the right endpoint', () => {
     post('endpoint')
     const lastCall = fetch.mock.calls.length - 1
@@ -33,9 +37,9 @@ describe('post', () => {
   })
 
   it('decamelizes data', () => {
-    post('endpoint', 'data')
+    post('endpoint', { data: 'data' })
     const lastCall = decamelize.mock.calls.length - 1
-    const expected = 'data'
+    const expected = { data: 'data' }
 
     expect(decamelize.mock.calls[lastCall][0]).toEqual(expected)
   })

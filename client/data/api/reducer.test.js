@@ -14,6 +14,14 @@ describe('reducer', () => {
     [user.CONFIRM_ACCOUNT]: {
       errors: {},
       isFetching: false
+    },
+    [user.RESET_PASSWORD]: {
+      errors: {},
+      isFetching: false
+    },
+    [user.REQUEST_RESET_PASSWORD]: {
+      errors: {},
+      isFetching: false
     }
   }
 

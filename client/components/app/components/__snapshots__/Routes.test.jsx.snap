@@ -1,25 +1,39 @@
 exports[`<Routes /> renders correctly 1`] = `
 <div>
   <Header />
-  <Match
-    component={[Function]}
-    exactly={true}
-    pattern="/" />
-  <Match
-    component={[Function]}
-    exactly={false}
-    pattern="/login" />
-  <Match
-    component={[Function]}
-    exactly={true}
-    pattern="/signup" />
-  <Match
-    component={[Function]}
-    exactly={false}
-    pattern="/signup/confirm" />
-  <Match
-    component={[Function]}
-    exactly={false}
-    pattern="/signup/success" />
+  <styled.div>
+    <Match
+      component={[Function]}
+      exactly={true}
+      pattern="/" />
+    <Match
+      component={[Function]}
+      exactly={true}
+      pattern="/login" />
+    <Match
+      component={[Function]}
+      exactly={true}
+      pattern="/login/forgot-password" />
+    <Match
+      component={[Function]}
+      exactly={false}
+      pattern="/login/forgot-password/success" />
+    <Match
+      component={[Function]}
+      exactly={false}
+      pattern="/login/reset-password" />
+    <Match
+      component={[Function]}
+      exactly={true}
+      pattern="/signup" />
+    <Match
+      component={[Function]}
+      exactly={false}
+      pattern="/signup/confirm" />
+    <Match
+      component={[Function]}
+      exactly={false}
+      pattern="/signup/success" />
+  </styled.div>
 </div>
 `;

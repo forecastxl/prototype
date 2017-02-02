@@ -38,5 +38,16 @@ exports[`<LoginForm /> renders correctly 1`] = `
       secondary={false}
       type="submit" />
   </form>
+  <Link
+    activeClassName=""
+    activeOnlyWhenExact={false}
+    activeStyle={Object {}}
+    className=""
+    isActive={[Function]}
+    replace={false}
+    style={Object {}}
+    to="/login/forgot-password">
+    Forgot your password?
+  </Link>
 </div>
 `;

@@ -40,7 +40,8 @@ export function* watchCreateAccount() {
 }
 
 export function* confirmAccount(action) {
-  const { data, error } = yield call(post, endpoints.CONFIRM_ACCOUNT, action.token)
+  const token = action.token
+  const { data, error } = yield call(post, endpoints.CONFIRM_ACCOUNT, { token })
   if (data) {
     yield put(actions.confirmAccountSuccess(data.token))
     yield put(push('/'))
@@ -53,4 +54,37 @@ export function* confirmAccount(action) {
 
 export function* watchConfirmAccount() {
   yield call(takeLatest, types.CONFIRM_ACCOUNT, confirmAccount)
+}
+
+export function* resetPassword(action) {
+  const { data, error } = yield call(post, endpoints.RESET_PASSWORD, action.payload)
+  if (data) {
+    yield put(actions.resetPasswordSuccess(data.token))
+    yield put(push('/'))
+  } else if (error.errors) {
+    yield put(actions.resetPasswordFail(error.errors))
+  } else {
+    yield put(fetchActions.fetchFail(error.message))
+  }
+}
+
+export function* watchResetPassword() {
+  yield call(takeLatest, types.RESET_PASSWORD, resetPassword)
+}
+
+export function* requestResetPassword(action) {
+  const email = action.email
+  const { data, error } = yield call(post, endpoints.REQUEST_RESET_PASSWORD, { email })
+  if (data) {
+    yield put(actions.requestResetPasswordSuccess())
+    yield put(push('/login/forgot-password/success'))
+  } else if (error.errors) {
+    yield put(actions.requestResetPasswordFail(error.errors))
+  } else {
+    yield put(fetchActions.fetchFail(error.message))
+  }
+}
+
+export function* watchRequestResetPassword() {
+  yield call(takeLatest, types.REQUEST_RESET_PASSWORD, requestResetPassword)
 }

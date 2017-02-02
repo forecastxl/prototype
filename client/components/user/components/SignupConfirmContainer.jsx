@@ -25,7 +25,7 @@ export class SignupConfirmContainer extends Component {
 
   componentDidMount() {
     if (this.state.parsedToken && this.state.token && !this.props.isFetching) {
-      this.props.confirmAccount({ token: this.state.token })
+      this.props.confirmAccount(this.state.token)
     }
   }
 
