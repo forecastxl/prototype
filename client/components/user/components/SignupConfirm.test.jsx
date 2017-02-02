@@ -1,94 +1,50 @@
 import React from 'react'
-import { mount } from 'enzyme'
-import { mountToJson } from 'enzyme-to-json'
-import { SignupConfirm } from './SignupConfirm'
+import { shallow } from 'enzyme'
+import { shallowToJson } from 'enzyme-to-json'
+import SignupConfirm from './SignupConfirm'
 
 describe('<SignupConfirm />', () => {
-  afterEach(() => {
-    Object.defineProperty(window.location, 'search', {
-      writable: true,
-      value: ''
-    })
-  })
-
-  it('confirms the account when mounted', () => {
-    Object.defineProperty(window.location, 'search', {
-      writable: true,
-      value: '?token=token'
-    })
-
-    const spy = jest.fn()
-    mount(
+  it('renders a message for missing tokens', () => {
+    const wrapper = shallow(
       <SignupConfirm
-        confirmAccount={spy}
-        errors={{}}
+        hasToken={false}
         isFetching={false}
+        errors={{}}
       />
     )
-
-    expect(spy).toBeCalledWith({ token: 'token' })
-  })
-
-  it('renders a warning on a missing token', () => {
-    const wrapper = mount(
-      <SignupConfirm
-        confirmAccount={() => {}}
-        errors={{}}
-        isFetching={false}
-      />
-    )
-    expect(mountToJson(wrapper)).toMatchSnapshot()
+    expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
   it('renders a message while fetching', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <SignupConfirm
-        confirmAccount={() => {}}
-        errors={{}}
+        hasToken
         isFetching
+        errors={{}}
       />
     )
-
-    wrapper.setState({
-      parsedToken: true,
-      token: 'token'
-    })
-
-    expect(mountToJson(wrapper)).toMatchSnapshot()
+    expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
   it('renders errors', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <SignupConfirm
-        confirmAccount={() => {}}
-        errors={{ base: ['error message'] }}
+        hasToken
         isFetching={false}
+        errors={{ token: ['Something went wrong'] }}
       />
     )
-
-    wrapper.setState({
-      parsedToken: true,
-      token: 'token'
-    })
-
-    expect(mountToJson(wrapper)).toMatchSnapshot()
+    expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
-  it('renders a message on success', () => {
-    const wrapper = mount(
+  it('renders a message when confirm was successful', () => {
+    const wrapper = shallow(
       <SignupConfirm
-        confirmAccount={() => {}}
-        errors={{}}
+        hasToken
         isFetching={false}
+        errors={{}}
       />
     )
-
-    wrapper.setState({
-      parsedToken: true,
-      token: 'token'
-    })
-
-    expect(mountToJson(wrapper)).toMatchSnapshot()
+    expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })
-

@@ -3,8 +3,8 @@ import * as types from './actionTypes'
 
 describe('reducer', () => {
   const initialState = {
-    errors: {},
-    isFetching: false
+    hasToken: false,
+    token: ''
   }
 
   it('should return the initial state', () => {
@@ -13,83 +13,32 @@ describe('reducer', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should handle REQUEST_ACCOUNT', () => {
-    const actual = reducer(undefined, { type: types.REQUEST_ACCOUNT })
+  it('should handle LOGIN_SUCCESS', () => {
+    const actual = reducer(undefined, { type: types.LOGIN_SUCCESS, token: 'token' })
     const expected = {
-      errors: {},
-      isFetching: true
-    }
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should handle CONFIRM_ACCOUNT', () => {
-    const actual = reducer(undefined, { type: types.CONFIRM_ACCOUNT })
-    const expected = {
-      errors: {},
-      isFetching: true
-    }
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should handle REQUEST_ACCOUNT_SUCCESS', () => {
-    const fetchingState = {
-      errors: {},
-      isFetching: true
-    }
-    const actual = reducer(fetchingState, { type: types.REQUEST_ACCOUNT_SUCCESS })
-    const expected = {
-      errors: {},
-      isFetching: false
+      hasToken: true,
+      token: 'token'
     }
 
     expect(actual).toEqual(expected)
   })
 
   it('should handle CONFIRM_ACCOUNT_SUCCESS', () => {
-    const fetchingState = {
-      errors: {},
-      isFetching: true
-    }
-    const actual = reducer(fetchingState, { type: types.CONFIRM_ACCOUNT_SUCCESS })
+    const actual = reducer(undefined, { type: types.CONFIRM_ACCOUNT_SUCCESS, token: 'token' })
     const expected = {
-      errors: {},
-      isFetching: false
+      hasToken: true,
+      token: 'token'
     }
 
     expect(actual).toEqual(expected)
   })
 
-  it('should handle REQUEST_ACCOUNT_FAIL', () => {
-    const fetchingState = {
-      errors: {},
-      isFetching: true
-    }
-    const actual = reducer(fetchingState, {
-      type: types.REQUEST_ACCOUNT_FAIL,
-      payload: { errors: { error: 'error' } }
-    })
+  it('should handle LOGOUT', () => {
+    const initial = { hasToken: true, token: 'token' }
+    const actual = reducer(initial, { type: types.LOGOUT })
     const expected = {
-      errors: { error: 'error' },
-      isFetching: false
-    }
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should handle CONFIRM_ACCOUNT_FAIL', () => {
-    const fetchingState = {
-      errors: {},
-      isFetching: true
-    }
-    const actual = reducer(fetchingState, {
-      type: types.CONFIRM_ACCOUNT_FAIL,
-      payload: { errors: { error: 'error' } }
-    })
-    const expected = {
-      errors: { error: 'error' },
-      isFetching: false
+      hasToken: false,
+      token: ''
     }
 
     expect(actual).toEqual(expected)

@@ -1,49 +1,26 @@
-exports[`<SignupConfirm /> renders a message on success 1`] = `
-<SignupConfirm
-  confirmAccount={[Function]}
-  errors={Object {}}
-  isFetching={false}>
-  <div>
-    Confirmation successful, logging you in...
-  </div>
-</SignupConfirm>
+exports[`<SignupConfirm /> renders a message for missing tokens 1`] = `
+<div>
+  Could not find a token. Did you use the correct link?
+</div>
+`;
+
+exports[`<SignupConfirm /> renders a message when confirm was successful 1`] = `
+<div>
+  Confirmation successful, logging you in...
+</div>
 `;
 
 exports[`<SignupConfirm /> renders a message while fetching 1`] = `
-<SignupConfirm
-  confirmAccount={[Function]}
-  errors={Object {}}
-  isFetching={true}>
-  <div>
-    Confirming account...
-  </div>
-</SignupConfirm>
-`;
-
-exports[`<SignupConfirm /> renders a warning on a missing token 1`] = `
-<SignupConfirm
-  confirmAccount={[Function]}
-  errors={Object {}}
-  isFetching={false}>
-  <div>
-    Could not find a token. Did you use the correct link?
-  </div>
-</SignupConfirm>
+<div>
+  Confirming account...
+</div>
 `;
 
 exports[`<SignupConfirm /> renders errors 1`] = `
-<SignupConfirm
-  confirmAccount={[Function]}
+<ErrorList
   errors={
-    Object {
-      "base": Array [
-        "error message",
-      ],
-    }
-  }
-  isFetching={false}>
-  <div>
-    Confirmation successful, logging you in...
-  </div>
-</SignupConfirm>
+    Array [
+      "Something went wrong",
+    ]
+  } />
 `;
