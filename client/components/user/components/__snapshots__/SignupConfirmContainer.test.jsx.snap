@@ -1,0 +1,75 @@
+exports[`<SignupConfirmContainer /> renders a message on success 1`] = `
+<SignupConfirmContainer
+  confirmAccount={[Function]}
+  errors={Object {}}
+  isFetching={false}>
+  <SignupConfirm
+    errors={Object {}}
+    hasToken={true}
+    isFetching={false}>
+    <div>
+      Confirmation successful, logging you in...
+    </div>
+  </SignupConfirm>
+</SignupConfirmContainer>
+`;
+
+exports[`<SignupConfirmContainer /> renders a message while fetching 1`] = `
+<SignupConfirmContainer
+  confirmAccount={[Function]}
+  errors={Object {}}
+  isFetching={true}>
+  <SignupConfirm
+    errors={Object {}}
+    hasToken={true}
+    isFetching={true}>
+    <div>
+      Confirming account...
+    </div>
+  </SignupConfirm>
+</SignupConfirmContainer>
+`;
+
+exports[`<SignupConfirmContainer /> renders a warning on a missing token 1`] = `
+<SignupConfirmContainer
+  confirmAccount={[Function]}
+  errors={Object {}}
+  isFetching={false}>
+  <SignupConfirm
+    errors={Object {}}
+    hasToken={false}
+    isFetching={false}>
+    <div>
+      Could not find a token. Did you use the correct link?
+    </div>
+  </SignupConfirm>
+</SignupConfirmContainer>
+`;
+
+exports[`<SignupConfirmContainer /> renders errors 1`] = `
+<SignupConfirmContainer
+  confirmAccount={[Function]}
+  errors={
+    Object {
+      "base": Array [
+        "error message",
+      ],
+    }
+  }
+  isFetching={false}>
+  <SignupConfirm
+    errors={
+      Object {
+        "base": Array [
+          "error message",
+        ],
+      }
+    }
+    hasToken={true}
+    isFetching={false}>
+    <div>
+      Confirmation successful, logging you in...
+    </div>
+  </SignupConfirm>
+</SignupConfirmContainer>
+`;

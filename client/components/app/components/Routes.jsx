@@ -2,17 +2,21 @@ import React from 'react'
 import Match from 'react-router/Match'
 import { Header } from '../../header'
 import { Home } from '../../home'
-import { LoginFormContainer } from '../../login'
-import { SignupFormContainer, SignupConfirm, SignupSuccess } from '../../signup'
+import {
+  LoginFormContainer,
+  SignupFormContainer,
+  SignupConfirmContainer,
+  SignupSuccess
+} from '../../user'
 
 function Routes() {
   return (
     <div>
       <Header />
-      <Match pattern="/home" component={Home} />
+      <Match exactly pattern="/" component={Home} />
       <Match pattern="/login" component={LoginFormContainer} />
       <Match exactly pattern="/signup" component={SignupFormContainer} />
-      <Match pattern="/signup/confirm" component={SignupConfirm} />
+      <Match pattern="/signup/confirm" component={SignupConfirmContainer} />
       <Match pattern="/signup/success" component={SignupSuccess} />
     </div>
   )

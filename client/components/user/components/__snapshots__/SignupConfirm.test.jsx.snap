@@ -1,0 +1,26 @@
+exports[`<SignupConfirm /> renders a message for missing tokens 1`] = `
+<div>
+  Could not find a token. Did you use the correct link?
+</div>
+`;
+
+exports[`<SignupConfirm /> renders a message when confirm was successful 1`] = `
+<div>
+  Confirmation successful, logging you in...
+</div>
+`;
+
+exports[`<SignupConfirm /> renders a message while fetching 1`] = `
+<div>
+  Confirming account...
+</div>
+`;
+
+exports[`<SignupConfirm /> renders errors 1`] = `
+<ErrorList
+  errors={
+    Array [
+      "Something went wrong",
+    ]
+  } />
+`;

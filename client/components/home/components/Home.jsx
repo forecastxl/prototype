@@ -1,5 +1,5 @@
 import React from 'react'
-import { LogoutButtonContainer } from '../../logout'
+import { LogoutButtonContainer } from '../../user'
 
 function Home() {
   return (
