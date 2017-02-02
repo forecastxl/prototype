@@ -1,7 +1,21 @@
 exports[`<Header /> renders correctly 1`] = `
-<header>
+<styled.header>
   <h1>
     Forecast XL
   </h1>
-</header>
+  <nav>
+    <Styled(undefined)
+      to="/">
+      Home
+    </Styled(undefined)>
+    <Styled(undefined)
+      to="/login">
+      Login
+    </Styled(undefined)>
+    <Styled(undefined)
+      to="/signup">
+      Signup
+    </Styled(undefined)>
+  </nav>
+</styled.header>
 `;
