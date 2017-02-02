@@ -8,8 +8,7 @@ import * as actions from './actions'
 import * as types from './actionTypes'
 
 export function* login(action) {
-  const user = action.user
-  const { data, error } = yield call(post, endpoints.LOGIN, { user })
+  const { data, error } = yield call(post, endpoints.LOGIN, action.user)
   if (data) {
     yield put(actions.loginSuccess(data.token))
     yield put(push('/'))
@@ -25,8 +24,7 @@ export function* watchLogin() {
 }
 
 export function* createAccount(action) {
-  const account = action.account
-  const { data, error } = yield call(post, endpoints.CREATE_ACCOUNT, { account })
+  const { data, error } = yield call(post, endpoints.CREATE_ACCOUNT, action.account)
   if (data) {
     yield put(actions.createAccountSuccess(data.token))
     yield put(push('/signup/success'))
@@ -85,7 +83,7 @@ export function* requestResetPassword(action) {
   const { data, error } = yield call(post, endpoints.REQUEST_RESET_PASSWORD, { email })
   if (data) {
     yield put(actions.requestResetPasswordSuccess())
-    yield put(push('/'))
+    yield put(push('/login/forgot-password/success'))
   } else if (error.errors) {
     yield put(actions.requestResetPasswordFail(error.errors))
   } else {

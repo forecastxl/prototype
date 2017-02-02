@@ -25,7 +25,7 @@ describe('sagas', () => {
     it('should post the login data', () => {
       const generator = sagas.login(action)
       const actual = generator.next().value
-      const expected = call(post, endpoints.LOGIN, action)
+      const expected = call(post, endpoints.LOGIN, action.user)
 
       expect(actual).toEqual(expected)
     })
@@ -92,7 +92,7 @@ describe('sagas', () => {
     it('should post the account data', () => {
       const generator = sagas.createAccount(action)
       const actual = generator.next().value
-      const expected = call(post, endpoints.CREATE_ACCOUNT, action)
+      const expected = call(post, endpoints.CREATE_ACCOUNT, action.account)
 
       expect(actual).toEqual(expected)
     })
@@ -315,10 +315,10 @@ describe('sagas', () => {
       expect(actual).toEqual(expected)
     })
 
-    it('should redirect to root after a succesful request', () => {
+    it('should redirect to /login/forgot-password/success after a succesful request', () => {
       const data = { token: 'token' }
       const generator = sagas.requestResetPassword(action)
-      const expected = put(push('/'))
+      const expected = put(push('/login/forgot-password/success'))
 
       generator.next()
       generator.next({ data })
