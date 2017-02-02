@@ -222,15 +222,17 @@ describe('sagas', () => {
 
   describe('resetPassword', () => {
     const action = {
-      token: 'token',
-      password: 'password',
-      passwordConfirmation: 'password'
+      payload: {
+        token: 'token',
+        password: 'password',
+        passwordConfirmation: 'password'
+      }
     }
 
     it('should post the data', () => {
       const generator = sagas.resetPassword(action)
       const actual = generator.next().value
-      const expected = call(post, endpoints.RESET_PASSWORD, action)
+      const expected = call(post, endpoints.RESET_PASSWORD, action.payload)
 
       expect(actual).toEqual(expected)
     })
