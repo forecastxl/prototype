@@ -10,8 +10,12 @@ export class ResetPasswordContainer extends Component {
     super(props)
     this.state = {
       parsedToken: false,
-      token: false
+      token: false,
+      password: '',
+      passwordConfirmation: ''
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.processForm = this.processForm.bind(this)
   }
 
   componentWillMount() {
@@ -23,18 +27,30 @@ export class ResetPasswordContainer extends Component {
     }
   }
 
-  componentDidMount() {
-    if (this.state.parsedToken && this.state.token && !this.props.isFetching) {
-      this.props.resetPassword(this.state.token)
-    }
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  processForm(event) {
+    event.preventDefault()
+    this.props.resetPassword({
+      token: this.state.token,
+      password: this.state.password,
+      passwordConfirmation: this.state.passwordConfirmation
+    })
   }
 
   render() {
     return (
       <ResetPassword
         hasToken={this.state.parsedToken && !!this.state.token}
-        isFetching={this.props.isFetching}
         errors={this.props.errors}
+        onSubmit={this.processForm}
+        onChange={this.handleChange}
+        password={this.state.password}
+        passwordConfirmation={this.state.passwordConfirmation}
       />
     )
   }
@@ -42,13 +58,11 @@ export class ResetPasswordContainer extends Component {
 
 ResetPasswordContainer.propTypes = {
   resetPassword: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
-  isFetching: PropTypes.bool.isRequired
+  errors: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-  errors: state.api[types.RESET_PASSWORD].errors,
-  isFetching: state.api[types.RESET_PASSWORD].errors
+  errors: state.api[types.RESET_PASSWORD].errors
 })
 
 export default connect(mapStateToProps, { resetPassword })(ResetPasswordContainer)

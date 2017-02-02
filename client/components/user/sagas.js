@@ -57,13 +57,7 @@ export function* watchConfirmAccount() {
 }
 
 export function* resetPassword(action) {
-  const submit = {
-    token: action.token,
-    password: action.password,
-    passwordConfirmation: action.passwordConfirmation
-  }
-
-  const { data, error } = yield call(post, endpoints.RESET_PASSWORD, submit)
+  const { data, error } = yield call(post, endpoints.RESET_PASSWORD, action.payload)
   if (data) {
     yield put(actions.resetPasswordSuccess(data.token))
     yield put(push('/'))

@@ -82,11 +82,10 @@ export const requestResetPasswordFail = errors => ({
 
 // change the existing password and login the user on success
 
-export const resetPassword = (passwords, token) => ({
+export const resetPassword = payload => ({
   type: types.RESET_PASSWORD,
   api: { key: types.RESET_PASSWORD, isFetching: true, errors: {} },
-  passwords,
-  token
+  payload
 })
 
 export const resetPasswordSuccess = token => ({
