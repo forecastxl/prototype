@@ -8,7 +8,8 @@ import * as actions from './actions'
 import * as types from './actionTypes'
 
 export function* login(action) {
-  const { data, error } = yield call(post, endpoints.LOGIN, action.user)
+  const user = action.user
+  const { data, error } = yield call(post, endpoints.LOGIN, { user })
   if (data) {
     yield put(actions.loginSuccess(data.token))
     yield put(push('/'))

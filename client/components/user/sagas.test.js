@@ -25,7 +25,7 @@ describe('sagas', () => {
     it('should post the login data', () => {
       const generator = sagas.login(action)
       const actual = generator.next().value
-      const expected = call(post, endpoints.LOGIN, action.user)
+      const expected = call(post, endpoints.LOGIN, action)
 
       expect(actual).toEqual(expected)
     })
