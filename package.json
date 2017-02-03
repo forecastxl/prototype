@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "scripts": {
     "start": "webpack-dev-server --content-base dist/",
-    "build": "NODE_ENV=production webpack -p --bail",
+    "build:production": "NODE_ENV=production webpack -p --bail",
+    "build:staging": "NODE_ENV=staging webpack -p --bail",
+    "build:develop": "NODE_ENV=develop webpack -p --bail",
     "coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint client/**/*.{js,jsx}",
     "test": "jest --watch"
