@@ -10,6 +10,9 @@ services:
 script:
   - yarn run coverage
   - yarn run lint
+  # set branch that's currently being built
+  - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+  # build in correct environment
   - if [ "$BRANCH" == "master" ]; then yarn run build:master; fi
   - if [ "$BRANCH" == "staging" ]; then yarn run build:staging; fi
   - if [ "$BRANCH" == "develop" ]; then yarn run build:develop; fi
@@ -18,8 +21,6 @@ after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
   # set repo location
   - export REPO=forecastxl/prototype
-  # set branch that's currently being built
-  - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
   # build container with branch name as tag if on master, staging or develop
   - if [ "$BRANCH" == "master" ] || [ "$BRANCH" == "staging" ] || [ "$BRANCH" == "develop" ]; then docker build -f Dockerfile -t $REPO:$BRANCH .; fi
   # tag with commit message as well if on master
