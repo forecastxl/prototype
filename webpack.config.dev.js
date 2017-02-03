@@ -8,7 +8,7 @@ module.exports = {
       'webpack-dev-server/client?' + process.env.DEV_BASE + ':' + process.env.DEV_PORT,
       'webpack/hot/only-dev-server',
       'react-hot-loader/patch',
-      './src/index'
+      './client/index'
     ]
   },
   output: {
@@ -18,7 +18,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
-      path.join(process.cwd(), '/src'),
+      path.join(process.cwd(), '/client'),
       'node_modules'
     ]
   },
@@ -26,7 +26,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$|\.jsx$/,
-        exclude: /(node_modules)/,
+        exclude: /node_modules\/(?!(map-obj|camelcase)\/).*/,
         loader: 'babel-loader'
       },
       {
@@ -50,7 +50,7 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     historyApiFallback: true,
-    port: process.env.DEV_PORT
+    port: parseInt(process.env.DEV_PORT)
   },
   performance: {
     hints: false
@@ -62,15 +62,10 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         DEV_BASE: JSON.stringify(process.env.DEV_BASE),
         DEV_PORT: JSON.stringify(process.env.DEV_PORT),
-        PROD_BASE: JSON.stringify(process.env.PROD_BASE),
-        SPACE_ID: JSON.stringify(process.env.SPACE_ID),
-        ACCESS_TOKEN: JSON.stringify(process.env.ACCESS_TOKEN)
+        DEV_API: JSON.stringify(process.env.DEV_API),
+        PROD_API: JSON.stringify(process.env.PROD_API)
       }
     }),
-    new HtmlWebpackPlugin({ template: 'src/index.ejs' }),
-    new HtmlWebpackPlugin({
-      template: 'src/index.ejs',
-      filename: '200.html'
-    })
+    new HtmlWebpackPlugin({ template: 'client/index.ejs' })
   ]
 }

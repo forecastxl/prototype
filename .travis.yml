@@ -1,6 +1,34 @@
+sudo: required
 language: node_js
 cache: yarn
 node_js:
-  - "node"
+  - node
 notifications:
   email: false
+services:
+  - docker
+script:
+  - yarn run coverage
+  - yarn run lint
+  - yarn run build
+after_success:
+  # login to docker hub
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  # set repo location
+  - export REPO=forecastxl/prototype
+  # set branch that's currently being built
+  - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+  # build container with branch name as tag if on master, staging or develop
+  - if [ "$BRANCH" == "master" ] || [ "$BRANCH" == "staging" ] || [ "$BRANCH" == "develop" ]; then docker build -f Dockerfile -t $REPO:$BRANCH .; fi
+  # tag with commit message as well if on master
+  - if [ "$BRANCH" == "master" ]; then docker tag $REPO:$BRANCH $REPO:$(git log -n 1 --pretty=format:%f $TRAVIS_COMMIT); fi
+  # tag with latest as well if on master
+  - if [ "$BRANCH" == "master" ]; then docker tag $REPO:$BRANCH $REPO:latest; fi
+  # push to dockerhub
+  - if [ "$BRANCH" == "master" ] || [ "$BRANCH" == "staging" ] || [ "$BRANCH" == "develop" ]; then docker push $REPO; fi
+env:
+  global:
+    - PROD_API=https://api.forecastxl.com
+    - DOCKER_USER=ismay
+    # DOCKER_PASS
+    - secure: "MXZXhNIxxiCTSxkJZbgngY5Ua3rTr2R4e9BaLNkyt0Glm9fVK9WHtgOOjrHp7os+LGEuWGZ12UxAWJAIvl8wngJtPeoBc5lEkewsqFcvcetrSeiuZiBvagrPs64D+DKMZsjWGX9hsDh3cm9Sb8xvGj2bGnHdsb7hGUW16jnsbfoyomcQRLLYQJVFACDNnu3G+Ft6c8vkmt7EdoY/pUlN8OvWsUFa6KlPy30hkuG5IlOqs5rMC8Bg4U+AuPVB5jKxh92Vm6KiXUFTA9zZBrBlNR+/h8sJPsnnmG//IwbHUOzAQd4Dk2SLjOqMEhZ4CdakgTn04BKxwraohfAPANqJ9ztIH9wjb8RwJCMBkG/5izHRVOzhyZpv4yfzwMSVUwxAlIl46HKShR4jz0FX67sSDQoWOvXvnyl/5Kco1xy+GNU7PvllXukNvIoHT/FCFFTaWWpMaz3q4p5Lv5B3NPhwJrEnK5ifRTjST91hpkSEzsyFl2m6jWIZmkLCn1Ai0fNNLLYSfP618jjnkfYLGTcOgk3mItsGpOrISKvRFNjCIsU2MKR90P5XwakNwMydt7N5gOCxe2nEUeR0kZKz49e3MYl8lyWZhy0aitPdrbKG73qsUJJTF4FhNaTAGLUSBRsGcD5b1nUXuAju5T8luynA/Fr5w5MucmyVDAUMkLrMxRs="
