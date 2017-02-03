@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router'
+import { Navigation } from '../../navigation'
 
 const StyledHeader = styled.header`
   background: #eaf3ef;
@@ -10,26 +10,11 @@ const StyledHeader = styled.header`
   justify-content: space-between;
 `
 
-const StyledLink = styled(Link)`
-margin-left: 0.5rem;
-margin-right: 0.5rem;
-  &:first-of-type {
-    margin-left: 0;
-  }
-  &:last-of-type {
-    margin-right: 0;
-  }
-`
-
 function Header() {
   return (
     <StyledHeader>
       <h1>Forecast XL</h1>
-      <nav>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/login">Login</StyledLink>
-        <StyledLink to="/signup">Signup</StyledLink>
-      </nav>
+      <Navigation />
     </StyledHeader>
   )
 }
