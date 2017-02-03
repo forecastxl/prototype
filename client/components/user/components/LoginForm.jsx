@@ -38,7 +38,7 @@ LoginForm.propTypes = {
   user: PropTypes.shape({
     email: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired
-  })
+  }).isRequired
 }
 
 export default LoginForm

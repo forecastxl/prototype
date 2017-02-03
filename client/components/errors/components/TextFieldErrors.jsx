@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 function TextFieldErrors({ errors }) {
   return (
     <div>
-      {errors.map((error, index) => <p key={index}>{error}</p>)}
+      {errors.map(error => <p key={error}>{error}</p>)}
     </div>
   )
 }
@@ -13,4 +13,3 @@ TextFieldErrors.propTypes = {
 }
 
 export default TextFieldErrors
-

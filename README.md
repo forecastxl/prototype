@@ -1,5 +1,6 @@
 # prototype
 
+[![greenkeeper badge][greenkeeper-badge]][greenkeeper-url]
 [![build status][build-badge]][build-url]
 [![coverage status][coverage-badge]][coverage-url]
 [![dependency status][dependency-badge]][dependency-url]
@@ -31,6 +32,8 @@ DEV_API=//192.168.100.3:3000
 PROD_API=https://forecastxl.com
 ```
 
+[greenkeeper-badge]: https://badges.greenkeeper.io/forecastxl/prototype.svg
+[greenkeeper-url]: https://greenkeeper.io/
 [build-badge]: https://img.shields.io/travis/forecastxl/prototype.svg
 [build-url]: https://travis-ci.org/forecastxl/prototype
 [coverage-badge]: https://img.shields.io/coveralls/forecastxl/prototype.svg
