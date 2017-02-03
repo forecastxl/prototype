@@ -8,7 +8,7 @@ const Error = styled.p`
 function ErrorList({ errors }) {
   return (
     <div>
-      {errors.map((error, index) => <Error key={index}>{error}</Error>)}
+      {errors.map(error => <Error key={error}>{error}</Error>)}
     </div>
   )
 }

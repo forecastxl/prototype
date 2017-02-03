@@ -105,7 +105,7 @@ LoginForm.propTypes = {
     password: PropTypes.string.isRequired,
     passwordConfirmation: PropTypes.string.isRequired,
     agreedToGeneralTerms: PropTypes.bool.isRequired
-  })
+  }).isRequired
 }
 
 export default LoginForm
