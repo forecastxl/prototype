@@ -1,7 +1,0 @@
-exports[`<Header /> renders correctly 1`] = `
-<header>
-  <h1>
-    Forecast XL
-  </h1>
-</header>
-`;

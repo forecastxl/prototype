@@ -1,0 +1,10 @@
+exports[`<SignupSuccess /> renders correctly 1`] = `
+<div>
+  <h1>
+    Signup successful
+  </h1>
+  <p>
+    Check your email to confirm your subscription
+  </p>
+</div>
+`;
