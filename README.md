@@ -25,9 +25,10 @@ DEV_BASE=http://localhost
 DEV_PORT=8080
 
 # Where to point api requests to
-DEV_API=//192.168.100.3:3000
 # Only used for local builds, for travis/docker builds this is set in .travis.yml
-PROD_API=https://forecastxl.com
+DEV_API=https://developapi.forecastxl.com
+STAGING_API=https://stagingapi.forecastxl.com
+PROD_API=https://api.forecastxl.com
 ```
 
 [greenkeeper-badge]: https://badges.greenkeeper.io/forecastxl/prototype.svg

@@ -10,7 +10,9 @@ services:
 script:
   - yarn run coverage
   - yarn run lint
-  - yarn run build
+  - if [ "$BRANCH" == "master" ]; then yarn run build:master; fi
+  - if [ "$BRANCH" == "staging" ]; then yarn run build:staging; fi
+  - if [ "$BRANCH" == "develop" ]; then yarn run build:develop; fi
 after_success:
   # login to docker hub
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
@@ -28,6 +30,8 @@ after_success:
   - if [ "$BRANCH" == "master" ] || [ "$BRANCH" == "staging" ] || [ "$BRANCH" == "develop" ]; then docker push $REPO; fi
 env:
   global:
+    - DEV_API=https://developapi.forecastxl.com
+    - STAGING_API=https://stagingapi.forecastxl.com
     - PROD_API=https://api.forecastxl.com
     - DOCKER_USER=ismay
     # DOCKER_PASS
