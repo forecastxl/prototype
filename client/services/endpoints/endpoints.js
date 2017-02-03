@@ -1,6 +1,6 @@
 let base
 
-// istanbul ignore if: this will never be reached when testing
+// istanbul ignore next: this will never be reached when testing
 if (process.env.NODE_ENV === 'production') {
   base = `${process.env.PROD_API}/api/v2`
 } else if (process.env.NODE_ENV === 'staging') {
