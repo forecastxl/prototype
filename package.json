@@ -23,6 +23,13 @@
       "!client/{components,data,services}/*/index.js"
     ]
   },
+  "greenkeeper": {
+    "ignore": [
+      "eslint-plugin-import",
+      "eslint-plugin-react",
+      "eslint-plugin-jsx-a11y"
+    ]
+  },
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
