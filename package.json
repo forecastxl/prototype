@@ -3,8 +3,10 @@
   "name": "prototype",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack-dev-server --content-base dist/",
-    "build": "NODE_ENV=production webpack -p --bail",
+    "start": "DEV_BASE=http://localhost DEV_PORT=8080 API=https://developapi.forecastxl.com/api/v2 webpack-dev-server --content-base dist/",
+    "build:production": "NODE_ENV=production API=https://api.forecastxl.com/api/v2 webpack -p --bail",
+    "build:staging": "NODE_ENV=production API=https://stagingapi.forecastxl.com/api/v2 webpack -p --bail",
+    "build:develop": "NODE_ENV=production API=https://developapi.forecastxl.com/api/v2 webpack -p --bail",
     "coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint client/**/*.{js,jsx}",
     "test": "jest --watch"
@@ -21,6 +23,13 @@
       "!client/{components,data,services}/*/index.js"
     ]
   },
+  "greenkeeper": {
+    "ignore": [
+      "eslint-plugin-import",
+      "eslint-plugin-react",
+      "eslint-plugin-jsx-a11y"
+    ]
+  },
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
@@ -31,22 +40,21 @@
     "clean-webpack-plugin": "^0.1.14",
     "coveralls": "^2.11.15",
     "css-loader": "^0.26.0",
-    "dotenv": "^2.0.0",
     "enzyme": "^2.6.0",
     "enzyme-to-json": "^1.4.4",
-    "eslint": "^3.11.1",
-    "eslint-config-airbnb": "^13.0.0",
-    "eslint-import-resolver-webpack": "^0.7.1",
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-import-resolver-webpack": "^0.8.1",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.8.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
     "extract-text-webpack-plugin": "2.0.0-beta.5",
     "html-webpack-plugin": "^2.24.1",
     "jest": "^18.0.0",
     "react-addons-test-utils": "^15.4.1",
     "style-loader": "^0.13.1",
     "webpack": "2.2.0",
-    "webpack-dev-server": "2.2.0"
+    "webpack-dev-server": "2.3.0"
   },
   "dependencies": {
     "babel-polyfill": "^6.16.0",
@@ -57,12 +65,11 @@
     "map-obj": "^2.0.0",
     "material-ui": "^0.16.6",
     "normalize.css": "^5.0.0",
-    "normalizr": "^2.3.0",
     "react": "^15.4.1",
     "react-document-title": "^2.0.2",
     "react-dom": "^15.4.1",
     "react-hot-loader": "3.0.0-beta.6",
-    "react-redux": "5.0.1",
+    "react-redux": "5.0.2",
     "react-router": "4.0.0-alpha.6",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
