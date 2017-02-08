@@ -23,6 +23,13 @@
       "!client/{components,data,services}/*/index.js"
     ]
   },
+  "greenkeeper": {
+    "ignore": [
+      "eslint-plugin-import",
+      "eslint-plugin-react",
+      "eslint-plugin-jsx-a11y"
+    ]
+  },
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
@@ -40,7 +47,7 @@
     "eslint-config-airbnb": "^14.0.0",
     "eslint-import-resolver-webpack": "^0.8.1",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
     "extract-text-webpack-plugin": "2.0.0-beta.5",
     "html-webpack-plugin": "^2.24.1",
