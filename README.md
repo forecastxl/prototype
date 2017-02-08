@@ -33,7 +33,7 @@ PROD_API=https://api.forecastxl.com
 
 [greenkeeper-badge]: https://badges.greenkeeper.io/forecastxl/prototype.svg
 [greenkeeper-url]: https://greenkeeper.io/
-[build-badge]: https://travis-ci.org/forecastxl/prototype.svg?branch=master
+[build-badge]: https://travis-ci.org/forecastxl/prototype.svg?branch=develop
 [build-url]: https://travis-ci.org/forecastxl/prototype
-[coverage-badge]: https://coveralls.io/repos/github/forecastxl/prototype/badge.svg?branch=master
-[coverage-url]: https://coveralls.io/github/forecastxl/prototype?branch=master
+[coverage-badge]: https://coveralls.io/repos/github/forecastxl/prototype/badge.svg?branch=develop
+[coverage-url]: https://coveralls.io/github/forecastxl/prototype?branch=develop
