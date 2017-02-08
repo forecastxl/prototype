@@ -3,10 +3,10 @@
   "name": "prototype",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack-dev-server --content-base dist/",
-    "build:production": "NODE_ENV=production webpack -p --bail",
-    "build:staging": "NODE_ENV=staging webpack -p --bail",
-    "build:develop": "NODE_ENV=develop webpack -p --bail",
+    "start": "DEV_BASE=http://localhost DEV_PORT=8080 API=https://developapi.forecastxl.com/api/v2 webpack-dev-server --content-base dist/",
+    "build:production": "NODE_ENV=production API=https://api.forecastxl.com/api/v2 webpack -p --bail",
+    "build:staging": "NODE_ENV=production API=https://stagingapi.forecastxl.com/api/v2 webpack -p --bail",
+    "build:develop": "NODE_ENV=production API=https://developapi.forecastxl.com/api/v2 webpack -p --bail",
     "coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "lint": "eslint client/**/*.{js,jsx}",
     "test": "jest --watch"
@@ -40,7 +40,6 @@
     "clean-webpack-plugin": "^0.1.14",
     "coveralls": "^2.11.15",
     "css-loader": "^0.26.0",
-    "dotenv": "^4.0.0",
     "enzyme": "^2.6.0",
     "enzyme-to-json": "^1.4.4",
     "eslint": "^3.14.1",
