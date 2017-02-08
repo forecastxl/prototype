@@ -12,15 +12,9 @@ const UserIcon = () => (
   </GetThemeProp>
 )
 
-const UserButton = () => (
-  <IconButton>
-    <UserIcon />
-  </IconButton>
-)
-
 const UserNavigation = () => (
   <IconMenu
-    iconButtonElement={<UserButton />}
+    iconButtonElement={<IconButton><UserIcon /></IconButton>}
     targetOrigin={{ horizontal: 'right', vertical: 'top' }}
     anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
   >
