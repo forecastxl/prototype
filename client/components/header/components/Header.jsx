@@ -1,22 +1,25 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Navigation } from '../../navigation'
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
+import Wrapper from './Wrapper'
+import Title from './Title'
+import UserNavigation from './UserNavigation'
+import LoginButton from './LoginButton'
 
-const StyledHeader = styled.header`
-  background: #eaf3ef;
-  padding: 0 1rem;
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-`
-
-function Header() {
+function Header({ hasToken }) {
   return (
-    <StyledHeader>
-      <h1>Forecast XL</h1>
-      <Navigation />
-    </StyledHeader>
+    <Wrapper>
+      <Title>ForecastXL</Title>
+      {hasToken ? <UserNavigation /> : <LoginButton />}
+    </Wrapper>
   )
 }
 
-export default Header
+Header.propTypes = {
+  hasToken: PropTypes.bool.isRequired
+}
+
+const mapStateToProps = state => ({
+  hasToken: state.user.hasToken
+})
+
+export default connect(mapStateToProps, {})(Header)
