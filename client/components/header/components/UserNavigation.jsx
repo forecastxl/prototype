@@ -1,18 +1,9 @@
 import React from 'react'
-import SocialPerson from 'material-ui/svg-icons/social/person'
 import IconMenu from 'material-ui/IconMenu'
 import IconButton from 'material-ui/IconButton'
 import MenuItem from 'material-ui/MenuItem'
 import { LogoutButtonContainer } from '../../user'
-import { GetThemeProp } from '../../theme'
-
-function UserIcon() {
-  return (
-    <GetThemeProp prop="alternateTextColor">
-      {color => <SocialPerson style={{ color }} />}
-    </GetThemeProp>
-  )
-}
+import UserIcon from './UserIcon'
 
 function UserNavigation() {
   return (

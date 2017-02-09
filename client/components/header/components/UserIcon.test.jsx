@@ -1,13 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import LoginButton from './LoginButton'
+import UserIcon from './UserIcon'
 
-jest.mock('../../theme')
-
-describe('<LoginButton />', () => {
+describe('<UserIcon />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(<LoginButton />)
+    const wrapper = shallow(<UserIcon />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })

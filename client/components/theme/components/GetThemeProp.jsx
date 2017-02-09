@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import muiThemeable from 'material-ui/styles/muiThemeable'
 
-const GetThemeProp = ({ children, muiTheme, prop }) => (
+export const GetThemeProp = ({ children, muiTheme, prop }) => (
   <span>
     {children(muiTheme.palette[prop])}
   </span>
