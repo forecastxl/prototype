@@ -46,6 +46,20 @@ exports[`<LoginForm /> renders correctly 1`] = `
     isActive={[Function]}
     replace={false}
     style={Object {}}
+    to="/signup">
+    Don\'t have an account?
+  </Link>
+  <span>
+     - 
+  </span>
+  <Link
+    activeClassName=""
+    activeOnlyWhenExact={false}
+    activeStyle={Object {}}
+    className=""
+    isActive={[Function]}
+    replace={false}
+    style={Object {}}
     to="/login/forgot-password">
     Forgot your password?
   </Link>

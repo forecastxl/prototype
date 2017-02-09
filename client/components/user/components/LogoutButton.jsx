@@ -1,14 +1,15 @@
 import React, { PropTypes } from 'react'
-import RaisedButton from 'material-ui/RaisedButton'
+import styled from 'styled-components'
+
+const StyledButton = styled.button`
+  border: none;
+  padding: 0;
+  background: none;
+`
 
 function LogoutButton({ onClick }) {
   return (
-    <RaisedButton
-      type="button"
-      label="Log out"
-      primary
-      onClick={onClick}
-    />
+    <StyledButton type="button" onClick={onClick}>Log out</StyledButton>
   )
 }
 

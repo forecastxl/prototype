@@ -1,6 +1,6 @@
 exports[`<Routes /> renders correctly 1`] = `
 <div>
-  <Header />
+  <Connect(Header) />
   <styled.div>
     <Match
       component={[Function]}

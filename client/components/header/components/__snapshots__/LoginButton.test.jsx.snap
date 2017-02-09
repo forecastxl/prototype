@@ -1,0 +1,28 @@
+exports[`<LoginButton /> renders correctly 1`] = `
+<Link
+  activeClassName=""
+  activeOnlyWhenExact={false}
+  activeStyle={Object {}}
+  className=""
+  isActive={[Function]}
+  replace={false}
+  style={Object {}}
+  to="/login">
+  <FlatButton
+    disabled={false}
+    label="Login"
+    labelPosition="after"
+    labelStyle={Object {}}
+    onKeyboardFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onTouchStart={[Function]}
+    primary={false}
+    secondary={false}
+    style={
+      Object {
+        "color": "blue",
+      }
+    } />
+</Link>
+`;

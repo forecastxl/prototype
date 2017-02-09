@@ -26,6 +26,8 @@ function LoginForm({ onSubmit, onChange, user, errors }) {
         /><br />
         <RaisedButton type="submit" label="Log in" primary />
       </form>
+      <Link to="/signup">Don&apos;t have an account?</Link>
+      <span> - </span>
       <Link to="/login/forgot-password">Forgot your password?</Link>
     </div>
   )

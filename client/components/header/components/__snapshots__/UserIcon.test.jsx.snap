@@ -1,0 +1,8 @@
+exports[`<UserIcon /> renders correctly 1`] = `
+<SocialPerson
+  style={
+    Object {
+      "color": "blue",
+    }
+  } />
+`;
