@@ -6,22 +6,26 @@ import MenuItem from 'material-ui/MenuItem'
 import { LogoutButtonContainer } from '../../user'
 import { GetThemeProp } from '../../theme'
 
-const UserIcon = () => (
-  <GetThemeProp prop="alternateTextColor">
-    {color => <SocialPerson style={{ color }} />}
-  </GetThemeProp>
-)
+function UserIcon() {
+  return (
+    <GetThemeProp prop="alternateTextColor">
+      {color => <SocialPerson style={{ color }} />}
+    </GetThemeProp>
+  )
+}
 
-const UserNavigation = () => (
-  <IconMenu
-    iconButtonElement={<IconButton><UserIcon /></IconButton>}
-    targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-    anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-  >
-    <MenuItem>
-      <LogoutButtonContainer />
-    </MenuItem>
-  </IconMenu>
-)
+function UserNavigation() {
+  return (
+    <IconMenu
+      iconButtonElement={<IconButton><UserIcon /></IconButton>}
+      targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+      anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+    >
+      <MenuItem>
+        <LogoutButtonContainer />
+      </MenuItem>
+    </IconMenu>
+  )
+}
 
 export default UserNavigation
