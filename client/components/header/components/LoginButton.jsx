@@ -4,6 +4,7 @@ import FlatButton from 'material-ui/FlatButton'
 import { GetThemeProp } from '../../theme'
 
 function LoginButton() {
+  /* istanbul ignore next */
   return (
     <Link to="/login">
       <GetThemeProp prop="alternateTextColor">
