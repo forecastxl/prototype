@@ -1,11 +1,7 @@
 exports[`<LogoutButton /> renders correctly 1`] = `
-<RaisedButton
-  disabled={false}
-  fullWidth={false}
-  label="Log out"
-  labelPosition="after"
+<styled.button
   onClick={[Function]}
-  primary={true}
-  secondary={false}
-  type="button" />
+  type="button">
+  Log out
+</styled.button>
 `;

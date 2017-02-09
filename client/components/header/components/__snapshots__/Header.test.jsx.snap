@@ -1,8 +1,17 @@
-exports[`<Header /> renders correctly 1`] = `
-<styled.header>
-  <h1>
-    Forecast XL
-  </h1>
-  <Navigation />
-</styled.header>
+exports[`<Header /> renders correctly when it does not have a token 1`] = `
+<MuiComponent>
+  <MuiComponent>
+    ForecastXL
+  </MuiComponent>
+  <LoginButton />
+</MuiComponent>
+`;
+
+exports[`<Header /> renders correctly when it has a token 1`] = `
+<MuiComponent>
+  <MuiComponent>
+    ForecastXL
+  </MuiComponent>
+  <UserNavigation />
+</MuiComponent>
 `;

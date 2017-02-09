@@ -1,0 +1,14 @@
+exports[`<LoginButton /> renders correctly 1`] = `
+<Link
+  activeClassName=""
+  activeOnlyWhenExact={false}
+  activeStyle={Object {}}
+  className=""
+  isActive={[Function]}
+  replace={false}
+  style={Object {}}
+  to="/login">
+  <MuiComponent
+    prop="alternateTextColor" />
+</Link>
+`;

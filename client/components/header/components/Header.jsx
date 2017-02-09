@@ -5,7 +5,7 @@ import Title from './Title'
 import UserNavigation from './UserNavigation'
 import LoginButton from './LoginButton'
 
-function Header({ hasToken }) {
+export function Header({ hasToken }) {
   return (
     <Wrapper>
       <Title>ForecastXL</Title>
