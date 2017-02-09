@@ -8,7 +8,21 @@ exports[`<LoginButton /> renders correctly 1`] = `
   replace={false}
   style={Object {}}
   to="/login">
-  <MuiComponent
-    prop="alternateTextColor" />
+  <FlatButton
+    disabled={false}
+    label="Login"
+    labelPosition="after"
+    labelStyle={Object {}}
+    onKeyboardFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onTouchStart={[Function]}
+    primary={false}
+    secondary={false}
+    style={
+      Object {
+        "color": "blue",
+      }
+    } />
 </Link>
 `;

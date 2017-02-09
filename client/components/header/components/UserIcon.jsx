@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import SocialPerson from 'material-ui/svg-icons/social/person'
-import { GetThemeProp } from '../../theme'
+import muiThemeable from 'material-ui/styles/muiThemeable'
 
-function UserIcon() {
-  /* istanbul ignore next */
+export function UserIcon({ muiTheme }) {
   return (
-    <GetThemeProp prop="alternateTextColor">
-      {color => <SocialPerson style={{ color }} />}
-    </GetThemeProp>
+    <SocialPerson style={{ color: muiTheme.palette.alternateTextColor }} />
   )
 }
 
-export default UserIcon
+UserIcon.propTypes = {
+  muiTheme: PropTypes.object.isRequired
+}
+
+export default muiThemeable()(UserIcon)

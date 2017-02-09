@@ -14,7 +14,7 @@ exports[`<UserNavigation /> renders correctly 1`] = `
       iconStyle={Object {}}
       tooltipPosition="bottom-center"
       touch={false}>
-      <UserIcon />
+      <MuiComponent />
     </IconButton>
   }
   multiple={false}

@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
+import muiThemeable from 'material-ui/styles/muiThemeable'
 import FlatButton from 'material-ui/FlatButton'
-import { GetThemeProp } from '../../theme'
 
-function LoginButton() {
-  /* istanbul ignore next */
+export function LoginButton({ muiTheme }) {
   return (
     <Link to="/login">
-      <GetThemeProp prop="alternateTextColor">
-        {color => <FlatButton style={{ color }} label="Login" />}
-      </GetThemeProp>
+      <FlatButton style={{ color: muiTheme.palette.alternateTextColor }} label="Login" />
     </Link>
   )
 }
 
-export default LoginButton
+LoginButton.propTypes = {
+  muiTheme: PropTypes.object.isRequired
+}
+
+export default muiThemeable()(LoginButton)

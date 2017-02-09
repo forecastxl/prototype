@@ -1,4 +1,8 @@
 exports[`<UserIcon /> renders correctly 1`] = `
-<MuiComponent
-  prop="alternateTextColor" />
+<SocialPerson
+  style={
+    Object {
+      "color": "blue",
+    }
+  } />
 `;

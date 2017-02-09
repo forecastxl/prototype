@@ -3,7 +3,7 @@ exports[`<Header /> renders correctly when it does not have a token 1`] = `
   <MuiComponent>
     ForecastXL
   </MuiComponent>
-  <LoginButton />
+  <MuiComponent />
 </MuiComponent>
 `;
 
