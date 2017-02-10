@@ -47,7 +47,7 @@ module.exports = {
       }
     ]
   },
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
   devServer: {
     historyApiFallback: true,
     port: parseInt(process.env.DEV_PORT)
