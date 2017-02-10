@@ -76,11 +76,22 @@ describe('sagas', () => {
     })
   })
 
-  describe('watchCreateAccount', () => {
-    it('should respond to CREATE_ACCOUNT', () => {
-      const generator = sagas.watchCreateAccount()
+  describe('watchLogout', () => {
+    it('should respond to LOGOUT', () => {
+      const generator = sagas.watchLogout()
       const actual = generator.next().value
-      const expected = call(takeLatest, types.CREATE_ACCOUNT, sagas.createAccount)
+      const expected = call(takeLatest, types.LOGOUT, sagas.logout)
+
+      expect(actual).toEqual(expected)
+    })
+  })
+
+  describe('logout', () => {
+    it('should redirect to /login after logging out', () => {
+      const generator = sagas.logout()
+      const expected = put(push('/login'))
+
+      const actual = generator.next().value
 
       expect(actual).toEqual(expected)
     })
