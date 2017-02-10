@@ -36,16 +36,16 @@ module.exports = {
         test: /\.css$/,
         include: /node_modules/,
         loader: extractVendor.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader'
+          fallbackLoader: 'style-loader?sourceMap',
+          loader: 'css-loader?sourceMap'
         })
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
         loader: extractBundle.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader'
+          fallbackLoader: 'style-loader?sourceMap',
+          loader: 'css-loader?sourceMap'
         })
       }
     ]
