@@ -1,9 +1,8 @@
 import React from 'react'
 import IconMenu from 'material-ui/IconMenu'
 import IconButton from 'material-ui/IconButton'
-import MenuItem from 'material-ui/MenuItem'
-import { LogoutButtonContainer } from '../../user'
 import UserIcon from './UserIcon'
+import LogoutMenuItem from './LogoutMenuItem'
 
 function UserNavigation() {
   return (
@@ -12,9 +11,7 @@ function UserNavigation() {
       targetOrigin={{ horizontal: 'right', vertical: 'top' }}
       anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
     >
-      <MenuItem>
-        <LogoutButtonContainer />
-      </MenuItem>
+      <LogoutMenuItem primaryText="Logout" />
     </IconMenu>
   )
 }

@@ -1,7 +1,0 @@
-exports[`<LogoutButton /> renders correctly 1`] = `
-<styled.button
-  onClick={[Function]}
-  type="button">
-  Log out
-</styled.button>
-`;

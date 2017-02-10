@@ -35,13 +35,7 @@ exports[`<UserNavigation /> renders correctly 1`] = `
   }
   touchTapCloseDelay={200}
   useLayerForClickAway={false}>
-  <MenuItem
-    checked={false}
-    desktop={false}
-    disabled={false}
-    focusState="none"
-    insetChildren={false}>
-    <Connect(LogoutButtonContainer) />
-  </MenuItem>
+  <Connect(LogoutMenuItem)
+    primaryText="Logout" />
 </IconMenu>
 `;
