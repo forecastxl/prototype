@@ -1,13 +1,8 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
-import styled from 'styled-components'
 import TextField from 'material-ui/TextField'
 import { ErrorList, TextFieldErrors } from '../../errors'
 import { Dialog, DialogBody, DialogHeader, DialogFooter, DialogButton } from '../../dialog'
-
-const StyledForm = styled.form`
-  margin: 0 0 1.5rem;
-`
 
 function LoginForm({ onSubmit, onChange, user, errors }) {
   return (
@@ -18,7 +13,7 @@ function LoginForm({ onSubmit, onChange, user, errors }) {
       />
       <DialogBody>
         {errors && errors.base && <ErrorList errors={errors.base} />}
-        <StyledForm action="/" onSubmit={onSubmit}>
+        <form action="/" onSubmit={onSubmit}>
           <TextField
             floatingLabelText="Email"
             name="email"
@@ -37,7 +32,7 @@ function LoginForm({ onSubmit, onChange, user, errors }) {
             errorText={errors && errors.password && <TextFieldErrors errors={errors.password} />}
           /><br />
           <DialogButton type="submit" label="Log in" primary fullWidth />
-        </StyledForm>
+        </form>
         <DialogFooter>
           <Link to="/signup">Don&apos;t have an account?</Link>
           <span> - </span>
