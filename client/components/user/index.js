@@ -4,7 +4,6 @@ import * as sagas from './sagas'
 
 export { actionTypes, actions, sagas }
 export { default as LoginFormContainer } from './components/LoginFormContainer'
-export { default as LogoutButtonContainer } from './components/LogoutButtonContainer'
 export { default as SignupConfirmContainer } from './components/SignupConfirmContainer'
 export { default as ForgotPasswordContainer } from './components/ForgotPasswordContainer'
 export { default as ForgotPasswordSuccess } from './components/ForgotPasswordSuccess'
