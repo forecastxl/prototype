@@ -50,11 +50,14 @@ module.exports = {
       }
     ]
   },
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
   plugins: [
     extractVendor,
     extractBundle,
     new CleanWebpackPlugin(['dist'], { root: process.cwd(), verbose: true }),
+    new webpack.UglifyJsPlugin({
+      sourceMap: true
+    }),
     new webpack.LoaderOptionsPlugin({ minimize: true }),
     new webpack.DefinePlugin({
       'process.env': {
