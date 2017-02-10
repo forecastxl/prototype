@@ -55,7 +55,7 @@ module.exports = {
     extractVendor,
     extractBundle,
     new CleanWebpackPlugin(['dist'], { root: process.cwd(), verbose: true }),
-    new webpack.UglifyJsPlugin({
+    new webpack.optimize.UglifyJsPlugin({
       sourceMap: true
     }),
     new webpack.LoaderOptionsPlugin({ minimize: true }),
