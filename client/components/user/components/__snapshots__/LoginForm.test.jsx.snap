@@ -1,67 +1,71 @@
 exports[`<LoginForm /> renders correctly 1`] = `
-<div>
-  <form
-    action="/"
-    onSubmit={[Function]}>
-    <TextField
-      disabled={false}
-      floatingLabelFixed={false}
-      floatingLabelText="Email"
-      fullWidth={false}
-      multiLine={false}
-      name="email"
-      onChange={[Function]}
-      rows={1}
-      type="text"
-      underlineShow={true}
-      value="" />
-    <br />
-    <TextField
-      disabled={false}
-      floatingLabelFixed={false}
-      floatingLabelText="Password"
-      fullWidth={false}
-      multiLine={false}
-      name="password"
-      onChange={[Function]}
-      rows={1}
-      type="password"
-      underlineShow={true}
-      value="" />
-    <br />
-    <RaisedButton
-      disabled={false}
-      fullWidth={false}
-      label="Log in"
-      labelPosition="after"
-      primary={true}
-      secondary={false}
-      type="submit" />
-  </form>
-  <Link
-    activeClassName=""
-    activeOnlyWhenExact={false}
-    activeStyle={Object {}}
-    className=""
-    isActive={[Function]}
-    replace={false}
-    style={Object {}}
-    to="/signup">
-    Don\'t have an account?
-  </Link>
-  <span>
-     - 
-  </span>
-  <Link
-    activeClassName=""
-    activeOnlyWhenExact={false}
-    activeStyle={Object {}}
-    className=""
-    isActive={[Function]}
-    replace={false}
-    style={Object {}}
-    to="/login/forgot-password">
-    Forgot your password?
-  </Link>
-</div>
+<Styled(undefined)>
+  <MuiComponent
+    title="Log in to ForecastXL"
+    titleColor="white" />
+  <CardText>
+    <form
+      action="/"
+      onSubmit={[Function]}>
+      <TextField
+        disabled={false}
+        floatingLabelFixed={false}
+        floatingLabelText="Email"
+        fullWidth={true}
+        multiLine={false}
+        name="email"
+        onChange={[Function]}
+        rows={1}
+        type="text"
+        underlineShow={true}
+        value="" />
+      <br />
+      <TextField
+        disabled={false}
+        floatingLabelFixed={false}
+        floatingLabelText="Password"
+        fullWidth={true}
+        multiLine={false}
+        name="password"
+        onChange={[Function]}
+        rows={1}
+        type="password"
+        underlineShow={true}
+        value="" />
+      <br />
+      <DialogButton
+        fullWidth={true}
+        label="Log in"
+        primary={true}
+        type="submit" />
+    </form>
+    <styled.div>
+      <Link
+        activeClassName=""
+        activeOnlyWhenExact={false}
+        activeStyle={Object {}}
+        className=""
+        isActive={[Function]}
+        replace={false}
+        style={Object {}}
+        to="/signup">
+        Don\'t have an account?
+      </Link>
+      <span>
+         - 
+      </span>
+      <Link
+        activeClassName=""
+        activeOnlyWhenExact={false}
+        activeStyle={Object {}}
+        className=""
+        isActive={[Function]}
+        replace={false}
+        style={Object {}}
+        to="/login/forgot-password">
+        Forgot your password?
+      </Link>
+    </styled.div>
+  </CardText>
+</Styled(undefined)>
 `;

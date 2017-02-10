@@ -3,6 +3,5 @@ exports[`<Home /> renders correctly 1`] = `
   <h1>
     Home
   </h1>
-  <Connect(LogoutButtonContainer) />
 </div>
 `;

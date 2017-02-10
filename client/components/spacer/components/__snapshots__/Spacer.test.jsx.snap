@@ -1,0 +1,29 @@
+exports[`<Spacer /> renders correctly when bottom is set 1`] = `
+<div
+  className="khJarL" />
+`;
+
+exports[`<Spacer /> renders correctly when horizontal is set 1`] = `
+<div
+  className="dWGHyF" />
+`;
+
+exports[`<Spacer /> renders correctly when left is set 1`] = `
+<div
+  className="bgSvOo" />
+`;
+
+exports[`<Spacer /> renders correctly when right is set 1`] = `
+<div
+  className="kMQahW" />
+`;
+
+exports[`<Spacer /> renders correctly when top is set 1`] = `
+<div
+  className="kXMLyR" />
+`;
+
+exports[`<Spacer /> renders correctly when vertical is set 1`] = `
+<div
+  className="jughzK" />
+`;

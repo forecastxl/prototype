@@ -1,0 +1,9 @@
+exports[`<DialogHeader /> renders correctly 1`] = `
+<CardHeader
+  avatar={null}
+  style={
+    Object {
+      "background": "blue",
+    }
+  } />
+`;

@@ -1,0 +1,13 @@
+exports[`<DialogButton /> renders correctly 1`] = `
+<RaisedButton
+  disabled={false}
+  fullWidth={false}
+  labelPosition="after"
+  primary={false}
+  secondary={false}
+  style={
+    Object {
+      "marginTop": "1.5rem",
+    }
+  } />
+`;
