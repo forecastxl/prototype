@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import TextField from 'material-ui/TextField'
-import { ErrorList, TextFieldErrors } from '../../errors'
+import { Alert } from '../../alert'
+import { TextFieldErrors } from '../../errors'
 import { Dialog, DialogBody, DialogHeader, DialogFooter, DialogButton } from '../../dialog'
 
 function LoginForm({ onSubmit, onChange, user, errors }) {
@@ -12,7 +13,7 @@ function LoginForm({ onSubmit, onChange, user, errors }) {
         titleColor="white"
       />
       <DialogBody>
-        {errors && errors.base && <ErrorList errors={errors.base} />}
+        {errors && errors.base && <Alert messages={errors.base} />}
         <form action="/" onSubmit={onSubmit}>
           <TextField
             floatingLabelText="Email"
