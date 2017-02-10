@@ -1,0 +1,5 @@
+export { default as DialogHeader } from './components/DialogHeader'
+export { default as DialogFooter } from './components/DialogFooter'
+export { default as DialogBody } from './components/DialogBody'
+export { default as DialogButton } from './components/DialogButton'
+export { default as Dialog } from './components/Dialog'

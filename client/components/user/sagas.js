@@ -23,6 +23,14 @@ export function* watchLogin() {
   yield call(takeLatest, types.LOGIN, login)
 }
 
+export function* logout() {
+  yield put(push('/login'))
+}
+
+export function* watchLogout() {
+  yield call(takeLatest, types.LOGOUT, logout)
+}
+
 export function* createAccount(action) {
   const { data, error } = yield call(post, endpoints.CREATE_ACCOUNT, action.account)
   if (data) {

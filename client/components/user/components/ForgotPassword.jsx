@@ -1,23 +1,30 @@
 import React, { PropTypes } from 'react'
-import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import { ErrorList, TextFieldErrors } from '../../errors'
+import { Dialog, DialogBody, DialogHeader, DialogButton } from '../../dialog'
 
 function ForgotPassword({ onSubmit, onChange, email, errors }) {
   return (
-    <div>
-      {errors && errors.base && <ErrorList errors={errors.base} />}
-      <form action="/" onSubmit={onSubmit}>
-        <TextField
-          floatingLabelText="Email"
-          name="email"
-          value={email}
-          onChange={onChange}
-          errorText={errors && errors.email && <TextFieldErrors errors={errors.email} />}
-        />
-        <RaisedButton type="submit" label="Reset password" primary />
-      </form>
-    </div>
+    <Dialog>
+      <DialogHeader
+        title="Reset your password"
+        titleColor="white"
+      />
+      <DialogBody>
+        {errors && errors.base && <ErrorList errors={errors.base} />}
+        <form action="/" onSubmit={onSubmit}>
+          <TextField
+            floatingLabelText="Email"
+            name="email"
+            value={email}
+            onChange={onChange}
+            fullWidth
+            errorText={errors && errors.email && <TextFieldErrors errors={errors.email} />}
+          />
+          <DialogButton type="submit" label="Reset password" primary fullWidth />
+        </form>
+      </DialogBody>
+    </Dialog>
   )
 }
 

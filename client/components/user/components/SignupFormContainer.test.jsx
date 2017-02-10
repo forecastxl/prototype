@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 import { SignupFormContainer } from './SignupFormContainer'
 
+jest.mock('material-ui/Card')
 jest.mock('material-ui/TextField')
 jest.mock('material-ui/RaisedButton')
 jest.mock('material-ui/Checkbox')

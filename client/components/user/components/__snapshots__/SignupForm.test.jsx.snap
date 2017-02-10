@@ -1,115 +1,120 @@
 exports[`<SignupForm /> renders correctly 1`] = `
-<div>
-  <form
-    action="/"
-    onSubmit={[Function]}>
-    <TextField
-      disabled={false}
-      floatingLabelFixed={false}
-      floatingLabelText="First Name"
-      fullWidth={false}
-      multiLine={false}
-      name="firstName"
-      onChange={[Function]}
-      rows={1}
-      type="text"
-      underlineShow={true}
-      value="" />
-    <br />
-    <TextField
-      disabled={false}
-      floatingLabelFixed={false}
-      floatingLabelText="Last Name"
-      fullWidth={false}
-      multiLine={false}
-      name="lastName"
-      onChange={[Function]}
-      rows={1}
-      type="text"
-      underlineShow={true}
-      value="" />
-    <br />
-    <TextField
-      disabled={false}
-      floatingLabelFixed={false}
-      floatingLabelText="Company Name"
-      fullWidth={false}
-      multiLine={false}
-      name="companyName"
-      onChange={[Function]}
-      rows={1}
-      type="text"
-      underlineShow={true}
-      value="" />
-    <br />
-    <TextField
-      disabled={false}
-      floatingLabelFixed={false}
-      floatingLabelText="Phone Number"
-      fullWidth={false}
-      multiLine={false}
-      name="phoneNumber"
-      onChange={[Function]}
-      rows={1}
-      type="tel"
-      underlineShow={true}
-      value="" />
-    <br />
-    <TextField
-      disabled={false}
-      floatingLabelFixed={false}
-      floatingLabelText="Email"
-      fullWidth={false}
-      multiLine={false}
-      name="email"
-      onChange={[Function]}
-      rows={1}
-      type="email"
-      underlineShow={true}
-      value="" />
-    <br />
-    <TextField
-      disabled={false}
-      floatingLabelFixed={false}
-      floatingLabelText="Password"
-      fullWidth={false}
-      multiLine={false}
-      name="password"
-      onChange={[Function]}
-      rows={1}
-      type="password"
-      underlineShow={true}
-      value="" />
-    <br />
-    <TextField
-      disabled={false}
-      floatingLabelFixed={false}
-      floatingLabelText="Repeat password"
-      fullWidth={false}
-      multiLine={false}
-      name="passwordConfirmation"
-      onChange={[Function]}
-      rows={1}
-      type="password"
-      underlineShow={true}
-      value="" />
-    <br />
-    <Checkbox
-      checked={false}
-      disabled={false}
-      label="I agree to the terms and conditions"
-      labelPosition="right"
-      name="agreedToGeneralTerms"
-      onCheck={[Function]} />
-    <br />
-    <RaisedButton
-      disabled={false}
-      fullWidth={false}
-      label="Sign up"
-      labelPosition="after"
-      primary={true}
-      secondary={false}
-      type="submit" />
-  </form>
-</div>
+<Styled(undefined)>
+  <MuiComponent
+    title="Create an account with ForecastXL"
+    titleColor="white" />
+  <CardText>
+    <form
+      action="/"
+      onSubmit={[Function]}>
+      <styled.div
+        bottom={true}>
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          floatingLabelText="First Name"
+          fullWidth={true}
+          multiLine={false}
+          name="firstName"
+          onChange={[Function]}
+          rows={1}
+          type="text"
+          underlineShow={true}
+          value="" />
+        <br />
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          floatingLabelText="Last Name"
+          fullWidth={true}
+          multiLine={false}
+          name="lastName"
+          onChange={[Function]}
+          rows={1}
+          type="text"
+          underlineShow={true}
+          value="" />
+        <br />
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          floatingLabelText="Company Name"
+          fullWidth={true}
+          multiLine={false}
+          name="companyName"
+          onChange={[Function]}
+          rows={1}
+          type="text"
+          underlineShow={true}
+          value="" />
+        <br />
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          floatingLabelText="Phone Number"
+          fullWidth={true}
+          multiLine={false}
+          name="phoneNumber"
+          onChange={[Function]}
+          rows={1}
+          type="tel"
+          underlineShow={true}
+          value="" />
+        <br />
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          floatingLabelText="Email"
+          fullWidth={true}
+          multiLine={false}
+          name="email"
+          onChange={[Function]}
+          rows={1}
+          type="email"
+          underlineShow={true}
+          value="" />
+        <br />
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          floatingLabelText="Password"
+          fullWidth={true}
+          multiLine={false}
+          name="password"
+          onChange={[Function]}
+          rows={1}
+          type="password"
+          underlineShow={true}
+          value="" />
+        <br />
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          floatingLabelText="Repeat password"
+          fullWidth={true}
+          multiLine={false}
+          name="passwordConfirmation"
+          onChange={[Function]}
+          rows={1}
+          type="password"
+          underlineShow={true}
+          value="" />
+        <br />
+      </styled.div>
+      <Checkbox
+        checked={false}
+        disabled={false}
+        label="I agree to the terms and conditions"
+        labelPosition="right"
+        name="agreedToGeneralTerms"
+        onCheck={[Function]} />
+      <br />
+      <DialogButton
+        fullWidth={true}
+        label="Sign up"
+        primary={true}
+        type="submit" />
+    </form>
+  </CardText>
+</Styled(undefined)>
 `;

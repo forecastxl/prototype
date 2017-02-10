@@ -1,35 +1,45 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
-import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import { ErrorList, TextFieldErrors } from '../../errors'
+import { Dialog, DialogBody, DialogHeader, DialogFooter, DialogButton } from '../../dialog'
 
 function LoginForm({ onSubmit, onChange, user, errors }) {
   return (
-    <div>
-      {errors && errors.base && <ErrorList errors={errors.base} />}
-      <form action="/" onSubmit={onSubmit}>
-        <TextField
-          floatingLabelText="Email"
-          name="email"
-          value={user.email}
-          onChange={onChange}
-          errorText={errors && errors.email && <TextFieldErrors errors={errors.email} />}
-        /><br />
-        <TextField
-          floatingLabelText="Password"
-          name="password"
-          type="password"
-          value={user.password}
-          onChange={onChange}
-          errorText={errors && errors.password && <TextFieldErrors errors={errors.password} />}
-        /><br />
-        <RaisedButton type="submit" label="Log in" primary />
-      </form>
-      <Link to="/signup">Don&apos;t have an account?</Link>
-      <span> - </span>
-      <Link to="/login/forgot-password">Forgot your password?</Link>
-    </div>
+    <Dialog>
+      <DialogHeader
+        title="Log in to ForecastXL"
+        titleColor="white"
+      />
+      <DialogBody>
+        {errors && errors.base && <ErrorList errors={errors.base} />}
+        <form action="/" onSubmit={onSubmit}>
+          <TextField
+            floatingLabelText="Email"
+            name="email"
+            value={user.email}
+            onChange={onChange}
+            fullWidth
+            errorText={errors && errors.email && <TextFieldErrors errors={errors.email} />}
+          /><br />
+          <TextField
+            floatingLabelText="Password"
+            name="password"
+            type="password"
+            value={user.password}
+            onChange={onChange}
+            fullWidth
+            errorText={errors && errors.password && <TextFieldErrors errors={errors.password} />}
+          /><br />
+          <DialogButton type="submit" label="Log in" primary fullWidth />
+        </form>
+        <DialogFooter>
+          <Link to="/signup">Don&apos;t have an account?</Link>
+          <span> - </span>
+          <Link to="/login/forgot-password">Forgot your password?</Link>
+        </DialogFooter>
+      </DialogBody>
+    </Dialog>
   )
 }
 

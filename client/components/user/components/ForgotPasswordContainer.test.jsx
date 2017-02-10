@@ -5,6 +5,7 @@ import { ForgotPasswordContainer } from './ForgotPasswordContainer'
 
 jest.mock('material-ui/TextField')
 jest.mock('material-ui/RaisedButton')
+jest.mock('material-ui/Card')
 
 describe('<ForgotPasswordContainer />', () => {
   it('renders correctly', () => {
