@@ -1,10 +1,4 @@
-exports[`<Alert /> renders a single message correctly 1`] = `
-<MuiComponent>
-  message
-</MuiComponent>
-`;
-
-exports[`<Alert /> renders multiple messages correctly 1`] = `
+exports[`<Alert /> renders correctly 1`] = `
 <MuiComponent>
   <p>
     message
