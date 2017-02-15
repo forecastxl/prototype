@@ -17,8 +17,8 @@ exports[`<SignupConfirm /> renders a message while fetching 1`] = `
 `;
 
 exports[`<SignupConfirm /> renders errors 1`] = `
-<ErrorList
-  errors={
+<Alert
+  messages={
     Array [
       "Something went wrong",
     ]

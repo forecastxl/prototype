@@ -1,0 +1,10 @@
+exports[`<Alert /> renders correctly 1`] = `
+<MuiComponent>
+  <p>
+    message
+  </p>
+  <p>
+    message
+  </p>
+</MuiComponent>
+`;

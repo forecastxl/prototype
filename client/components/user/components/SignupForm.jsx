@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import Checkbox from 'material-ui/Checkbox'
 import TextField from 'material-ui/TextField'
 import { Spacer } from '../../spacer'
-import { ErrorList, TextFieldErrors } from '../../errors'
+import { Alert } from '../../alert'
 import { Dialog, DialogBody, DialogHeader, DialogButton } from '../../dialog'
 
 function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }) {
@@ -13,7 +13,7 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
         titleColor="white"
       />
       <DialogBody>
-        {errors && errors.base && <ErrorList errors={errors.base} />}
+        {errors && errors.base && <Alert messages={errors.base} />}
         <form action="/" onSubmit={onSubmit}>
           <Spacer bottom>
             <TextField
@@ -25,7 +25,7 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
               errorText={
                 errors &&
                 errors.firstName &&
-                <TextFieldErrors errors={errors.firstName} />
+                <Alert messages={errors.firstName} />
               }
             /><br />
             <TextField
@@ -34,7 +34,7 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
               value={account.lastName}
               onChange={onTextChange}
               fullWidth
-              errorText={errors && errors.lastName && <TextFieldErrors errors={errors.lastName} />}
+              errorText={errors && errors.lastName && <Alert messages={errors.lastName} />}
             /><br />
             <TextField
               floatingLabelText="Company Name"
@@ -45,7 +45,7 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
               errorText={
                 errors &&
                 errors.companyName &&
-                <TextFieldErrors errors={errors.companyName} />
+                <Alert messages={errors.companyName} />
               }
             /><br />
             <TextField
@@ -58,7 +58,7 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
               errorText={
                 errors &&
                 errors.phoneNumber &&
-                <TextFieldErrors errors={errors.phoneNumber} />
+                <Alert messages={errors.phoneNumber} />
               }
             /><br />
             <TextField
@@ -68,7 +68,7 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
               value={account.email}
               onChange={onTextChange}
               fullWidth
-              errorText={errors && errors.email && <TextFieldErrors errors={errors.email} />}
+              errorText={errors && errors.email && <Alert messages={errors.email} />}
             /><br />
             <TextField
               floatingLabelText="Password"
@@ -77,7 +77,7 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
               value={account.password}
               onChange={onTextChange}
               fullWidth
-              errorText={errors && errors.password && <TextFieldErrors errors={errors.password} />}
+              errorText={errors && errors.password && <Alert messages={errors.password} />}
             /><br />
             <TextField
               floatingLabelText="Repeat password"
@@ -89,21 +89,21 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
               errorText={
                 errors &&
                 errors.passwordConfirmation &&
-                <TextFieldErrors errors={errors.passwordConfirmation} />
+                <Alert messages={errors.passwordConfirmation} />
               }
             /><br />
-            {
-              errors &&
-              errors.agreedToGeneralTerms &&
-              <ErrorList errors={errors.agreedToGeneralTerms} />
-            }
           </Spacer>
           <Checkbox
             label="I agree to the terms and conditions"
             name="agreedToGeneralTerms"
             checked={account.agreedToGeneralTerms}
             onCheck={onCheckboxChange}
-          /><br />
+          />
+          {
+            errors &&
+            errors.agreedToGeneralTerms &&
+            <Alert messages={errors.agreedToGeneralTerms} />
+          }
           <DialogButton type="submit" label="Sign up" primary fullWidth />
         </form>
       </DialogBody>

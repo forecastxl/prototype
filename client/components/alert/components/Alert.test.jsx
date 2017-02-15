@@ -1,11 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import ErrorList from './ErrorList'
+import Alert from './Alert'
 
-describe('<ErrorList />', () => {
+describe('<Alert />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(<ErrorList errors={['error']} />)
+    const wrapper = shallow(
+      <Alert
+        messages={['message', 'message']}
+      />
+    )
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })

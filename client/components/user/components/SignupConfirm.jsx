@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { ErrorList } from '../../errors'
+import { Alert } from '../../alert'
 
 function SignupConfirm({ hasToken, isFetching, errors }) {
   if (!hasToken) {
@@ -11,7 +11,7 @@ function SignupConfirm({ hasToken, isFetching, errors }) {
   }
 
   if (errors.token) {
-    return <ErrorList errors={errors.token} />
+    return <Alert messages={errors.token} />
   }
 
   return <div>Confirmation successful, logging you in...</div>

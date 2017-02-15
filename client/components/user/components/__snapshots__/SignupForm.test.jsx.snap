@@ -108,7 +108,6 @@ exports[`<SignupForm /> renders correctly 1`] = `
         labelPosition="right"
         name="agreedToGeneralTerms"
         onCheck={[Function]} />
-      <br />
       <DialogButton
         fullWidth={true}
         label="Sign up"

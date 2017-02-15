@@ -19,7 +19,7 @@
     "collectCoverageFrom": [
       "client/**/*.{js,jsx}",
       "!client/index.jsx",
-      "!client/{rootReducer,rootSaga,store}.js",
+      "!client/{styles,rootReducer,rootSaga,store}.js",
       "!client/{components,data,services}/*/index.js"
     ]
   },
