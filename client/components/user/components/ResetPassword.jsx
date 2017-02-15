@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
-import { ErrorList, TextFieldErrors } from '../../errors'
+import { Alert } from '../../alert'
 
 function ResetPassword({
   hasToken,
@@ -17,7 +17,7 @@ function ResetPassword({
 
   return (
     <div>
-      {errors && errors.base && <ErrorList errors={errors.base} />}
+      {errors && errors.base && <Alert messages={errors.base} />}
       <form action="/" onSubmit={onSubmit}>
         <TextField
           floatingLabelText="Password"
@@ -25,7 +25,7 @@ function ResetPassword({
           type="password"
           value={password}
           onChange={onChange}
-          errorText={errors && errors.password && <TextFieldErrors errors={errors.password} />}
+          errorText={errors && errors.password && <Alert messages={errors.password} />}
         /><br />
         <TextField
           floatingLabelText="Repeat password"
@@ -36,7 +36,7 @@ function ResetPassword({
           errorText={
             errors &&
             errors.passwordConfirmation &&
-            <TextFieldErrors errors={errors.passwordConfirmation} />
+            <Alert messages={errors.passwordConfirmation} />
           }
         /><br />
         <RaisedButton type="submit" label="Reset password" primary />

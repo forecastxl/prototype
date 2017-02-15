@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import TextField from 'material-ui/TextField'
-import { ErrorList, TextFieldErrors } from '../../errors'
+import { Alert } from '../../alert'
 import { Dialog, DialogBody, DialogHeader, DialogButton } from '../../dialog'
 
 function ForgotPassword({ onSubmit, onChange, email, errors }) {
@@ -11,7 +11,7 @@ function ForgotPassword({ onSubmit, onChange, email, errors }) {
         titleColor="white"
       />
       <DialogBody>
-        {errors && errors.base && <ErrorList errors={errors.base} />}
+        {errors && errors.base && <Alert messages={errors.base} />}
         <form action="/" onSubmit={onSubmit}>
           <TextField
             floatingLabelText="Email"
@@ -19,7 +19,7 @@ function ForgotPassword({ onSubmit, onChange, email, errors }) {
             value={email}
             onChange={onChange}
             fullWidth
-            errorText={errors && errors.email && <TextFieldErrors errors={errors.email} />}
+            errorText={errors && errors.email && <Alert messages={errors.email} />}
           />
           <DialogButton type="submit" label="Reset password" primary fullWidth />
         </form>

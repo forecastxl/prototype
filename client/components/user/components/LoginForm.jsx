@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import TextField from 'material-ui/TextField'
 import { Alert } from '../../alert'
-import { TextFieldErrors } from '../../errors'
 import { Dialog, DialogBody, DialogHeader, DialogFooter, DialogButton } from '../../dialog'
 
 function LoginForm({ onSubmit, onChange, user, errors }) {
@@ -21,7 +20,6 @@ function LoginForm({ onSubmit, onChange, user, errors }) {
             value={user.email}
             onChange={onChange}
             fullWidth
-            errorText={errors && errors.email && <TextFieldErrors errors={errors.email} />}
           /><br />
           <TextField
             floatingLabelText="Password"
@@ -30,7 +28,6 @@ function LoginForm({ onSubmit, onChange, user, errors }) {
             value={user.password}
             onChange={onChange}
             fullWidth
-            errorText={errors && errors.password && <TextFieldErrors errors={errors.password} />}
           /><br />
           <DialogButton type="submit" label="Log in" primary fullWidth />
         </form>

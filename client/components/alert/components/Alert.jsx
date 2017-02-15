@@ -7,9 +7,9 @@ function Alert({ messages }) {
   }
 
   return (
-    <div>
-      {messages.map(message => <AlertWrapper key={message}>{message}</AlertWrapper>)}
-    </div>
+    <AlertWrapper>
+      {messages.map(message => <p key={message}>{message}</p>)}
+    </AlertWrapper>
   )
 }
 
