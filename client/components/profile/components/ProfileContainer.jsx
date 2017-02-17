@@ -4,6 +4,15 @@ import * as actions from '../actions'
 import Profile from './Profile'
 
 export class ProfileContainer extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      profile: {
+        ...this.props.profile
+      }
+    }
+  }
+
   componentDidMount() {
     this.props.fetchProfile()
   }
@@ -17,7 +26,8 @@ export class ProfileContainer extends Component {
 }
 
 ProfileContainer.propTypes = {
-  profile: PropTypes.object.isRequired,
+  fetchProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({

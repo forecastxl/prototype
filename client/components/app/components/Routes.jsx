@@ -12,20 +12,28 @@ import {
   SignupConfirmContainer,
   SignupSuccess
 } from '../../user'
+import styled from 'styled-components'
+
+const AppWrapper = styled.div`
+  margin: 0 auto;
+  max-width: 40rem;
+`
 
 function Routes() {
   return (
     <div>
       <Header />
-      <Match exactly pattern="/" component={Home} />
-      <Match exactly pattern="/login" component={LoginFormContainer} />
-      <Match exactly pattern="/login/forgot-password" component={ForgotPasswordContainer} />
-      <Match pattern="/login/forgot-password/success" component={ForgotPasswordSuccess} />
-      <Match pattern="/login/reset-password" component={ResetPasswordContainer} />
-      <Match exactly pattern="/signup" component={SignupFormContainer} />
-      <Match pattern="/signup/confirm" component={SignupConfirmContainer} />
-      <Match pattern="/signup/success" component={SignupSuccess} />
-      <Match pattern="/profile" component={ProfileContainer} />
+      <AppWrapper>
+        <Match exactly pattern="/" component={Home} />
+        <Match exactly pattern="/login" component={LoginFormContainer} />
+        <Match exactly pattern="/login/forgot-password" component={ForgotPasswordContainer} />
+        <Match pattern="/login/forgot-password/success" component={ForgotPasswordSuccess} />
+        <Match pattern="/login/reset-password" component={ResetPasswordContainer} />
+        <Match exactly pattern="/signup" component={SignupFormContainer} />
+        <Match pattern="/signup/confirm" component={SignupConfirmContainer} />
+        <Match pattern="/signup/success" component={SignupSuccess} />
+        <Match pattern="/profile" component={ProfileContainer} />
+      </AppWrapper>
     </div>
   )
 }
