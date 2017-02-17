@@ -6,10 +6,10 @@ export const fetchProfile = () => ({
   includeToken: true
 })
 
-export const fetchProfileSuccess = token => ({
+export const fetchProfileSuccess = data => ({
   type: types.FETCH_PROFILE_SUCCESS,
   api: { key: types.FETCH_PROFILE, isFetching: false, errors: {} },
-  token
+  data
 })
 
 export const fetchProfileFail = errors => ({

@@ -9,7 +9,7 @@ import * as types from './actionTypes'
 export function* fetchProfile(action) {
   const { data, error } = yield call(get, endpoints.PROFILE, action.token)
   if (data) {
-    yield put(actions.fetchProfileSuccess(data.profile))
+    yield put(actions.fetchProfileSuccess(data.data))
   } else if (error.errors) {
     yield put(actions.fetchProfileFail(error.errors))
   } else {
