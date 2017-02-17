@@ -4,20 +4,24 @@ import TextField from 'material-ui/TextField'
 import { Spacer } from '../../spacer'
 import { Alert } from '../../alert'
 import { Dialog, DialogBody, DialogHeader, DialogButton } from '../../dialog'
+import styled from 'styled-components'
 
 function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }) {
   return (
     <Dialog>
       <DialogHeader
-        title="Create an account with ForecastXL"
+        title="Maak een account aan bij ForecastXL"
         titleColor="white"
       />
       <DialogBody>
         {errors && errors.base && <Alert messages={errors.base} />}
         <form action="/" onSubmit={onSubmit}>
-          <Spacer bottom>
+          <Spacer size={'2rem'} bottom>
+            <h2>Beheerder</h2>
+            <p>Gegevens van de beheerder van dit account. Deze persoon kan bedrijven bewerken,
+            toevoegen en verwijderen.</p>
             <TextField
-              floatingLabelText="First Name"
+              floatingLabelText="Voornaam"
               name="firstName"
               value={account.firstName}
               onChange={onTextChange}
@@ -29,37 +33,12 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
               }
             /><br />
             <TextField
-              floatingLabelText="Last Name"
+              floatingLabelText="Achternaam"
               name="lastName"
               value={account.lastName}
               onChange={onTextChange}
               fullWidth
               errorText={errors && errors.lastName && <Alert messages={errors.lastName} />}
-            /><br />
-            <TextField
-              floatingLabelText="Company Name"
-              name="companyName"
-              value={account.companyName}
-              onChange={onTextChange}
-              fullWidth
-              errorText={
-                errors &&
-                errors.companyName &&
-                <Alert messages={errors.companyName} />
-              }
-            /><br />
-            <TextField
-              floatingLabelText="Phone Number"
-              name="phoneNumber"
-              type="tel"
-              value={account.phoneNumber}
-              onChange={onTextChange}
-              fullWidth
-              errorText={
-                errors &&
-                errors.phoneNumber &&
-                <Alert messages={errors.phoneNumber} />
-              }
             /><br />
             <TextField
               floatingLabelText="Email"
@@ -71,7 +50,7 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
               errorText={errors && errors.email && <Alert messages={errors.email} />}
             /><br />
             <TextField
-              floatingLabelText="Password"
+              floatingLabelText="Wachtwoord"
               name="password"
               type="password"
               value={account.password}
@@ -80,7 +59,7 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
               errorText={errors && errors.password && <Alert messages={errors.password} />}
             /><br />
             <TextField
-              floatingLabelText="Repeat password"
+              floatingLabelText="Herhaal wachtwoord"
               name="passwordConfirmation"
               type="password"
               value={account.passwordConfirmation}
@@ -93,8 +72,38 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
               }
             /><br />
           </Spacer>
+          <Spacer size={'2rem'} bottom>
+            <h2>Bedrijfsgegevens</h2>
+            <p>Bedrijfsgegevens voor de facturatie. Op basis van deze gegevens maken wij voor u
+            ook alvast een voorbeeld bedrijf aan.</p>
+            <TextField
+              floatingLabelText="Bedrijfsnaam"
+              name="companyName"
+              value={account.companyName}
+              onChange={onTextChange}
+              fullWidth
+              errorText={
+                errors &&
+                errors.companyName &&
+                <Alert messages={errors.companyName} />
+              }
+            /><br />
+            <TextField
+              floatingLabelText="Telefoonnummer"
+              name="phoneNumber"
+              type="tel"
+              value={account.phoneNumber}
+              onChange={onTextChange}
+              fullWidth
+              errorText={
+                errors &&
+                errors.phoneNumber &&
+                <Alert messages={errors.phoneNumber} />
+              }
+            />
+          </Spacer>
           <Checkbox
-            label="I agree to the terms and conditions"
+            label="Ik ga akkoord met de voorwaarden"
             name="agreedToGeneralTerms"
             checked={account.agreedToGeneralTerms}
             onCheck={onCheckboxChange}
@@ -104,7 +113,7 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
             errors.agreedToGeneralTerms &&
             <Alert messages={errors.agreedToGeneralTerms} />
           }
-          <DialogButton type="submit" label="Sign up" primary fullWidth />
+          <DialogButton type="submit" label="Maak account aan" primary fullWidth />
         </form>
       </DialogBody>
     </Dialog>

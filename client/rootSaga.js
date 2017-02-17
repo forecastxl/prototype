@@ -1,4 +1,5 @@
 import { sagas as user } from './components/user'
+import { sagas as profile } from './components/profile'
 
 const rootSaga = function* () {
   yield [
@@ -7,7 +8,8 @@ const rootSaga = function* () {
     user.watchCreateAccount(),
     user.watchConfirmAccount(),
     user.watchRequestResetPassword(),
-    user.watchResetPassword()
+    user.watchResetPassword(),
+    profile.watchFetchProfile()
   ]
 }
 
