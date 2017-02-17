@@ -2,7 +2,7 @@ import React from 'react'
 import Match from 'react-router/Match'
 import { Header } from '../../header'
 import { Home } from '../../home'
-import { Profile } from '../../profile'
+import { ProfileContainer } from '../../profile'
 import {
   LoginFormContainer,
   ForgotPasswordContainer,
@@ -25,7 +25,7 @@ function Routes() {
       <Match exactly pattern="/signup" component={SignupFormContainer} />
       <Match pattern="/signup/confirm" component={SignupConfirmContainer} />
       <Match pattern="/signup/success" component={SignupSuccess} />
-      <Match pattern="/profile" component={Profile} />
+      <Match pattern="/profile" component={ProfileContainer} />
     </div>
   )
 }

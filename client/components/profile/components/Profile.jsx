@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
-function Profile() {
+function Profile({ profile }) {
   return (
-    <div>Profile</div>
+    <div>
+      {profile.firstName} {profile.lastName} {profile.email}
+    </div>
   )
+}
+
+Profile.propTypes = {
+  profile: PropTypes.object.isRequired
 }
 
 export default Profile

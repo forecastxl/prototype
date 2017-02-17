@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import * as actions from '../actions'
+import Profile from './Profile'
 
-function Profile() {
-  return (
-    <div>Profile</div>
-  )
+export class ProfileContainer extends Component {
+  componentDidMount() {
+    this.props.fetchProfile()
+  }
+
+  render() {
+    return (
+      <Profile profile={this.props.profile} />
+    )
+  }
+
 }
 
-export default Profile
+ProfileContainer.propTypes = {
+  profile: PropTypes.object.isRequired,
+}
+
+const mapStateToProps = state => ({
+  profile: state.profile
+})
+
+export default connect(mapStateToProps, { fetchProfile: actions.fetchProfile })(ProfileContainer)

@@ -4,7 +4,6 @@ import TextField from 'material-ui/TextField'
 import { Spacer } from '../../spacer'
 import { Alert } from '../../alert'
 import { Dialog, DialogBody, DialogHeader, DialogButton } from '../../dialog'
-import styled from 'styled-components'
 
 function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }) {
   return (
