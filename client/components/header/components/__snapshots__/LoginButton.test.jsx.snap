@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<LoginButton /> renders correctly 1`] = `
 <Link
   activeClassName=""
@@ -7,7 +9,8 @@ exports[`<LoginButton /> renders correctly 1`] = `
   isActive={[Function]}
   replace={false}
   style={Object {}}
-  to="/login">
+  to="/login"
+>
   <FlatButton
     disabled={false}
     label="Login"
@@ -23,6 +26,7 @@ exports[`<LoginButton /> renders correctly 1`] = `
       Object {
         "color": "blue",
       }
-    } />
+    }
+  />
 </Link>
 `;

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<App /> renders correctly 1`] = `
 <Provider
   store={
@@ -7,10 +9,12 @@ exports[`<App /> renders correctly 1`] = `
       "replaceReducer": [Function],
       "subscribe": [Function],
     }
-  }>
+  }
+>
   <MuiThemeProvider>
     <Connect(ConnectedRouter)
-      history={Object {}}>
+      history={Object {}}
+    >
       <Routes />
     </Connect(ConnectedRouter)>
   </MuiThemeProvider>

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<SignupFormContainer /> renders correctly 1`] = `
 <LoginForm
   account={
@@ -15,5 +17,6 @@ exports[`<SignupFormContainer /> renders correctly 1`] = `
   errors={Object {}}
   onCheckboxChange={[Function]}
   onSubmit={[Function]}
-  onTextChange={[Function]} />
+  onTextChange={[Function]}
+/>
 `;
