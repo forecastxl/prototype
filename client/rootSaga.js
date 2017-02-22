@@ -9,7 +9,8 @@ const rootSaga = function* () {
     user.watchConfirmAccount(),
     user.watchRequestResetPassword(),
     user.watchResetPassword(),
-    profile.watchFetchProfile()
+    profile.watchFetchProfile(),
+    profile.watchUpdateProfile()
   ]
 }
 
