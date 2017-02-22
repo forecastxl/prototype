@@ -1,29 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<Spacer /> renders correctly when bottom is set 1`] = `
 <div
-  className="khJarL" />
+  className="khJarL"
+/>
 `;
 
 exports[`<Spacer /> renders correctly when horizontal is set 1`] = `
 <div
-  className="dWGHyF" />
+  className="dWGHyF"
+/>
 `;
 
 exports[`<Spacer /> renders correctly when left is set 1`] = `
 <div
-  className="bgSvOo" />
+  className="bgSvOo"
+/>
 `;
 
 exports[`<Spacer /> renders correctly when right is set 1`] = `
 <div
-  className="kMQahW" />
+  className="kMQahW"
+/>
 `;
 
 exports[`<Spacer /> renders correctly when top is set 1`] = `
 <div
-  className="kXMLyR" />
+  className="kXMLyR"
+/>
 `;
 
 exports[`<Spacer /> renders correctly when vertical is set 1`] = `
 <div
-  className="jughzK" />
+  className="jughzK"
+/>
 `;

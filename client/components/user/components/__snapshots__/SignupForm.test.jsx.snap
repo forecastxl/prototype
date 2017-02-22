@@ -1,14 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<SignupForm /> renders correctly 1`] = `
 <Styled(undefined)>
   <MuiComponent
     title="Create an account with ForecastXL"
-    titleColor="white" />
+    titleColor="white"
+  />
   <CardText>
     <form
       action="/"
-      onSubmit={[Function]}>
+      onSubmit={[Function]}
+    >
       <styled.div
-        bottom={true}>
+        bottom={true}
+      >
         <TextField
           disabled={false}
           floatingLabelFixed={false}
@@ -20,7 +25,8 @@ exports[`<SignupForm /> renders correctly 1`] = `
           rows={1}
           type="text"
           underlineShow={true}
-          value="" />
+          value=""
+        />
         <br />
         <TextField
           disabled={false}
@@ -33,7 +39,8 @@ exports[`<SignupForm /> renders correctly 1`] = `
           rows={1}
           type="text"
           underlineShow={true}
-          value="" />
+          value=""
+        />
         <br />
         <TextField
           disabled={false}
@@ -46,7 +53,8 @@ exports[`<SignupForm /> renders correctly 1`] = `
           rows={1}
           type="text"
           underlineShow={true}
-          value="" />
+          value=""
+        />
         <br />
         <TextField
           disabled={false}
@@ -59,7 +67,8 @@ exports[`<SignupForm /> renders correctly 1`] = `
           rows={1}
           type="tel"
           underlineShow={true}
-          value="" />
+          value=""
+        />
         <br />
         <TextField
           disabled={false}
@@ -72,7 +81,8 @@ exports[`<SignupForm /> renders correctly 1`] = `
           rows={1}
           type="email"
           underlineShow={true}
-          value="" />
+          value=""
+        />
         <br />
         <TextField
           disabled={false}
@@ -85,7 +95,8 @@ exports[`<SignupForm /> renders correctly 1`] = `
           rows={1}
           type="password"
           underlineShow={true}
-          value="" />
+          value=""
+        />
         <br />
         <TextField
           disabled={false}
@@ -98,7 +109,8 @@ exports[`<SignupForm /> renders correctly 1`] = `
           rows={1}
           type="password"
           underlineShow={true}
-          value="" />
+          value=""
+        />
         <br />
       </styled.div>
       <Checkbox
@@ -107,12 +119,14 @@ exports[`<SignupForm /> renders correctly 1`] = `
         label="I agree to the terms and conditions"
         labelPosition="right"
         name="agreedToGeneralTerms"
-        onCheck={[Function]} />
+        onCheck={[Function]}
+      />
       <DialogButton
         fullWidth={true}
         label="Sign up"
         primary={true}
-        type="submit" />
+        type="submit"
+      />
     </form>
   </CardText>
 </Styled(undefined)>

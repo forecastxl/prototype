@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<UserNavigation /> renders correctly 1`] = `
 <IconMenu
   anchorOrigin={
@@ -13,7 +15,8 @@ exports[`<UserNavigation /> renders correctly 1`] = `
       disabled={false}
       iconStyle={Object {}}
       tooltipPosition="bottom-center"
-      touch={false}>
+      touch={false}
+    >
       <MuiComponent />
     </IconButton>
   }
@@ -34,8 +37,10 @@ exports[`<UserNavigation /> renders correctly 1`] = `
     }
   }
   touchTapCloseDelay={200}
-  useLayerForClickAway={false}>
+  useLayerForClickAway={false}
+>
   <Connect(LogoutMenuItem)
-    primaryText="Logout" />
+    primaryText="Logout"
+  />
 </IconMenu>
 `;

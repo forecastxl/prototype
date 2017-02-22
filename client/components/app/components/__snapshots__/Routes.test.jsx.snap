@@ -1,37 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<Routes /> renders correctly 1`] = `
 <div>
   <Connect(Header) />
   <Match
     component={[Function]}
     exactly={true}
-    pattern="/" />
+    pattern="/"
+  />
   <Match
     component={[Function]}
     exactly={true}
-    pattern="/login" />
+    pattern="/login"
+  />
   <Match
     component={[Function]}
     exactly={true}
-    pattern="/login/forgot-password" />
+    pattern="/login/forgot-password"
+  />
   <Match
     component={[Function]}
     exactly={false}
-    pattern="/login/forgot-password/success" />
+    pattern="/login/forgot-password/success"
+  />
   <Match
     component={[Function]}
     exactly={false}
-    pattern="/login/reset-password" />
+    pattern="/login/reset-password"
+  />
   <Match
     component={[Function]}
     exactly={true}
-    pattern="/signup" />
+    pattern="/signup"
+  />
   <Match
     component={[Function]}
     exactly={false}
-    pattern="/signup/confirm" />
+    pattern="/signup/confirm"
+  />
   <Match
     component={[Function]}
     exactly={false}
-    pattern="/signup/success" />
+    pattern="/signup/success"
+  />
 </div>
 `;

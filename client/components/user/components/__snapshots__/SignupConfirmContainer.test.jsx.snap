@@ -1,12 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<SignupConfirmContainer /> renders a message on success 1`] = `
 <SignupConfirmContainer
   confirmAccount={[Function]}
   errors={Object {}}
-  isFetching={false}>
+  isFetching={false}
+>
   <SignupConfirm
     errors={Object {}}
     hasToken={true}
-    isFetching={false}>
+    isFetching={false}
+  >
     <div>
       Confirmation successful, logging you in...
     </div>
@@ -18,11 +22,13 @@ exports[`<SignupConfirmContainer /> renders a message while fetching 1`] = `
 <SignupConfirmContainer
   confirmAccount={[Function]}
   errors={Object {}}
-  isFetching={true}>
+  isFetching={true}
+>
   <SignupConfirm
     errors={Object {}}
     hasToken={true}
-    isFetching={true}>
+    isFetching={true}
+  >
     <div>
       Confirming account...
     </div>
@@ -34,11 +40,13 @@ exports[`<SignupConfirmContainer /> renders a warning on a missing token 1`] = `
 <SignupConfirmContainer
   confirmAccount={[Function]}
   errors={Object {}}
-  isFetching={false}>
+  isFetching={false}
+>
   <SignupConfirm
     errors={Object {}}
     hasToken={false}
-    isFetching={false}>
+    isFetching={false}
+  >
     <div>
       Could not find a token. Did you use the correct link?
     </div>
@@ -56,7 +64,8 @@ exports[`<SignupConfirmContainer /> renders errors 1`] = `
       ],
     }
   }
-  isFetching={false}>
+  isFetching={false}
+>
   <SignupConfirm
     errors={
       Object {
@@ -66,7 +75,8 @@ exports[`<SignupConfirmContainer /> renders errors 1`] = `
       }
     }
     hasToken={true}
-    isFetching={false}>
+    isFetching={false}
+  >
     <div>
       Confirmation successful, logging you in...
     </div>

@@ -1,12 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<LoginForm /> renders correctly 1`] = `
 <Styled(undefined)>
   <MuiComponent
     title="Log in to ForecastXL"
-    titleColor="white" />
+    titleColor="white"
+  />
   <CardText>
     <form
       action="/"
-      onSubmit={[Function]}>
+      onSubmit={[Function]}
+    >
       <TextField
         disabled={false}
         floatingLabelFixed={false}
@@ -18,7 +22,8 @@ exports[`<LoginForm /> renders correctly 1`] = `
         rows={1}
         type="text"
         underlineShow={true}
-        value="" />
+        value=""
+      />
       <br />
       <TextField
         disabled={false}
@@ -31,13 +36,15 @@ exports[`<LoginForm /> renders correctly 1`] = `
         rows={1}
         type="password"
         underlineShow={true}
-        value="" />
+        value=""
+      />
       <br />
       <DialogButton
         fullWidth={true}
         label="Log in"
         primary={true}
-        type="submit" />
+        type="submit"
+      />
     </form>
     <styled.div>
       <Link
@@ -48,8 +55,9 @@ exports[`<LoginForm /> renders correctly 1`] = `
         isActive={[Function]}
         replace={false}
         style={Object {}}
-        to="/signup">
-        Don\'t have an account?
+        to="/signup"
+      >
+        Don't have an account?
       </Link>
       <span>
          - 
@@ -62,7 +70,8 @@ exports[`<LoginForm /> renders correctly 1`] = `
         isActive={[Function]}
         replace={false}
         style={Object {}}
-        to="/login/forgot-password">
+        to="/login/forgot-password"
+      >
         Forgot your password?
       </Link>
     </styled.div>
