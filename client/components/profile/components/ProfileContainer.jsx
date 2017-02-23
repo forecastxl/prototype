@@ -22,11 +22,13 @@ export class ProfileContainer extends Component {
     this.props.fetchProfile()
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.profile) {
+  componentWillReceiveProps({ profile }) {
+    if (profile) {
       this.setState({ profile: {
         ...this.state.profile,
-        ...nextProps.profile
+        firstName: profile.firstName,
+        lastName: profile.lastName,
+        email: profile.email
       } })
     }
   }
@@ -42,7 +44,13 @@ export class ProfileContainer extends Component {
 
   onSubmit = event => {
     event.preventDefault()
-    this.props.updateProfile(this.state.profile)
+
+    const profileWithId = {
+      ...this.state.profile,
+      id: this.props.profile.id
+    }
+
+    this.props.updateProfile(profileWithId)
   }
 
 
@@ -63,6 +71,7 @@ ProfileContainer.propTypes = {
   fetchProfile: PropTypes.func.isRequired,
   updateProfile: PropTypes.func.isRequired,
   profile: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     firstName: PropTypes.string.isRequired,
     lastName: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired

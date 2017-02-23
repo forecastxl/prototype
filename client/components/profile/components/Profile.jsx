@@ -3,13 +3,14 @@ import TextField from 'material-ui/TextField'
 import { Alert } from '../../alert'
 import { Spacer } from '../../spacer'
 import { DialogButton } from '../../dialog'
+import { Container } from '../../container'
 
 // TODO: link to real errors
 const errors = {}
 
 function Profile({ profile, onChange, onSubmit }) {
   return (
-    <div>
+    <Container>
       <form action="/" onSubmit={onSubmit}>
         <Spacer size={'2rem'} bottom>
           <h2>Mijn profiel</h2>
@@ -42,6 +43,7 @@ function Profile({ profile, onChange, onSubmit }) {
         <TextField
           floatingLabelText="Huidig wachtwoord"
           name="currentPassword"
+          type="password"
           value={profile.currentPassword}
           onChange={onChange}
           fullWidth
@@ -50,6 +52,7 @@ function Profile({ profile, onChange, onSubmit }) {
         <TextField
           floatingLabelText="Nieuw wachtwoord"
           name="newPassword"
+          type="password"
           value={profile.newPassword}
           onChange={onChange}
           fullWidth
@@ -58,6 +61,7 @@ function Profile({ profile, onChange, onSubmit }) {
         <TextField
           floatingLabelText="Herhaal nieuw wachtwoord"
           name="newPasswordConfirmation"
+          type="password"
           value={profile.newPasswordConfirmation}
           onChange={onChange}
           fullWidth
@@ -65,7 +69,7 @@ function Profile({ profile, onChange, onSubmit }) {
         />
         <DialogButton type="submit" label="Wijzig profiel" primary />
       </form>
-    </div>
+    </Container>
   )
 }
 
