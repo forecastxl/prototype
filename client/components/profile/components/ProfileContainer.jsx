@@ -16,6 +16,8 @@ export class ProfileContainer extends Component {
         newPasswordConfirmation: ''
       }
     }
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -33,7 +35,7 @@ export class ProfileContainer extends Component {
     }
   }
 
-  onChange = event => {
+  onChange(event) {
     this.setState({
       profile: {
         ...this.state.profile,
@@ -42,7 +44,7 @@ export class ProfileContainer extends Component {
     })
   }
 
-  onSubmit = event => {
+  onSubmit(event) {
     event.preventDefault()
 
     const profileWithId = {
@@ -53,9 +55,7 @@ export class ProfileContainer extends Component {
     this.props.updateProfile(profileWithId)
   }
 
-
   render() {
-    // TODO: replace errors with actual errors
     return (
       <Profile
         profile={this.state.profile}

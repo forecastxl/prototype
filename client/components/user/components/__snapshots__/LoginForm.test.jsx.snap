@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LoginForm /> renders correctly 1`] = `
-<Styled(undefined)>
+<Styled(Card)>
   <MuiComponent
     title="Log in to ForecastXL"
     titleColor="white"
@@ -76,5 +76,5 @@ exports[`<LoginForm /> renders correctly 1`] = `
       </Link>
     </styled.div>
   </CardText>
-</Styled(undefined)>
+</Styled(Card)>
 `;

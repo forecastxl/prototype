@@ -5,7 +5,6 @@ import { Spacer } from '../../spacer'
 import { DialogButton } from '../../dialog'
 import { Container } from '../../container'
 
-// TODO: link to real errors
 const errors = {}
 
 function Profile({ profile, onChange, onSubmit }) {
@@ -47,7 +46,11 @@ function Profile({ profile, onChange, onSubmit }) {
           value={profile.currentPassword}
           onChange={onChange}
           fullWidth
-          errorText={errors && errors.currentPassword && <Alert messages={errors.currentPassword} />}
+          errorText={
+            errors &&
+            errors.currentPassword &&
+            <Alert messages={errors.currentPassword} />
+          }
         />
         <TextField
           floatingLabelText="Nieuw wachtwoord"
@@ -65,7 +68,11 @@ function Profile({ profile, onChange, onSubmit }) {
           value={profile.newPasswordConfirmation}
           onChange={onChange}
           fullWidth
-          errorText={errors && errors.newPasswordConfirmation && <Alert messages={errors.newPasswordConfirmation} />}
+          errorText={
+            errors &&
+            errors.newPasswordConfirmation &&
+            <Alert messages={errors.newPasswordConfirmation} />
+          }
         />
         <DialogButton type="submit" label="Wijzig profiel" primary />
       </form>
