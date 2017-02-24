@@ -47,12 +47,12 @@ export class ProfileContainer extends Component {
   onSubmit(event) {
     event.preventDefault()
 
-    const profileWithId = {
+    const user = {
       ...this.state.profile,
       id: this.props.profile.id
     }
 
-    this.props.updateProfile(profileWithId)
+    this.props.updateProfile(user)
   }
 
   render() {

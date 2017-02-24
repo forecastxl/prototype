@@ -22,9 +22,8 @@ export function* watchFetchProfile() {
   yield call(takeLatest, types.FETCH_PROFILE, fetchProfile)
 }
 
-export function* updateProfile({ profile, token }) {
-  const putData = { user: profile }
-  const { data, error } = yield call(putService, endpoints.user(profile.id), putData, token)
+export function* updateProfile({ user, token }) {
+  const { data, error } = yield call(putService, endpoints.user(user.id), user, token)
   if (data) {
     yield put(actions.updateProfileSuccess())
   } else if (error.errors) {

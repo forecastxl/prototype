@@ -17,11 +17,11 @@ export const fetchProfileFail = errors => ({
   api: { key: types.FETCH_PROFILE, isFetching: false, errors }
 })
 
-export const updateProfile = profile => ({
+export const updateProfile = user => ({
   type: types.UPDATE_PROFILE,
   api: { key: types.UPDATE_PROFILE, isFetching: true, errors: {} },
   includeToken: true,
-  profile
+  user
 })
 
 export const updateProfileSuccess = () => ({
