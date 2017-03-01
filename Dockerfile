@@ -1,7 +1,8 @@
 FROM node:alpine
 
-# install webserver
-RUN npm install express
+# install the webserver and related modules
+RUN npm install express@4
+RUN npm install mime-types@2
 
 # copy only files required in production
 COPY server/index.js dist /
