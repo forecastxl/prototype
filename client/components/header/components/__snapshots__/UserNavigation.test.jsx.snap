@@ -46,11 +46,11 @@ exports[`<UserNavigation /> renders correctly 1`] = `
     focusState="none"
     insetChildren={false}
   >
-    <Styled(Link)
+    <Styled(undefined)
       to="/profile"
     >
       Profiel
-    </Styled(Link)>
+    </Styled(undefined)>
   </MenuItem>
   <Divider
     inset={false}

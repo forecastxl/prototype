@@ -4,7 +4,10 @@ import { shallowToJson } from 'enzyme-to-json'
 import { ProfileContainer } from './ProfileContainer'
 
 jest.mock('material-ui/TextField')
-jest.mock('material-ui/RaisedButton')
+jest.mock('../../alert')
+jest.mock('../../spacer')
+jest.mock('../../dialog')
+jest.mock('../../container')
 
 describe('<ProfileContainer />', () => {
   it('renders correctly', () => {
@@ -24,7 +27,7 @@ describe('<ProfileContainer />', () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
-  it('updates profile state', () => {
+  it('updates profile state on user input', () => {
     const wrapper = shallow(
       <ProfileContainer
         fetchProfile={() => {}}
@@ -52,6 +55,10 @@ describe('<ProfileContainer />', () => {
     wrapper.instance().onChange(event)
     expect(wrapper.state('profile')).toEqual(expected)
   })
+
+  it('fetches profiles after mount', () => {})
+
+  it('updates profile state on new props', () => {})
 
   it('processes submits', () => {
     const wrapper = mount(
