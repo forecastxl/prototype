@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const mime = require('mime-types')
 
@@ -21,7 +22,7 @@ app.disable('x-powered-by')
 
 // serve the index.html on the login route
 app.get('*', (req, res) => {
-  res.sendFile('/index.html')
+  res.sendFile(path.join(__dirname, 'index.html'))
 })
 
 // start the server on port 80
