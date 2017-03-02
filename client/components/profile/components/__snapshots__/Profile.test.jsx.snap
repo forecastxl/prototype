@@ -52,7 +52,17 @@ exports[`<Profile /> renders correctly 1`] = `
         underlineShow={true}
         value=""
       />
+      <DialogButton
+        label="Wijzig profiel"
+        primary={true}
+        type="submit"
+      />
     </styled.div>
+  </form>
+  <form
+    action="/"
+    onSubmit={[Function]}
+  >
     <h2>
       Wachtwoord wijzigen
     </h2>
@@ -96,7 +106,7 @@ exports[`<Profile /> renders correctly 1`] = `
       value=""
     />
     <DialogButton
-      label="Wijzig profiel"
+      label="Wijzig wachtwoord"
       primary={true}
       type="submit"
     />
