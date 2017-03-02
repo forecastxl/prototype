@@ -8,7 +8,7 @@ function LoginForm({ onSubmit, onChange, user, errors }) {
   return (
     <Dialog>
       <DialogHeader
-        title="Log in to ForecastXL"
+        title="Inloggen op ForecastXL"
         titleColor="white"
       />
       <DialogBody>
@@ -22,19 +22,19 @@ function LoginForm({ onSubmit, onChange, user, errors }) {
             fullWidth
           /><br />
           <TextField
-            floatingLabelText="Password"
+            floatingLabelText="Wachtwoord"
             name="password"
             type="password"
             value={user.password}
             onChange={onChange}
             fullWidth
           /><br />
-          <DialogButton type="submit" label="Log in" primary fullWidth />
+          <DialogButton type="submit" label="Inloggen" primary fullWidth />
         </form>
         <DialogFooter>
-          <Link to="/signup">Don&apos;t have an account?</Link>
+          <Link to="/signup">Nog geen account?</Link>
           <span> - </span>
-          <Link to="/login/forgot-password">Forgot your password?</Link>
+          <Link to="/login/forgot-password">Wachtwoord vergeten?</Link>
         </DialogFooter>
       </DialogBody>
     </Dialog>

@@ -3,7 +3,7 @@
 exports[`<LoginForm /> renders correctly 1`] = `
 <Styled(Card)>
   <MuiComponent
-    title="Log in to ForecastXL"
+    title="Inloggen op ForecastXL"
     titleColor="white"
   />
   <CardText>
@@ -28,7 +28,7 @@ exports[`<LoginForm /> renders correctly 1`] = `
       <TextField
         disabled={false}
         floatingLabelFixed={false}
-        floatingLabelText="Password"
+        floatingLabelText="Wachtwoord"
         fullWidth={true}
         multiLine={false}
         name="password"
@@ -41,7 +41,7 @@ exports[`<LoginForm /> renders correctly 1`] = `
       <br />
       <DialogButton
         fullWidth={true}
-        label="Log in"
+        label="Inloggen"
         primary={true}
         type="submit"
       />
@@ -57,7 +57,7 @@ exports[`<LoginForm /> renders correctly 1`] = `
         style={Object {}}
         to="/signup"
       >
-        Don't have an account?
+        Nog geen account?
       </Link>
       <span>
          - 
@@ -72,7 +72,7 @@ exports[`<LoginForm /> renders correctly 1`] = `
         style={Object {}}
         to="/login/forgot-password"
       >
-        Forgot your password?
+        Wachtwoord vergeten?
       </Link>
     </styled.div>
   </CardText>
