@@ -1,6 +1,7 @@
-# Node
-npm-debug.log
+# Node and yarn
 /node_modules
+npm-debug.log
+yarn-error.log
 
 # Server
 /server/node_modules

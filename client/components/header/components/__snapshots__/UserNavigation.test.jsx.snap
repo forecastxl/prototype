@@ -39,8 +39,24 @@ exports[`<UserNavigation /> renders correctly 1`] = `
   touchTapCloseDelay={200}
   useLayerForClickAway={false}
 >
+  <MenuItem
+    checked={false}
+    desktop={false}
+    disabled={false}
+    focusState="none"
+    insetChildren={false}
+  >
+    <Styled(Link)
+      to="/profile"
+    >
+      Profiel
+    </Styled(Link)>
+  </MenuItem>
+  <Divider
+    inset={false}
+  />
   <Connect(LogoutMenuItem)
-    primaryText="Logout"
+    primaryText="Uitloggen"
   />
 </IconMenu>
 `;

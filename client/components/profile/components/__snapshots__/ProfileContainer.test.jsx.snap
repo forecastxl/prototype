@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProfileContainer /> renders correctly 1`] = `
+<Profile
+  errors={Object {}}
+  onChange={[Function]}
+  onSubmit={[Function]}
+  profile={
+    Object {
+      "currentPassword": "",
+      "email": "",
+      "firstName": "",
+      "lastName": "",
+      "newPassword": "",
+      "newPasswordConfirmation": "",
+    }
+  }
+/>
+`;
