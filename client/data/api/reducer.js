@@ -1,6 +1,11 @@
 import { actionTypes as user } from '../../components/user'
+import { actionTypes as profile } from '../../components/profile'
 
 const initialState = {
+  [profile.UPDATE_PROFILE]: {
+    errors: {},
+    isFetching: false
+  },
   [user.LOGIN]: {
     errors: {},
     isFetching: false

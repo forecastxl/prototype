@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
+import * as types from '../actionTypes'
 import Profile from './Profile'
 
 export class ProfileContainer extends Component {
@@ -61,13 +62,14 @@ export class ProfileContainer extends Component {
         profile={this.state.profile}
         onChange={this.onChange}
         onSubmit={this.onSubmit}
-        errors={{}}
+        errors={this.props.errors}
       />
     )
   }
 }
 
 ProfileContainer.propTypes = {
+  errors: PropTypes.object.isRequired,
   fetchProfile: PropTypes.func.isRequired,
   updateProfile: PropTypes.func.isRequired,
   profile: PropTypes.shape({
@@ -84,6 +86,7 @@ const mapActions = {
 }
 
 const mapStateToProps = state => ({
+  errors: state.api[types.UPDATE_PROFILE].errors,
   profile: state.profile
 })
 

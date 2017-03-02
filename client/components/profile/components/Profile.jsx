@@ -5,9 +5,7 @@ import { Spacer } from '../../spacer'
 import { DialogButton } from '../../dialog'
 import { Container } from '../../container'
 
-const errors = {}
-
-function Profile({ profile, onChange, onSubmit }) {
+function Profile({ profile, onChange, onSubmit, errors }) {
   return (
     <Container>
       <form action="/" onSubmit={onSubmit}>
@@ -37,7 +35,10 @@ function Profile({ profile, onChange, onSubmit }) {
             fullWidth
             errorText={errors && errors.email && <Alert messages={errors.email} />}
           />
+          <DialogButton type="submit" label="Wijzig profiel" primary />
         </Spacer>
+      </form>
+      <form action="/" onSubmit={onSubmit}>
         <h2>Wachtwoord wijzigen</h2>
         <TextField
           floatingLabelText="Huidig wachtwoord"
@@ -74,13 +75,14 @@ function Profile({ profile, onChange, onSubmit }) {
             <Alert messages={errors.newPasswordConfirmation} />
           }
         />
-        <DialogButton type="submit" label="Wijzig profiel" primary />
+        <DialogButton type="submit" label="Wijzig wachtwoord" primary />
       </form>
     </Container>
   )
 }
 
 Profile.propTypes = {
+  errors: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
