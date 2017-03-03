@@ -1,5 +1,5 @@
 import React from 'react'
-import Match from 'react-router/Match'
+import { Route, Switch } from 'react-router-dom'
 import { Header } from '../../header'
 import Home from '../../../scenes/home'
 import ForgotPassword from '../../../scenes/forgot-password'
@@ -16,22 +16,24 @@ function Routes() {
     <div>
       <Header />
       {/* Root */}
-      <Match exactly pattern="/" component={Home} />
+      <Switch>
+        <Route exact path="/" component={Home} />
 
-      {/* Login */}
-      <Match exactly pattern="/login" component={Login} />
-      <Match exactly pattern="/login/forgot-password" component={ForgotPassword} />
-      <Match pattern="/login/forgot-password/success" component={ForgotPasswordSuccess} />
-      <Match pattern="/login/reset-password" component={ResetPassword} />
+        {/* Login */}
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/login/forgot-password" component={ForgotPassword} />
+        <Route path="/login/forgot-password/success" component={ForgotPasswordSuccess} />
+        <Route path="/login/reset-password" component={ResetPassword} />
 
-      {/* Signup */}
-      <Match exactly pattern="/signup" component={Signup} />
-      <Match pattern="/signup/success" component={SignupSuccess} />
-      <Match pattern="/signup/confirm" component={SignupConfirmContainer} />
+        {/* Signup */}
+        <Route exact path="/signup" component={Signup} />
+        <Route path="/signup/success" component={SignupSuccess} />
+        <Route path="/signup/confirm" component={SignupConfirmContainer} />
 
-      {/* Profile */}
-      <Match pattern="/profile" component={Profile} />
+        {/* Profile */}
+        <Route path="/profile" component={Profile} />
 
+      </Switch>
     </div>
   )
 }
