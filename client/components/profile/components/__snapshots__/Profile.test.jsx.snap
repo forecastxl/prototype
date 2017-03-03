@@ -59,57 +59,6 @@ exports[`<Profile /> renders correctly 1`] = `
       />
     </styled.div>
   </form>
-  <form
-    action="/"
-    onSubmit={[Function]}
-  >
-    <h2>
-      Wachtwoord wijzigen
-    </h2>
-    <TextField
-      disabled={false}
-      floatingLabelFixed={false}
-      floatingLabelText="Huidig wachtwoord"
-      fullWidth={true}
-      multiLine={false}
-      name="currentPassword"
-      onChange={[Function]}
-      rows={1}
-      type="password"
-      underlineShow={true}
-      value=""
-    />
-    <TextField
-      disabled={false}
-      floatingLabelFixed={false}
-      floatingLabelText="Nieuw wachtwoord"
-      fullWidth={true}
-      multiLine={false}
-      name="newPassword"
-      onChange={[Function]}
-      rows={1}
-      type="password"
-      underlineShow={true}
-      value=""
-    />
-    <TextField
-      disabled={false}
-      floatingLabelFixed={false}
-      floatingLabelText="Herhaal nieuw wachtwoord"
-      fullWidth={true}
-      multiLine={false}
-      name="newPasswordConfirmation"
-      onChange={[Function]}
-      rows={1}
-      type="password"
-      underlineShow={true}
-      value=""
-    />
-    <DialogButton
-      label="Wijzig wachtwoord"
-      primary={true}
-      type="submit"
-    />
-  </form>
+  <Connect(ChangePasswordContainer) />
 </styled.div>
 `;

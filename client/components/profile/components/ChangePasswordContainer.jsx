@@ -51,7 +51,7 @@ const mapActions = {
 }
 
 const mapStateToProps = state => ({
-  errors: state.api[types.UPDATE_PROFILE].errors
+  errors: state.api[types.UPDATE_PASSWORD].errors
 })
 
 export default connect(mapStateToProps, mapActions)(ChangePasswordContainer)
