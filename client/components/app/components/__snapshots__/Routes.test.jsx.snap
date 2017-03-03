@@ -36,12 +36,12 @@ exports[`<Routes /> renders correctly 1`] = `
   <Match
     component={[Function]}
     exactly={false}
-    pattern="/signup/confirm"
+    pattern="/signup/success"
   />
   <Match
     component={[Function]}
     exactly={false}
-    pattern="/signup/success"
+    pattern="/signup/confirm"
   />
   <Match
     component={[Function]}
