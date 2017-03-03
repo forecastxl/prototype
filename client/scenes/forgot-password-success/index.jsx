@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ForgotPasswordSuccess() {
+function Scene() {
   return (
     <div>
       If your email is associated with an account with us we will send you an email with a link to
@@ -9,4 +9,4 @@ function ForgotPasswordSuccess() {
   )
 }
 
-export default ForgotPasswordSuccess
+export default Scene

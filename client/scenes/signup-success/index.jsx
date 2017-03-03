@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SignupSuccess() {
+function Scene() {
   return (
     <div>
       <h1>Signup successful</h1>
@@ -9,4 +9,4 @@ function SignupSuccess() {
   )
 }
 
-export default SignupSuccess
+export default Scene

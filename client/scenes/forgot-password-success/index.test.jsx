@@ -1,13 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import ForgotPasswordSuccess from './ForgotPasswordSuccess'
+import Scene from './index'
 
-describe('<ForgotPasswordSuccess />', () => {
+describe('<Scene />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(
-      <ForgotPasswordSuccess />
-    )
+    const wrapper = shallow(<Scene />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })
