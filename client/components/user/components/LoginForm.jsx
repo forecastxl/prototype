@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import TextField from 'material-ui/TextField'
 import { Alert } from '../../alert'
 import { Dialog, DialogBody, DialogHeader, DialogFooter, DialogButton } from '../../dialog'

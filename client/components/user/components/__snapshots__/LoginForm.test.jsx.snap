@@ -48,13 +48,7 @@ exports[`<LoginForm /> renders correctly 1`] = `
     </form>
     <styled.div>
       <Link
-        activeClassName=""
-        activeOnlyWhenExact={false}
-        activeStyle={Object {}}
-        className=""
-        isActive={[Function]}
         replace={false}
-        style={Object {}}
         to="/signup"
       >
         Nog geen account?
@@ -63,13 +57,7 @@ exports[`<LoginForm /> renders correctly 1`] = `
          - 
       </span>
       <Link
-        activeClassName=""
-        activeOnlyWhenExact={false}
-        activeStyle={Object {}}
-        className=""
-        isActive={[Function]}
         replace={false}
-        style={Object {}}
         to="/login/forgot-password"
       >
         Wachtwoord vergeten?
