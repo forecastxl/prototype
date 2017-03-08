@@ -2,7 +2,10 @@
   "name": "prototype-server",
   "version": "1.0.0",
   "dependencies": {
+    "expeditious": "^0.2.0",
+    "expeditious-engine-memory": "^0.2.0",
     "express": "^4.14.1",
+    "express-expeditious": "^2.1.0",
     "mime-types": "^2.1.14"
   }
 }

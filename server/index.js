@@ -1,8 +1,28 @@
-const path = require('path')
+const expeditious = require('expeditious');
+const expeditiousMemoryCache = require('expeditious-engine-memory')
+const expeditiousMiddleware = require('express-expeditious')
 const express = require('express')
 const mime = require('mime-types')
+const path = require('path')
 
 const app = express()
+const oneDay = 24 * 60 * 60 * 1000
+
+// cache instance
+const cache = expeditious({
+  namespace: 'express',
+  defaultTtl: oneDay,
+  engine: expeditiousMemoryCache(),
+  objectMode: true
+})
+
+// caching middleware
+const serverSideCache = expeditiousMiddleware({
+  expeditious: cache
+})
+
+// cache any GET requests that come into our application
+app.use(serverSideCache)
 
 // sets max-age to 0 for html
 const setCustomCacheControl = (res, assetPath) => {
@@ -26,4 +46,4 @@ app.get('*', (req, res) => {
 })
 
 // listen on port 80
-app.listen(80)
+app.listen(8080)
