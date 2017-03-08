@@ -2,7 +2,7 @@
   "name": "prototype-server",
   "version": "1.0.0",
   "dependencies": {
-    "express": "^4.14.1",
-    "mime-types": "^2.1.14"
+    "cache-control": "^2.0.0",
+    "express": "^4.14.1"
   }
 }
