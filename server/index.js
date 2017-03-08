@@ -1,21 +1,24 @@
 const path = require('path')
 const express = require('express')
-const cache = require('cache-control')
+const mime = require('mime-types')
 
 const app = express()
 
-app.use(cache({
-  // don't cache html
-  '/**/*.html': 0,
-  // cache all other files for a year (in seconds)
-  '!/**/*.html': 60 * 60 * 24 * 365
-}))
+// sets max-age to 0 for html
+const setCustomCacheControl = (res, assetPath) => {
+  if (mime.lookup(assetPath) === 'text/html') {
+    res.setHeader('Cache-Control', 'public, max-age=0')
+  }
+}
 
 // don't identify as an express server
 app.disable('x-powered-by')
 
 // serve all static files from the /public folder
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public'), {
+  maxAge: '1y',
+  setHeaders: setCustomCacheControl
+}))
 
 // serve index.html for all routes
 app.get('*', (req, res) => {
