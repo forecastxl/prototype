@@ -7,8 +7,8 @@ const app = express()
 app.use(cache({
   // don't cache html
   '/**/*.html': 'public, max-age=0',
-  // cache all other files for a year
-  '/**': '1y'
+  // cache all other files for a year (in seconds)
+  '!/**/*.html': 'public, max-age=31536000'
 }))
 
 // don't identify as an express server
