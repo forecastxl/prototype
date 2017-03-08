@@ -1,12 +1,8 @@
 const express = require('express')
 const path = require('path')
-const serverSideCache = require('./server-side-cache')
 const setHeaders = require('./set-headers')
 
 const app = express()
-
-// cache success responses in memory
-app.use(serverSideCache)
 
 // don't identify as an express server
 app.disable('x-powered-by')
