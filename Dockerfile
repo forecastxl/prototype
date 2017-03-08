@@ -1,14 +1,15 @@
 FROM node:alpine
 
-# create and set workdir
+# create app folder and move to it
 WORKDIR /app
 
-# copy server and dist files
-COPY server/index.js /app
-COPY server/package.json /app
-COPY dist /app
+# copy server files to app root
+COPY server /app
 
-# install the webserver and related modules
+# move dist files to public folder
+COPY dist /app/public
+
+# install dependencies
 RUN npm install
 
 EXPOSE 80
