@@ -6,9 +6,9 @@ const app = express()
 
 app.use(cache({
   // don't cache html
-  '/**/*.html': 'public, max-age=0',
+  '/**/*.html': 0,
   // cache all other files for a year (in seconds)
-  '!/**/*.html': 'public, max-age=31536000'
+  '!/**/*.html': 60 * 60 * 24 * 365
 }))
 
 // don't identify as an express server
