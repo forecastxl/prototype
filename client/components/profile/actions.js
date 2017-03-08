@@ -34,11 +34,11 @@ export const updateProfileFail = errors => ({
   api: { key: types.UPDATE_PROFILE, isFetching: false, errors }
 })
 
-export const updatePassword = passwords => ({
+export const updatePassword = user => ({
   type: types.UPDATE_PASSWORD,
   api: { key: types.UPDATE_PASSWORD, isFetching: true, errors: {} },
   includeToken: true,
-  passwords
+  user
 })
 
 export const updatePasswordSuccess = () => ({

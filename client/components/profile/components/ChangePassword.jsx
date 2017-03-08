@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField'
 import { Alert } from '../../alert'
 import { DialogButton } from '../../dialog'
 
-function ChangePassword({ passwords, onChange, onSubmit, errors }) {
+function ChangePassword({ user, onChange, onSubmit, errors }) {
   return (
     <form action="/" onSubmit={onSubmit}>
       <h2>Wachtwoord wijzigen</h2>
@@ -11,7 +11,7 @@ function ChangePassword({ passwords, onChange, onSubmit, errors }) {
         floatingLabelText="Huidig wachtwoord"
         name="currentPassword"
         type="password"
-        value={passwords.currentPassword}
+        value={user.currentPassword}
         onChange={onChange}
         fullWidth
         errorText={
@@ -22,24 +22,24 @@ function ChangePassword({ passwords, onChange, onSubmit, errors }) {
       />
       <TextField
         floatingLabelText="Nieuw wachtwoord"
-        name="newPassword"
+        name="password"
         type="password"
-        value={passwords.newPassword}
+        value={user.password}
         onChange={onChange}
         fullWidth
-        errorText={errors && errors.newPassword && <Alert messages={errors.newPassword} />}
+        errorText={errors && errors.password && <Alert messages={errors.password} />}
       />
       <TextField
         floatingLabelText="Herhaal nieuw wachtwoord"
-        name="newPasswordConfirmation"
+        name="passwordConfirmation"
         type="password"
-        value={passwords.newPasswordConfirmation}
+        value={user.passwordConfirmation}
         onChange={onChange}
         fullWidth
         errorText={
           errors &&
-          errors.newPasswordConfirmation &&
-          <Alert messages={errors.newPasswordConfirmation} />
+          errors.passwordConfirmation &&
+          <Alert messages={errors.passwordConfirmation} />
         }
       />
       <DialogButton type="submit" label="Wijzig wachtwoord" primary />
@@ -49,7 +49,7 @@ function ChangePassword({ passwords, onChange, onSubmit, errors }) {
 
 ChangePassword.propTypes = {
   errors: PropTypes.object.isRequired,
-  passwords: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 }

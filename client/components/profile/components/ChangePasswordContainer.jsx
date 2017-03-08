@@ -8,10 +8,10 @@ export class ChangePasswordContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      passwords: {
+      user: {
         currentPassword: '',
-        newPassword: '',
-        newPasswordConfirmation: ''
+        password: '',
+        passwordConfirmation: ''
       }
     }
     this.onChange = this.onChange.bind(this)
@@ -20,19 +20,19 @@ export class ChangePasswordContainer extends Component {
 
   onChange(event) {
     this.setState({
-      passwords: { ...this.state.passwords, [event.target.name]: event.target.value }
+      user: { ...this.state.user, [event.target.name]: event.target.value }
     })
   }
 
   onSubmit(event) {
     event.preventDefault()
-    this.props.updatePassword(this.state.passwords)
+    this.props.updatePassword(this.state.user)
   }
 
   render() {
     return (
       <ChangePassword
-        passwords={this.state.passwords}
+        user={this.state.user}
         onChange={this.onChange}
         onSubmit={this.onSubmit}
         errors={this.props.errors}

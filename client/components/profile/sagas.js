@@ -37,7 +37,7 @@ export function* watchUpdateProfile() {
   yield call(takeLatest, types.UPDATE_PROFILE, updateProfile)
 }
 
-export function* updatePassword({ passwords, token }) {
+export function* updatePassword({ user, token }) {
   const { data, error } = yield call(putService, endpoints.user(user.id), user, token)
   if (data) {
     yield put(actions.updatePasswordSuccess())
