@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Header } from '../../header'
+import { Notification } from '../../notification'
 import Home from '../../../scenes/home'
 import ForgotPassword from '../../../scenes/forgot-password'
 import ForgotPasswordSuccess from '../../../scenes/forgot-password-success'
@@ -34,6 +35,7 @@ function Routes() {
         <Route path="/profile" component={Profile} />
 
       </Switch>
+      <Notification />
     </div>
   )
 }
