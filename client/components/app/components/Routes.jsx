@@ -1,15 +1,19 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
+
+// always rendered
 import { Header } from '../../header'
 import { Notification } from '../../notification'
-import Home from '../../../scenes/home'
-import ForgotPassword from '../../../scenes/forgot-password'
-import Login from '../../../scenes/login'
-import Profile from '../../../scenes/profile'
-import Signup from '../../../scenes/signup'
-import SignupSuccess from '../../../scenes/signup-success'
-import SignupConfirmContainer from '../../../scenes/signup-confirm'
-import ResetPassword from '../../../scenes/reset-password'
+
+// scenes
+import Home from '../../../scenes/Home'
+import ForgotPassword from '../../../scenes/ForgotPassword'
+import Login from '../../../scenes/Login'
+import Profile from '../../../scenes/Profile'
+import Signup from '../../../scenes/Signup'
+import SignupSuccess from '../../../scenes/SignupSuccess'
+import SignupConfirmContainer from '../../../scenes/SignupConfirm'
+import ResetPassword from '../../../scenes/ResetPassword'
 
 function Routes() {
   return (
