@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Notification /> renders notifications correctly 1`] = `
+<Snackbar
+  autoHideDuration={4000}
+  message="notification"
+  onRequestClose={[Function]}
+  open={true}
+/>
+`;
+
+exports[`<Notification /> returns null when there are no notifications 1`] = `null`;

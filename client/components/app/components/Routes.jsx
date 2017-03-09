@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Header } from '../../header'
+import { Notification } from '../../notification'
 import Home from '../../../scenes/home'
 import ForgotPassword from '../../../scenes/forgot-password'
-import ForgotPasswordSuccess from '../../../scenes/forgot-password-success'
 import Login from '../../../scenes/login'
 import Profile from '../../../scenes/profile'
 import Signup from '../../../scenes/signup'
@@ -22,7 +22,6 @@ function Routes() {
         {/* Login */}
         <Route exact path="/login" component={Login} />
         <Route exact path="/login/forgot-password" component={ForgotPassword} />
-        <Route path="/login/forgot-password/success" component={ForgotPasswordSuccess} />
         <Route path="/login/reset-password" component={ResetPassword} />
 
         {/* Signup */}
@@ -34,6 +33,7 @@ function Routes() {
         <Route path="/profile" component={Profile} />
 
       </Switch>
+      <Notification />
     </div>
   )
 }

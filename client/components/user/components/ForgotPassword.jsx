@@ -13,6 +13,8 @@ function ForgotPassword({ onSubmit, onChange, email, errors }) {
       <DialogBody>
         {errors && errors.base && <Alert messages={errors.base} />}
         <form action="/" onSubmit={onSubmit}>
+          <p>Vraag hier een reset van uw wachtwoord aan. Als het emailadres bij ons gekoppeld is aan
+          een account ontvangt u op het opgegeven adres een email met verdere instructies.</p>
           <TextField
             floatingLabelText="Email"
             name="email"

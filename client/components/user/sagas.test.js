@@ -4,6 +4,7 @@ import { takeLatest } from 'redux-saga'
 import { endpoints } from '../../services/endpoints'
 import post from '../../services/post'
 import { actions as fetchActions } from '../../data/fetch'
+import { actions as notificationActions } from '../notification'
 import * as sagas from './sagas'
 import * as actions from './actions'
 import * as types from './actionTypes'
@@ -328,13 +329,26 @@ describe('sagas', () => {
       expect(actual).toEqual(expected)
     })
 
-    it('should redirect to /login/forgot-password/success after a succesful request', () => {
+    it('should set a notification on success', () => {
       const data = { token: 'token' }
       const generator = sagas.requestResetPassword(action)
-      const expected = put(push('/login/forgot-password/success'))
+      const expected = put(notificationActions.setNotification('Wachtwoord reset aangevraagd'))
 
       generator.next()
       generator.next({ data })
+      const actual = generator.next().value
+
+      expect(actual).toEqual(expected)
+    })
+
+    it('should redirect to /login after a succesful request', () => {
+      const data = { token: 'token' }
+      const generator = sagas.requestResetPassword(action)
+      const expected = put(push('/login'))
+
+      generator.next()
+      generator.next({ data })
+      generator.next()
       const actual = generator.next().value
 
       expect(actual).toEqual(expected)
