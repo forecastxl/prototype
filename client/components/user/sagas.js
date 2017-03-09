@@ -4,6 +4,7 @@ import { takeLatest } from 'redux-saga'
 import { endpoints } from '../../services/endpoints'
 import post from '../../services/post'
 import { actions as fetchActions } from '../../data/fetch'
+import { actions as sessionActions } from '../../data/session'
 import { actions as notificationActions } from '../notification'
 import * as actions from './actions'
 import * as types from './actionTypes'
@@ -11,7 +12,7 @@ import * as types from './actionTypes'
 export function* login(action) {
   const { data, error } = yield call(post, endpoints.LOGIN, action.user)
   if (data) {
-    yield put(actions.loginSuccess(data.token))
+    yield put(sessionActions.createSession(data.token))
     yield put(push('/'))
   } else if (error.errors) {
     yield put(actions.loginFail(error.errors))
@@ -35,7 +36,7 @@ export function* watchLogout() {
 export function* createAccount(action) {
   const { data, error } = yield call(post, endpoints.CREATE_ACCOUNT, action.account)
   if (data) {
-    yield put(actions.createAccountSuccess(data.token))
+    yield put(sessionActions.createSession(data.token))
     yield put(push('/signup/success'))
   } else if (error.errors) {
     yield put(actions.createAccountFail(error.errors))
@@ -52,7 +53,7 @@ export function* confirmAccount(action) {
   const token = action.token
   const { data, error } = yield call(post, endpoints.CONFIRM_ACCOUNT, { token })
   if (data) {
-    yield put(actions.confirmAccountSuccess(data.token))
+    yield put(sessionActions.createSession(data.token))
     yield put(push('/'))
   } else if (error.errors) {
     yield put(actions.confirmAccountFail(error.errors))

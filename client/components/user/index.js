@@ -8,4 +8,3 @@ export { default as SignupConfirmContainer } from './components/SignupConfirmCon
 export { default as ForgotPasswordContainer } from './components/ForgotPasswordContainer'
 export { default as ResetPasswordContainer } from './components/ResetPasswordContainer'
 export { default as SignupFormContainer } from './components/SignupFormContainer'
-export { default as reducer } from './reducer'

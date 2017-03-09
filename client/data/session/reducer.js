@@ -7,17 +7,13 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case types.LOGIN_SUCCESS:
-    case types.CONFIRM_ACCOUNT_SUCCESS:
-    case types.RESET_PASSWORD_SUCCESS:
+    case types.CREATE_SESSION:
       return {
-        ...state,
         hasToken: true,
         token: action.token
       }
-    case types.LOGOUT:
+    case types.DESTROY_SESSION:
       return {
-        ...state,
         hasToken: false,
         token: ''
       }
