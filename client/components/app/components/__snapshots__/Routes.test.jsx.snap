@@ -21,10 +21,6 @@ exports[`<Routes /> renders correctly 1`] = `
     />
     <Route
       component={[Function]}
-      path="/login/forgot-password/success"
-    />
-    <Route
-      component={[Function]}
       path="/login/reset-password"
     />
     <Route
@@ -45,5 +41,6 @@ exports[`<Routes /> renders correctly 1`] = `
       path="/profile"
     />
   </Switch>
+  <Connect(Notification) />
 </div>
 `;
