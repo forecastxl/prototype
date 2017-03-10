@@ -1,5 +1,5 @@
 import React from 'react'
-import { LoginFormContainer } from '../../components/user'
+import { LoginFormContainer } from '../../components/login'
 
 function Scene() {
   return (

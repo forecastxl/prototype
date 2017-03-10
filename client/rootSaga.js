@@ -1,14 +1,15 @@
-import { sagas as user } from './components/user'
+import { sagas as login } from './components/login'
+import { sagas as signup } from './components/signup'
+import { sagas as password } from './components/password'
 import { sagas as profile } from './components/profile'
 
 const rootSaga = function* () {
   yield [
-    user.watchLogin(),
-    user.watchLogout(),
-    user.watchCreateAccount(),
-    user.watchConfirmAccount(),
-    user.watchRequestResetPassword(),
-    user.watchResetPassword(),
+    login.watchLogin(),
+    signup.watchCreateAccount(),
+    signup.watchConfirmAccount(),
+    password.watchRequestResetPassword(),
+    password.watchResetPassword(),
     profile.watchFetchProfile(),
     profile.watchUpdateProfile()
   ]

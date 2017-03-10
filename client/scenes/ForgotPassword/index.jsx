@@ -1,5 +1,5 @@
 import React from 'react'
-import { ForgotPasswordContainer } from '../../components/user'
+import { ForgotPasswordContainer } from '../../components/password'
 
 function Scene() {
   return (

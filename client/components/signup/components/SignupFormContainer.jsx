@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import * as types from '../actionTypes'
 import { createAccount } from '../actions'
 import SignupForm from './SignupForm'
 
@@ -50,7 +49,7 @@ export class SignupFormContainer extends Component {
   render() {
     return (
       <SignupForm
-        errors={this.props.errors}
+        errors={{}}
         onTextChange={this.changeAccountText}
         onCheckboxChange={this.changeAccountCheckbox}
         onSubmit={this.processForm}
@@ -61,12 +60,7 @@ export class SignupFormContainer extends Component {
 }
 
 SignupFormContainer.propTypes = {
-  errors: PropTypes.object.isRequired,
   createAccount: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({
-  errors: state.api[types.CREATE_ACCOUNT].errors
-})
-
-export default connect(mapStateToProps, { createAccount })(SignupFormContainer)
+export default connect(null, { createAccount })(SignupFormContainer)

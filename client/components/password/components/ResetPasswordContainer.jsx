@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import getParam from '../../../services/getParam'
-import * as types from '../actionTypes'
 import { resetPassword } from '../actions'
 import ResetPassword from './ResetPassword'
 
@@ -46,7 +45,7 @@ export class ResetPasswordContainer extends Component {
     return (
       <ResetPassword
         hasToken={this.state.parsedToken && !!this.state.token}
-        errors={this.props.errors}
+        errors={{}}
         onSubmit={this.processForm}
         onChange={this.handleChange}
         password={this.state.password}
@@ -57,12 +56,7 @@ export class ResetPasswordContainer extends Component {
 }
 
 ResetPasswordContainer.propTypes = {
-  resetPassword: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired
+  resetPassword: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({
-  errors: state.api[types.RESET_PASSWORD].errors
-})
-
-export default connect(mapStateToProps, { resetPassword })(ResetPasswordContainer)
+export default connect(null, { resetPassword })(ResetPasswordContainer)

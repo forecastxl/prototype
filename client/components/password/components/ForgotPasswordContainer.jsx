@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import * as types from '../actionTypes'
 import { requestResetPassword } from '../actions'
 import ForgotPassword from './ForgotPassword'
 
@@ -27,7 +26,7 @@ export class ForgotPasswordContainer extends Component {
     return (
       <ForgotPassword
         email={this.state.email}
-        errors={this.props.errors}
+        errors={{}}
         onChange={this.changeEmail}
         onSubmit={this.processForm}
       />
@@ -36,12 +35,7 @@ export class ForgotPasswordContainer extends Component {
 }
 
 ForgotPasswordContainer.propTypes = {
-  errors: PropTypes.object.isRequired,
   requestResetPassword: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({
-  errors: state.api[types.REQUEST_RESET_PASSWORD].errors
-})
-
-export default connect(mapStateToProps, { requestResetPassword })(ForgotPasswordContainer)
+export default connect(null, { requestResetPassword })(ForgotPasswordContainer)

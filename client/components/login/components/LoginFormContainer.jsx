@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import * as types from '../actionTypes'
 import { actions } from '../../../data/session'
 import LoginForm from './LoginForm'
 
@@ -34,7 +33,7 @@ export class LoginFormContainer extends Component {
   render() {
     return (
       <LoginForm
-        errors={this.props.errors}
+        errors={{}}
         onChange={this.changeUser}
         onSubmit={this.processForm}
         user={this.state.user}
@@ -44,16 +43,11 @@ export class LoginFormContainer extends Component {
 }
 
 LoginFormContainer.propTypes = {
-  errors: PropTypes.object.isRequired,
   createSession: PropTypes.func.isRequired
 }
-
-const mapStateToProps = state => ({
-  errors: state.api[types.LOGIN].errors
-})
 
 const mapActionsToProps = {
   createSession: actions.createSession
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(LoginFormContainer)
+export default connect(null, mapActionsToProps)(LoginFormContainer)

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginForm /> renders correctly 1`] = `
+<Styled(Card)>
+  <MuiComponent
+    title="Inloggen op ForecastXL"
+    titleColor="white"
+  />
+  <CardText>
+    <form
+      action="/"
+      onSubmit={[Function]}
+    >
+      <TextField
+        disabled={false}
+        floatingLabelFixed={false}
+        floatingLabelText="Email"
+        fullWidth={true}
+        multiLine={false}
+        name="email"
+        onChange={[Function]}
+        rows={1}
+        type="text"
+        underlineShow={true}
+        value=""
+      />
+      <br />
+      <TextField
+        disabled={false}
+        floatingLabelFixed={false}
+        floatingLabelText="Wachtwoord"
+        fullWidth={true}
+        multiLine={false}
+        name="password"
+        onChange={[Function]}
+        rows={1}
+        type="password"
+        underlineShow={true}
+        value=""
+      />
+      <br />
+      <DialogButton
+        fullWidth={true}
+        label="Inloggen"
+        primary={true}
+        type="submit"
+      />
+    </form>
+    <styled.div>
+      <Link
+        replace={false}
+        to="/signup"
+      >
+        Nog geen account?
+      </Link>
+      <span>
+         - 
+      </span>
+      <Link
+        replace={false}
+        to="/login/forgot-password"
+      >
+        Wachtwoord vergeten?
+      </Link>
+    </styled.div>
+  </CardText>
+</Styled(Card)>
+`;
