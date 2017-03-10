@@ -16,9 +16,12 @@ const put = (endpoint, data, token) => {
 
   if (token) {
     headers = { ...headers, Authorization: `Bearer ${token}` }
+    // fetch is polyfilled with isomorphic-fetch
+    // eslint-disable-next-line compat/compat
     return fetch(endpoint, headers, options)
   }
 
+  // eslint-disable-next-line compat/compat
   return fetch(endpoint, headers, options)
 }
 

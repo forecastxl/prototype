@@ -7,6 +7,8 @@ async function fetchWrapper(endpoint, headers, options) {
   if (headers) init = { ...init, headers: new Headers(headers) }
 
   try {
+    // fetch is polyfilled with isomorphic-fetch
+    // eslint-disable-next-line compat/compat
     const response = await fetch(endpoint, init)
     const data = await response.json()
 

@@ -4,12 +4,16 @@
     "jest": true,
     "node": true
   },
+  "plugins": [
+    "compat"
+  ],
   "extends": [
     "airbnb"
   ],
   "rules": {
     "arrow-parens": [2, "as-needed"],
     "comma-dangle": [2, "never"],
+    "compat/compat": 2,
     "func-names": [2, "as-needed"],
     "global-require": 0,
     "import/no-extraneous-dependencies": 0,
