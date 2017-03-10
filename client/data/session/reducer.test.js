@@ -13,8 +13,8 @@ describe('reducer', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should handle LOGIN_SUCCESS', () => {
-    const actual = reducer(undefined, { type: types.LOGIN_SUCCESS, token: 'token' })
+  it('should handle CREATE_SESSION', () => {
+    const actual = reducer(undefined, { type: types.CREATE_SESSION, token: 'token' })
     const expected = {
       hasToken: true,
       token: 'token'
@@ -23,19 +23,9 @@ describe('reducer', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should handle CONFIRM_ACCOUNT_SUCCESS', () => {
-    const actual = reducer(undefined, { type: types.CONFIRM_ACCOUNT_SUCCESS, token: 'token' })
-    const expected = {
-      hasToken: true,
-      token: 'token'
-    }
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should handle LOGOUT', () => {
-    const initial = { hasToken: true, token: 'token' }
-    const actual = reducer(initial, { type: types.LOGOUT })
+  it('should handle DESTROY_SESSION', () => {
+    const hasToken = { hasToken: true, token: 'token' }
+    const actual = reducer(hasToken, { type: types.DESTROY_SESSION })
     const expected = {
       hasToken: false,
       token: ''

@@ -64,45 +64,4 @@ describe('actioncreators', () => {
 
     expect(actual).toEqual(expected)
   })
-
-  it('should create a LOGIN action', () => {
-    const actual = actions.login('user')
-    const expected = {
-      type: types.LOGIN,
-      api: { key: types.LOGIN, isFetching: true, errors: {} },
-      user: 'user'
-    }
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should create a LOGIN_SUCCESS action', () => {
-    const actual = actions.loginSuccess('token')
-    const expected = {
-      type: types.LOGIN_SUCCESS,
-      api: { key: types.LOGIN, isFetching: false, errors: {} },
-      token: 'token'
-    }
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should create a LOGIN_FAIL action', () => {
-    const actual = actions.loginFail('errors')
-    const expected = {
-      type: types.LOGIN_FAIL,
-      api: { key: types.LOGIN, isFetching: false, errors: 'errors' }
-    }
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should create a LOGOUT action', () => {
-    const actual = actions.logout()
-    const expected = {
-      type: types.LOGOUT
-    }
-
-    expect(actual).toEqual(expected)
-  })
 })
