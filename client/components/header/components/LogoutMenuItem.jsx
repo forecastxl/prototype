@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import MenuItem from 'material-ui/MenuItem'
-import { actions } from '../../user'
+import { actions } from '../../../data/session'
 
-export function LogoutMenuItem({ logout, ...rest }) {
+export function LogoutMenuItem({ destroySession, ...rest }) {
   return (
-    <MenuItem onClick={logout} {...rest} />
+    <MenuItem onClick={destroySession} {...rest} />
   )
 }
 
 LogoutMenuItem.propTypes = {
-  logout: PropTypes.func.isRequired
+  destroySession: PropTypes.func.isRequired
 }
 
-export default connect(null, { logout: actions.logout })(LogoutMenuItem)
+export default connect(null, { destroySession: actions.destroySession })(LogoutMenuItem)
