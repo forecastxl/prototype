@@ -4,7 +4,7 @@ import { takeLatest } from 'redux-saga'
 import { endpoints } from '../../services/endpoints'
 import post from '../../services/post'
 import { actions as fetchActions } from '../../data/fetch'
-import { actions as notificationActions } from '../notification'
+import { actions as notificationActions } from '../notifications'
 import { RESET_PASSWORD, REQUEST_RESET_PASSWORD } from './actionTypes'
 import {
   resetPasswordSuccess,
@@ -34,7 +34,7 @@ export function* requestResetPassword(action) {
   const { data, error } = yield call(post, endpoints.REQUEST_RESET_PASSWORD, { email })
   if (data) {
     yield put(requestResetPasswordSuccess())
-    yield put(notificationActions.setNotification('Wachtwoord reset aangevraagd'))
+    yield put(notificationActions.addNotification('Wachtwoord reset aangevraagd'))
     yield put(push('/login'))
   } else if (error.errors) {
     yield put(requestResetPasswordFail(error.errors))
