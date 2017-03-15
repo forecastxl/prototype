@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 
 // always rendered
 import { Header } from '../../header'
-import { Notifications } from '../../notifications'
+import { NotificationContainer } from '../../notifications'
 
 // scenes
 import Home from '../../../scenes/Home'
@@ -37,7 +37,7 @@ function Routes() {
         <Route path="/profile" component={Profile} />
 
       </Switch>
-      <Notifications />
+      <NotificationContainer />
     </div>
   )
 }

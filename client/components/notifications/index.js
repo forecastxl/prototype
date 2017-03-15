@@ -1,5 +1,5 @@
 import * as actions from './actions'
 
 export { actions }
-export { default as Notifications } from './components/Notifications'
+export { default as NotificationContainer } from './components/NotificationContainer'
 export { default as reducer } from './reducer'
