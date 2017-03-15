@@ -7,6 +7,7 @@ exports[`<LoginButton /> renders correctly 1`] = `
 >
   <FlatButton
     disabled={false}
+    fullWidth={false}
     label="Login"
     labelPosition="after"
     labelStyle={Object {}}

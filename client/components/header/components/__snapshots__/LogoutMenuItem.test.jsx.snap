@@ -2,6 +2,12 @@
 
 exports[`<LogoutMenuItem /> renders correctly 1`] = `
 <MenuItem
+  anchorOrigin={
+    Object {
+      "horizontal": "right",
+      "vertical": "top",
+    }
+  }
   checked={false}
   desktop={false}
   disabled={false}
