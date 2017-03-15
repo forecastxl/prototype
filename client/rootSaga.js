@@ -1,11 +1,11 @@
-import { sagas as login } from './components/login'
 import { sagas as signup } from './components/signup'
+import { sagas as session } from './data/session'
 import { sagas as password } from './components/password'
 import { sagas as profile } from './components/profile'
 
 const rootSaga = function* () {
   yield [
-    login.watchLogin(),
+    session.watchCreateSession(),
     signup.watchCreateAccount(),
     signup.watchConfirmAccount(),
     password.watchRequestResetPassword(),

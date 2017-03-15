@@ -1,4 +1,5 @@
 import * as actions from './actions'
+import * as sagas from './sagas'
 
-export { actions }
+export { actions, sagas }
 export { default as reducer } from './reducer'
