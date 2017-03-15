@@ -5,6 +5,7 @@ import { endpoints } from '../../services/endpoints'
 import post from '../../services/post'
 import { actions as fetchActions } from '../../data/fetch'
 import { actions as sessionActions } from '../../data/session'
+import { actions as notificationActions } from '../notifications'
 import { CREATE_ACCOUNT, CONFIRM_ACCOUNT } from './actionTypes'
 import { createAccountFail, confirmAccountFail } from './actions'
 
@@ -12,6 +13,7 @@ export function* createAccount(action) {
   const { data, error } = yield call(post, endpoints.CREATE_ACCOUNT, action.account)
   if (data) {
     yield put(sessionActions.createSession(data.token))
+    yield put(notificationActions.addNotification('Account aangemaakt'))
     yield put(push('/signup/success'))
   } else if (error.errors) {
     yield put(createAccountFail(error.errors))
