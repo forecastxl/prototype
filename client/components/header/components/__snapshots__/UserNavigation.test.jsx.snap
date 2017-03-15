@@ -40,6 +40,12 @@ exports[`<UserNavigation /> renders correctly 1`] = `
   useLayerForClickAway={false}
 >
   <MenuItem
+    anchorOrigin={
+      Object {
+        "horizontal": "right",
+        "vertical": "top",
+      }
+    }
     checked={false}
     desktop={false}
     disabled={false}
