@@ -4,6 +4,10 @@ import { actionTypes as profile } from '../../components/profile'
 
 describe('reducer', () => {
   const initialState = {
+    [profile.UPDATE_PASSWORD]: {
+      errors: {},
+      isFetching: false
+    },
     [profile.UPDATE_PROFILE]: {
       errors: {},
       isFetching: false

@@ -4,6 +4,7 @@ import { Alert } from '../../alert'
 import { Spacer } from '../../spacer'
 import { DialogButton } from '../../dialog'
 import { Container } from '../../container'
+import ChangePasswordContainer from './ChangePasswordContainer'
 
 function Profile({ profile, onChange, onSubmit, errors }) {
   return (
@@ -38,45 +39,7 @@ function Profile({ profile, onChange, onSubmit, errors }) {
           <DialogButton type="submit" label="Wijzig profiel" primary />
         </Spacer>
       </form>
-      <form action="/" onSubmit={onSubmit}>
-        <h2>Wachtwoord wijzigen</h2>
-        <TextField
-          floatingLabelText="Huidig wachtwoord"
-          name="currentPassword"
-          type="password"
-          value={profile.currentPassword}
-          onChange={onChange}
-          fullWidth
-          errorText={
-            errors &&
-            errors.currentPassword &&
-            <Alert messages={errors.currentPassword} />
-          }
-        />
-        <TextField
-          floatingLabelText="Nieuw wachtwoord"
-          name="newPassword"
-          type="password"
-          value={profile.newPassword}
-          onChange={onChange}
-          fullWidth
-          errorText={errors && errors.newPassword && <Alert messages={errors.newPassword} />}
-        />
-        <TextField
-          floatingLabelText="Herhaal nieuw wachtwoord"
-          name="newPasswordConfirmation"
-          type="password"
-          value={profile.newPasswordConfirmation}
-          onChange={onChange}
-          fullWidth
-          errorText={
-            errors &&
-            errors.newPasswordConfirmation &&
-            <Alert messages={errors.newPasswordConfirmation} />
-          }
-        />
-        <DialogButton type="submit" label="Wijzig wachtwoord" primary />
-      </form>
+      <ChangePasswordContainer />
     </Container>
   )
 }

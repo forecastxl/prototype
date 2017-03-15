@@ -33,3 +33,20 @@ export const updateProfileFail = errors => ({
   type: types.UPDATE_PROFILE_FAIL,
   api: { key: types.UPDATE_PROFILE, isFetching: false, errors }
 })
+
+export const updatePassword = user => ({
+  type: types.UPDATE_PASSWORD,
+  api: { key: types.UPDATE_PASSWORD, isFetching: true, errors: {} },
+  includeToken: true,
+  user
+})
+
+export const updatePasswordSuccess = () => ({
+  type: types.UPDATE_PASSWORD_SUCCESS,
+  api: { key: types.UPDATE_PASSWORD, isFetching: false, errors: {} }
+})
+
+export const updatePasswordFail = errors => ({
+  type: types.UPDATE_PASSWORD_FAIL,
+  api: { key: types.UPDATE_PASSWORD, isFetching: false, errors }
+})
