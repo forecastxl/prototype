@@ -12,7 +12,7 @@ const fadeIn = keyframes`
   }
 `
 
-export const AlertWrapper = styled.div`
+export const AlertBox = styled.div`
   background: ${styles.colors.error};
   font-weight: bold;
   font-size: 0.75rem;
@@ -22,4 +22,4 @@ export const AlertWrapper = styled.div`
   animation: ${fadeIn} 200ms linear;
 `
 
-export default muiThemeable()(AlertWrapper)
+export default muiThemeable()(AlertBox)

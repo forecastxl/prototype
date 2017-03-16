@@ -1,11 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-
-// always rendered
 import { Header } from '../../header'
 import { NotificationContainer } from '../../notifications'
-
-// scenes
 import Home from '../../../scenes/Home'
 import ForgotPassword from '../../../scenes/ForgotPassword'
 import Login from '../../../scenes/Login'
@@ -18,7 +14,6 @@ function Routes() {
   return (
     <div>
       <Header />
-      {/* Root */}
       <Switch>
         <Route exact path="/" component={Home} />
 
