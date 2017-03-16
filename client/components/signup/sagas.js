@@ -12,9 +12,8 @@ import { createAccountFail, confirmAccountFail } from './actions'
 export function* createAccount(action) {
   const { data, error } = yield call(post, endpoints.CREATE_ACCOUNT, action.account)
   if (data) {
-    yield put(sessionActions.createSession(data.token))
-    yield put(notificationActions.addNotification('Account aangemaakt'))
-    yield put(push('/signup/success'))
+    yield put(notificationActions.addNotification('Account aangemaakt. Bevestig via de email.'))
+    yield put(push('/'))
   } else if (error.errors) {
     yield put(createAccountFail(error.errors))
   } else {

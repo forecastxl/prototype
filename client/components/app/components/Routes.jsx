@@ -11,7 +11,6 @@ import ForgotPassword from '../../../scenes/ForgotPassword'
 import Login from '../../../scenes/Login'
 import Profile from '../../../scenes/Profile'
 import Signup from '../../../scenes/Signup'
-import SignupSuccess from '../../../scenes/SignupSuccess'
 import SignupConfirmContainer from '../../../scenes/SignupConfirm'
 import ResetPassword from '../../../scenes/ResetPassword'
 
@@ -30,7 +29,6 @@ function Routes() {
 
         {/* Signup */}
         <Route exact path="/signup" component={Signup} />
-        <Route path="/signup/success" component={SignupSuccess} />
         <Route path="/signup/confirm" component={SignupConfirmContainer} />
 
         {/* Profile */}
