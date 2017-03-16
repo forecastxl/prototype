@@ -3,7 +3,6 @@ import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
 import { endpoints } from '../../services/endpoints'
 import post from '../../services/post'
-import { actions as fetchActions } from '../../data/fetch'
 import { actions as notificationActions } from '../notifications'
 import { RESET_PASSWORD, REQUEST_RESET_PASSWORD } from './actionTypes'
 import {
@@ -21,7 +20,7 @@ export function* resetPassword(action) {
   } else if (error.errors) {
     yield put(resetPasswordFail(error.errors))
   } else {
-    yield put(fetchActions.fetchFail(error.message))
+    yield put(resetPasswordFail({ fetch: error.message }))
   }
 }
 
@@ -39,7 +38,7 @@ export function* requestResetPassword(action) {
   } else if (error.errors) {
     yield put(requestResetPasswordFail(error.errors))
   } else {
-    yield put(fetchActions.fetchFail(error.message))
+    yield put(requestResetPasswordFail({ fetch: error.message }))
   }
 }
 

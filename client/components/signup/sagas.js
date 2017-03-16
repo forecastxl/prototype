@@ -3,7 +3,6 @@ import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
 import { endpoints } from '../../services/endpoints'
 import post from '../../services/post'
-import { actions as fetchActions } from '../../data/fetch'
 import { actions as sessionActions } from '../../data/session'
 import { actions as notificationActions } from '../notifications'
 import { CREATE_ACCOUNT, CONFIRM_ACCOUNT } from './actionTypes'
@@ -17,7 +16,7 @@ export function* createAccount(action) {
   } else if (error.errors) {
     yield put(createAccountFail(error.errors))
   } else {
-    yield put(fetchActions.fetchFail(error.message))
+    yield put(createAccountFail({ fetch: error.message }))
   }
 }
 
@@ -34,7 +33,7 @@ export function* confirmAccount(action) {
   } else if (error.errors) {
     yield put(confirmAccountFail(error.errors))
   } else {
-    yield put(fetchActions.fetchFail(error.message))
+    yield put(confirmAccountFail({ fetch: error.message }))
   }
 }
 

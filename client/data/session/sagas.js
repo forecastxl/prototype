@@ -3,7 +3,6 @@ import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
 import { endpoints } from '../../services/endpoints'
 import post from '../../services/post'
-import { actions as fetchActions } from '../../data/fetch'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
@@ -15,7 +14,7 @@ export function* createSession(action) {
   } else if (error.errors) {
     yield put(actions.createSessionFail(error.errors))
   } else {
-    yield put(fetchActions.fetchFail(error.message))
+    yield put(actions.createSessionFail({ fetch: error.message }))
   }
 }
 
