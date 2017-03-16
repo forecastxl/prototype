@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AlertWrapper /> renders correctly 1`] = `
+exports[`<AlertBox /> renders correctly 1`] = `
 <div
   className="iUyTNb"
 />

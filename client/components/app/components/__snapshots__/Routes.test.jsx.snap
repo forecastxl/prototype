@@ -30,10 +30,6 @@ exports[`<Routes /> renders correctly 1`] = `
     />
     <Route
       component={[Function]}
-      path="/signup/success"
-    />
-    <Route
-      component={[Function]}
       path="/signup/confirm"
     />
     <Route
@@ -41,6 +37,6 @@ exports[`<Routes /> renders correctly 1`] = `
       path="/profile"
     />
   </Switch>
-  <Connect(Notification) />
+  <Connect(Notifications) />
 </div>
 `;

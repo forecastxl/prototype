@@ -20,7 +20,7 @@ export function* resetPassword(action) {
   } else if (error.errors) {
     yield put(resetPasswordFail(error.errors))
   } else {
-    yield put(resetPasswordFail({ fetch: error.message }))
+    yield put(resetPasswordFail(error))
   }
 }
 
@@ -29,16 +29,15 @@ export function* watchResetPassword() {
 }
 
 export function* requestResetPassword(action) {
-  const email = action.email
-  const { data, error } = yield call(post, endpoints.REQUEST_RESET_PASSWORD, { email })
+  const { data, error } = yield call(post, endpoints.REQUEST_RESET_PASSWORD, action.email)
   if (data) {
-    yield put(requestResetPasswordSuccess())
+    yield put(requestResetPasswordSuccess(data.token))
     yield put(notificationActions.addNotification('Wachtwoord reset aangevraagd'))
     yield put(push('/login'))
   } else if (error.errors) {
     yield put(requestResetPasswordFail(error.errors))
   } else {
-    yield put(requestResetPasswordFail({ fetch: error.message }))
+    yield put(requestResetPasswordFail(error))
   }
 }
 

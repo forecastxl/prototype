@@ -2,41 +2,29 @@ import reducer from './reducer'
 import * as types from './actionTypes'
 
 describe('reducer', () => {
-  const initialState = {
-    hasNotification: false,
-    notification: ''
-  }
-
   it('should return the initial state', () => {
     const actual = reducer(undefined, {})
-    const expected = initialState
+    const expected = []
     expect(actual).toEqual(expected)
   })
 
-  it('should handle SET_NOTIFICATION', () => {
+  it('should handle ADD_NOTIFICATION', () => {
     const actual = reducer(undefined, {
-      type: types.SET_NOTIFICATION,
-      notification: 'notification'
+      type: types.ADD_NOTIFICATION,
+      message: 'message'
     })
-    const expected = {
-      hasNotification: true,
-      notification: 'notification'
-    }
+    const expected = ['message']
 
     expect(actual).toEqual(expected)
   })
 
-  it('should handle UNSET_NOTIFICATION', () => {
-    const hasNotification = {
-      hasNotification: true,
-      notification: 'notification'
-    }
-    const actual = reducer(hasNotification, {
-      type: types.UNSET_NOTIFICATION,
-      notification: 'notification'
+  it('should handle REMOVE_OLDEST_NOTIFICATION', () => {
+    const actual = reducer(['oldest', 'newest'], {
+      type: types.REMOVE_OLDEST_NOTIFICATION
     })
+    const expected = ['newest']
 
-    expect(actual).toEqual(initialState)
+    expect(actual).toEqual(expected)
   })
 })
 

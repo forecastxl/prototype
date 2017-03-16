@@ -1,10 +1,10 @@
 import * as selectors from './selectors'
 
-describe('getNotification', () => {
-  it('should return notification state', () => {
-    const state = { notification: 'notification' }
-    const actual = selectors.getNotification(state)
-    const expected = 'notification'
+describe('getNotifications', () => {
+  it('should return notifications state', () => {
+    const state = { notifications: ['message'] }
+    const actual = selectors.getNotifications(state)
+    const expected = state.notifications
 
     expect(actual).toEqual(expected)
   })
