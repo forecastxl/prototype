@@ -18,7 +18,7 @@ describe('reducer', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should handle REMOVE_OLDEST_NOTIFICATION', () => {
+  it('should handle REMOVE_OLDEST_NOTIFICATION when there are multiple notifications', () => {
     const actual = reducer(['oldest', 'newest'], {
       type: types.REMOVE_OLDEST_NOTIFICATION
     })
@@ -26,5 +26,13 @@ describe('reducer', () => {
 
     expect(actual).toEqual(expected)
   })
-})
 
+  it('should handle REMOVE_OLDEST_NOTIFICATION when there are no notifications', () => {
+    const actual = reducer([], {
+      type: types.REMOVE_OLDEST_NOTIFICATION
+    })
+    const expected = []
+
+    expect(actual).toEqual(expected)
+  })
+})
