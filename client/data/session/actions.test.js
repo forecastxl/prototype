@@ -2,65 +2,43 @@ import * as types from './actionTypes'
 import * as actions from './actions'
 
 describe('actioncreators', () => {
-  it('should create a CREATE_ACCOUNT action', () => {
-    const account = 'account'
-    const actual = actions.createAccount(account)
+  it('should create a CREATE_SESSION action', () => {
+    const user = 'user'
+    const actual = actions.createSession(user)
     const expected = {
-      type: types.CREATE_ACCOUNT,
-      account
+      type: types.CREATE_SESSION,
+      user
     }
 
     expect(actual).toEqual(expected)
   })
 
-  it('should create a CREATE_ACCOUNT_SUCCESS action', () => {
-    const actual = actions.createAccountSuccess()
-    const expected = {
-      type: types.CREATE_ACCOUNT_SUCCESS
-    }
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should create a CREATE_ACCOUNT_FAIL action', () => {
-    const errors = 'errors'
-    const actual = actions.createAccountFail(errors)
-    const expected = {
-      type: types.CREATE_ACCOUNT_FAIL,
-      errors
-    }
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should create a CONFIRM_ACCOUNT action', () => {
+  it('should create a CREATE_SESSION_SUCCESS action', () => {
     const token = 'token'
-    const actual = actions.confirmAccount(token)
+    const actual = actions.createSessionSuccess(token)
     const expected = {
-      type: types.CONFIRM_ACCOUNT,
+      type: types.CREATE_SESSION_SUCCESS,
       token
     }
 
     expect(actual).toEqual(expected)
   })
 
-  it('should create a CONFIRM_ACCOUNT_SUCCESS action', () => {
-    const token = 'token'
-    const actual = actions.confirmAccountSuccess(token)
+  it('should create a CREATE_SESSION_FAIL action', () => {
+    const errors = 'errors'
+    const actual = actions.createSessionFail(errors)
     const expected = {
-      type: types.CONFIRM_ACCOUNT_SUCCESS,
-      token
+      type: types.CREATE_SESSION_FAIL,
+      errors
     }
 
     expect(actual).toEqual(expected)
   })
 
-  it('should create a CONFIRM_ACCOUNT_FAIL action', () => {
-    const errors = 'errors'
-    const actual = actions.confirmAccountFail(errors)
+  it('should create a DESTROY_SESSION action', () => {
+    const actual = actions.destroySession()
     const expected = {
-      type: types.CONFIRM_ACCOUNT_FAIL,
-      errors
+      type: types.DESTROY_SESSION
     }
 
     expect(actual).toEqual(expected)

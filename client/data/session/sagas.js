@@ -14,7 +14,7 @@ export function* createSession(action) {
   } else if (error.errors) {
     yield put(actions.createSessionFail(error.errors))
   } else {
-    yield put(actions.createSessionFail({ fetch: error.message }))
+    yield put(actions.createSessionFail(error))
   }
 }
 

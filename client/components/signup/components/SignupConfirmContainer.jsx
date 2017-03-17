@@ -23,7 +23,6 @@ export class SignupConfirmContainer extends Component {
   }
 
   componentDidMount() {
-    // TODO: fix missing isFetching
     if (this.state.parsedToken && this.state.token) {
       this.props.confirmAccount(this.state.token)
     }

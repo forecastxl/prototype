@@ -7,12 +7,16 @@ jest.mock('../fetch', () => jest.fn())
 jest.mock('../decamelize', () => jest.fn())
 
 describe('post', () => {
+  it('throws an error if there is no data', () => {
+    expect(() => { post('endpoint') }).toThrowError('There must be a data argument')
+  })
+
   it('throws an error if data is not an object', () => {
     expect(() => { post('endpoint', 'string') }).toThrowError('The data argument must be an object')
   })
 
   it('calls fetch with the right endpoint', () => {
-    post('endpoint')
+    post('endpoint', {})
     const lastCall = fetch.mock.calls.length - 1
     const expected = 'endpoint'
 
@@ -20,7 +24,7 @@ describe('post', () => {
   })
 
   it('calls fetch with the right method', () => {
-    post('endpoint')
+    post('endpoint', {})
     const lastCall = fetch.mock.calls.length - 1
     const expected = 'POST'
 
@@ -45,7 +49,7 @@ describe('post', () => {
   })
 
   it('sets the correct headers', () => {
-    post('endpoint')
+    post('endpoint', {})
     const lastCall = fetch.mock.calls.length - 1
     const expected = { 'Content-Type': 'application/json' }
 
