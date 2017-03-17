@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react'
-import AlertWrapper from './AlertWrapper'
+import AlertBox from './AlertBox'
 
 function Alert({ messages }) {
   return (
-    <AlertWrapper>
+    <AlertBox>
       {messages.map(message => <p key={message}>{message}</p>)}
-    </AlertWrapper>
+    </AlertBox>
   )
 }
 

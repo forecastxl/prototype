@@ -3,7 +3,6 @@ import { takeLatest } from 'redux-saga'
 import get from '../../services/get'
 import putService from '../../services/put'
 import { endpoints } from '../../services/endpoints'
-import { actions as fetchActions } from '../../data/fetch'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
@@ -14,7 +13,7 @@ export function* fetchProfile({ token }) {
   } else if (error.errors) {
     yield put(actions.fetchProfileFail(error.errors))
   } else {
-    yield put(fetchActions.fetchFail(error.message))
+    yield put(actions.fetchProfileFail(error))
   }
 }
 
@@ -29,7 +28,7 @@ export function* updateProfile({ user, token }) {
   } else if (error.errors) {
     yield put(actions.updateProfileFail(error.errors))
   } else {
-    yield put(fetchActions.fetchFail(error.message))
+    yield put(actions.updateProfileFail(error))
   }
 }
 

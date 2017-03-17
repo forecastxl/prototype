@@ -5,13 +5,13 @@ import { LogoutMenuItem } from './LogoutMenuItem'
 
 describe('<LogoutMenuItem />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(<LogoutMenuItem logout={() => {}} />)
+    const wrapper = shallow(<LogoutMenuItem destroySession={() => {}} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
-  it('calls logout on click', () => {
+  it('calls destroySession on click', () => {
     const spy = jest.fn()
-    const wrapper = shallow(<LogoutMenuItem logout={spy} />)
+    const wrapper = shallow(<LogoutMenuItem destroySession={spy} />)
     wrapper.simulate('click')
 
     expect(spy).toHaveBeenCalled()

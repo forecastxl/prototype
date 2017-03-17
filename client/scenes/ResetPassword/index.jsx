@@ -1,5 +1,5 @@
 import React from 'react'
-import { ResetPasswordContainer } from '../../components/user'
+import { ResetPasswordContainer } from '../../components/password'
 
 function Scene() {
   return (

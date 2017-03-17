@@ -19,7 +19,7 @@ Header.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  hasToken: state.user.hasToken
+  hasToken: state.session.hasToken
 })
 
 export default connect(mapStateToProps, {})(Header)

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SignupFormContainer } from '../../components/user'
+import { SignupFormContainer } from '../../components/signup'
 
 function Scene() {
   return (

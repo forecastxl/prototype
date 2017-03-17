@@ -1,17 +1,12 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-
-// always rendered
 import { Header } from '../../header'
-import { Notification } from '../../notification'
-
-// scenes
+import { NotificationContainer } from '../../notifications'
 import Home from '../../../scenes/Home'
 import ForgotPassword from '../../../scenes/ForgotPassword'
 import Login from '../../../scenes/Login'
 import Profile from '../../../scenes/Profile'
 import Signup from '../../../scenes/Signup'
-import SignupSuccess from '../../../scenes/SignupSuccess'
 import SignupConfirmContainer from '../../../scenes/SignupConfirm'
 import ResetPassword from '../../../scenes/ResetPassword'
 
@@ -19,7 +14,6 @@ function Routes() {
   return (
     <div>
       <Header />
-      {/* Root */}
       <Switch>
         <Route exact path="/" component={Home} />
 
@@ -30,14 +24,13 @@ function Routes() {
 
         {/* Signup */}
         <Route exact path="/signup" component={Signup} />
-        <Route path="/signup/success" component={SignupSuccess} />
         <Route path="/signup/confirm" component={SignupConfirmContainer} />
 
         {/* Profile */}
         <Route path="/profile" component={Profile} />
 
       </Switch>
-      <Notification />
+      <NotificationContainer />
     </div>
   )
 }

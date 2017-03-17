@@ -27,7 +27,7 @@ describe('<ProfileContainer />', () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
-  it('updates profile state on user input', () => {
+  it('updates profile state after onChange call', () => {
     const wrapper = shallow(
       <ProfileContainer
         fetchProfile={() => {}}
@@ -56,10 +56,6 @@ describe('<ProfileContainer />', () => {
     expect(wrapper.state('profile')).toEqual(expected)
   })
 
-  it('fetches profiles after mount', () => {})
-
-  it('updates profile state on new props', () => {})
-
   it('processes submits', () => {
     const wrapper = mount(
       <ProfileContainer
@@ -85,5 +81,34 @@ describe('<ProfileContainer />', () => {
     wrapper.instance().onSubmit(event)
     expect(event.preventDefault).toHaveBeenCalled()
     expect(wrapper.prop('updateProfile')).toHaveBeenCalledWith(profileWithId)
+  })
+
+  it('handles incoming props', () => {
+    const oldProfile = {
+      currentPassword: '',
+      newPassword: '',
+      newPasswordConfirmation: '',
+      firstName: 'Geert',
+      lastName: 'Geerts',
+      email: 'geert@email.com'
+    }
+    const newProfile = {
+      firstName: 'John',
+      lastName: 'Johnson',
+      email: 'john@john.com'
+    }
+    const wrapper = mount(
+      <ProfileContainer
+        fetchProfile={() => {}}
+        updateProfile={() => {}}
+        errors={{}}
+        profile={{ ...oldProfile, id: 1 }}
+      />
+    )
+    wrapper.setProps({
+      profile: { ...newProfile, id: 2 }
+    })
+
+    expect(wrapper.state('profile')).toEqual({ ...oldProfile, ...newProfile })
   })
 })
