@@ -13,7 +13,7 @@ export function* fetchProfile({ token }) {
   } else if (error.errors) {
     yield put(actions.fetchProfileFail(error.errors))
   } else {
-    yield put(actions.fetchProfileFail({ fetch: error.message }))
+    yield put(actions.fetchProfileFail(error))
   }
 }
 
@@ -28,7 +28,7 @@ export function* updateProfile({ user, token }) {
   } else if (error.errors) {
     yield put(actions.updateProfileFail(error.errors))
   } else {
-    yield put(actions.updateProfileFail({ fetch: error.message }))
+    yield put(actions.updateProfileFail(error))
   }
 }
 

@@ -16,7 +16,7 @@ export function* createAccount(action) {
   } else if (error.errors) {
     yield put(createAccountFail(error.errors))
   } else {
-    yield put(createAccountFail({ fetch: error.message }))
+    yield put(createAccountFail(error))
   }
 }
 
@@ -25,15 +25,14 @@ export function* watchCreateAccount() {
 }
 
 export function* confirmAccount(action) {
-  const token = action.token
-  const { data, error } = yield call(post, endpoints.CONFIRM_ACCOUNT, { token })
+  const { data, error } = yield call(post, endpoints.CONFIRM_ACCOUNT, action.token)
   if (data) {
     yield put(sessionActions.createSession(data.token))
     yield put(push('/'))
   } else if (error.errors) {
     yield put(confirmAccountFail(error.errors))
   } else {
-    yield put(confirmAccountFail({ fetch: error.message }))
+    yield put(confirmAccountFail(error))
   }
 }
 
