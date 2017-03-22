@@ -12,10 +12,10 @@ import {
   requestResetPasswordFail
 } from './actions'
 
-export function* resetPassword(action) {
-  const { data, error } = yield call(post, endpoints.RESET_PASSWORD, action.payload)
+export function* resetPassword({ payload }) {
+  const { data, error } = yield call(post, endpoints.RESET_PASSWORD, { payload })
   if (data) {
-    yield put(resetPasswordSuccess(data.token))
+    yield put(resetPasswordSuccess())
     yield put(push('/'))
   } else if (error.errors) {
     yield put(resetPasswordFail(error.errors))
@@ -28,8 +28,8 @@ export function* watchResetPassword() {
   yield call(takeLatest, RESET_PASSWORD, resetPassword)
 }
 
-export function* requestResetPassword(action) {
-  const { data, error } = yield call(post, endpoints.REQUEST_RESET_PASSWORD, action.email)
+export function* requestResetPassword({ payload }) {
+  const { data, error } = yield call(post, endpoints.REQUEST_RESET_PASSWORD, { email: payload })
   if (data) {
     yield put(requestResetPasswordSuccess(data.token))
     yield put(notificationActions.addNotification('Wachtwoord reset aangevraagd'))

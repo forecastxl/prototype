@@ -1,31 +1,10 @@
+import { createAction } from 'redux-actions'
 import * as types from './actionTypes'
 
-export const fetchProfile = () => ({
-  type: types.FETCH_PROFILE,
-  includeToken: true
-})
+export const fetchProfile = createAction(types.FETCH_PROFILE)
+export const fetchProfileSuccess = createAction(types.FETCH_PROFILE_SUCCESS)
+export const fetchProfileFail = createAction(types.FETCH_PROFILE_FAIL)
 
-export const fetchProfileSuccess = data => ({
-  type: types.FETCH_PROFILE_SUCCESS,
-  data
-})
-
-export const fetchProfileFail = errors => ({
-  type: types.FETCH_PROFILE_FAIL,
-  errors
-})
-
-export const updateProfile = user => ({
-  type: types.UPDATE_PROFILE,
-  includeToken: true,
-  user
-})
-
-export const updateProfileSuccess = () => ({
-  type: types.UPDATE_PROFILE_SUCCESS
-})
-
-export const updateProfileFail = errors => ({
-  type: types.UPDATE_PROFILE_FAIL,
-  errors
-})
+export const updateProfile = createAction(types.UPDATE_PROFILE)
+export const updateProfileSuccess = createAction(types.UPDATE_PROFILE_SUCCESS)
+export const updateProfileFail = createAction(types.UPDATE_PROFILE_FAIL)

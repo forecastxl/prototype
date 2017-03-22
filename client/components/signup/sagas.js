@@ -8,8 +8,8 @@ import { actions as notificationActions } from '../notifications'
 import { CREATE_ACCOUNT, CONFIRM_ACCOUNT } from './actionTypes'
 import { createAccountFail, confirmAccountFail } from './actions'
 
-export function* createAccount(action) {
-  const { data, error } = yield call(post, endpoints.CREATE_ACCOUNT, action.account)
+export function* createAccount({ payload }) {
+  const { data, error } = yield call(post, endpoints.CREATE_ACCOUNT, { account: payload })
   if (data) {
     yield put(notificationActions.addNotification('Account aangemaakt. Bevestig via de email.'))
     yield put(push('/'))
@@ -24,8 +24,8 @@ export function* watchCreateAccount() {
   yield call(takeLatest, CREATE_ACCOUNT, createAccount)
 }
 
-export function* confirmAccount(action) {
-  const { data, error } = yield call(post, endpoints.CONFIRM_ACCOUNT, action.token)
+export function* confirmAccount({ payload }) {
+  const { data, error } = yield call(post, endpoints.CONFIRM_ACCOUNT, { token: payload })
   if (data) {
     yield put(sessionActions.createSession(data.token))
     yield put(push('/'))

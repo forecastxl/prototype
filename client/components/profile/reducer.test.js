@@ -16,15 +16,15 @@ describe('reducer', () => {
   })
 
   it('should handle FETCH_PROFILE_SUCCESS', () => {
-    const data = {
+    const payload = {
       id: 1,
       firstName: 'First',
       lastName: 'Last',
       email: 'Mail'
     }
-    const actual = reducer(undefined, { type: types.FETCH_PROFILE_SUCCESS, data })
+    const actual = reducer(undefined, { type: types.FETCH_PROFILE_SUCCESS, payload })
     const expected = {
-      ...data
+      ...payload
     }
 
     expect(actual).toEqual(expected)

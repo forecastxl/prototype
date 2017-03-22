@@ -11,10 +11,10 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case types.FETCH_PROFILE_SUCCESS:
       return {
-        id: action.data.id,
-        firstName: action.data.firstName,
-        lastName: action.data.lastName,
-        email: action.data.email
+        id: action.payload.id,
+        firstName: action.payload.firstName,
+        lastName: action.payload.lastName,
+        email: action.payload.email
       }
     default:
       return state

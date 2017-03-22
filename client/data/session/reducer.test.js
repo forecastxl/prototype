@@ -29,7 +29,7 @@ describe('reducer', () => {
   })
 
   it('should handle CREATE_SESSION_SUCCESS', () => {
-    const actual = reducer(fetchingState, { type: types.CREATE_SESSION_SUCCESS, token: 'token' })
+    const actual = reducer(fetchingState, { type: types.CREATE_SESSION_SUCCESS, payload: 'token' })
     const expected = {
       errors: {},
       hasError: false,

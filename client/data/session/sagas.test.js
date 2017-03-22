@@ -18,12 +18,12 @@ describe('watchCreateSession', () => {
 })
 
 describe('createSession', () => {
-  const action = { user: 'user' }
+  const action = { payload: 'user' }
 
   it('should post the user data', () => {
     const generator = sagas.createSession(action)
     const actual = generator.next().value
-    const expected = call(post, endpoints.CREATE_SESSION, action.user)
+    const expected = call(post, endpoints.CREATE_SESSION, { user: action.payload })
 
     expect(actual).toEqual(expected)
   })
