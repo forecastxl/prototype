@@ -1,10 +1,5 @@
+import { createAction } from 'redux-actions'
 import * as types from './actionTypes'
 
-export const addNotification = message => ({
-  type: types.ADD_NOTIFICATION,
-  message
-})
-
-export const removeOldestNotification = () => ({
-  type: types.REMOVE_OLDEST_NOTIFICATION
-})
+export const addNotification = createAction(types.ADD_NOTIFICATION)
+export const removeOldestNotification = createAction(types.REMOVE_OLDEST_NOTIFICATION)

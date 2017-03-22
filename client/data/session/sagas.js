@@ -6,8 +6,8 @@ import post from '../../services/post'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
-export function* createSession(action) {
-  const { data, error } = yield call(post, endpoints.CREATE_SESSION, action.user)
+export function* createSession({ payload }) {
+  const { data, error } = yield call(post, endpoints.CREATE_SESSION, { user: payload })
   if (data) {
     yield put(actions.createSessionSuccess(data.token))
     yield put(push('/'))

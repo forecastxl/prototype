@@ -11,7 +11,7 @@ describe('reducer', () => {
   it('should handle ADD_NOTIFICATION', () => {
     const actual = reducer(undefined, {
       type: types.ADD_NOTIFICATION,
-      message: 'message'
+      payload: 'message'
     })
     const expected = ['message']
 
