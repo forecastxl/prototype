@@ -59,7 +59,7 @@
   "dependencies": {
     "babel-polyfill": "^6.16.0",
     "camelcase": "^4.0.0",
-    "connected-react-router": "4.0.0-beta.4",
+    "connected-react-router": "^4.0.0",
     "decamelize": "^1.2.0",
     "isomorphic-fetch": "^2.2.1",
     "map-obj": "^2.0.0",
