@@ -26,7 +26,7 @@ describe('resetPassword', () => {
   it('should post the password data', () => {
     const generator = sagas.resetPassword(action)
     const actual = generator.next().value
-    const expected = call(post, endpoints.RESET_PASSWORD, action.payload)
+    const expected = call(post, endpoints.RESET_PASSWORD, { payload: action.payload })
 
     expect(actual).toEqual(expected)
   })
@@ -34,7 +34,7 @@ describe('resetPassword', () => {
   it('should put resetPasswordSuccess on success', () => {
     const data = { token: 'token' }
     const generator = sagas.resetPassword(action)
-    const expected = put(actions.resetPasswordSuccess(data.token))
+    const expected = put(actions.resetPasswordSuccess())
 
     generator.next()
     const actual = generator.next({ data }).value
@@ -90,13 +90,13 @@ describe('watchRequestResetPassword', () => {
 
 describe('requestResetPassword', () => {
   const action = {
-    email: 'email'
+    payload: 'email'
   }
 
   it('should post the email data', () => {
     const generator = sagas.requestResetPassword(action)
     const actual = generator.next().value
-    const expected = call(post, endpoints.REQUEST_RESET_PASSWORD, action.email)
+    const expected = call(post, endpoints.REQUEST_RESET_PASSWORD, { email: action.payload })
 
     expect(actual).toEqual(expected)
   })

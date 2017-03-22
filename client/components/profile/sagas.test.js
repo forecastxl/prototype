@@ -76,14 +76,19 @@ describe('watchUpdateProfile', () => {
 
 describe('updateProfile', () => {
   const action = {
-    user: { id: 'id' },
+    payload: { id: 'id' },
     token: 'token'
   }
 
   it('should put the profile data', () => {
     const generator = sagas.updateProfile(action)
     const actual = generator.next().value
-    const expected = call(putService, endpoints.user(action.user.id), action.user, action.token)
+    const expected = call(
+      putService,
+      endpoints.user(action.payload.id),
+      action.payload,
+      action.token
+    )
 
     expect(actual).toEqual(expected)
   })

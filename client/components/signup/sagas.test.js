@@ -11,12 +11,12 @@ import * as types from './actionTypes'
 
 describe('sagas', () => {
   describe('createAccount', () => {
-    const action = { account: 'account' }
+    const action = { payload: 'account' }
 
     it('should post the account data', () => {
       const generator = sagas.createAccount(action)
       const actual = generator.next().value
-      const expected = call(post, endpoints.CREATE_ACCOUNT, action.account)
+      const expected = call(post, endpoints.CREATE_ACCOUNT, { account: action.payload })
 
       expect(actual).toEqual(expected)
     })
@@ -79,12 +79,12 @@ describe('sagas', () => {
   })
 
   describe('confirmAccount', () => {
-    const action = { token: 'token' }
+    const action = { payload: 'token' }
 
     it('should post the account data', () => {
       const generator = sagas.confirmAccount(action)
       const actual = generator.next().value
-      const expected = call(post, endpoints.CONFIRM_ACCOUNT, action.token)
+      const expected = call(post, endpoints.CONFIRM_ACCOUNT, { token: action.payload })
 
       expect(actual).toEqual(expected)
     })
