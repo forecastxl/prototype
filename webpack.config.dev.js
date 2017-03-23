@@ -5,9 +5,6 @@ var webpack = require('webpack')
 module.exports = {
   entry: {
     main: [
-      'webpack-dev-server/client?' + process.env.DEV_BASE + ':' + process.env.DEV_PORT,
-      'webpack/hot/only-dev-server',
-      'react-hot-loader/patch',
       './client/index'
     ]
   },
