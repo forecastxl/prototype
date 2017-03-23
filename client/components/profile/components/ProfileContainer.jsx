@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { getProfile } from '../selectors'
 import * as actions from '../actions'
 import Profile from './Profile'
 
@@ -84,7 +85,7 @@ const mapActions = {
 }
 
 const mapStateToProps = state => ({
-  profile: state.profile
+  profile: getProfile(state)
 })
 
 export default connect(mapStateToProps, mapActions)(ProfileContainer)
