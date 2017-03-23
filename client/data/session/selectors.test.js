@@ -9,3 +9,13 @@ describe('getToken', () => {
     expect(actual).toEqual(expected)
   })
 })
+
+describe('hasToken', () => {
+  it('should return hasToken', () => {
+    const state = { session: { hasToken: true } }
+    const actual = selectors.hasToken(state)
+    const expected = true
+
+    expect(actual).toEqual(expected)
+  })
+})

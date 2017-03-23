@@ -4,6 +4,7 @@ import Wrapper from './Wrapper'
 import Title from './Title'
 import UserNavigation from './UserNavigation'
 import LoginButton from './LoginButton'
+import { selectors } from '../../../data/session'
 
 export function Header({ hasToken }) {
   return (
@@ -19,7 +20,7 @@ Header.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  hasToken: state.session.hasToken
+  hasToken: selectors.hasToken(state)
 })
 
 export default connect(mapStateToProps, {})(Header)
