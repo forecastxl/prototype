@@ -42,9 +42,12 @@ describe('reducer', () => {
   })
 
   it('should handle CREATE_SESSION_FAIL', () => {
-    const actual = reducer(fetchingState, { type: types.CREATE_SESSION_FAIL, errors: 'errors' })
+    const actual = reducer(
+      fetchingState,
+      { type: types.CREATE_SESSION_FAIL, payload: { errors: { error: 'error' } } }
+    )
     const expected = {
-      errors: 'errors',
+      errors: { error: 'error' },
       hasError: true,
       hasToken: false,
       isFetching: false,

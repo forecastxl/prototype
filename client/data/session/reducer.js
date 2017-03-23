@@ -25,7 +25,9 @@ export default function reducer(state = initialState, action) {
       }
     case types.CREATE_SESSION_FAIL:
       return {
-        errors: action.errors,
+        errors: {
+          ...action.payload.errors
+        },
         hasError: true,
         hasToken: false,
         isFetching: false,
