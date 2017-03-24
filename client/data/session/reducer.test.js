@@ -3,7 +3,7 @@ import * as types from './actionTypes'
 
 describe('reducer', () => {
   const initialState = {
-    errors: {},
+    errorMessage: '',
     hasError: false,
     hasToken: false,
     isFetching: false,
@@ -31,7 +31,7 @@ describe('reducer', () => {
   it('should handle CREATE_SESSION_SUCCESS', () => {
     const actual = reducer(fetchingState, { type: types.CREATE_SESSION_SUCCESS, payload: 'token' })
     const expected = {
-      errors: {},
+      errorMessage: '',
       hasError: false,
       hasToken: true,
       isFetching: false,
@@ -42,16 +42,15 @@ describe('reducer', () => {
   })
 
   it('should handle CREATE_SESSION_FAIL', () => {
+    const payload = new Error('Something went wrong')
     const actual = reducer(
       fetchingState,
-      { type: types.CREATE_SESSION_FAIL, payload: { errors: { error: 'error' } } }
+      { type: types.CREATE_SESSION_FAIL, payload }
     )
     const expected = {
-      errors: { error: 'error' },
-      hasError: true,
-      hasToken: false,
-      isFetching: false,
-      token: ''
+      ...initialState,
+      errorMessage: 'Something went wrong',
+      hasError: true
     }
 
     expect(actual).toEqual(expected)
