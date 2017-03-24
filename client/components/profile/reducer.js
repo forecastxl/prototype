@@ -1,7 +1,7 @@
 import * as types from './actionTypes'
 
 const initialState = {
-  errors: {},
+  errorMessage: '',
   hasError: false,
   hasProfile: false,
   isFetching: false,
@@ -25,7 +25,7 @@ export default function reducer(state = initialState, action) {
         isFetching: false,
         hasProfile: true,
         hasError: false,
-        errors: {},
+        errorMessage: '',
         profile: {
           ...action.payload
         }
@@ -35,9 +35,7 @@ export default function reducer(state = initialState, action) {
         isFetching: false,
         hasProfile: false,
         hasError: true,
-        errors: {
-          ...action.payload.errors
-        },
+        errorMessage: action.payload.message,
         profile: {
           ...initialState.profile
         }

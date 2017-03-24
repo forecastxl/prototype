@@ -1,7 +1,7 @@
 import * as types from './actionTypes'
 
 const initialState = {
-  errors: {},
+  errorMessage: '',
   hasError: false,
   hasToken: false,
   isFetching: false,
@@ -17,7 +17,7 @@ export default function reducer(state = initialState, action) {
       }
     case types.CREATE_SESSION_SUCCESS:
       return {
-        errors: {},
+        errorMessage: '',
         hasError: false,
         hasToken: true,
         isFetching: false,
@@ -25,9 +25,7 @@ export default function reducer(state = initialState, action) {
       }
     case types.CREATE_SESSION_FAIL:
       return {
-        errors: {
-          ...action.payload.errors
-        },
+        errorMessage: action.payload.message,
         hasError: true,
         hasToken: false,
         isFetching: false,
@@ -35,11 +33,7 @@ export default function reducer(state = initialState, action) {
       }
     case types.DESTROY_SESSION:
       return {
-        errors: {},
-        hasError: false,
-        hasToken: false,
-        isFetching: false,
-        token: ''
+        ...initialState
       }
     default:
       return state

@@ -3,7 +3,7 @@ import * as types from './actionTypes'
 
 describe('reducer', () => {
   const initialState = {
-    errors: {},
+    errorMessage: '',
     hasError: false,
     hasProfile: false,
     isFetching: false,
@@ -53,16 +53,12 @@ describe('reducer', () => {
   })
 
   it('should handle FETCH_PROFILE_FAIL', () => {
-    const payload = {
-      errors: { error: 'error' }
-    }
+    const payload = new Error('Something went wrong')
     const actual = reducer(fetchingState, { type: types.FETCH_PROFILE_FAIL, payload })
     const expected = {
       ...initialState,
       hasError: true,
-      errors: {
-        ...payload.errors
-      }
+      errorMessage: 'Something went wrong'
     }
 
     expect(actual).toEqual(expected)
