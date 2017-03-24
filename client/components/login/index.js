@@ -1,1 +1,1 @@
-export { default as LoginFormContainer } from './components/LoginFormContainer'
+export { default as LoginForm } from './components/LoginForm'

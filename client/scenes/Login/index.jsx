@@ -1,10 +1,16 @@
-import React from 'react'
-import { LoginFormContainer } from '../../components/login'
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { actions } from '../../data/session'
+import { LoginForm } from '../../components/login'
 
-function Scene() {
+export function Scene({ createSession }) {
   return (
-    <LoginFormContainer />
+    <LoginForm onSubmit={createSession} />
   )
 }
 
-export default Scene
+Scene.propTypes = {
+  createSession: PropTypes.func.isRequired
+}
+
+export default connect(null, { createSession: actions.createSession })(Scene)
