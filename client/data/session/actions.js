@@ -1,8 +1,8 @@
 import { createAction } from 'redux-actions'
 import * as types from './actionTypes'
 
-export const createSession = createAction(types.CREATE_SESSION)
-export const createSessionSuccess = createAction(types.CREATE_SESSION_SUCCESS)
-export const createSessionFailure = createAction(types.CREATE_SESSION_FAILURE)
+export const loginSubmit = createAction(types.LOGIN_SUBMIT)
+export const loginSuccess = createAction(types.LOGIN_SUCCESS)
+export const loginFailure = createAction(types.LOGIN_FAILURE)
 
-export const destroySession = createAction(types.DESTROY_SESSION)
+export const logout = createAction(types.LOGOUT)

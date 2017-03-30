@@ -89,10 +89,10 @@ describe('sagas', () => {
       expect(actual).toEqual(expected)
     })
 
-    it('should put createSession on success', () => {
+    it('should put loginSubmit on success', () => {
       const data = { token: 'token' }
       const generator = sagas.confirmAccount(action)
-      const expected = put(sessionActions.createSession(data.token))
+      const expected = put(sessionActions.loginSubmit(data.token))
 
       generator.next()
       const actual = generator.next({ data }).value

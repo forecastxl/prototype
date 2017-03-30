@@ -6,18 +6,18 @@ import post from '../../services/post'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
-export function* createSession({ payload }) {
-  const { data, error } = yield call(post, endpoints.CREATE_SESSION, { user: payload })
+export function* login({ payload }) {
+  const { data, error } = yield call(post, endpoints.LOGIN, { user: payload })
   if (data) {
-    yield put(actions.createSessionSuccess(data.token))
+    yield put(actions.loginSuccess(data.token))
     yield put(push('/'))
   } else if (error.errors) {
-    yield put(actions.createSessionFailure(error.errors))
+    yield put(actions.loginFailure(error.errors))
   } else {
-    yield put(actions.createSessionFailure(error))
+    yield put(actions.loginFailure(error))
   }
 }
 
-export function* watchCreateSession() {
-  yield call(takeLatest, types.CREATE_SESSION, createSession)
+export function* watchLoginSubmit() {
+  yield call(takeLatest, types.LOGIN_SUBMIT, login)
 }

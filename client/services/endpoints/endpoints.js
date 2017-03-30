@@ -1,7 +1,7 @@
 const base = process.env.API
 
 // static
-export const CREATE_SESSION = `${base}/users/login`
+export const LOGIN = `${base}/users/login`
 export const CREATE_ACCOUNT = `${base}/users/signup`
 export const CONFIRM_ACCOUNT = `${base}/users/confirm`
 export const RESET_PASSWORD = `${base}/users/reset_password`

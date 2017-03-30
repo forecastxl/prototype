@@ -7,31 +7,31 @@ import * as sagas from './sagas'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
-describe('watchCreateSession', () => {
-  it('should respond to CREATE_SESSION', () => {
-    const generator = sagas.watchCreateSession()
+describe('watchLoginSubmit', () => {
+  it('should respond to LOGIN_SUBMIT', () => {
+    const generator = sagas.watchLoginSubmit()
     const actual = generator.next().value
-    const expected = call(takeLatest, types.CREATE_SESSION, sagas.createSession)
+    const expected = call(takeLatest, types.LOGIN_SUBMIT, sagas.login)
 
     expect(actual).toEqual(expected)
   })
 })
 
-describe('createSession', () => {
+describe('login', () => {
   const action = { payload: 'user' }
 
   it('should post the user data', () => {
-    const generator = sagas.createSession(action)
+    const generator = sagas.login(action)
     const actual = generator.next().value
-    const expected = call(post, endpoints.CREATE_SESSION, { user: action.payload })
+    const expected = call(post, endpoints.LOGIN, { user: action.payload })
 
     expect(actual).toEqual(expected)
   })
 
-  it('should put createSessionSuccess after a successful request', () => {
+  it('should put loginSuccess after a successful request', () => {
     const data = { token: 'token' }
-    const generator = sagas.createSession(action)
-    const expected = put(actions.createSessionSuccess(data.token))
+    const generator = sagas.login(action)
+    const expected = put(actions.loginSuccess(data.token))
 
     generator.next()
     const actual = generator.next({ data }).value
@@ -41,7 +41,7 @@ describe('createSession', () => {
 
   it('should redirect to home after a succesful request', () => {
     const data = { token: 'token' }
-    const generator = sagas.createSession(action)
+    const generator = sagas.login(action)
     const expected = put(push('/'))
 
     generator.next()
@@ -51,10 +51,10 @@ describe('createSession', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put createSessionFailure on api errors', () => {
+  it('should put loginFailure on api errors', () => {
     const error = { errors: 'errors' }
-    const generator = sagas.createSession(action)
-    const expected = put(actions.createSessionFailure(error.errors))
+    const generator = sagas.login(action)
+    const expected = put(actions.loginFailure(error.errors))
 
     generator.next()
     const actual = generator.next({ error }).value
@@ -62,10 +62,10 @@ describe('createSession', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put createSessionFailure on network errors', () => {
+  it('should put loginFailure on network errors', () => {
     const error = new Error('error')
-    const generator = sagas.createSession(action)
-    const expected = put(actions.createSessionFailure(error))
+    const generator = sagas.login(action)
+    const expected = put(actions.loginFailure(error))
 
     generator.next()
     const actual = generator.next({ error }).value

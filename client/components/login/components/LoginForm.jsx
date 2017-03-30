@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import { onSubmitActions } from 'redux-form-submit-saga'
 import { Button, TextField } from '../../form'
 
-function LoginForm({ handleSubmit, pristine, submitting }) {
+export function LoginForm({ handleSubmit, pristine, submitting }) {
   return (
     <form onSubmit={handleSubmit}>
       <Field
@@ -38,5 +38,5 @@ LoginForm.propTypes = {
 
 export default reduxForm({
   form: 'login',
-  onSubmit: onSubmitActions('MY_FORM')
+  onSubmit: onSubmitActions('LOGIN')
 })(LoginForm)

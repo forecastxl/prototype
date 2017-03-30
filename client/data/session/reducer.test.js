@@ -21,15 +21,15 @@ describe('reducer', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should handle CREATE_SESSION', () => {
-    const actual = reducer(undefined, { type: types.CREATE_SESSION })
+  it('should handle LOGIN_SUBMIT', () => {
+    const actual = reducer(undefined, { type: types.LOGIN_SUBMIT })
     const expected = fetchingState
 
     expect(actual).toEqual(expected)
   })
 
-  it('should handle CREATE_SESSION_SUCCESS', () => {
-    const actual = reducer(fetchingState, { type: types.CREATE_SESSION_SUCCESS, payload: 'token' })
+  it('should handle LOGIN_SUCCESS', () => {
+    const actual = reducer(fetchingState, { type: types.LOGIN_SUCCESS, payload: 'token' })
     const expected = {
       errorMessage: '',
       hasError: false,
@@ -41,11 +41,11 @@ describe('reducer', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should handle CREATE_SESSION_FAILURE', () => {
+  it('should handle LOGIN_FAILURE', () => {
     const payload = new Error('Something went wrong')
     const actual = reducer(
       fetchingState,
-      { type: types.CREATE_SESSION_FAILURE, payload }
+      { type: types.LOGIN_FAILURE, payload }
     )
     const expected = {
       ...initialState,
@@ -56,9 +56,9 @@ describe('reducer', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should handle DESTROY_SESSION', () => {
+  it('should handle LOGOUT', () => {
     const hasToken = { ...initialState, hasToken: true, token: 'token' }
-    const actual = reducer(hasToken, { type: types.DESTROY_SESSION })
+    const actual = reducer(hasToken, { type: types.LOGOUT })
     const expected = initialState
 
     expect(actual).toEqual(expected)

@@ -27,7 +27,7 @@ export function* watchCreateAccount() {
 export function* confirmAccount({ payload }) {
   const { data, error } = yield call(post, endpoints.CONFIRM_ACCOUNT, { token: payload })
   if (data) {
-    yield put(sessionActions.createSession(data.token))
+    yield put(sessionActions.loginSubmit(data.token))
     yield put(push('/'))
   } else if (error.errors) {
     yield put(confirmAccountFailure(error.errors))
