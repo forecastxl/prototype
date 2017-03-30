@@ -14,9 +14,9 @@ describe('actioncreators', () => {
     })
   })
 
-  it('should create a REQUEST_RESET_PASSWORD_FAIL action', () => {
-    expect(actions.requestResetPasswordFail()).toEqual({
-      type: types.REQUEST_RESET_PASSWORD_FAIL
+  it('should create a REQUEST_RESET_PASSWORD_FAILURE action', () => {
+    expect(actions.requestResetPasswordFailure()).toEqual({
+      type: types.REQUEST_RESET_PASSWORD_FAILURE
     })
   })
 
@@ -32,9 +32,9 @@ describe('actioncreators', () => {
     })
   })
 
-  it('should create a RESET_PASSWORD_FAIL action', () => {
-    expect(actions.resetPasswordFail()).toEqual({
-      type: types.RESET_PASSWORD_FAIL
+  it('should create a RESET_PASSWORD_FAILURE action', () => {
+    expect(actions.resetPasswordFailure()).toEqual({
+      type: types.RESET_PASSWORD_FAILURE
     })
   })
 })

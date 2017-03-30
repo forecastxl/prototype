@@ -49,10 +49,10 @@ describe('fetchProfile', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put fetchProfileFail on api errors', () => {
+  it('should put fetchProfileFailure on api errors', () => {
     const error = { errors: 'errors' }
     const generator = sagas.fetchProfile()
-    const expected = put(actions.fetchProfileFail(error.errors))
+    const expected = put(actions.fetchProfileFailure(error.errors))
 
     generator.next()
     generator.next()
@@ -61,10 +61,10 @@ describe('fetchProfile', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put fetchProfileFail on network errors', () => {
+  it('should put fetchProfileFailure on network errors', () => {
     const error = new Error('error')
     const generator = sagas.fetchProfile()
-    const expected = put(actions.fetchProfileFail(error))
+    const expected = put(actions.fetchProfileFailure(error))
 
     generator.next()
     generator.next()
@@ -124,10 +124,10 @@ describe('updateProfile', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put updateProfileFail on api errors', () => {
+  it('should put updateProfileFailure on api errors', () => {
     const error = { errors: 'errors' }
     const generator = sagas.updateProfile(action)
-    const expected = put(actions.updateProfileFail(error.errors))
+    const expected = put(actions.updateProfileFailure(error.errors))
 
     generator.next()
     generator.next()
@@ -136,10 +136,10 @@ describe('updateProfile', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put updateProfileFail on network errors', () => {
+  it('should put updateProfileFailure on network errors', () => {
     const error = new Error('error')
     const generator = sagas.updateProfile(action)
-    const expected = put(actions.updateProfileFail(error))
+    const expected = put(actions.updateProfileFailure(error))
 
     generator.next()
     generator.next()

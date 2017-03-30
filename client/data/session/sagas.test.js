@@ -51,10 +51,10 @@ describe('createSession', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put createSessionFail on api errors', () => {
+  it('should put createSessionFailure on api errors', () => {
     const error = { errors: 'errors' }
     const generator = sagas.createSession(action)
-    const expected = put(actions.createSessionFail(error.errors))
+    const expected = put(actions.createSessionFailure(error.errors))
 
     generator.next()
     const actual = generator.next({ error }).value
@@ -62,10 +62,10 @@ describe('createSession', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put createSessionFail on network errors', () => {
+  it('should put createSessionFailure on network errors', () => {
     const error = new Error('error')
     const generator = sagas.createSession(action)
-    const expected = put(actions.createSessionFail(error))
+    const expected = put(actions.createSessionFailure(error))
 
     generator.next()
     const actual = generator.next({ error }).value

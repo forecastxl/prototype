@@ -12,9 +12,9 @@ export function* createSession({ payload }) {
     yield put(actions.createSessionSuccess(data.token))
     yield put(push('/'))
   } else if (error.errors) {
-    yield put(actions.createSessionFail(error.errors))
+    yield put(actions.createSessionFailure(error.errors))
   } else {
-    yield put(actions.createSessionFail(error))
+    yield put(actions.createSessionFailure(error))
   }
 }
 

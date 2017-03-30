@@ -6,7 +6,7 @@ import post from '../../services/post'
 import { actions as sessionActions } from '../../data/session'
 import { actions as notificationActions } from '../notifications'
 import { CREATE_ACCOUNT, CONFIRM_ACCOUNT } from './actionTypes'
-import { createAccountFail, confirmAccountFail } from './actions'
+import { createAccountFailure, confirmAccountFailure } from './actions'
 
 export function* createAccount({ payload }) {
   const { data, error } = yield call(post, endpoints.CREATE_ACCOUNT, { account: payload })
@@ -14,9 +14,9 @@ export function* createAccount({ payload }) {
     yield put(notificationActions.addNotification('Account aangemaakt. Bevestig via de email.'))
     yield put(push('/'))
   } else if (error.errors) {
-    yield put(createAccountFail(error.errors))
+    yield put(createAccountFailure(error.errors))
   } else {
-    yield put(createAccountFail(error))
+    yield put(createAccountFailure(error))
   }
 }
 
@@ -30,9 +30,9 @@ export function* confirmAccount({ payload }) {
     yield put(sessionActions.createSession(data.token))
     yield put(push('/'))
   } else if (error.errors) {
-    yield put(confirmAccountFail(error.errors))
+    yield put(confirmAccountFailure(error.errors))
   } else {
-    yield put(confirmAccountFail(error))
+    yield put(confirmAccountFailure(error))
   }
 }
 

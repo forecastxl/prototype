@@ -13,9 +13,9 @@ export function* fetchProfile() {
   if (data) {
     yield put(actions.fetchProfileSuccess(data.data))
   } else if (error.errors) {
-    yield put(actions.fetchProfileFail(error.errors))
+    yield put(actions.fetchProfileFailure(error.errors))
   } else {
-    yield put(actions.fetchProfileFail(error))
+    yield put(actions.fetchProfileFailure(error))
   }
 }
 
@@ -29,9 +29,9 @@ export function* updateProfile({ payload }) {
   if (data) {
     yield put(actions.updateProfileSuccess())
   } else if (error.errors) {
-    yield put(actions.updateProfileFail(error.errors))
+    yield put(actions.updateProfileFailure(error.errors))
   } else {
-    yield put(actions.updateProfileFail(error))
+    yield put(actions.updateProfileFailure(error))
   }
 }
 

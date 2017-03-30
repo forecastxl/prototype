@@ -41,11 +41,11 @@ describe('reducer', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should handle CREATE_SESSION_FAIL', () => {
+  it('should handle CREATE_SESSION_FAILURE', () => {
     const payload = new Error('Something went wrong')
     const actual = reducer(
       fetchingState,
-      { type: types.CREATE_SESSION_FAIL, payload }
+      { type: types.CREATE_SESSION_FAILURE, payload }
     )
     const expected = {
       ...initialState,

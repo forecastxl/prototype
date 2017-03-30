@@ -30,7 +30,7 @@ export default function reducer(state = initialState, action) {
           ...action.payload
         }
       }
-    case types.FETCH_PROFILE_FAIL:
+    case types.FETCH_PROFILE_FAILURE:
       return {
         isFetching: false,
         hasProfile: false,

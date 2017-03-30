@@ -52,9 +52,9 @@ describe('reducer', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should handle FETCH_PROFILE_FAIL', () => {
+  it('should handle FETCH_PROFILE_FAILURE', () => {
     const payload = new Error('Something went wrong')
-    const actual = reducer(fetchingState, { type: types.FETCH_PROFILE_FAIL, payload })
+    const actual = reducer(fetchingState, { type: types.FETCH_PROFILE_FAILURE, payload })
     const expected = {
       ...initialState,
       hasError: true,

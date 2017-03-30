@@ -23,7 +23,7 @@ export default function reducer(state = initialState, action) {
         isFetching: false,
         token: action.payload
       }
-    case types.CREATE_SESSION_FAIL:
+    case types.CREATE_SESSION_FAILURE:
       return {
         errorMessage: action.payload.message,
         hasError: true,

@@ -54,10 +54,10 @@ describe('resetPassword', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put resetPasswordFail on api errors', () => {
+  it('should put resetPasswordFailure on api errors', () => {
     const error = { errors: 'errors' }
     const generator = sagas.resetPassword(action)
-    const expected = put(actions.resetPasswordFail(error.errors))
+    const expected = put(actions.resetPasswordFailure(error.errors))
 
     generator.next()
     const actual = generator.next({ error }).value
@@ -65,10 +65,10 @@ describe('resetPassword', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put resetPasswordFail on network errors', () => {
+  it('should put resetPasswordFailure on network errors', () => {
     const error = new Error('error')
     const generator = sagas.resetPassword(action)
-    const expected = put(actions.resetPasswordFail(error))
+    const expected = put(actions.resetPasswordFailure(error))
 
     generator.next()
     const actual = generator.next({ error }).value
@@ -137,10 +137,10 @@ describe('requestResetPassword', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put requestResetPasswordFail on api errors', () => {
+  it('should put requestResetPasswordFailure on api errors', () => {
     const error = { errors: 'errors' }
     const generator = sagas.requestResetPassword(action)
-    const expected = put(actions.requestResetPasswordFail(error.errors))
+    const expected = put(actions.requestResetPasswordFailure(error.errors))
 
     generator.next()
     const actual = generator.next({ error }).value
@@ -148,10 +148,10 @@ describe('requestResetPassword', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put requestResetPasswordFail on network errors', () => {
+  it('should put requestResetPasswordFailure on network errors', () => {
     const error = new Error('error')
     const generator = sagas.requestResetPassword(action)
-    const expected = put(actions.requestResetPasswordFail(error))
+    const expected = put(actions.requestResetPasswordFailure(error))
 
     generator.next()
     const actual = generator.next({ error }).value

@@ -7,9 +7,9 @@ import { actions as notificationActions } from '../notifications'
 import { RESET_PASSWORD, REQUEST_RESET_PASSWORD } from './actionTypes'
 import {
   resetPasswordSuccess,
-  resetPasswordFail,
+  resetPasswordFailure,
   requestResetPasswordSuccess,
-  requestResetPasswordFail
+  requestResetPasswordFailure
 } from './actions'
 
 export function* resetPassword({ payload }) {
@@ -18,9 +18,9 @@ export function* resetPassword({ payload }) {
     yield put(resetPasswordSuccess())
     yield put(push('/'))
   } else if (error.errors) {
-    yield put(resetPasswordFail(error.errors))
+    yield put(resetPasswordFailure(error.errors))
   } else {
-    yield put(resetPasswordFail(error))
+    yield put(resetPasswordFailure(error))
   }
 }
 
@@ -35,9 +35,9 @@ export function* requestResetPassword({ payload }) {
     yield put(notificationActions.addNotification('Wachtwoord reset aangevraagd'))
     yield put(push('/login'))
   } else if (error.errors) {
-    yield put(requestResetPasswordFail(error.errors))
+    yield put(requestResetPasswordFailure(error.errors))
   } else {
-    yield put(requestResetPasswordFail(error))
+    yield put(requestResetPasswordFailure(error))
   }
 }
 

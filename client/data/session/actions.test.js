@@ -14,9 +14,9 @@ describe('actioncreators', () => {
     })
   })
 
-  it('should create a CREATE_SESSION_FAIL action', () => {
-    expect(actions.createSessionFail()).toEqual({
-      type: types.CREATE_SESSION_FAIL
+  it('should create a CREATE_SESSION_FAILURE action', () => {
+    expect(actions.createSessionFailure()).toEqual({
+      type: types.CREATE_SESSION_FAILURE
     })
   })
 
