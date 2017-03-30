@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { onSubmitActions } from 'redux-form-submit-saga'
 import { Button, TextField } from '../../form'
 
 function LoginForm({ handleSubmit, pristine, submitting }) {
@@ -35,4 +36,7 @@ LoginForm.propTypes = {
   submitting: PropTypes.bool.isRequired
 }
 
-export default reduxForm({ form: 'login' })(LoginForm)
+export default reduxForm({
+  form: 'login',
+  onSubmit: onSubmitActions('MY_FORM')
+})(LoginForm)

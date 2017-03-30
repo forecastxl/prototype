@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import { actions } from '../../data/session'
 import { LoginForm } from '../../components/login'
 
-export function Scene({ createSession }) {
+export function Scene() {
   return (
-    <LoginForm onSubmit={createSession} />
+    <LoginForm />
   )
 }
 
