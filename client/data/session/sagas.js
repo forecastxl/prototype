@@ -11,8 +11,8 @@ export function* login({ payload }) {
   if (data) {
     yield put(actions.loginSuccess(data.token))
     yield put(push('/'))
-  } else if (error.errors) {
-    yield put(actions.loginFailure(error.errors))
+  } else if (error.validationErrors) {
+    yield put(actions.loginFailure(error.validationErrors))
   } else {
     yield put(actions.loginFailure(error))
   }

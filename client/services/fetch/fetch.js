@@ -13,9 +13,22 @@ async function fetchWrapper(endpoint, headers, options) {
     // return the camelized data if the response was ok
     if (response.ok) return { data: camelize(data) }
 
-    // otherwise return an error with the error data with camelized errors
+    // otherwise return an error
     const error = new Error(response.statusText)
-    if (data.errors) error.errors = camelize(data.errors)
+
+    // process any validation errors
+    if (data.errors) {
+      const validationErrors = camelize(data.errors)
+
+      // rename base to a redux-forms can parse
+      if (validationErrors.base) {
+        // eslint-disable-next-line no-underscore-dangle
+        validationErrors._error = validationErrors.base.join(', ')
+        delete validationErrors.base
+      }
+
+      error.validationErrors = { ...validationErrors }
+    }
 
     throw error
   } catch (error) {
