@@ -2,18 +2,18 @@ import { call, put } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
 import { endpoints } from '../../services/endpoints'
-import post from '../../services/post'
+import api from '../../services/api'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
 export function* login({ payload }) {
-  const { data, error } = yield call(post, endpoints.LOGIN, { user: payload })
-  if (data) {
-    yield put(actions.loginSuccess(data.token))
+  try {
+    const endpoint = endpoints.LOGIN
+    const data = { user: payload }
+    const response = yield call(api.post, { endpoint, data })
+    yield put(actions.loginSuccess(response.token))
     yield put(push('/'))
-  } else if (error.validationErrors) {
-    yield put(actions.loginFailure(error.validationErrors))
-  } else {
+  } catch (error) {
     yield put(actions.loginFailure(error))
   }
 }
