@@ -13,4 +13,10 @@ function TextField({ input, label, meta: { touched, error }, ...custom }) {
   )
 }
 
+TextField.propTypes = {
+  input: PropTypes.object.isRequired,
+  label: PropTypes.string.isRequired,
+  meta: PropTypes.object.isRequired
+}
+
 export default TextField

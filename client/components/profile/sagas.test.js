@@ -1,9 +1,8 @@
 import { call, put, select } from 'redux-saga/effects'
 import { takeLatest } from 'redux-saga'
 import { selectors as sessionSelectors } from '../../data/session'
-import get from '../../services/get'
-import putService from '../../services/put'
-import { endpoints } from '../../services/endpoints'
+import api from '../../services/api'
+import endpoints from '../../services/endpoints'
 import * as actions from './actions'
 import * as types from './actionTypes'
 import * as sagas from './sagas'
@@ -19,6 +18,9 @@ describe('watchFetchProfile', () => {
 })
 
 describe('fetchProfile', () => {
+  const endpoint = endpoints.constant.PROFILE
+  const token = 'token'
+
   it('should get the token', () => {
     const generator = sagas.fetchProfile()
     const actual = generator.next().value
@@ -29,46 +31,34 @@ describe('fetchProfile', () => {
 
   it('should get the profile data', () => {
     const generator = sagas.fetchProfile()
-    const expected = call(get, endpoints.PROFILE, 'token')
+    const expected = call(api.get, { endpoint, token })
 
     generator.next()
-    const actual = generator.next('token').value
+    const actual = generator.next(token).value
 
     expect(actual).toEqual(expected)
   })
 
   it('should put fetchProfileSuccess on success', () => {
-    const data = { data: 'data' }
+    const response = { data: 'data' }
     const generator = sagas.fetchProfile()
-    const expected = put(actions.fetchProfileSuccess(data.data))
+    const expected = put(actions.fetchProfileSuccess(response.data))
 
     generator.next()
-    generator.next()
-    const actual = generator.next({ data }).value
+    generator.next(token)
+    const actual = generator.next(response).value
 
     expect(actual).toEqual(expected)
   })
 
-  it('should put fetchProfileFailure on api errors', () => {
-    const error = { errors: 'errors' }
-    const generator = sagas.fetchProfile()
-    const expected = put(actions.fetchProfileFailure(error.errors))
-
-    generator.next()
-    generator.next()
-    const actual = generator.next({ error }).value
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should put fetchProfileFailure on network errors', () => {
+  it('should put fetchProfileFailure on errors', () => {
     const error = new Error('error')
     const generator = sagas.fetchProfile()
     const expected = put(actions.fetchProfileFailure(error))
 
     generator.next()
     generator.next()
-    const actual = generator.next({ error }).value
+    const actual = generator.throw(error).value
 
     expect(actual).toEqual(expected)
   })
@@ -88,6 +78,9 @@ describe('updateProfile', () => {
   const action = {
     payload: { id: 'id' }
   }
+  const endpoint = endpoints.dynamic.user(action.payload.id)
+  const data = action.payload
+  const token = 'token'
 
   it('should get the token', () => {
     const generator = sagas.updateProfile(action)
@@ -99,51 +92,34 @@ describe('updateProfile', () => {
 
   it('should put the profile data', () => {
     const generator = sagas.updateProfile(action)
-    const expected = call(
-      putService,
-      endpoints.user(action.payload.id),
-      action.payload,
-      'token'
-    )
+    const expected = call(api.put, { endpoint, data, token })
 
     generator.next()
-    const actual = generator.next('token').value
+    const actual = generator.next(token).value
 
     expect(actual).toEqual(expected)
   })
 
   it('should put updateProfileSuccess on success', () => {
-    const data = 'data'
+    const response = 'data'
     const generator = sagas.updateProfile(action)
     const expected = put(actions.updateProfileSuccess())
 
     generator.next()
-    generator.next()
-    const actual = generator.next({ data }).value
+    generator.next(token)
+    const actual = generator.next(response).value
 
     expect(actual).toEqual(expected)
   })
 
-  it('should put updateProfileFailure on api errors', () => {
-    const error = { errors: 'errors' }
-    const generator = sagas.updateProfile(action)
-    const expected = put(actions.updateProfileFailure(error.errors))
-
-    generator.next()
-    generator.next()
-    const actual = generator.next({ error }).value
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should put updateProfileFailure on network errors', () => {
+  it('should put updateProfileFailure on errors', () => {
     const error = new Error('error')
     const generator = sagas.updateProfile(action)
     const expected = put(actions.updateProfileFailure(error))
 
     generator.next()
-    generator.next()
-    const actual = generator.next({ error }).value
+    generator.next(token)
+    const actual = generator.throw(error).value
 
     expect(actual).toEqual(expected)
   })

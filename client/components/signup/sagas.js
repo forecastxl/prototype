@@ -1,21 +1,22 @@
 import { call, put } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
-import { endpoints } from '../../services/endpoints'
-import post from '../../services/post'
+import endpoints from '../../services/endpoints'
+import api from '../../services/api'
 import { actions as sessionActions } from '../../data/session'
 import { actions as notificationActions } from '../notifications'
 import { CREATE_ACCOUNT, CONFIRM_ACCOUNT } from './actionTypes'
 import { createAccountFailure, confirmAccountFailure } from './actions'
 
 export function* createAccount({ payload }) {
-  const { data, error } = yield call(post, endpoints.CREATE_ACCOUNT, { account: payload })
-  if (data) {
+  const endpoint = endpoints.constant.CREATE_ACCOUNT
+  const data = { account: payload }
+
+  try {
+    yield call(api.post, { endpoint, data })
     yield put(notificationActions.addNotification('Account aangemaakt. Bevestig via de email.'))
     yield put(push('/'))
-  } else if (error.errors) {
-    yield put(createAccountFailure(error.errors))
-  } else {
+  } catch (error) {
     yield put(createAccountFailure(error))
   }
 }
@@ -25,13 +26,14 @@ export function* watchCreateAccount() {
 }
 
 export function* confirmAccount({ payload }) {
-  const { data, error } = yield call(post, endpoints.CONFIRM_ACCOUNT, { token: payload })
-  if (data) {
-    yield put(sessionActions.loginSubmit(data.token))
+  const endpoint = endpoints.constant.CONFIRM_ACCOUNT
+  const data = { token: payload }
+
+  try {
+    const response = yield call(api.post, { endpoint, data })
+    yield put(sessionActions.loginSubmit(response.token))
     yield put(push('/'))
-  } else if (error.errors) {
-    yield put(confirmAccountFailure(error.errors))
-  } else {
+  } catch (error) {
     yield put(confirmAccountFailure(error))
   }
 }

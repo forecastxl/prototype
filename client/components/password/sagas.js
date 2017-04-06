@@ -1,8 +1,8 @@
 import { call, put } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
-import { endpoints } from '../../services/endpoints'
-import post from '../../services/post'
+import endpoints from '../../services/endpoints'
+import api from '../../services/api'
 import { actions as notificationActions } from '../notifications'
 import { RESET_PASSWORD, REQUEST_RESET_PASSWORD } from './actionTypes'
 import {
@@ -13,13 +13,14 @@ import {
 } from './actions'
 
 export function* resetPassword({ payload }) {
-  const { data, error } = yield call(post, endpoints.RESET_PASSWORD, { payload })
-  if (data) {
+  const endpoint = endpoints.constant.RESET_PASSWORD
+  const data = payload
+
+  try {
+    yield call(api.post, { endpoint, data })
     yield put(resetPasswordSuccess())
     yield put(push('/'))
-  } else if (error.errors) {
-    yield put(resetPasswordFailure(error.errors))
-  } else {
+  } catch (error) {
     yield put(resetPasswordFailure(error))
   }
 }
@@ -29,14 +30,15 @@ export function* watchResetPassword() {
 }
 
 export function* requestResetPassword({ payload }) {
-  const { data, error } = yield call(post, endpoints.REQUEST_RESET_PASSWORD, { email: payload })
-  if (data) {
-    yield put(requestResetPasswordSuccess(data.token))
+  const endpoint = endpoints.constant.REQUEST_RESET_PASSWORD
+  const data = { email: payload }
+
+  try {
+    const response = yield call(api.post, { endpoint, data })
+    yield put(requestResetPasswordSuccess(response.token))
     yield put(notificationActions.addNotification('Wachtwoord reset aangevraagd'))
     yield put(push('/login'))
-  } else if (error.errors) {
-    yield put(requestResetPasswordFailure(error.errors))
-  } else {
+  } catch (error) {
     yield put(requestResetPasswordFailure(error))
   }
 }

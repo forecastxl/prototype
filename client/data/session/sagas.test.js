@@ -1,8 +1,8 @@
 import { call, put } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
-import { endpoints } from '../../services/endpoints'
-import post from '../../services/post'
+import endpoints from '../../services/endpoints'
+import api from '../../services/api'
 import * as sagas from './sagas'
 import * as actions from './actions'
 import * as types from './actionTypes'
@@ -19,56 +19,47 @@ describe('watchLoginSubmit', () => {
 
 describe('login', () => {
   const action = { payload: 'user' }
+  const endpoint = endpoints.constant.LOGIN
+  const data = { user: action.payload }
 
   it('should post the user data', () => {
     const generator = sagas.login(action)
     const actual = generator.next().value
-    const expected = call(post, endpoints.LOGIN, { user: action.payload })
+    const expected = call(api.post, { endpoint, data })
 
     expect(actual).toEqual(expected)
   })
 
   it('should put loginSuccess after a successful request', () => {
-    const data = { token: 'token' }
+    const response = { token: 'token' }
     const generator = sagas.login(action)
-    const expected = put(actions.loginSuccess(data.token))
+    const expected = put(actions.loginSuccess(response.token))
 
     generator.next()
-    const actual = generator.next({ data }).value
+    const actual = generator.next(response).value
 
     expect(actual).toEqual(expected)
   })
 
   it('should redirect to home after a succesful request', () => {
-    const data = { token: 'token' }
+    const response = { token: 'token' }
     const generator = sagas.login(action)
     const expected = put(push('/'))
 
     generator.next()
-    generator.next({ data })
+    generator.next(response)
     const actual = generator.next().value
 
     expect(actual).toEqual(expected)
   })
 
-  it('should put loginFailure on api errors', () => {
-    const error = { errors: 'errors' }
-    const generator = sagas.login(action)
-    const expected = put(actions.loginFailure(error.errors))
-
-    generator.next()
-    const actual = generator.next({ error }).value
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should put loginFailure on network errors', () => {
+  it('should put loginFailure on errors', () => {
     const error = new Error('error')
     const generator = sagas.login(action)
     const expected = put(actions.loginFailure(error))
 
     generator.next()
-    const actual = generator.next({ error }).value
+    const actual = generator.throw(error).value
 
     expect(actual).toEqual(expected)
   })
