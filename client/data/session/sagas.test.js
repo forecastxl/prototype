@@ -53,10 +53,32 @@ describe('login', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put loginFailure on errors', () => {
+  it('should put loginValidationFailure on errors', () => {
+    const error = { ...new Error('error'), name: 'SubmissionError', errors: 'errors' }
+    const generator = sagas.login(action)
+    const expected = put(actions.loginValidationFailure(error.errors))
+
+    generator.next()
+    const actual = generator.throw(error).value
+
+    expect(actual).toEqual(expected)
+  })
+
+  it('should put loginClientFailure on errors', () => {
+    const error = { ...new Error('error'), name: 'ClientError' }
+    const generator = sagas.login(action)
+    const expected = put(actions.loginClientFailure(error))
+
+    generator.next()
+    const actual = generator.throw(error).value
+
+    expect(actual).toEqual(expected)
+  })
+
+  it('should put loginServerFailure on errors', () => {
     const error = new Error('error')
     const generator = sagas.login(action)
-    const expected = put(actions.loginFailure(error))
+    const expected = put(actions.loginServerFailure(error))
 
     generator.next()
     const actual = generator.throw(error).value

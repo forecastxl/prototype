@@ -1,7 +1,6 @@
-function ClientError({ response, data }) {
+function ClientError(message) {
   this.name = 'ClientError'
-  this.message = response.statusText
-  this.data = data
+  this.message = message || 'Something went wrong but no message was provided'
 }
 
 ClientError.prototype = Error.prototype

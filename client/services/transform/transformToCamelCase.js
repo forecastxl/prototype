@@ -9,12 +9,12 @@ function camelCaseKey(key, value) {
  * Recursively converts all snakecased keys in an object to camelcase.
  */
 
-function transformToCamelCase(objectWithSnakeCasedKeys) {
-  if (!objectWithSnakeCasedKeys) {
+function transformToCamelCase(data) {
+  if (!data) {
     throw Error('Need a parameter to transform to camelcase')
   }
 
-  return mapObj(objectWithSnakeCasedKeys, camelCaseKey, { deep: true })
+  return mapObj(data, camelCaseKey, { deep: true })
 }
 
 export default transformToCamelCase

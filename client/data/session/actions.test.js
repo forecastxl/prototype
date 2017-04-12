@@ -14,9 +14,21 @@ describe('actioncreators', () => {
     })
   })
 
-  it('should create a LOGIN_FAILURE action', () => {
-    expect(actions.loginFailure()).toEqual({
-      type: types.LOGIN_FAILURE
+  it('should create a LOGIN_VALIDATION_FAILURE action', () => {
+    expect(actions.loginValidationFailure()).toEqual({
+      type: types.LOGIN_VALIDATION_FAILURE
+    })
+  })
+
+  it('should create a LOGIN_CLIENT_FAILURE action', () => {
+    expect(actions.loginClientFailure()).toEqual({
+      type: types.LOGIN_CLIENT_FAILURE
+    })
+  })
+
+  it('should create a LOGIN_SERVER_FAILURE action', () => {
+    expect(actions.loginServerFailure()).toEqual({
+      type: types.LOGIN_SERVER_FAILURE
     })
   })
 

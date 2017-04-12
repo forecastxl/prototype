@@ -1,4 +1,5 @@
 import transformToCamelCase from './transformToCamelCase'
+import transformErrorArraysToString from './transformErrorArraysToString'
 import transformForReduxForms from './transformForReduxForms'
 
 /**
@@ -7,13 +8,18 @@ import transformForReduxForms from './transformForReduxForms'
  */
 
 function transformResponseData(data) {
+  let transformedData = data
+
   // convert the snakecase that the api returns to camelCase
-  const camelCasedData = transformToCamelCase(data)
+  transformedData = transformToCamelCase(transformedData)
+
+  // join arrays in the errors key to strings
+  transformedData = transformErrorArraysToString(transformedData)
 
   // make sure the data format is compatible with redux forms
-  const reduxFormsCompatibleData = transformForReduxForms(camelCasedData)
+  transformedData = transformForReduxForms(transformedData)
 
-  return Promise.resolve(reduxFormsCompatibleData)
+  return Promise.resolve(transformedData)
 }
 
 export default transformResponseData

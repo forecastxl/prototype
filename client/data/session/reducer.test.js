@@ -41,15 +41,41 @@ describe('reducer', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should handle LOGIN_FAILURE', () => {
+  it('should handle LOGIN_VALIDATION_FAILURE', () => {
     const payload = new Error('Something went wrong')
     const actual = reducer(
       fetchingState,
-      { type: types.LOGIN_FAILURE, payload }
+      { type: types.LOGIN_VALIDATION_FAILURE, payload }
+    )
+    const expected = initialState
+
+    expect(actual).toEqual(expected)
+  })
+
+  it('should handle LOGIN_CLIENT_FAILURE', () => {
+    const payload = { message: 'Something went wrong' }
+    const actual = reducer(
+      fetchingState,
+      { type: types.LOGIN_CLIENT_FAILURE, payload }
     )
     const expected = {
       ...initialState,
-      errorMessage: 'Something went wrong',
+      errorMessage: payload.message,
+      hasError: true
+    }
+
+    expect(actual).toEqual(expected)
+  })
+
+  it('should handle LOGIN_SERVER_FAILURE', () => {
+    const payload = new Error('Something went wrong')
+    const actual = reducer(
+      fetchingState,
+      { type: types.LOGIN_SERVER_FAILURE, payload }
+    )
+    const expected = {
+      ...initialState,
+      errorMessage: payload.message,
       hasError: true
     }
 

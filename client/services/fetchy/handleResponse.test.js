@@ -36,44 +36,95 @@ describe('handleResponse', () => {
       })
   })
 
-  it('should parse responses in the 400 - 499 range', () => {
+  it('should parse 422 responses', () => {
+    const errors = { base: 'Something went wrong' }
     const response = {
       status: 422,
       json: jest.fn()
     }
 
-    response.json.mockImplementationOnce(() => Promise.resolve('parsed'))
+    response.json.mockImplementationOnce(() => Promise.resolve({ errors }))
     transformResponseData.mockImplementationOnce(response => Promise.resolve(response))
 
     return handleResponse(response)
       .catch(error => {
-        expect(error.data).toEqual('parsed')
+        expect(error.errors.base).toEqual(errors.base)
+      })
+  })
+
+  it('should transform 422 responses', () => {
+    const errors = { base: 'Something went wrong' }
+    const response = {
+      status: 422,
+      json: jest.fn()
+    }
+
+    response.json.mockImplementationOnce(() => Promise.resolve())
+    transformResponseData.mockImplementationOnce(() => Promise.resolve({ errors }))
+
+    return handleResponse(response)
+      .catch(error => {
+        expect(error.errors.base).toEqual(errors.base)
+      })
+  })
+
+  it('should reject 422 responses with a SubmissionError', () => {
+    const errors = { base: 'Something went wrong' }
+    const response = {
+      status: 422,
+      json: jest.fn()
+    }
+
+    response.json.mockImplementationOnce(() => Promise.resolve())
+    transformResponseData.mockImplementationOnce(() => Promise.resolve({ errors }))
+
+    return handleResponse(response)
+      .catch(error => {
+        expect(error.name).toEqual('SubmissionError')
+      })
+  })
+
+  it('should parse responses in the 400 - 499 range', () => {
+    const errors = { base: 'Something went wrong' }
+    const response = {
+      status: 404,
+      json: jest.fn()
+    }
+
+    response.json.mockImplementationOnce(() => Promise.resolve({ errors }))
+    transformResponseData.mockImplementationOnce(response => Promise.resolve(response))
+
+    return handleResponse(response)
+      .catch(error => {
+        expect(error.message).toEqual(errors.base)
       })
   })
 
   it('should transform responses in the 400 - 499 range', () => {
+    const errors = { base: 'Something went wrong' }
     const response = {
-      status: 422,
+      status: 404,
       json: jest.fn()
     }
 
     response.json.mockImplementationOnce(() => Promise.resolve())
-    transformResponseData.mockImplementationOnce(() => Promise.resolve('transformed'))
+    transformResponseData.mockImplementationOnce(() => Promise.resolve({ errors }))
 
     return handleResponse(response)
       .catch(error => {
-        expect(error.data).toEqual('transformed')
+        expect(error.message).toEqual(errors.base)
       })
   })
 
   it('should reject responses in the 400 - 499 range with a client error', () => {
+    const errors = { base: 'Something went wrong' }
     const response = {
-      status: 422,
+      status: 404,
       json: jest.fn()
     }
 
     response.json.mockImplementationOnce(() => Promise.resolve())
-    transformResponseData.mockImplementationOnce(() => Promise.resolve())
+    transformResponseData.mockImplementationOnce(() => Promise.resolve({ errors }))
 
     return handleResponse(response)
       .catch(error => {

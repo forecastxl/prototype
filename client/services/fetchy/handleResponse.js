@@ -1,3 +1,4 @@
+import { SubmissionError } from 'redux-form'
 import { transformResponseData } from '../transform'
 import { ClientError, ServerError } from '../errors'
 
@@ -18,6 +19,17 @@ function handleResponse(response) {
   }
 
   /**
+   * 422
+   * Returns a promise that rejects with a SubmissionError
+   */
+
+  if (response.status === 422) {
+    return response.json()
+      .then(transformResponseData)
+      .then(data => Promise.reject(new SubmissionError(data.errors)))
+  }
+
+  /**
    * 400 - 499
    * Returns a promise that rejects with a ClientError
    */
@@ -25,7 +37,7 @@ function handleResponse(response) {
   if (response.status >= 400 && response.status <= 499) {
     return response.json()
       .then(transformResponseData)
-      .then(data => Promise.reject(new ClientError({ response, data })))
+      .then(data => Promise.reject(new ClientError(data.errors.base)))
   }
 
   /**
@@ -33,7 +45,7 @@ function handleResponse(response) {
    * Returns a promise that rejects with a ServerError
    */
 
-  return Promise.reject(new ServerError(response.statusText || 'Something went wrong on the server'))
+  return Promise.reject(new ServerError(response.statusText))
 }
 
 export default handleResponse
