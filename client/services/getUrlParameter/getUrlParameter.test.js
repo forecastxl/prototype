@@ -1,25 +1,25 @@
-import getParam from './getParam'
+import getUrlParameter from './getUrlParameter'
 
-describe('getParam', () => {
-  it('should retrieve the specified param from an url with a single param', () => {
+describe('getUrlParameter', () => {
+  it('should retrieve the specified parameter from an url with a single parameter', () => {
     Object.defineProperty(window.location, 'search', {
       writable: true,
       value: '?key=value'
     })
 
-    const actual = getParam('key')
+    const actual = getUrlParameter('key')
     const expected = 'value'
 
     expect(actual).toEqual(expected)
   })
 
-  it('should retrieve the specified param from an url with multiple params', () => {
+  it('should retrieve the specified parameter from an url with multiple parameters', () => {
     Object.defineProperty(window.location, 'search', {
       writable: true,
       value: '?key=value&anotherKey=anotherValue'
     })
 
-    const actual = getParam('key')
+    const actual = getUrlParameter('key')
     const expected = 'value'
 
     expect(actual).toEqual(expected)
@@ -31,7 +31,7 @@ describe('getParam', () => {
       value: '?key=value&anotherKey=anotherValue'
     })
 
-    const actual = getParam('doesNotExist')
+    const actual = getUrlParameter('doesNotExist')
     const expected = false
 
     expect(actual).toEqual(expected)

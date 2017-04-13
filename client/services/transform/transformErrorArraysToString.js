@@ -1,6 +1,8 @@
 import mapObj from 'map-obj'
 
 function arrayToString(key, value) {
+  if (!Array.isArray(value)) return [key, value]
+
   return [key, value.join('. ')]
 }
 

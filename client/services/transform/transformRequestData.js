@@ -6,10 +6,12 @@ import transformToSnakeCase from './transformToSnakeCase'
  */
 
 function transformRequestData(data) {
-  // convert the camelcase to snakecase for the backend
-  const snakeCasedData = transformToSnakeCase(data)
+  let transformedData = data
 
-  return snakeCasedData
+  // convert the camelcase to snakecase for the backend
+  transformedData = transformToSnakeCase(transformedData)
+
+  return transformedData
 }
 
 export default transformRequestData

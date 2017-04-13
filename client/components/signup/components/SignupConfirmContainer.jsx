@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import getParam from '../../../services/getParam'
+import getUrlParameter from '../../../services/getUrlParameter'
 import { confirmAccount } from '../actions'
 import SignupConfirm from './SignupConfirm'
 
@@ -17,7 +17,7 @@ export class SignupConfirmContainer extends Component {
     if (!this.state.parsedToken) {
       this.setState({
         parsedToken: true,
-        token: getParam('token')
+        token: getUrlParameter('token')
       })
     }
   }

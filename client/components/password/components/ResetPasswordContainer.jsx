@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import getParam from '../../../services/getParam'
+import getUrlParameter from '../../../services/getUrlParameter'
 import { resetPassword } from '../actions'
 import ResetPassword from './ResetPassword'
 
@@ -21,7 +21,7 @@ export class ResetPasswordContainer extends Component {
     if (!this.state.parsedToken) {
       this.setState({
         parsedToken: true,
-        token: getParam('token')
+        token: getUrlParameter('token')
       })
     }
   }

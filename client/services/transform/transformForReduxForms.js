@@ -6,7 +6,7 @@
  */
 
 function transformForReduxForms(data) {
-  if ('base' in data.errors) {
+  if (data.errors && 'base' in data.errors) {
     data.errors._error = data.errors.base
     delete data.errors.base
   }
