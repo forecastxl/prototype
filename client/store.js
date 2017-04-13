@@ -2,6 +2,7 @@ import createSagaMiddleware from 'redux-saga'
 import { applyMiddleware, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
+import { addFormSubmitSagaTo } from 'redux-form-submit-saga'
 import rootReducer from './rootReducer'
 import rootSaga from './rootSaga'
 
@@ -18,7 +19,7 @@ const configureStore = (preloadedState, history) => {
     )
   )
 
-  sagaMiddleware.run(rootSaga)
+  sagaMiddleware.run(addFormSubmitSagaTo(rootSaga))
 
   return store
 }

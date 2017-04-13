@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformToSnakeCase should throw a descriptive error when there is no parameter 1`] = `"Need a parameter to transform to snakecase"`;

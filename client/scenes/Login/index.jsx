@@ -1,9 +1,9 @@
 import React from 'react'
-import { LoginFormContainer } from '../../components/login'
+import { LoginForm } from '../../components/login'
 
 function Scene() {
   return (
-    <LoginFormContainer />
+    <LoginForm />
   )
 }
 

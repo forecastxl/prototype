@@ -1,9 +1,9 @@
 import { call, put } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
-import post from '../../services/post'
+import api from '../../services/api'
 import { actions as notificationActions } from '../notifications'
-import { endpoints } from '../../services/endpoints'
+import endpoints from '../../services/endpoints'
 import * as actions from './actions'
 import * as types from './actionTypes'
 import * as sagas from './sagas'
@@ -19,64 +19,50 @@ describe('watchResetPassword', () => {
 })
 
 describe('resetPassword', () => {
-  const action = {
-    payload: 'payload'
-  }
+  const action = { payload: 'payload' }
+  const endpoint = endpoints.constant.RESET_PASSWORD
+  const data = action.payload
 
   it('should post the password data', () => {
     const generator = sagas.resetPassword(action)
     const actual = generator.next().value
-    const expected = call(post, endpoints.RESET_PASSWORD, { payload: action.payload })
+    const expected = call(api.post, { endpoint, data })
 
     expect(actual).toEqual(expected)
   })
 
   it('should put resetPasswordSuccess on success', () => {
-    const data = { token: 'token' }
     const generator = sagas.resetPassword(action)
     const expected = put(actions.resetPasswordSuccess())
 
     generator.next()
-    const actual = generator.next({ data }).value
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should redirect to home on success', () => {
-    const data = { token: 'token' }
-    const generator = sagas.resetPassword(action)
-    const expected = put(push('/'))
-
-    generator.next()
-    generator.next({ data })
     const actual = generator.next().value
 
     expect(actual).toEqual(expected)
   })
 
-  it('should put resetPasswordFail on api errors', () => {
-    const error = { errors: 'errors' }
+  it('should redirect to home on success', () => {
     const generator = sagas.resetPassword(action)
-    const expected = put(actions.resetPasswordFail(error.errors))
+    const expected = put(push('/'))
 
     generator.next()
-    const actual = generator.next({ error }).value
+    generator.next()
+    const actual = generator.next().value
 
     expect(actual).toEqual(expected)
   })
 
-  it('should put resetPasswordFail on network errors', () => {
+  it('should put resetPasswordFailure on errors', () => {
     const error = new Error('error')
     const generator = sagas.resetPassword(action)
-    const expected = put(actions.resetPasswordFail(error))
+    const expected = put(actions.resetPasswordFailure(error))
 
     generator.next()
-    const actual = generator.next({ error }).value
+    const actual = generator.throw(error).value
 
     expect(actual).toEqual(expected)
   })
 })
-
 
 describe('watchRequestResetPassword', () => {
   it('should respond to REQUEST_RESET_PASSWORD', () => {
@@ -89,72 +75,61 @@ describe('watchRequestResetPassword', () => {
 })
 
 describe('requestResetPassword', () => {
-  const action = {
-    payload: 'email'
-  }
+  const action = { payload: 'payload' }
+  const endpoint = endpoints.constant.REQUEST_RESET_PASSWORD
+  const data = { email: action.payload }
 
   it('should post the email data', () => {
     const generator = sagas.requestResetPassword(action)
     const actual = generator.next().value
-    const expected = call(post, endpoints.REQUEST_RESET_PASSWORD, { email: action.payload })
+    const expected = call(api.post, { endpoint, data })
 
     expect(actual).toEqual(expected)
   })
 
   it('should put requestResetPasswordSuccess on success', () => {
-    const data = { token: 'token' }
+    const response = { token: 'token' }
     const generator = sagas.requestResetPassword(action)
-    const expected = put(actions.requestResetPasswordSuccess(data.token))
+    const expected = put(actions.requestResetPasswordSuccess(response.token))
 
     generator.next()
-    const actual = generator.next({ data }).value
+    const actual = generator.next(response).value
 
     expect(actual).toEqual(expected)
   })
 
   it('should put addNotification on success', () => {
-    const data = { token: 'token' }
+    const response = { token: 'token' }
     const generator = sagas.requestResetPassword(action)
     const expected = put(notificationActions.addNotification('Wachtwoord reset aangevraagd'))
 
     generator.next()
-    generator.next({ data })
+    generator.next(response)
     const actual = generator.next().value
 
     expect(actual).toEqual(expected)
   })
 
   it('should redirect on success', () => {
-    const data = { token: 'token' }
+    const response = { token: 'token' }
     const generator = sagas.requestResetPassword(action)
     const expected = put(push('/login'))
 
     generator.next()
-    generator.next({ data })
+    generator.next(response)
     generator.next()
     const actual = generator.next().value
 
     expect(actual).toEqual(expected)
   })
 
-  it('should put requestResetPasswordFail on api errors', () => {
-    const error = { errors: 'errors' }
-    const generator = sagas.requestResetPassword(action)
-    const expected = put(actions.requestResetPasswordFail(error.errors))
-
-    generator.next()
-    const actual = generator.next({ error }).value
-
-    expect(actual).toEqual(expected)
-  })
-
-  it('should put requestResetPasswordFail on network errors', () => {
+  it('should put requestResetPasswordFailure on errors', () => {
     const error = new Error('error')
     const generator = sagas.requestResetPassword(action)
-    const expected = put(actions.requestResetPasswordFail(error))
+    const expected = put(actions.requestResetPasswordFailure(error))
 
     generator.next()
-    const actual = generator.next({ error }).value
+    const actual = generator.throw(error).value
 
     expect(actual).toEqual(expected)
   })

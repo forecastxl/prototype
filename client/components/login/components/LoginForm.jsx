@@ -1,54 +1,48 @@
 import React, { PropTypes } from 'react'
-import { Link } from 'react-router-dom'
-import TextField from 'material-ui/TextField'
-import { Alert } from '../../alert'
-import { Dialog, DialogBody, DialogHeader, DialogFooter, DialogButton } from '../../dialog'
+import { Field, reduxForm } from 'redux-form'
+import { onSubmitActions } from 'redux-form-submit-saga'
+import { Button, TextField } from '../../form'
 
-function LoginForm({ onSubmit, onChange, user, errors }) {
+export function LoginForm({ handleSubmit, pristine, submitting, error }) {
   return (
-    <Dialog>
-      <DialogHeader
-        title="Inloggen op ForecastXL"
-        titleColor="white"
+    <form onSubmit={handleSubmit}>
+      {error && <div>Something went wrong: {error}</div>}
+      <Field
+        name="email"
+        component={TextField}
+        label="Email"
+        fullWidth
       />
-      <DialogBody>
-        {errors && errors.base && <Alert messages={errors.base} />}
-        <form action="/" onSubmit={onSubmit}>
-          <TextField
-            floatingLabelText="Email"
-            name="email"
-            value={user.email}
-            onChange={onChange}
-            fullWidth
-          /><br />
-          <TextField
-            floatingLabelText="Wachtwoord"
-            name="password"
-            type="password"
-            value={user.password}
-            onChange={onChange}
-            fullWidth
-          /><br />
-          <DialogButton type="submit" label="Inloggen" primary fullWidth />
-        </form>
-        <DialogFooter>
-          <Link to="/signup">Nog geen account?</Link>
-          <span> - </span>
-          <Link to="/login/forgot-password">Wachtwoord vergeten?</Link>
-        </DialogFooter>
-      </DialogBody>
-    </Dialog>
+      <Field
+        name="password"
+        component={TextField}
+        label="Wachtwoord"
+        type="password"
+        fullWidth
+      />
+      <Button
+        type="submit"
+        label="Inloggen"
+        primary
+        fullWidth
+        disabled={pristine || submitting}
+      />
+    </form>
   )
 }
 
 LoginForm.propTypes = {
-  errors: PropTypes.object.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  user: PropTypes.shape({
-    email: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired
-  }).isRequired
+  error: PropTypes.string,
+  handleSubmit: PropTypes.func.isRequired,
+  pristine: PropTypes.bool.isRequired,
+  submitting: PropTypes.bool.isRequired
 }
 
-export default LoginForm
+LoginForm.defaultProps = {
+  error: ''
+}
+
+export default reduxForm({
+  form: 'login',
+  onSubmit: onSubmitActions('LOGIN_SUBMIT', 'LOGIN_SUCCESS', 'LOGIN_VALIDATION_FAILURE')
+})(LoginForm)

@@ -1,3 +1,6 @@
-import * as endpoints from './endpoints'
+import constant from './constant'
+import dynamic from './dynamic'
 
-export { endpoints }
+const endpoints = { constant, dynamic }
+
+export default endpoints

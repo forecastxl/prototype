@@ -1,21 +1,20 @@
 import { call, put, select } from 'redux-saga/effects'
 import { takeLatest } from 'redux-saga'
 import { selectors as sessionSelectors } from '../../data/session'
-import get from '../../services/get'
-import putService from '../../services/put'
-import { endpoints } from '../../services/endpoints'
+import api from '../../services/api'
+import endpoints from '../../services/endpoints'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
 export function* fetchProfile() {
-  const token = yield select(sessionSelectors.getToken)
-  const { data, error } = yield call(get, endpoints.PROFILE, token)
-  if (data) {
-    yield put(actions.fetchProfileSuccess(data.data))
-  } else if (error.errors) {
-    yield put(actions.fetchProfileFail(error.errors))
-  } else {
-    yield put(actions.fetchProfileFail(error))
+  const endpoint = endpoints.constant.PROFILE
+
+  try {
+    const token = yield select(sessionSelectors.getToken)
+    const response = yield call(api.get, { endpoint, token })
+    yield put(actions.fetchProfileSuccess(response.data))
+  } catch (error) {
+    yield put(actions.fetchProfileFailure(error))
   }
 }
 
@@ -24,14 +23,15 @@ export function* watchFetchProfile() {
 }
 
 export function* updateProfile({ payload }) {
-  const token = yield select(sessionSelectors.getToken)
-  const { data, error } = yield call(putService, endpoints.user(payload.id), payload, token)
-  if (data) {
+  const endpoint = endpoints.dynamic.user(payload.id)
+  const data = payload
+
+  try {
+    const token = yield select(sessionSelectors.getToken)
+    yield call(api.put, { endpoint, data, token })
     yield put(actions.updateProfileSuccess())
-  } else if (error.errors) {
-    yield put(actions.updateProfileFail(error.errors))
-  } else {
-    yield put(actions.updateProfileFail(error))
+  } catch (error) {
+    yield put(actions.updateProfileFailure(error))
   }
 }
 

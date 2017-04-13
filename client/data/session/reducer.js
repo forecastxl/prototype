@@ -10,12 +10,12 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case types.CREATE_SESSION:
+    case types.LOGIN_SUBMIT:
       return {
         ...state,
         isFetching: true
       }
-    case types.CREATE_SESSION_SUCCESS:
+    case types.LOGIN_SUCCESS:
       return {
         errorMessage: '',
         hasError: false,
@@ -23,7 +23,16 @@ export default function reducer(state = initialState, action) {
         isFetching: false,
         token: action.payload
       }
-    case types.CREATE_SESSION_FAIL:
+    case types.LOGIN_VALIDATION_FAILURE:
+      return {
+        errorMessage: '',
+        hasError: false,
+        hasToken: false,
+        isFetching: false,
+        token: ''
+      }
+    case types.LOGIN_CLIENT_FAILURE:
+    case types.LOGIN_SERVER_FAILURE:
       return {
         errorMessage: action.payload.message,
         hasError: true,
@@ -31,7 +40,7 @@ export default function reducer(state = initialState, action) {
         isFetching: false,
         token: ''
       }
-    case types.DESTROY_SESSION:
+    case types.LOGOUT:
       return {
         ...initialState
       }

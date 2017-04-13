@@ -5,7 +5,7 @@ import { sagas as profile } from './components/profile'
 
 const rootSaga = function* () {
   yield [
-    session.watchCreateSession(),
+    session.watchLoginSubmit(),
     signup.watchCreateAccount(),
     signup.watchConfirmAccount(),
     password.watchRequestResetPassword(),

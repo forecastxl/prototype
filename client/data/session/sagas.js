@@ -1,23 +1,30 @@
 import { call, put } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
-import { endpoints } from '../../services/endpoints'
-import post from '../../services/post'
+import endpoints from '../../services/endpoints'
+import api from '../../services/api'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
-export function* createSession({ payload }) {
-  const { data, error } = yield call(post, endpoints.CREATE_SESSION, { user: payload })
-  if (data) {
-    yield put(actions.createSessionSuccess(data.token))
+export function* login({ payload }) {
+  const endpoint = endpoints.constant.LOGIN
+  const data = { user: payload }
+
+  try {
+    const response = yield call(api.post, { endpoint, data })
+    yield put(actions.loginSuccess(response.token))
     yield put(push('/'))
-  } else if (error.errors) {
-    yield put(actions.createSessionFail(error.errors))
-  } else {
-    yield put(actions.createSessionFail(error))
+  } catch (error) {
+    if (error.name === 'SubmissionError') {
+      yield put(actions.loginValidationFailure(error.errors))
+    } else if (error.name === 'ClientError') {
+      yield put(actions.loginClientFailure(error))
+    } else {
+      yield put(actions.loginServerFailure(error))
+    }
   }
 }
 
-export function* watchCreateSession() {
-  yield call(takeLatest, types.CREATE_SESSION, createSession)
+export function* watchLoginSubmit() {
+  yield call(takeLatest, types.LOGIN_SUBMIT, login)
 }

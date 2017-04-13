@@ -14,9 +14,9 @@ describe('actioncreators', () => {
     })
   })
 
-  it('should create a FETCH_PROFILE_FAIL action', () => {
-    expect(actions.fetchProfileFail()).toEqual({
-      type: types.FETCH_PROFILE_FAIL
+  it('should create a FETCH_PROFILE_FAILURE action', () => {
+    expect(actions.fetchProfileFailure()).toEqual({
+      type: types.FETCH_PROFILE_FAILURE
     })
   })
 
@@ -32,9 +32,9 @@ describe('actioncreators', () => {
     })
   })
 
-  it('should create a UPDATE_PROFILE_FAIL action', () => {
-    expect(actions.updateProfileFail()).toEqual({
-      type: types.UPDATE_PROFILE_FAIL
+  it('should create a UPDATE_PROFILE_FAILURE action', () => {
+    expect(actions.updateProfileFailure()).toEqual({
+      type: types.UPDATE_PROFILE_FAILURE
     })
   })
 })
