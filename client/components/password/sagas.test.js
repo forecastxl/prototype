@@ -1,8 +1,8 @@
 import { call, put } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
+import Notifications from 'react-notification-system-redux'
 import api from '../../services/api'
-import { actions as notificationActions } from '../notifications'
 import endpoints from '../../services/endpoints'
 import * as actions from './actions'
 import * as types from './actionTypes'
@@ -98,10 +98,10 @@ describe('requestResetPassword', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put addNotification on success', () => {
+  it('should call Notifications.success on success', () => {
     const response = { token: 'token' }
     const generator = sagas.requestResetPassword(action)
-    const expected = put(notificationActions.addNotification('Wachtwoord reset aangevraagd'))
+    const expected = call(Notifications.success, { title: 'title', message: 'message' })
 
     generator.next()
     generator.next(response)

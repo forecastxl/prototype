@@ -1,10 +1,10 @@
 import { call, put } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
+import Notifications from 'react-notification-system-redux'
 import endpoints from '../../services/endpoints'
 import api from '../../services/api'
 import { actions as sessionActions } from '../../data/session'
-import { actions as notificationActions } from '../notifications'
 import * as sagas from './sagas'
 import * as actions from './actions'
 import * as types from './actionTypes'
@@ -35,9 +35,8 @@ describe('sagas', () => {
 
     it('should add a notification on success', () => {
       const response = { data: 'data' }
-      const message = 'Account aangemaakt. Bevestig via de email.'
       const generator = sagas.createAccount(action)
-      const expected = put(notificationActions.addNotification(message))
+      const expected = call(Notifications.success, { title: 'title', message: 'message' })
 
       generator.next()
       const actual = generator.next(response).value

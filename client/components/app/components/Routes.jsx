@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Header } from '../../header'
-import { NotificationContainer } from '../../notifications'
+import { NotificationsContainer } from '../../notifications'
 import Home from '../../../scenes/Home'
 import ForgotPassword from '../../../scenes/ForgotPassword'
 import Login from '../../../scenes/Login'
@@ -30,7 +30,7 @@ function Routes() {
         <Route path="/profile" component={Profile} />
 
       </Switch>
-      <NotificationContainer />
+      <NotificationsContainer />
     </div>
   )
 }

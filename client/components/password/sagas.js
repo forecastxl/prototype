@@ -1,9 +1,9 @@
 import { call, put } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
+import Notifications from 'react-notification-system-redux'
 import endpoints from '../../services/endpoints'
 import api from '../../services/api'
-import { actions as notificationActions } from '../notifications'
 import { RESET_PASSWORD, REQUEST_RESET_PASSWORD } from './actionTypes'
 import {
   resetPasswordSuccess,
@@ -36,7 +36,7 @@ export function* requestResetPassword({ payload }) {
   try {
     const response = yield call(api.post, { endpoint, data })
     yield put(requestResetPasswordSuccess(response.token))
-    yield put(notificationActions.addNotification('Wachtwoord reset aangevraagd'))
+    yield call(Notifications.success, { title: 'title', message: 'message' })
     yield put(push('/login'))
   } catch (error) {
     yield put(requestResetPasswordFailure(error))
