@@ -33,7 +33,7 @@ describe('sagas', () => {
       expect(actual).toEqual(expected)
     })
 
-    it('should add a notification on success', () => {
+    it('should call Notifications.success on success', () => {
       const response = { data: 'data' }
       const generator = sagas.createAccount(action)
       const expected = call(Notifications.success, { title: 'title', message: 'message' })
