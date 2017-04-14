@@ -8,6 +8,10 @@ import * as actions from './actions'
 import * as types from './actionTypes'
 import * as sagas from './sagas'
 
+jest.mock('../notifications/actions', () => ({
+  addNotification: input => input
+}))
+
 describe('watchResetPassword', () => {
   it('should respond to RESET_PASSWORD', () => {
     const generator = sagas.watchResetPassword()

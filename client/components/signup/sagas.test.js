@@ -9,6 +9,10 @@ import * as sagas from './sagas'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
+jest.mock('../notifications/actions', () => ({
+  addNotification: input => input
+}))
+
 describe('sagas', () => {
   describe('watchCreateAccount', () => {
     it('should respond to CREATE_ACCOUNT', () => {
