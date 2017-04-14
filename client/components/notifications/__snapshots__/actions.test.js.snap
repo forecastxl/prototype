@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`actioncreators should create a RNS_HIDE_NOTIFICATION action 1`] = `
+Object {
+  "type": "RNS_HIDE_NOTIFICATION",
+  "uid": 1,
+}
+`;
+
 exports[`actioncreators should create a RNS_SHOW_NOTIFICATION action 1`] = `
 Object {
   "level": "success",
