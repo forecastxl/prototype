@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { takeLatest } from 'redux-saga'
-import Notifications from 'react-notification-system-redux'
+import { actions as notificationActions } from '../notifications'
 import endpoints from '../../services/endpoints'
 import api from '../../services/api'
 import { actions as sessionActions } from '../../data/session'
@@ -14,7 +14,7 @@ export function* createAccount({ payload }) {
 
   try {
     yield call(api.post, { endpoint, data })
-    yield call(Notifications.success, { title: 'title', message: 'message' })
+    yield put(notificationActions.addNotification({ level: 'success', options: { title: 'title', message: 'message' } }))
     yield put(push('/'))
   } catch (error) {
     yield put(createAccountFailure(error))
