@@ -9,6 +9,10 @@ import * as sagas from './sagas'
 import * as actions from './actions'
 import * as types from './actionTypes'
 
+jest.mock('../notifications/actions', () => ({
+  addNotification: input => input
+}))
+
 describe('sagas', () => {
   describe('watchCreateAccount', () => {
     it('should respond to CREATE_ACCOUNT', () => {
@@ -33,11 +37,10 @@ describe('sagas', () => {
       expect(actual).toEqual(expected)
     })
 
-    it('should add a notification on success', () => {
+    it('should put addNotification on success', () => {
       const response = { data: 'data' }
-      const message = 'Account aangemaakt. Bevestig via de email.'
       const generator = sagas.createAccount(action)
-      const expected = put(notificationActions.addNotification(message))
+      const expected = put(notificationActions.addNotification({ level: 'success', options: { title: 'title', message: 'message' } }))
 
       generator.next()
       const actual = generator.next(response).value

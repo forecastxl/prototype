@@ -8,6 +8,10 @@ import * as actions from './actions'
 import * as types from './actionTypes'
 import * as sagas from './sagas'
 
+jest.mock('../notifications/actions', () => ({
+  addNotification: input => input
+}))
+
 describe('watchResetPassword', () => {
   it('should respond to RESET_PASSWORD', () => {
     const generator = sagas.watchResetPassword()
@@ -101,7 +105,7 @@ describe('requestResetPassword', () => {
   it('should put addNotification on success', () => {
     const response = { token: 'token' }
     const generator = sagas.requestResetPassword(action)
-    const expected = put(notificationActions.addNotification('Wachtwoord reset aangevraagd'))
+    const expected = put(notificationActions.addNotification({ level: 'success', options: { title: 'title', message: 'message' } }))
 
     generator.next()
     generator.next(response)

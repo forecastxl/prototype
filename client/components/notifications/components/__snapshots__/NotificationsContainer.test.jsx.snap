@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotificationsContainer /> renders correctly 1`] = `
+<Notifications
+  notifications={
+    Array [
+      "message",
+    ]
+  }
+/>
+`;
+
+exports[`<NotificationsContainer /> renders correctly when there are no notifications 1`] = `
+<Notifications
+  notifications={Array []}
+/>
+`;
