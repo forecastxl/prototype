@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AlertWrapper /> renders a success correctly 1`] = `
+<div
+  className="esKsXx"
+  type="success"
+/>
+`;
+
+exports[`<AlertWrapper /> renders a warning correctly 1`] = `
+<div
+  className="jXtNdS"
+  type="warning"
+/>
+`;
+
+exports[`<AlertWrapper /> renders an error correctly 1`] = `
+<div
+  className="jMZZLH"
+  type="error"
+/>
+`;
+
+exports[`<AlertWrapper /> renders info correctly 1`] = `
+<div
+  className="eGuevP"
+  type="info"
+/>
+`;

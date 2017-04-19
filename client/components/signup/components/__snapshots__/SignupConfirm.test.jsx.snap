@@ -17,13 +17,3 @@ exports[`<SignupConfirm /> renders a message while fetching 1`] = `
   Confirming account...
 </div>
 `;
-
-exports[`<SignupConfirm /> renders errors 1`] = `
-<Alert
-  messages={
-    Array [
-      "Something went wrong",
-    ]
-  }
-/>
-`;

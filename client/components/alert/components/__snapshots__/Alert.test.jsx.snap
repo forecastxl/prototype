@@ -1,12 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Alert /> renders correctly 1`] = `
-<MuiComponent>
-  <p>
+exports[`<Alert /> renders a success correctly 1`] = `
+<styled.div
+  type="success"
+>
+  <AlertIcon
+    type="success"
+  />
+  <span>
     message
-  </p>
-  <p>
+  </span>
+</styled.div>
+`;
+
+exports[`<Alert /> renders a warning correctly 1`] = `
+<styled.div
+  type="warning"
+>
+  <AlertIcon
+    type="warning"
+  />
+  <span>
     message
-  </p>
-</MuiComponent>
+  </span>
+</styled.div>
+`;
+
+exports[`<Alert /> renders an error correctly 1`] = `
+<styled.div
+  type="error"
+>
+  <AlertIcon
+    type="error"
+  />
+  <span>
+    message
+  </span>
+</styled.div>
+`;
+
+exports[`<Alert /> renders info correctly 1`] = `
+<styled.div
+  type="info"
+>
+  <AlertIcon
+    type="info"
+  />
+  <span>
+    message
+  </span>
+</styled.div>
 `;

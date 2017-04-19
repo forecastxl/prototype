@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AlertIcon /> renders a success correctly 1`] = `
+<ActionCheckCircle
+  style={
+    Object {
+      "fill": "#3d8b3d",
+      "marginRight": "0.5em",
+    }
+  }
+/>
+`;
+
+exports[`<AlertIcon /> renders a warning correctly 1`] = `
+<AlertWarning
+  style={
+    Object {
+      "fill": "#a07415",
+      "marginRight": "0.5em",
+    }
+  }
+/>
+`;
+
+exports[`<AlertIcon /> renders an error correctly 1`] = `
+<AlertError
+  style={
+    Object {
+      "fill": "#9f2723",
+      "marginRight": "0.5em",
+    }
+  }
+/>
+`;
+
+exports[`<AlertIcon /> renders info correctly 1`] = `
+<ActionInfo
+  style={
+    Object {
+      "fill": "#1571a0",
+      "marginRight": "0.5em",
+    }
+  }
+/>
+`;
