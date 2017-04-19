@@ -1,16 +1,19 @@
 import React, { PropTypes } from 'react'
-import AlertBox from './AlertBox'
+import AlertWrapper from './AlertWrapper'
+import AlertIcon from './AlertIcon'
 
-function Alert({ messages }) {
+function Alert({ message, type }) {
   return (
-    <AlertBox>
-      {messages.map(message => <p key={message}>{message}</p>)}
-    </AlertBox>
+    <AlertWrapper type={type}>
+      <AlertIcon type={type} />
+      <span>{message}</span>
+    </AlertWrapper>
   )
 }
 
 Alert.propTypes = {
-  messages: PropTypes.array.isRequired
+  message: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['error', 'warning', 'info', 'success']).isRequired
 }
 
 export default Alert

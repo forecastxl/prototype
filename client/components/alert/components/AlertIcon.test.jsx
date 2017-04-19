@@ -1,13 +1,12 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import Alert from './Alert'
+import AlertIcon from './AlertIcon'
 
-describe('<Alert />', () => {
+describe('<AlertIcon />', () => {
   it('renders an error correctly', () => {
     const wrapper = shallow(
-      <Alert
-        message={'message'}
+      <AlertIcon
         type={'error'}
       />
     )
@@ -16,8 +15,7 @@ describe('<Alert />', () => {
 
   it('renders a warning correctly', () => {
     const wrapper = shallow(
-      <Alert
-        message={'message'}
+      <AlertIcon
         type={'warning'}
       />
     )
@@ -26,8 +24,7 @@ describe('<Alert />', () => {
 
   it('renders info correctly', () => {
     const wrapper = shallow(
-      <Alert
-        message={'message'}
+      <AlertIcon
         type={'info'}
       />
     )
@@ -36,8 +33,7 @@ describe('<Alert />', () => {
 
   it('renders a success correctly', () => {
     const wrapper = shallow(
-      <Alert
-        message={'message'}
+      <AlertIcon
         type={'success'}
       />
     )

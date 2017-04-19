@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { onSubmitActions } from 'redux-form-submit-saga'
+import { Alert } from '../../alert'
 import { Button, TextField } from '../../form'
 
 export function LoginForm({ handleSubmit, pristine, submitting, error }) {
   return (
     <form onSubmit={handleSubmit}>
-      {error && <div>Something went wrong: {error}</div>}
+      {error && <Alert message={error} type={'error'} />}
       <Field
         name="email"
         component={TextField}

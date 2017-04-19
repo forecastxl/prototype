@@ -26,17 +26,6 @@ describe('<SignupConfirm />', () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
-  it('renders errors', () => {
-    const wrapper = shallow(
-      <SignupConfirm
-        hasToken
-        isFetching={false}
-        errors={{ token: ['Something went wrong'] }}
-      />
-    )
-    expect(shallowToJson(wrapper)).toMatchSnapshot()
-  })
-
   it('renders a message when confirm was successful', () => {
     const wrapper = shallow(
       <SignupConfirm
