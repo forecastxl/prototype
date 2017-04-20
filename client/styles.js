@@ -3,7 +3,7 @@
 const styles = {
   boxShadow: '0 1px 3px rgba(0,0,0,0.3)',
   colors: {
-    black: '#000',
+    text: '#000',
     errorBackground: '#e27c79',
     errorText: '#9f2723',
     warningBackground: '#ebc063',

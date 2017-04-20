@@ -10,7 +10,7 @@ import LogoutMenuItem from './LogoutMenuItem'
 import styles from '../../../styles'
 
 const StyledLink = styled(Link)`
-  color: ${styles.colors.black};
+  color: ${styles.colors.text};
   display: block;
   text-decoration: none;
 `
