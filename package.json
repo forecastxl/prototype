@@ -10,6 +10,7 @@
     "coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "lint:js": "eslint 'client/**/*.{js,jsx}'",
     "lint:css": "stylelint 'client/**/*.{js,jsx}'",
+    "lint:whitespace": "eclint check client/** server/*.js",
     "test": "jest --watch"
   },
   "repository": {
@@ -40,6 +41,7 @@
     "clean-webpack-plugin": "^0.1.14",
     "coveralls": "^2.11.15",
     "css-loader": "^0.28.0",
+    "eclint": "^2.0.1",
     "enzyme": "^2.6.0",
     "enzyme-to-json": "^1.4.4",
     "eslint": "^3.14.1",
