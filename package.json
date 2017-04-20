@@ -8,7 +8,8 @@
     "build:staging": "NODE_ENV=production API=https://stagingapi.forecastxl.com/api/v2 webpack -p --bail",
     "build:develop": "NODE_ENV=production API=https://developapi.forecastxl.com/api/v2 webpack -p --bail",
     "coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "lint": "eslint client/**/*.{js,jsx}",
+    "lint:js": "eslint 'client/**/*.{js,jsx}'",
+    "lint:css": "stylelint 'client/**/*.{js,jsx}'",
     "test": "jest --watch"
   },
   "repository": {
@@ -53,6 +54,11 @@
     "jest": "^19.0.2",
     "react-addons-test-utils": "^15.4.1",
     "style-loader": "^0.16.0",
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-no-unsupported-browser-features": "^0.1.0",
+    "stylelint-order": "^0.4.3",
+    "stylelint-processor-styled-components": "^0.1.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.2"
   },

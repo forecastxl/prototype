@@ -9,7 +9,8 @@ services:
   - docker
 script:
   - yarn run coverage
-  - yarn run lint
+  - yarn run lint:js
+  - yarn run lint:css
   # set branch that's currently being built
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
   # build in correct environment

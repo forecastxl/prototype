@@ -7,11 +7,12 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import UserIcon from './UserIcon'
 import LogoutMenuItem from './LogoutMenuItem'
+import styles from '../../../styles'
 
 const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: black;
+  color: ${styles.colors.black};
   display: block;
+  text-decoration: none;
 `
 
 function UserNavigation() {
