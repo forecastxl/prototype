@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
-  width: 40rem;
   margin: 5rem auto 0;
+  width: 40rem;
 `
 
 export default Container

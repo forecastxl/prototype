@@ -2,7 +2,7 @@
 
 exports[`<Dialog /> renders correctly 1`] = `
 <Card
-  className="ebtpaV"
+  className="bZvqNT"
   expandable={false}
   expanded={null}
   initiallyExpanded={false}

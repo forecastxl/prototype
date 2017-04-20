@@ -2,42 +2,42 @@
 
 exports[`<Spacer /> renders correctly when bottom is set 1`] = `
 <div
-  className="VwNeT"
+  className="coRmcH"
   size="1rem"
 />
 `;
 
 exports[`<Spacer /> renders correctly when horizontal is set 1`] = `
 <div
-  className="jiTmya"
+  className="eWasao"
   size="1rem"
 />
 `;
 
 exports[`<Spacer /> renders correctly when left is set 1`] = `
 <div
-  className="mavsz"
+  className="eetuqs"
   size="1rem"
 />
 `;
 
 exports[`<Spacer /> renders correctly when right is set 1`] = `
 <div
-  className="jDzAFG"
+  className="gzOwWp"
   size="1rem"
 />
 `;
 
 exports[`<Spacer /> renders correctly when top is set 1`] = `
 <div
-  className="kDbJvv"
+  className="dxisMP"
   size="1rem"
 />
 `;
 
 exports[`<Spacer /> renders correctly when vertical is set 1`] = `
 <div
-  className="juFLUa"
+  className="bWnqzP"
   size="1rem"
 />
 `;
