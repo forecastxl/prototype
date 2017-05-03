@@ -20,7 +20,4 @@ injectTapEventPlugin()
 const history = createBrowserHistory()
 const store = configureStore({}, history)
 
-render(
-  <App store={store} history={history} />,
-  document.getElementById('app')
-)
+render(<App store={store} history={history} />, document.getElementById('app'))

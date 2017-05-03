@@ -11,12 +11,7 @@ const configureStore = (preloadedState, history) => {
   const store = createStore(
     connectRouter(history)(rootReducer),
     preloadedState,
-    composeWithDevTools(
-      applyMiddleware(
-        sagaMiddleware,
-        routerMiddleware(history)
-      )
-    )
+    composeWithDevTools(applyMiddleware(sagaMiddleware, routerMiddleware(history)))
   )
 
   sagaMiddleware.run(addFormSubmitSagaTo(rootSaga))

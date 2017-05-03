@@ -16,10 +16,11 @@
     "airbnb"
   ],
   "rules": {
-    "arrow-parens": [2, "as-needed"],
-    "comma-dangle": [2, "never"],
-    "func-names": [2, "as-needed"],
-    "semi": [2, "never"],
+    "arrow-parens": 0,
+    "comma-dangle": 0,
+    "semi": 0,
+    "generator-star-spacing": 0,
+    "func-names": ["error", "as-needed"],
     "no-warning-comments": [2, { "terms": ["todo", "fixme"], "location": "anywhere" }],
     "compat/compat": 2,
     "global-require": 0,
