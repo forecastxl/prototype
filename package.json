@@ -15,28 +15,28 @@
   },
   "betterScripts": {
     "build:master": {
-      "command": "webpack -p --bail",
+      "command": "webpack -p --bail --config webpack.config.prod.js",
       "env": {
         "NODE_ENV": "production",
         "API": "https://api.forecastxl.com/api/v2"
       }
     },
     "build:staging": {
-      "command": "webpack -p --bail",
+      "command": "webpack -p --bail --config webpack.config.prod.js",
       "env": {
         "NODE_ENV": "production",
         "API": "https://stagingapi.forecastxl.com/api/v2"
       }
     },
     "build:develop": {
-      "command": "webpack -p --bail",
+      "command": "webpack -p --bail --config webpack.config.prod.js",
       "env": {
         "NODE_ENV": "production",
         "API": "https://developapi.forecastxl.com/api/v2"
       }
     },
     "start": {
-      "command": "webpack-dev-server --content-base dist/ --inline --hot",
+      "command": "webpack-dev-server --inline --hot --config webpack.config.dev.js",
       "env": {
         "DEV_BASE": "http://localhost",
         "DEV_PORT": "8080",
