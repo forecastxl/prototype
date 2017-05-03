@@ -7,11 +7,11 @@
     "build:master": "bnr build:master",
     "build:staging": "bnr build:staging",
     "build:develop": "bnr build:develop",
-    "coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "coverage": "jest --config .jestrc --coverage && cat ./coverage/lcov.info | coveralls",
     "lint:js": "eslint 'client/**/*.{js,jsx}'",
     "lint:css": "stylelint 'client/**/*.{js,jsx}'",
     "lint:whitespace": "eclint check client/** server/*.js",
-    "test": "jest --watch"
+    "test": "jest --config .jestrc --watch"
   },
   "betterScripts": {
     "build:master": {
@@ -47,14 +47,6 @@
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com:forecastxl/prototype.git"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "client/**/*.{js,jsx}",
-      "!client/index.jsx",
-      "!client/{styles,rootReducer,rootSaga,store}.js",
-      "!client/{components,data,services}/*/index.js"
-    ]
   },
   "greenkeeper": {
     "ignore": [
