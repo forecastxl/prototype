@@ -10,14 +10,16 @@ describe('fetchy', () => {
     window.fetch.mockImplementationOnce(() => Promise.resolve('response'))
     handleResponse.mockImplementationOnce(response => Promise.resolve(response))
 
-    return fetchy('endpoint', 'init')
-      .then(() => expect(window.fetch).toHaveBeenCalledWith('endpoint', 'init'))
+    return fetchy('endpoint', 'init').then(() =>
+      expect(window.fetch).toHaveBeenCalledWith('endpoint', 'init')
+    )
   })
 
   it('should call handleResponse on successful fetches', () => {
     window.fetch.mockImplementationOnce(() => Promise.resolve('Another response'))
 
-    return fetchy('endpoint', 'init')
-      .then(() => expect(handleResponse).toHaveBeenCalledWith('Another response'))
+    return fetchy('endpoint', 'init').then(() =>
+      expect(handleResponse).toHaveBeenCalledWith('Another response')
+    )
   })
 })

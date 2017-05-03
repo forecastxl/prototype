@@ -9,22 +9,12 @@ jest.mock('material-ui/Card')
 
 describe('<ForgotPasswordContainer />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(
-      <ForgotPasswordContainer
-        errors={{}}
-        requestResetPassword={() => {}}
-      />
-    )
+    const wrapper = shallow(<ForgotPasswordContainer errors={{}} requestResetPassword={() => {}} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
   it('updates email state', () => {
-    const wrapper = shallow(
-      <ForgotPasswordContainer
-        errors={{}}
-        requestResetPassword={() => {}}
-      />
-    )
+    const wrapper = shallow(<ForgotPasswordContainer errors={{}} requestResetPassword={() => {}} />)
     const event = {
       target: {
         name: 'email',
@@ -38,12 +28,7 @@ describe('<ForgotPasswordContainer />', () => {
   })
 
   it('processes a form submit', () => {
-    const wrapper = mount(
-      <ForgotPasswordContainer
-        errors={{}}
-        requestResetPassword={jest.fn()}
-      />
-    )
+    const wrapper = mount(<ForgotPasswordContainer errors={{}} requestResetPassword={jest.fn()} />)
     const event = {
       preventDefault: jest.fn()
     }
@@ -53,4 +38,3 @@ describe('<ForgotPasswordContainer />', () => {
     expect(wrapper.prop('requestResetPassword')).toHaveBeenCalledWith(wrapper.state('email'))
   })
 })
-

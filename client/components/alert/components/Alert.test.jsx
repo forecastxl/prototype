@@ -5,42 +5,22 @@ import Alert from './Alert'
 
 describe('<Alert />', () => {
   it('renders an error correctly', () => {
-    const wrapper = shallow(
-      <Alert
-        message={'message'}
-        type={'error'}
-      />
-    )
+    const wrapper = shallow(<Alert message={'message'} type={'error'} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
   it('renders a warning correctly', () => {
-    const wrapper = shallow(
-      <Alert
-        message={'message'}
-        type={'warning'}
-      />
-    )
+    const wrapper = shallow(<Alert message={'message'} type={'warning'} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
   it('renders info correctly', () => {
-    const wrapper = shallow(
-      <Alert
-        message={'message'}
-        type={'info'}
-      />
-    )
+    const wrapper = shallow(<Alert message={'message'} type={'info'} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
   it('renders a success correctly', () => {
-    const wrapper = shallow(
-      <Alert
-        message={'message'}
-        type={'success'}
-      />
-    )
+    const wrapper = shallow(<Alert message={'message'} type={'success'} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })

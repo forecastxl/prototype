@@ -105,7 +105,12 @@ describe('requestResetPassword', () => {
   it('should put addNotification on success', () => {
     const response = { token: 'token' }
     const generator = sagas.requestResetPassword(action)
-    const expected = put(notificationActions.addNotification({ level: 'success', options: { title: 'title', message: 'message' } }))
+    const expected = put(
+      notificationActions.addNotification({
+        level: 'success',
+        options: { title: 'title', message: 'message' }
+      })
+    )
 
     generator.next()
     generator.next(response)

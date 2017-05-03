@@ -6,11 +6,7 @@ import { LoginForm } from './LoginForm'
 describe('<LoginForm />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(
-      <LoginForm
-        handleSubmit={() => {}}
-        pristine={false}
-        submitting={false}
-      />
+      <LoginForm handleSubmit={() => {}} pristine={false} submitting={false} />
     )
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })

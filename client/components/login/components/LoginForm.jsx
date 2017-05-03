@@ -8,26 +8,9 @@ export function LoginForm({ handleSubmit, pristine, submitting, error }) {
   return (
     <form onSubmit={handleSubmit}>
       {error && <Alert message={error} type={'error'} />}
-      <Field
-        name="email"
-        component={TextField}
-        label="Email"
-        fullWidth
-      />
-      <Field
-        name="password"
-        component={TextField}
-        label="Wachtwoord"
-        type="password"
-        fullWidth
-      />
-      <Button
-        type="submit"
-        label="Inloggen"
-        primary
-        fullWidth
-        disabled={pristine || submitting}
-      />
+      <Field name="email" component={TextField} label="Email" fullWidth />
+      <Field name="password" component={TextField} label="Wachtwoord" type="password" fullWidth />
+      <Button type="submit" label="Inloggen" primary fullWidth disabled={pristine || submitting} />
     </form>
   )
 }

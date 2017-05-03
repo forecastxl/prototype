@@ -36,7 +36,12 @@ export function* requestResetPassword({ payload }) {
   try {
     const response = yield call(api.post, { endpoint, data })
     yield put(requestResetPasswordSuccess(response.token))
-    yield put(notificationActions.addNotification({ level: 'success', options: { title: 'title', message: 'message' } }))
+    yield put(
+      notificationActions.addNotification({
+        level: 'success',
+        options: { title: 'title', message: 'message' }
+      })
+    )
     yield put(push('/login'))
   } catch (error) {
     yield put(requestResetPasswordFailure(error))

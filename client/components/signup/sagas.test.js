@@ -40,7 +40,12 @@ describe('sagas', () => {
     it('should put addNotification on success', () => {
       const response = { data: 'data' }
       const generator = sagas.createAccount(action)
-      const expected = put(notificationActions.addNotification({ level: 'success', options: { title: 'title', message: 'message' } }))
+      const expected = put(
+        notificationActions.addNotification({
+          level: 'success',
+          options: { title: 'title', message: 'message' }
+        })
+      )
 
       generator.next()
       const actual = generator.next(response).value

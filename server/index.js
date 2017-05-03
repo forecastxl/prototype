@@ -8,10 +8,12 @@ const app = express()
 app.disable('x-powered-by')
 
 // serve all static files from the /public folder
-app.use(express.static(path.join(__dirname, 'public'), {
-  maxAge: '1y',
-  setHeaders: setHeaders
-}))
+app.use(
+  express.static(path.join(__dirname, 'public'), {
+    maxAge: '1y',
+    setHeaders: setHeaders
+  })
+)
 
 // serve index.html for all routes
 app.get('*', (req, res) => {

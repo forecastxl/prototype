@@ -64,4 +64,3 @@ describe('<ResetPasswordContainer />', () => {
     expect(wrapper.prop('resetPassword')).toHaveBeenCalled()
   })
 })
-

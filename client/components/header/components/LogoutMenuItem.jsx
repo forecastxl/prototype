@@ -4,9 +4,7 @@ import MenuItem from 'material-ui/MenuItem'
 import { actions } from '../../../data/session'
 
 export function LogoutMenuItem({ destroySession, ...rest }) {
-  return (
-    <MenuItem onClick={destroySession} {...rest} />
-  )
+  return <MenuItem onClick={destroySession} {...rest} />
 }
 
 LogoutMenuItem.propTypes = {

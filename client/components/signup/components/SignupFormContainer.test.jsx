@@ -10,22 +10,12 @@ jest.mock('material-ui/Checkbox')
 
 describe('<SignupFormContainer />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(
-      <SignupFormContainer
-        errors={{}}
-        createAccount={() => {}}
-      />
-    )
+    const wrapper = shallow(<SignupFormContainer errors={{}} createAccount={() => {}} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
   it('updates account state text', () => {
-    const wrapper = shallow(
-      <SignupFormContainer
-        errors={{}}
-        createAccount={() => {}}
-      />
-    )
+    const wrapper = shallow(<SignupFormContainer errors={{}} createAccount={() => {}} />)
     const event = {
       target: {
         name: 'password',
@@ -42,12 +32,7 @@ describe('<SignupFormContainer />', () => {
   })
 
   it('updates account state checkbox', () => {
-    const wrapper = shallow(
-      <SignupFormContainer
-        errors={{}}
-        createAccount={() => {}}
-      />
-    )
+    const wrapper = shallow(<SignupFormContainer errors={{}} createAccount={() => {}} />)
     const event = {
       target: {
         name: 'agreedToGeneralTerms',
@@ -64,12 +49,7 @@ describe('<SignupFormContainer />', () => {
   })
 
   it('processes logins', () => {
-    const wrapper = mount(
-      <SignupFormContainer
-        errors={{}}
-        createAccount={jest.fn()}
-      />
-    )
+    const wrapper = mount(<SignupFormContainer errors={{}} createAccount={jest.fn()} />)
     const event = {
       preventDefault: jest.fn()
     }

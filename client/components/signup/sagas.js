@@ -14,7 +14,12 @@ export function* createAccount({ payload }) {
 
   try {
     yield call(api.post, { endpoint, data })
-    yield put(notificationActions.addNotification({ level: 'success', options: { title: 'title', message: 'message' } }))
+    yield put(
+      notificationActions.addNotification({
+        level: 'success',
+        options: { title: 'title', message: 'message' }
+      })
+    )
     yield put(push('/'))
   } catch (error) {
     yield put(createAccountFailure(error))

@@ -3,14 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import { Alert } from '../../alert'
 
-function ResetPassword({
-  hasToken,
-  errors,
-  onSubmit,
-  onChange,
-  password,
-  passwordConfirmation
-}) {
+function ResetPassword({ hasToken, errors, onSubmit, onChange, password, passwordConfirmation }) {
   if (!hasToken) {
     return <div>Could not find a token. Did you use the correct link?</div>
   }
@@ -26,7 +19,8 @@ function ResetPassword({
           value={password}
           onChange={onChange}
           errorText={errors && errors.password && <Alert messages={errors.password} />}
-        /><br />
+        />
+        <br />
         <TextField
           floatingLabelText="Repeat password"
           name="passwordConfirmation"
@@ -35,10 +29,11 @@ function ResetPassword({
           onChange={onChange}
           errorText={
             errors &&
-            errors.passwordConfirmation &&
-            <Alert messages={errors.passwordConfirmation} />
+              errors.passwordConfirmation &&
+              <Alert messages={errors.passwordConfirmation} />
           }
-        /><br />
+        />
+        <br />
         <RaisedButton type="submit" label="Reset password" primary />
       </form>
     </div>

@@ -18,35 +18,21 @@ describe('<SignupConfirmContainer />', () => {
     })
 
     const spy = jest.fn()
-    mount(
-      <SignupConfirmContainer
-        confirmAccount={spy}
-        errors={{}}
-        isFetching={false}
-      />
-    )
+    mount(<SignupConfirmContainer confirmAccount={spy} errors={{}} isFetching={false} />)
 
     expect(spy).toBeCalledWith('token')
   })
 
   it('renders a warning on a missing token', () => {
     const wrapper = mount(
-      <SignupConfirmContainer
-        confirmAccount={() => {}}
-        errors={{}}
-        isFetching={false}
-      />
+      <SignupConfirmContainer confirmAccount={() => {}} errors={{}} isFetching={false} />
     )
     expect(mountToJson(wrapper)).toMatchSnapshot()
   })
 
   it('renders a message while fetching', () => {
     const wrapper = mount(
-      <SignupConfirmContainer
-        confirmAccount={() => {}}
-        errors={{}}
-        isFetching
-      />
+      <SignupConfirmContainer confirmAccount={() => {}} errors={{}} isFetching />
     )
 
     wrapper.setState({
@@ -76,11 +62,7 @@ describe('<SignupConfirmContainer />', () => {
 
   it('renders a message on success', () => {
     const wrapper = mount(
-      <SignupConfirmContainer
-        confirmAccount={() => {}}
-        errors={{}}
-        isFetching={false}
-      />
+      <SignupConfirmContainer confirmAccount={() => {}} errors={{}} isFetching={false} />
     )
 
     wrapper.setState({
@@ -91,4 +73,3 @@ describe('<SignupConfirmContainer />', () => {
     expect(mountToJson(wrapper)).toMatchSnapshot()
   })
 })
-

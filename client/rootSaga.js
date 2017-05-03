@@ -3,7 +3,7 @@ import { sagas as session } from './data/session'
 import { sagas as password } from './components/password'
 import { sagas as profile } from './components/profile'
 
-const rootSaga = function* () {
+const rootSaga = function*() {
   yield [
     session.watchLoginSubmit(),
     signup.watchCreateAccount(),
