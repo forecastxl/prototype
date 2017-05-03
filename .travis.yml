@@ -8,29 +8,22 @@ notifications:
 services:
   - docker
 script:
-  - yarn run coverage
+  - yarn run test:coverage
   - yarn run lint:js
   - yarn run lint:css
   - yarn run lint:whitespace
   - yarn run lint:prettier
-  # set branch that's currently being built
-  - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
-  # build in correct environment
-  - if [ "$BRANCH" == "master" ]; then yarn run build:master; fi
-  - if [ "$BRANCH" == "staging" ]; then yarn run build:staging; fi
-  - if [ "$BRANCH" == "develop" ]; then yarn run build:develop; fi
 after_success:
-  # login to docker hub
+  - yarn run build:server
+  - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+  - if [ "$BRANCH" == "master" ]; then yarn run build:client:master; fi
+  - if [ "$BRANCH" == "staging" ]; then yarn run build:client:staging; fi
+  - if [ "$BRANCH" == "develop" ]; then yarn run build:client:develop; fi
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
-  # set repo location
   - export REPO=forecastxl/prototype
-  # build container with branch name as tag if on master, staging or develop
   - if [ "$BRANCH" == "master" ] || [ "$BRANCH" == "staging" ] || [ "$BRANCH" == "develop" ]; then docker build -f Dockerfile -t $REPO:$BRANCH .; fi
-  # tag with commit message as well if on master
   - if [ "$BRANCH" == "master" ]; then docker tag $REPO:$BRANCH $REPO:$(git log -n 1 --pretty=format:%f $TRAVIS_COMMIT); fi
-  # tag with latest as well if on master
   - if [ "$BRANCH" == "master" ]; then docker tag $REPO:$BRANCH $REPO:latest; fi
-  # push to dockerhub
   - if [ "$BRANCH" == "master" ] || [ "$BRANCH" == "staging" ] || [ "$BRANCH" == "develop" ]; then docker push $REPO; fi
 env:
   global:
