@@ -3,15 +3,46 @@
   "name": "prototype",
   "version": "1.0.0",
   "scripts": {
-    "start": "DEV_BASE=http://localhost DEV_PORT=8080 API=https://developapi.forecastxl.com/api/v2 webpack-dev-server --content-base dist/ --inline --hot",
-    "build:master": "NODE_ENV=production API=https://api.forecastxl.com/api/v2 webpack -p --bail",
-    "build:staging": "NODE_ENV=production API=https://stagingapi.forecastxl.com/api/v2 webpack -p --bail",
-    "build:develop": "NODE_ENV=production API=https://developapi.forecastxl.com/api/v2 webpack -p --bail",
+    "start": "bnr start",
+    "build:master": "bnr build:master",
+    "build:staging": "bnr build:staging",
+    "build:develop": "bnr build:develop",
     "coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "lint:js": "eslint 'client/**/*.{js,jsx}'",
     "lint:css": "stylelint 'client/**/*.{js,jsx}'",
     "lint:whitespace": "eclint check client/** server/*.js",
     "test": "jest --watch"
+  },
+  "betterScripts": {
+    "build:master": {
+      "command": "webpack -p --bail",
+      "env": {
+        "NODE_ENV": "production",
+        "API": "https://api.forecastxl.com/api/v2"
+      }
+    },
+    "build:staging": {
+      "command": "webpack -p --bail",
+      "env": {
+        "NODE_ENV": "production",
+        "API": "https://stagingapi.forecastxl.com/api/v2"
+      }
+    },
+    "build:develop": {
+      "command": "webpack -p --bail",
+      "env": {
+        "NODE_ENV": "production",
+        "API": "https://developapi.forecastxl.com/api/v2"
+      }
+    },
+    "start": {
+      "command": "webpack-dev-server --content-base dist/ --inline --hot",
+      "env": {
+        "DEV_BASE": "http://localhost",
+        "DEV_PORT": "8080",
+        "API": "https://developapi.forecastxl.com/api/v2"
+      }
+    }
   },
   "repository": {
     "type": "git",
@@ -38,6 +69,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.2.1",
     "babel-preset-react": "^6.16.0",
+    "better-npm-run": "^0.0.15",
     "clean-webpack-plugin": "^0.1.14",
     "coveralls": "^2.11.15",
     "css-loader": "^0.28.0",
