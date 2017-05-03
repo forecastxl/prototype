@@ -1,29 +1,27 @@
-var CleanWebpackPlugin = require('clean-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var path = require('path')
-var webpack = require('webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
 
 // Define two different css extractors
-var extractBundle = new ExtractTextPlugin('[name]-[hash].css')
-var extractVendor = new ExtractTextPlugin('vendor-[hash].css')
+const extractBundle = new ExtractTextPlugin('[name]-[hash].css')
+const extractVendor = new ExtractTextPlugin('vendor-[hash].css')
 
 module.exports = {
   entry: {
     main: [
-      path.join(process.cwd(), '/client/index')
+      path.join(__dirname, './src/client/index')
     ]
   },
   output: {
-    path: path.join(process.cwd(), '/dist'),
-    filename: '[name]-[hash].min.js'
+    path: path.join(__dirname, 'dist', 'public'),
+    filename: '[name]-[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js'
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    modules: [
-      path.join(process.cwd(), '/client'),
-      'node_modules'
-    ]
+    modules: ['node_modules']
   },
   module: {
     rules: [
@@ -54,17 +52,12 @@ module.exports = {
   plugins: [
     extractVendor,
     extractBundle,
-    new CleanWebpackPlugin(['dist'], { root: process.cwd(), verbose: true }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true
-    }),
-    new webpack.LoaderOptionsPlugin({ minimize: true }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        API: JSON.stringify(process.env.API)
-      }
-    }),
-    new HtmlWebpackPlugin({ template: 'client/index.ejs' })
+    new CleanWebpackPlugin(path.join(__dirname, 'dist', 'public'), { verbose: false }),
+    new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
+    new webpack.EnvironmentPlugin([
+      'NODE_ENV',
+      'API'
+    ]),
+    new HtmlWebpackPlugin({ template: path.join(__dirname, 'src', 'client', 'index.ejs') })
   ]
 }

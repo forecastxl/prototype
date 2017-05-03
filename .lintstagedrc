@@ -1,5 +1,5 @@
 {
-  "**/*.{js,jsx}": [
+  "src/**/*.{js,jsx}": [
     "prettier --print-width 100 --tab-width 2 --no-semi --single-quote --write",
     "git add",
     "eslint",

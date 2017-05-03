@@ -11,7 +11,7 @@ app.disable('x-powered-by')
 app.use(
   express.static(path.join(__dirname, 'public'), {
     maxAge: '1y',
-    setHeaders: setHeaders
+    setHeaders
   })
 )
 

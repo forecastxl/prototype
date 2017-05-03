@@ -1,23 +1,20 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var path = require('path')
-var webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   entry: {
     main: [
-      './client/index'
+      './src/client/index'
     ]
   },
   output: {
-    path: path.join(process.cwd(), '/dist'),
-    filename: '[name].js'
+    filename: '[name].js',
+    path: path.join(__dirname, 'dist', 'public')
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    modules: [
-      path.join(process.cwd(), '/client'),
-      'node_modules'
-    ]
+    modules: ['node_modules']
   },
   module: {
     rules: [
@@ -47,21 +44,19 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   devServer: {
     historyApiFallback: true,
-    port: parseInt(process.env.DEV_PORT)
+    port: process.env.DEV_PORT
   },
   performance: {
     hints: false
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        DEV_BASE: JSON.stringify(process.env.DEV_BASE),
-        DEV_PORT: JSON.stringify(process.env.DEV_PORT),
-        API: JSON.stringify(process.env.API)
-      }
-    }),
-    new HtmlWebpackPlugin({ template: 'client/index.ejs' })
+    new webpack.EnvironmentPlugin([
+      'NODE_ENV',
+      'DEV_BASE',
+      'DEV_PORT',
+      'API'
+    ]),
+    new HtmlWebpackPlugin({ template: path.join(__dirname, 'src', 'client', 'index.ejs') })
   ]
 }

@@ -1,8 +1,8 @@
 {
   "collectCoverageFrom": [
-    "client/**/*.{js,jsx}",
-    "!client/index.jsx",
-    "!client/{styles,rootReducer,rootSaga,store}.js",
-    "!client/{components,data,services}/*/index.js"
+    "src/client/**/*.{js,jsx}",
+    "!src/client/index.jsx",
+    "!src/client/{styles,rootReducer,rootSaga,store}.js",
+    "!src/client/{components,data,services}/*/index.js"
   ]
 }
