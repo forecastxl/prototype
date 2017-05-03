@@ -5,35 +5,17 @@ import SignupConfirm from './SignupConfirm'
 
 describe('<SignupConfirm />', () => {
   it('renders a message for missing tokens', () => {
-    const wrapper = shallow(
-      <SignupConfirm
-        hasToken={false}
-        isFetching={false}
-        errors={{}}
-      />
-    )
+    const wrapper = shallow(<SignupConfirm hasToken={false} isFetching={false} errors={{}} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
   it('renders a message while fetching', () => {
-    const wrapper = shallow(
-      <SignupConfirm
-        hasToken
-        isFetching
-        errors={{}}
-      />
-    )
+    const wrapper = shallow(<SignupConfirm hasToken isFetching errors={{}} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 
   it('renders a message when confirm was successful', () => {
-    const wrapper = shallow(
-      <SignupConfirm
-        hasToken
-        isFetching={false}
-        errors={{}}
-      />
-    )
+    const wrapper = shallow(<SignupConfirm hasToken isFetching={false} errors={{}} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })

@@ -4,9 +4,7 @@ import Notifications from 'react-notification-system-redux'
 import { getNotifications } from '../selectors'
 
 export function NotificationsContainer({ notifications }) {
-  return (
-    <Notifications notifications={notifications} />
-  )
+  return <Notifications notifications={notifications} />
 }
 
 NotificationsContainer.propTypes = {

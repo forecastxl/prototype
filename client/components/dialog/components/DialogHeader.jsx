@@ -3,9 +3,7 @@ import { CardHeader } from 'material-ui/Card'
 import muiThemeable from 'material-ui/styles/muiThemeable'
 
 export function DialogHeader({ muiTheme, ...rest }) {
-  return (
-    <CardHeader style={{ background: muiTheme.palette.primary1Color }} {...rest} />
-  )
+  return <CardHeader style={{ background: muiTheme.palette.primary1Color }} {...rest} />
 }
 
 DialogHeader.propTypes = {

@@ -27,12 +27,14 @@ export class ProfileContainer extends Component {
 
   componentWillReceiveProps({ profile }) {
     if (profile) {
-      this.setState({ profile: {
-        ...this.state.profile,
-        firstName: profile.firstName,
-        lastName: profile.lastName,
-        email: profile.email
-      } })
+      this.setState({
+        profile: {
+          ...this.state.profile,
+          firstName: profile.firstName,
+          lastName: profile.lastName,
+          email: profile.email
+        }
+      })
     }
   }
 

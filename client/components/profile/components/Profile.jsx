@@ -48,9 +48,7 @@ function Profile({ profile, onChange, onSubmit, errors }) {
           onChange={onChange}
           fullWidth
           errorText={
-            errors &&
-            errors.currentPassword &&
-            <Alert messages={errors.currentPassword} />
+            errors && errors.currentPassword && <Alert messages={errors.currentPassword} />
           }
         />
         <TextField
@@ -71,8 +69,8 @@ function Profile({ profile, onChange, onSubmit, errors }) {
           fullWidth
           errorText={
             errors &&
-            errors.newPasswordConfirmation &&
-            <Alert messages={errors.newPasswordConfirmation} />
+              errors.newPasswordConfirmation &&
+              <Alert messages={errors.newPasswordConfirmation} />
           }
         />
         <DialogButton type="submit" label="Wijzig wachtwoord" primary />

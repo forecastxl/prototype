@@ -15,10 +15,9 @@ describe('handleResponse', () => {
     response.json.mockImplementationOnce(() => Promise.resolve('parsed'))
     transformResponseData.mockImplementationOnce(response => Promise.resolve(response))
 
-    return handleResponse(response)
-      .then(actual => {
-        expect(actual).toEqual('parsed')
-      })
+    return handleResponse(response).then(actual => {
+      expect(actual).toEqual('parsed')
+    })
   })
 
   it('should transform successful responses', () => {
@@ -30,10 +29,9 @@ describe('handleResponse', () => {
     response.json.mockImplementationOnce(() => Promise.resolve())
     transformResponseData.mockImplementationOnce(() => Promise.resolve('transformed'))
 
-    return handleResponse(response)
-      .then(actual => {
-        expect(actual).toEqual('transformed')
-      })
+    return handleResponse(response).then(actual => {
+      expect(actual).toEqual('transformed')
+    })
   })
 
   it('should parse 422 responses', () => {
@@ -46,10 +44,9 @@ describe('handleResponse', () => {
     response.json.mockImplementationOnce(() => Promise.resolve({ errors }))
     transformResponseData.mockImplementationOnce(response => Promise.resolve(response))
 
-    return handleResponse(response)
-      .catch(error => {
-        expect(error.errors.base).toEqual(errors.base)
-      })
+    return handleResponse(response).catch(error => {
+      expect(error.errors.base).toEqual(errors.base)
+    })
   })
 
   it('should transform 422 responses', () => {
@@ -62,10 +59,9 @@ describe('handleResponse', () => {
     response.json.mockImplementationOnce(() => Promise.resolve())
     transformResponseData.mockImplementationOnce(() => Promise.resolve({ errors }))
 
-    return handleResponse(response)
-      .catch(error => {
-        expect(error.errors.base).toEqual(errors.base)
-      })
+    return handleResponse(response).catch(error => {
+      expect(error.errors.base).toEqual(errors.base)
+    })
   })
 
   it('should reject 422 responses with a SubmissionError', () => {
@@ -78,10 +74,9 @@ describe('handleResponse', () => {
     response.json.mockImplementationOnce(() => Promise.resolve())
     transformResponseData.mockImplementationOnce(() => Promise.resolve({ errors }))
 
-    return handleResponse(response)
-      .catch(error => {
-        expect(error.name).toEqual('SubmissionError')
-      })
+    return handleResponse(response).catch(error => {
+      expect(error.name).toEqual('SubmissionError')
+    })
   })
 
   it('should parse responses in the 400 - 499 range', () => {
@@ -94,10 +89,9 @@ describe('handleResponse', () => {
     response.json.mockImplementationOnce(() => Promise.resolve({ errors }))
     transformResponseData.mockImplementationOnce(response => Promise.resolve(response))
 
-    return handleResponse(response)
-      .catch(error => {
-        expect(error.message).toEqual(errors.base)
-      })
+    return handleResponse(response).catch(error => {
+      expect(error.message).toEqual(errors.base)
+    })
   })
 
   it('should transform responses in the 400 - 499 range', () => {
@@ -110,10 +104,9 @@ describe('handleResponse', () => {
     response.json.mockImplementationOnce(() => Promise.resolve())
     transformResponseData.mockImplementationOnce(() => Promise.resolve({ errors }))
 
-    return handleResponse(response)
-      .catch(error => {
-        expect(error.message).toEqual(errors.base)
-      })
+    return handleResponse(response).catch(error => {
+      expect(error.message).toEqual(errors.base)
+    })
   })
 
   it('should reject responses in the 400 - 499 range with a client error', () => {
@@ -126,10 +119,9 @@ describe('handleResponse', () => {
     response.json.mockImplementationOnce(() => Promise.resolve())
     transformResponseData.mockImplementationOnce(() => Promise.resolve({ errors }))
 
-    return handleResponse(response)
-      .catch(error => {
-        expect(error.name).toEqual('ClientError')
-      })
+    return handleResponse(response).catch(error => {
+      expect(error.name).toEqual('ClientError')
+    })
   })
 
   it('should reject responses not in the 400 - 499 range with a server error', () => {
@@ -138,9 +130,8 @@ describe('handleResponse', () => {
       statusText: 'Internal Server Error'
     }
 
-    return handleResponse(response)
-      .catch(error => {
-        expect(error.name).toEqual('ServerError')
-      })
+    return handleResponse(response).catch(error => {
+      expect(error.name).toEqual('ServerError')
+    })
   })
 })

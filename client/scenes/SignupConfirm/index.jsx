@@ -2,9 +2,7 @@ import React from 'react'
 import { SignupConfirmContainer } from '../../components/signup'
 
 function Scene() {
-  return (
-    <SignupConfirmContainer />
-  )
+  return <SignupConfirmContainer />
 }
 
 export default Scene

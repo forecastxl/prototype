@@ -14,8 +14,7 @@ function handleResponse(response) {
    */
 
   if (response.ok) {
-    return response.json()
-      .then(transformResponseData)
+    return response.json().then(transformResponseData)
   }
 
   /**
@@ -24,7 +23,8 @@ function handleResponse(response) {
    */
 
   if (response.status === 422) {
-    return response.json()
+    return response
+      .json()
       .then(transformResponseData)
       .then(data => Promise.reject(new SubmissionError(data.errors)))
   }
@@ -35,7 +35,8 @@ function handleResponse(response) {
    */
 
   if (response.status >= 400 && response.status <= 499) {
-    return response.json()
+    return response
+      .json()
       .then(transformResponseData)
       .then(data => Promise.reject(new ClientError(data.errors.base)))
   }
