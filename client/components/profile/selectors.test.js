@@ -9,4 +9,3 @@ describe('getProfile', () => {
     expect(actual).toEqual(expected)
   })
 })
-

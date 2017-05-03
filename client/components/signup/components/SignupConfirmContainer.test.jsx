@@ -91,4 +91,3 @@ describe('<SignupConfirmContainer />', () => {
     expect(mountToJson(wrapper)).toMatchSnapshot()
   })
 })
-
