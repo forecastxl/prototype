@@ -61,7 +61,7 @@ exports[`<UserNavigation /> renders correctly 1`] = `
   <Divider
     inset={false}
   />
-  <Connect(LogoutMenuItem)
+  <Connect(DumbLogoutMenuItem)
     primaryText="Uitloggen"
   />
 </IconMenu>
