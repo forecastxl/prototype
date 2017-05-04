@@ -1,6 +1,5 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
-import { takeLatest } from 'redux-saga'
 import api from '../../services/api'
 import { actions as notificationActions } from '../notifications'
 import endpoints from '../../services/endpoints'
@@ -16,7 +15,7 @@ describe('watchResetPassword', () => {
   it('should respond to RESET_PASSWORD', () => {
     const generator = sagas.watchResetPassword()
     const actual = generator.next().value
-    const expected = call(takeLatest, types.RESET_PASSWORD, sagas.resetPassword)
+    const expected = takeLatest(types.RESET_PASSWORD, sagas.resetPassword)
 
     expect(actual).toEqual(expected)
   })
@@ -72,7 +71,7 @@ describe('watchRequestResetPassword', () => {
   it('should respond to REQUEST_RESET_PASSWORD', () => {
     const generator = sagas.watchRequestResetPassword()
     const actual = generator.next().value
-    const expected = call(takeLatest, types.REQUEST_RESET_PASSWORD, sagas.requestResetPassword)
+    const expected = takeLatest(types.REQUEST_RESET_PASSWORD, sagas.requestResetPassword)
 
     expect(actual).toEqual(expected)
   })

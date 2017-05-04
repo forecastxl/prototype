@@ -1,6 +1,5 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
-import { takeLatest } from 'redux-saga'
 import { actions as notificationActions } from '../notifications'
 import endpoints from '../../services/endpoints'
 import api from '../../services/api'
@@ -26,7 +25,7 @@ export function* resetPassword({ payload }) {
 }
 
 export function* watchResetPassword() {
-  yield call(takeLatest, RESET_PASSWORD, resetPassword)
+  yield takeLatest(RESET_PASSWORD, resetPassword)
 }
 
 export function* requestResetPassword({ payload }) {
@@ -49,5 +48,5 @@ export function* requestResetPassword({ payload }) {
 }
 
 export function* watchRequestResetPassword() {
-  yield call(takeLatest, REQUEST_RESET_PASSWORD, requestResetPassword)
+  yield takeLatest(REQUEST_RESET_PASSWORD, requestResetPassword)
 }

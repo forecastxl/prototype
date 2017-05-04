@@ -1,6 +1,5 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
-import { takeLatest } from 'redux-saga'
 import endpoints from '../../services/endpoints'
 import api from '../../services/api'
 import * as actions from './actions'
@@ -26,5 +25,5 @@ export function* login({ payload }) {
 }
 
 export function* watchLoginSubmit() {
-  yield call(takeLatest, types.LOGIN_SUBMIT, login)
+  yield takeLatest(types.LOGIN_SUBMIT, login)
 }

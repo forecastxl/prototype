@@ -1,5 +1,4 @@
-import { call, put, select } from 'redux-saga/effects'
-import { takeLatest } from 'redux-saga'
+import { call, put, select, takeLatest } from 'redux-saga/effects'
 import { selectors as sessionSelectors } from '../../data/session'
 import api from '../../services/api'
 import endpoints from '../../services/endpoints'
@@ -19,7 +18,7 @@ export function* fetchProfile() {
 }
 
 export function* watchFetchProfile() {
-  yield call(takeLatest, types.FETCH_PROFILE, fetchProfile)
+  yield takeLatest(types.FETCH_PROFILE, fetchProfile)
 }
 
 export function* updateProfile({ payload }) {
@@ -36,5 +35,5 @@ export function* updateProfile({ payload }) {
 }
 
 export function* watchUpdateProfile() {
-  yield call(takeLatest, types.UPDATE_PROFILE, updateProfile)
+  yield takeLatest(types.UPDATE_PROFILE, updateProfile)
 }

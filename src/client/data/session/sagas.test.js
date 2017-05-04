@@ -1,6 +1,5 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
-import { takeLatest } from 'redux-saga'
 import endpoints from '../../services/endpoints'
 import api from '../../services/api'
 import * as sagas from './sagas'
@@ -11,7 +10,7 @@ describe('watchLoginSubmit', () => {
   it('should respond to LOGIN_SUBMIT', () => {
     const generator = sagas.watchLoginSubmit()
     const actual = generator.next().value
-    const expected = call(takeLatest, types.LOGIN_SUBMIT, sagas.login)
+    const expected = takeLatest(types.LOGIN_SUBMIT, sagas.login)
 
     expect(actual).toEqual(expected)
   })

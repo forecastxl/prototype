@@ -1,5 +1,4 @@
-import { call, put, select } from 'redux-saga/effects'
-import { takeLatest } from 'redux-saga'
+import { call, put, select, takeLatest } from 'redux-saga/effects'
 import { selectors as sessionSelectors } from '../../data/session'
 import api from '../../services/api'
 import endpoints from '../../services/endpoints'
@@ -11,7 +10,7 @@ describe('watchFetchProfile', () => {
   it('should respond to FETCH_PROFILE', () => {
     const generator = sagas.watchFetchProfile()
     const actual = generator.next().value
-    const expected = call(takeLatest, types.FETCH_PROFILE, sagas.fetchProfile)
+    const expected = takeLatest(types.FETCH_PROFILE, sagas.fetchProfile)
 
     expect(actual).toEqual(expected)
   })
@@ -68,7 +67,7 @@ describe('watchUpdateProfile', () => {
   it('should respond to UPDATE_PROFILE', () => {
     const generator = sagas.watchUpdateProfile()
     const actual = generator.next().value
-    const expected = call(takeLatest, types.UPDATE_PROFILE, sagas.updateProfile)
+    const expected = takeLatest(types.UPDATE_PROFILE, sagas.updateProfile)
 
     expect(actual).toEqual(expected)
   })

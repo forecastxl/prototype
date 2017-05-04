@@ -1,6 +1,5 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
-import { takeLatest } from 'redux-saga'
 import endpoints from '../../services/endpoints'
 import api from '../../services/api'
 import { actions as sessionActions } from '../../data/session'
@@ -18,7 +17,7 @@ describe('sagas', () => {
     it('should respond to CREATE_ACCOUNT', () => {
       const generator = sagas.watchCreateAccount()
       const actual = generator.next().value
-      const expected = call(takeLatest, types.CREATE_ACCOUNT, sagas.createAccount)
+      const expected = takeLatest(types.CREATE_ACCOUNT, sagas.createAccount)
 
       expect(actual).toEqual(expected)
     })
@@ -81,7 +80,7 @@ describe('sagas', () => {
     it('should respond to CONFIRM_ACCOUNT', () => {
       const generator = sagas.watchConfirmAccount()
       const actual = generator.next().value
-      const expected = call(takeLatest, types.CONFIRM_ACCOUNT, sagas.confirmAccount)
+      const expected = takeLatest(types.CONFIRM_ACCOUNT, sagas.confirmAccount)
 
       expect(actual).toEqual(expected)
     })

@@ -1,6 +1,5 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
-import { takeLatest } from 'redux-saga'
 import { actions as notificationActions } from '../notifications'
 import endpoints from '../../services/endpoints'
 import api from '../../services/api'
@@ -27,7 +26,7 @@ export function* createAccount({ payload }) {
 }
 
 export function* watchCreateAccount() {
-  yield call(takeLatest, CREATE_ACCOUNT, createAccount)
+  yield takeLatest(CREATE_ACCOUNT, createAccount)
 }
 
 export function* confirmAccount({ payload }) {
@@ -44,5 +43,5 @@ export function* confirmAccount({ payload }) {
 }
 
 export function* watchConfirmAccount() {
-  yield call(takeLatest, CONFIRM_ACCOUNT, confirmAccount)
+  yield takeLatest(CONFIRM_ACCOUNT, confirmAccount)
 }
