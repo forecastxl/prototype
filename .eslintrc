@@ -21,8 +21,6 @@
       "beforeLineComment": true,
       "afterLineComment": false,
       "allowBlockStart": true
-    }],
-    "no-param-reassign": 0,
-    "no-shadow": 0
+    }]
   }
 }

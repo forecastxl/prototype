@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-underscore-dangle, no-param-reassign */
 
 /**
  * Our api returns general validation errors under the `base` key, but redux-forms expects them to
