@@ -1,23 +1,23 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "modules": false,
-        "targets": { "browsers": [ "last 2 versions", "> 5%" ] },
-        "useBuiltIns": true
-      }
-    ],
-    "react"
-  ],
-  "plugins": [
-    "transform-object-rest-spread"
-  ],
   "env": {
+    "client": {
+      "presets": [
+        ["env", { "modules": false, "targets": { "browsers": ["last 2 versions", "> 5% in NL"] }, "useBuiltIns": true }],
+        "react"
+      ],
+      "plugins": ["transform-object-rest-spread"]
+    },
+    "server": {
+      "presets": [
+        ["env", { "targets": { "node": 7 } }]
+      ]
+    },
     "test": {
       "presets": [
-        "env"
-      ]
+        ["env", { "targets": { "node": "current" } }],
+        "react"
+      ],
+      "plugins": ["transform-object-rest-spread"]
     }
   }
 }
