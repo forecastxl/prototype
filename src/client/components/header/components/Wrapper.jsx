@@ -1,7 +1,7 @@
 import muiThemeable from 'material-ui/styles/muiThemeable'
 import styled from 'styled-components'
 
-export const Wrapper = styled.header`
+export const DumbWrapper = styled.header`
   align-items: center;
   background: ${props => props.muiTheme.palette.primary1Color};
   display: flex;
@@ -10,4 +10,4 @@ export const Wrapper = styled.header`
   padding: 0.5rem 1rem;
 `
 
-export default muiThemeable()(Wrapper)
+export default muiThemeable()(DumbWrapper)

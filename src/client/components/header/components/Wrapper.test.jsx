@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import { Wrapper } from './Wrapper'
+import { DumbWrapper } from './Wrapper'
 
 describe('<Wrapper />', () => {
   it('renders correctly', () => {
@@ -10,7 +10,7 @@ describe('<Wrapper />', () => {
         alternateTextColor: 'blue'
       }
     }
-    const wrapper = shallow(<Wrapper muiTheme={theme} />)
+    const wrapper = shallow(<DumbWrapper muiTheme={theme} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })

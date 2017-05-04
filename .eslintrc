@@ -22,9 +22,6 @@
       "afterLineComment": false,
       "allowBlockStart": true
     }],
-    "global-require": 0,
-    "import/no-named-as-default": 0,
-    "no-confusing-arrow": 0,
     "no-param-reassign": 0,
     "no-shadow": 0
   }
