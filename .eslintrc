@@ -1,17 +1,4 @@
 {
-  "env": {
-    "browser": true,
-    "jest": true,
-    "node": true
-  },
-  "plugins": [
-    "compat"
-  ],
-  "settings": {
-    "polyfills": [
-      "fetch"
-    ]
-  },
   "extends": [
     "airbnb"
   ],
@@ -22,7 +9,6 @@
     "generator-star-spacing": 0,
     "func-names": ["error", "as-needed"],
     "no-warning-comments": [2, { "terms": ["todo", "fixme"], "location": "anywhere" }],
-    "compat/compat": 2,
     "global-require": 0,
     "import/no-extraneous-dependencies": 0,
     "import/no-named-as-default": 0,

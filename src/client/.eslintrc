@@ -1,0 +1,20 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "plugins": [
+    "compat"
+  ],
+  "settings": {
+    "polyfills": [
+      "fetch"
+    ]
+  },
+  "extends": [
+    "../../.eslintrc"
+  ],
+  "rules": {
+    "compat/compat": 2
+  }
+}
