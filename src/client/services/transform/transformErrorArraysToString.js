@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 import mapObj from 'map-obj'
 
 function arrayToString(key, value) {

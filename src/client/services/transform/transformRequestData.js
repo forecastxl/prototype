@@ -8,7 +8,7 @@ import transformToSnakeCase from './transformToSnakeCase'
 function transformRequestData(data) {
   let transformedData = data
 
-  // convert the camelcase to snakecase for the backend
+  // Convert the camelcase to snakecase for the backend
   transformedData = transformToSnakeCase(transformedData)
 
   return transformedData

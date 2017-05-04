@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import { LoginButton } from './LoginButton'
+import { DumbLoginButton } from './LoginButton'
 
 describe('<LoginButton />', () => {
   it('renders correctly', () => {
@@ -10,7 +10,7 @@ describe('<LoginButton />', () => {
         alternateTextColor: 'blue'
       }
     }
-    const wrapper = shallow(<LoginButton muiTheme={theme} />)
+    const wrapper = shallow(<DumbLoginButton muiTheme={theme} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })

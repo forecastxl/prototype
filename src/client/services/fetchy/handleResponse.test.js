@@ -1,5 +1,5 @@
-import handleResponse from './handleResponse'
 import { transformResponseData } from '../transform'
+import handleResponse from './handleResponse'
 
 jest.mock('../transform', () => ({
   transformResponseData: jest.fn()
@@ -13,7 +13,7 @@ describe('handleResponse', () => {
     }
 
     response.json.mockImplementationOnce(() => Promise.resolve('parsed'))
-    transformResponseData.mockImplementationOnce(response => Promise.resolve(response))
+    transformResponseData.mockImplementationOnce(data => Promise.resolve(data))
 
     return handleResponse(response).then(actual => {
       expect(actual).toEqual('parsed')
@@ -42,7 +42,7 @@ describe('handleResponse', () => {
     }
 
     response.json.mockImplementationOnce(() => Promise.resolve({ errors }))
-    transformResponseData.mockImplementationOnce(response => Promise.resolve(response))
+    transformResponseData.mockImplementationOnce(data => Promise.resolve(data))
 
     return handleResponse(response).catch(error => {
       expect(error.errors.base).toEqual(errors.base)
@@ -87,7 +87,7 @@ describe('handleResponse', () => {
     }
 
     response.json.mockImplementationOnce(() => Promise.resolve({ errors }))
-    transformResponseData.mockImplementationOnce(response => Promise.resolve(response))
+    transformResponseData.mockImplementationOnce(data => Promise.resolve(data))
 
     return handleResponse(response).catch(error => {
       expect(error.message).toEqual(errors.base)

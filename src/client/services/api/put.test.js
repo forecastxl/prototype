@@ -1,6 +1,6 @@
 import 'isomorphic-fetch'
-import put from './put'
 import fetchy from '../fetchy'
+import put from './put'
 
 jest.mock('../fetchy', () => jest.fn())
 

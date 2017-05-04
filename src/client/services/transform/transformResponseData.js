@@ -10,13 +10,13 @@ import transformForReduxForms from './transformForReduxForms'
 function transformResponseData(data) {
   let transformedData = data
 
-  // convert the snakecase that the api returns to camelCase
+  // Convert the snakecase that the api returns to camelCase
   transformedData = transformToCamelCase(transformedData)
 
-  // join arrays in the errors key to strings
+  // Join arrays in the errors key to strings
   transformedData = transformErrorArraysToString(transformedData)
 
-  // make sure the data format is compatible with redux forms
+  // Make sure the data format is compatible with redux forms
   transformedData = transformForReduxForms(transformedData)
 
   return Promise.resolve(transformedData)

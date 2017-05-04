@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import muiThemeable from 'material-ui/styles/muiThemeable'
 import FlatButton from 'material-ui/FlatButton'
 
-export function LoginButton({ muiTheme }) {
+export function DumbLoginButton({ muiTheme }) {
   return (
     <Link to="/login">
       <FlatButton style={{ color: muiTheme.palette.alternateTextColor }} label="Login" />
@@ -11,8 +11,8 @@ export function LoginButton({ muiTheme }) {
   )
 }
 
-LoginButton.propTypes = {
+DumbLoginButton.propTypes = {
   muiTheme: PropTypes.object.isRequired
 }
 
-export default muiThemeable()(LoginButton)
+export default muiThemeable()(DumbLoginButton)

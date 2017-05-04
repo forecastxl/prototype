@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import { UserIcon } from './UserIcon'
+import { DumbUserIcon } from './UserIcon'
 
 describe('<UserIcon />', () => {
   it('renders correctly', () => {
@@ -10,7 +10,7 @@ describe('<UserIcon />', () => {
         alternateTextColor: 'blue'
       }
     }
-    const wrapper = shallow(<UserIcon muiTheme={theme} />)
+    const wrapper = shallow(<DumbUserIcon muiTheme={theme} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })
