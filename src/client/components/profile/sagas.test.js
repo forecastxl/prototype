@@ -1,5 +1,4 @@
-import { call, put, select } from 'redux-saga/effects'
-import { takeLatest } from 'redux-saga'
+import { call, put, select, takeLatest } from 'redux-saga/effects'
 import { selectors as sessionSelectors } from '../../data/session'
 import api from '../../services/api'
 import endpoints from '../../services/endpoints'

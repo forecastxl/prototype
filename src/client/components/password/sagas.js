@@ -1,6 +1,5 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
-import { takeLatest } from 'redux-saga'
 import { actions as notificationActions } from '../notifications'
 import endpoints from '../../services/endpoints'
 import api from '../../services/api'
