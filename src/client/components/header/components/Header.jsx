@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { selectors } from '../../../data/session'
 import Wrapper from './Wrapper'
 import Title from './Title'
 import UserNavigation from './UserNavigation'
 import LoginButton from './LoginButton'
-import { selectors } from '../../../data/session'
 
 export function Header({ hasToken }) {
   return (

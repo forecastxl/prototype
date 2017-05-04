@@ -5,9 +5,9 @@ import MenuItem from 'material-ui/MenuItem'
 import Divider from 'material-ui/Divider'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import styles from '../../../styles'
 import UserIcon from './UserIcon'
 import LogoutMenuItem from './LogoutMenuItem'
-import styles from '../../../styles'
 
 const StyledLink = styled(Link)`
   color: ${styles.colors.text};

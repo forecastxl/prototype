@@ -1,20 +1,22 @@
-// polyfills and third party libs
+/* eslint-disable import/order */
+
+// Polyfills and third party libs
 import 'babel-polyfill'
 import 'isomorphic-fetch'
 import 'normalize.css'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
-// import dependencies
+// Import dependencies
 import React from 'react'
 import { createBrowserHistory } from 'history'
 import { render } from 'react-dom'
 import { App } from './components/app'
 import configureStore from './store'
 
-// globally scoped css
+// Globally scoped css
 import './index.css'
 
-// enable tap event plugin polyfill, to remove 300ms tap delay
+// Enable tap event plugin polyfill, to remove 300ms tap delay
 injectTapEventPlugin()
 
 const history = createBrowserHistory()

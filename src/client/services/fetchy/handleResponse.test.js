@@ -1,5 +1,5 @@
-import handleResponse from './handleResponse'
 import { transformResponseData } from '../transform'
+import handleResponse from './handleResponse'
 
 jest.mock('../transform', () => ({
   transformResponseData: jest.fn()
