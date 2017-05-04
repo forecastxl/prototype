@@ -25,7 +25,7 @@ export function* resetPassword({ payload }) {
 }
 
 export function* watchResetPassword() {
-  yield call(takeLatest, RESET_PASSWORD, resetPassword)
+  yield takeLatest(RESET_PASSWORD, resetPassword)
 }
 
 export function* requestResetPassword({ payload }) {
@@ -48,5 +48,5 @@ export function* requestResetPassword({ payload }) {
 }
 
 export function* watchRequestResetPassword() {
-  yield call(takeLatest, REQUEST_RESET_PASSWORD, requestResetPassword)
+  yield takeLatest(REQUEST_RESET_PASSWORD, requestResetPassword)
 }

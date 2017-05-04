@@ -10,7 +10,7 @@ describe('watchLoginSubmit', () => {
   it('should respond to LOGIN_SUBMIT', () => {
     const generator = sagas.watchLoginSubmit()
     const actual = generator.next().value
-    const expected = call(takeLatest, types.LOGIN_SUBMIT, sagas.login)
+    const expected = takeLatest(types.LOGIN_SUBMIT, sagas.login)
 
     expect(actual).toEqual(expected)
   })

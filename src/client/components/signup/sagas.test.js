@@ -17,7 +17,7 @@ describe('sagas', () => {
     it('should respond to CREATE_ACCOUNT', () => {
       const generator = sagas.watchCreateAccount()
       const actual = generator.next().value
-      const expected = call(takeLatest, types.CREATE_ACCOUNT, sagas.createAccount)
+      const expected = takeLatest(types.CREATE_ACCOUNT, sagas.createAccount)
 
       expect(actual).toEqual(expected)
     })
@@ -80,7 +80,7 @@ describe('sagas', () => {
     it('should respond to CONFIRM_ACCOUNT', () => {
       const generator = sagas.watchConfirmAccount()
       const actual = generator.next().value
-      const expected = call(takeLatest, types.CONFIRM_ACCOUNT, sagas.confirmAccount)
+      const expected = takeLatest(types.CONFIRM_ACCOUNT, sagas.confirmAccount)
 
       expect(actual).toEqual(expected)
     })

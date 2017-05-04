@@ -25,5 +25,5 @@ export function* login({ payload }) {
 }
 
 export function* watchLoginSubmit() {
-  yield call(takeLatest, types.LOGIN_SUBMIT, login)
+  yield takeLatest(types.LOGIN_SUBMIT, login)
 }

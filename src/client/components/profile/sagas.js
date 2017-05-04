@@ -18,7 +18,7 @@ export function* fetchProfile() {
 }
 
 export function* watchFetchProfile() {
-  yield call(takeLatest, types.FETCH_PROFILE, fetchProfile)
+  yield takeLatest(types.FETCH_PROFILE, fetchProfile)
 }
 
 export function* updateProfile({ payload }) {
@@ -35,5 +35,5 @@ export function* updateProfile({ payload }) {
 }
 
 export function* watchUpdateProfile() {
-  yield call(takeLatest, types.UPDATE_PROFILE, updateProfile)
+  yield takeLatest(types.UPDATE_PROFILE, updateProfile)
 }
