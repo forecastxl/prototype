@@ -1,5 +1,16 @@
 import * as selectors from './selectors'
 
+describe('getSessionState', () => {
+  it('should return the state', () => {
+    const sessionState = { state: 'state' }
+    const state = { session: sessionState }
+    const actual = selectors.getSessionState(state)
+    const expected = sessionState
+
+    expect(actual).toEqual(expected)
+  })
+})
+
 describe('getToken', () => {
   it('should return the token', () => {
     const state = { session: { token: 'token' } }

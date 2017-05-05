@@ -1,11 +1,16 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { selectors } from '../../data/session'
+import { ClientError, ServerError } from '../../components/errors'
 import { LoginForm } from '../../components/login'
 
 function DumbLogin({ session }) {
-  if (session.errorMessage) {
-    return <div>{session.errorMessage}</div>
+  if (session.errorName === 'ClientError') {
+    return <ClientError errorMessage={session.errorMessage} />
+  }
+
+  if (session.errorName === 'ServerError') {
+    return <ServerError errorMessage={session.errorMessage} />
   }
 
   return <LoginForm />
