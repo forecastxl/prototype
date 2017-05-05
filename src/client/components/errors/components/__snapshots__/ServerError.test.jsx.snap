@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ServerError /> renders correctly 1`] = `
+<div>
+  Something went wrong with our server. The errormessage was: 
+  Error message.
+  .
+</div>
+`;

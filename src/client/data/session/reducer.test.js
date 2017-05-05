@@ -4,6 +4,7 @@ import * as types from './actionTypes'
 describe('reducer', () => {
   const initialState = {
     errorMessage: '',
+    errorName: '',
     hasError: false,
     hasToken: false,
     isFetching: false,
@@ -32,6 +33,7 @@ describe('reducer', () => {
     const actual = reducer(fetchingState, { type: types.LOGIN_SUCCESS, payload: 'token' })
     const expected = {
       errorMessage: '',
+      errorName: '',
       hasError: false,
       hasToken: true,
       isFetching: false,
@@ -55,6 +57,7 @@ describe('reducer', () => {
     const expected = {
       ...initialState,
       errorMessage: payload.message,
+      errorName: 'ClientError',
       hasError: true
     }
 
@@ -67,6 +70,7 @@ describe('reducer', () => {
     const expected = {
       ...initialState,
       errorMessage: payload.message,
+      errorName: 'ServerError',
       hasError: true
     }
 

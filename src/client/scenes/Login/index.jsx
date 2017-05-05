@@ -1,8 +1,27 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { selectors } from '../../data/session'
+import { ClientError, ServerError } from '../../components/errors'
 import { LoginForm } from '../../components/login'
 
-function Scene() {
+export function DumbLogin({ session }) {
+  if (session.errorName === 'ClientError') {
+    return <ClientError errorMessage={session.errorMessage} />
+  }
+
+  if (session.errorName === 'ServerError') {
+    return <ServerError errorMessage={session.errorMessage} />
+  }
+
   return <LoginForm />
 }
 
-export default Scene
+DumbLogin.propTypes = {
+  session: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+  session: selectors.getSessionState(state)
+})
+
+export default connect(mapStateToProps)(DumbLogin)
