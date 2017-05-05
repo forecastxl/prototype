@@ -4,7 +4,7 @@ import { selectors } from '../../data/session'
 import { ClientError, ServerError } from '../../components/errors'
 import { LoginForm } from '../../components/login'
 
-function DumbLogin({ session }) {
+export function DumbLogin({ session }) {
   if (session.errorName === 'ClientError') {
     return <ClientError errorMessage={session.errorMessage} />
   }
