@@ -2,28 +2,28 @@
 
 exports[`<AlertWrapper /> renders a success correctly 1`] = `
 <div
-  className="esKsXx"
+  className="sc-bdVaJa fnCatB"
   type="success"
 />
 `;
 
 exports[`<AlertWrapper /> renders a warning correctly 1`] = `
 <div
-  className="jXtNdS"
+  className="sc-bdVaJa fdBvYH"
   type="warning"
 />
 `;
 
 exports[`<AlertWrapper /> renders an error correctly 1`] = `
 <div
-  className="jMZZLH"
+  className="sc-bdVaJa ibAmxU"
   type="error"
 />
 `;
 
 exports[`<AlertWrapper /> renders info correctly 1`] = `
 <div
-  className="eGuevP"
+  className="sc-bdVaJa dOrRHF"
   type="info"
 />
 `;
