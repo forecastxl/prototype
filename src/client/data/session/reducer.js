@@ -3,8 +3,6 @@ import * as types from './actionTypes'
 const initialState = {
   errorMessage: '',
   errorName: '',
-  hasError: false,
-  hasToken: false,
   isFetching: false,
   token: ''
 }
@@ -20,8 +18,6 @@ export default function reducer(state = initialState, action) {
       return {
         errorMessage: '',
         errorName: '',
-        hasError: false,
-        hasToken: true,
         isFetching: false,
         token: action.payload
       }
@@ -29,8 +25,6 @@ export default function reducer(state = initialState, action) {
       return {
         errorMessage: '',
         errorName: '',
-        hasError: false,
-        hasToken: false,
         isFetching: false,
         token: ''
       }
@@ -38,8 +32,6 @@ export default function reducer(state = initialState, action) {
       return {
         errorMessage: action.payload.message,
         errorName: 'ClientError',
-        hasError: true,
-        hasToken: false,
         isFetching: false,
         token: ''
       }
@@ -47,8 +39,6 @@ export default function reducer(state = initialState, action) {
       return {
         errorMessage: action.payload.message,
         errorName: 'ServerError',
-        hasError: true,
-        hasToken: false,
         isFetching: false,
         token: ''
       }

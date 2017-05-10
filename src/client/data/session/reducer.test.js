@@ -5,8 +5,6 @@ describe('reducer', () => {
   const initialState = {
     errorMessage: '',
     errorName: '',
-    hasError: false,
-    hasToken: false,
     isFetching: false,
     token: ''
   }
@@ -34,8 +32,6 @@ describe('reducer', () => {
     const expected = {
       errorMessage: '',
       errorName: '',
-      hasError: false,
-      hasToken: true,
       isFetching: false,
       token: 'token'
     }
@@ -57,8 +53,7 @@ describe('reducer', () => {
     const expected = {
       ...initialState,
       errorMessage: payload.message,
-      errorName: 'ClientError',
-      hasError: true
+      errorName: 'ClientError'
     }
 
     expect(actual).toEqual(expected)
@@ -70,15 +65,14 @@ describe('reducer', () => {
     const expected = {
       ...initialState,
       errorMessage: payload.message,
-      errorName: 'ServerError',
-      hasError: true
+      errorName: 'ServerError'
     }
 
     expect(actual).toEqual(expected)
   })
 
   it('should handle LOGOUT', () => {
-    const hasToken = { ...initialState, hasToken: true, token: 'token' }
+    const hasToken = { ...initialState, token: 'token' }
     const actual = reducer(hasToken, { type: types.LOGOUT })
     const expected = initialState
 
