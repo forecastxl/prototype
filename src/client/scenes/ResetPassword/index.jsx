@@ -1,8 +1,8 @@
 import React from 'react'
 import { ResetPasswordContainer } from '../../components/password'
 
-function Scene() {
+function ResetPassword() {
   return <ResetPasswordContainer />
 }
 
-export default Scene
+export default ResetPassword

@@ -1,8 +1,8 @@
 import React from 'react'
 import { ForgotPasswordContainer } from '../../components/password'
 
-function Scene() {
+function ForgotPassword() {
   return <ForgotPasswordContainer />
 }
 
-export default Scene
+export default ForgotPassword

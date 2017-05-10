@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Scene() {
+function Home() {
   return (
     <div>
       <h1>Home</h1>
@@ -8,4 +8,4 @@ function Scene() {
   )
 }
 
-export default Scene
+export default Home

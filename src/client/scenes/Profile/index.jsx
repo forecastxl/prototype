@@ -1,8 +1,8 @@
 import React from 'react'
 import { ProfileContainer } from '../../components/profile'
 
-function Scene() {
+function Profile() {
   return <ProfileContainer />
 }
 
-export default Scene
+export default Profile

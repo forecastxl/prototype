@@ -1,8 +1,8 @@
 import React from 'react'
 import { SignupFormContainer } from '../../components/signup'
 
-function Scene() {
+function Signup() {
   return <SignupFormContainer />
 }
 
-export default Scene
+export default Signup
