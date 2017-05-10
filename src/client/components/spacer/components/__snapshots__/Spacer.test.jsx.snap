@@ -1,43 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Spacer /> renders correctly when bottom is set 1`] = `
+.jjfMCK {
+  margin-bottom: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+}
+
 <div
-  className="coRmcH"
+  className="sc-bdVaJa jjfMCK"
   size="1rem"
 />
 `;
 
 exports[`<Spacer /> renders correctly when horizontal is set 1`] = `
+.eZxERx {
+  margin-bottom: 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 0;
+}
+
 <div
-  className="eWasao"
+  className="sc-bdVaJa eZxERx"
   size="1rem"
 />
 `;
 
 exports[`<Spacer /> renders correctly when left is set 1`] = `
+.eKNkPY {
+  margin-bottom: 0;
+  margin-left: 1rem;
+  margin-right: 0;
+  margin-top: 0;
+}
+
 <div
-  className="eetuqs"
+  className="sc-bdVaJa eKNkPY"
   size="1rem"
 />
 `;
 
 exports[`<Spacer /> renders correctly when right is set 1`] = `
+.fojQDr {
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 1rem;
+  margin-top: 0;
+}
+
 <div
-  className="gzOwWp"
+  className="sc-bdVaJa fojQDr"
   size="1rem"
 />
 `;
 
 exports[`<Spacer /> renders correctly when top is set 1`] = `
+.grZIQv {
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 1rem;
+}
+
 <div
-  className="dxisMP"
+  className="sc-bdVaJa grZIQv"
   size="1rem"
 />
 `;
 
 exports[`<Spacer /> renders correctly when vertical is set 1`] = `
+.cJzrXM {
+  margin-bottom: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 1rem;
+}
+
 <div
-  className="bWnqzP"
+  className="sc-bdVaJa cJzrXM"
   size="1rem"
 />
 `;

@@ -1,29 +1,105 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AlertWrapper /> renders a success correctly 1`] = `
+.fnCatB {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-animation: eMLfYp 200ms linear;
+  animation: eMLfYp 200ms linear;
+  background: #91cf91;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  color: #3d8b3d;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.5rem;
+  padding: 1rem 0.5rem;
+}
+
 <div
-  className="esKsXx"
+  className="sc-bdVaJa fnCatB"
   type="success"
 />
 `;
 
 exports[`<AlertWrapper /> renders a warning correctly 1`] = `
+.fdBvYH {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-animation: eMLfYp 200ms linear;
+  animation: eMLfYp 200ms linear;
+  background: #ebc063;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  color: #a07415;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.5rem;
+  padding: 1rem 0.5rem;
+}
+
 <div
-  className="jXtNdS"
+  className="sc-bdVaJa fdBvYH"
   type="warning"
 />
 `;
 
 exports[`<AlertWrapper /> renders an error correctly 1`] = `
+.ibAmxU {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-animation: eMLfYp 200ms linear;
+  animation: eMLfYp 200ms linear;
+  background: #e27c79;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  color: #9f2723;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.5rem;
+  padding: 1rem 0.5rem;
+}
+
 <div
-  className="jMZZLH"
+  className="sc-bdVaJa ibAmxU"
   type="error"
 />
 `;
 
 exports[`<AlertWrapper /> renders info correctly 1`] = `
+.dOrRHF {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-animation: eMLfYp 200ms linear;
+  animation: eMLfYp 200ms linear;
+  background: #85c5e9;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  color: #1571a0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.5rem;
+  padding: 1rem 0.5rem;
+}
+
 <div
-  className="eGuevP"
+  className="sc-bdVaJa dOrRHF"
   type="info"
 />
 `;

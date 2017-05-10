@@ -1,3 +1,8 @@
+/**
+ * @jest-environment node
+ */
+
+import 'jest-styled-components'
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
@@ -11,6 +16,6 @@ describe('<Title />', () => {
       }
     }
     const wrapper = shallow(<DumbTitle muiTheme={theme} />)
-    expect(shallowToJson(wrapper)).toMatchSnapshot()
+    expect(shallowToJson(wrapper)).toMatchStyledComponentsSnapshot()
   })
 })
