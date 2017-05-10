@@ -2,15 +2,8 @@ import * as types from './actionTypes'
 
 const initialState = {
   errorMessage: '',
-  hasError: false,
-  hasProfile: false,
   isFetching: false,
-  profile: {
-    id: 0,
-    firstName: '',
-    lastName: '',
-    email: ''
-  }
+  profile: {}
 }
 
 export default function reducer(state = initialState, action) {
@@ -22,23 +15,17 @@ export default function reducer(state = initialState, action) {
       }
     case types.FETCH_PROFILE_SUCCESS:
       return {
-        isFetching: false,
-        hasProfile: true,
-        hasError: false,
         errorMessage: '',
+        isFetching: false,
         profile: {
           ...action.payload
         }
       }
     case types.FETCH_PROFILE_FAILURE:
       return {
-        isFetching: false,
-        hasProfile: false,
-        hasError: true,
         errorMessage: action.payload.message,
-        profile: {
-          ...initialState.profile
-        }
+        isFetching: false,
+        profile: {}
       }
     default:
       return state

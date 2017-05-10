@@ -23,7 +23,7 @@ describe('getToken', () => {
 
 describe('hasToken', () => {
   it('should return hasToken', () => {
-    const state = { session: { hasToken: true } }
+    const state = { session: { token: 'token' } }
     const actual = selectors.hasToken(state)
     const expected = true
 

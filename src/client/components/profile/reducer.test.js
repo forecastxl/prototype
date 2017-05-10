@@ -4,15 +4,8 @@ import * as types from './actionTypes'
 describe('reducer', () => {
   const initialState = {
     errorMessage: '',
-    hasError: false,
-    hasProfile: false,
     isFetching: false,
-    profile: {
-      id: 0,
-      firstName: '',
-      lastName: '',
-      email: ''
-    }
+    profile: {}
   }
 
   const fetchingState = {
@@ -43,7 +36,6 @@ describe('reducer', () => {
     const actual = reducer(fetchingState, { type: types.FETCH_PROFILE_SUCCESS, payload })
     const expected = {
       ...initialState,
-      hasProfile: true,
       profile: {
         ...payload
       }
@@ -57,7 +49,6 @@ describe('reducer', () => {
     const actual = reducer(fetchingState, { type: types.FETCH_PROFILE_FAILURE, payload })
     const expected = {
       ...initialState,
-      hasError: true,
       errorMessage: 'Something went wrong'
     }
 
