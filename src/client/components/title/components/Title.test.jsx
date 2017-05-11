@@ -6,11 +6,11 @@ import 'jest-styled-components'
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import DialogFooter from './DialogFooter'
+import Title from './Title'
 
-describe('<DialogFooter />', () => {
-  it('renders correctly', () => {
-    const wrapper = shallow(<DialogFooter />)
+describe('<Title />', () => {
+  it('renders an error correctly', () => {
+    const wrapper = shallow(<Title />)
     expect(shallowToJson(wrapper)).toMatchStyledComponentsSnapshot()
   })
 })

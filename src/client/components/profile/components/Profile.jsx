@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react'
 import TextField from 'material-ui/TextField'
 import { Alert } from '../../alert'
 import { Spacer } from '../../spacer'
-import { DialogButton } from '../../dialog'
 import { Container } from '../../container'
 
 function Profile({ profile, onChange, onSubmit, errors }) {
@@ -35,7 +34,7 @@ function Profile({ profile, onChange, onSubmit, errors }) {
             fullWidth
             errorText={errors && errors.email && <Alert messages={errors.email} />}
           />
-          <DialogButton type="submit" label="Wijzig profiel" primary />
+          <button type="submit" label="Wijzig profiel" primary />
         </Spacer>
       </form>
       <form action="/" onSubmit={onSubmit}>
@@ -73,7 +72,7 @@ function Profile({ profile, onChange, onSubmit, errors }) {
               <Alert messages={errors.newPasswordConfirmation} />
           }
         />
-        <DialogButton type="submit" label="Wijzig wachtwoord" primary />
+        <button type="submit" label="Wijzig wachtwoord" primary />
       </form>
     </Container>
   )
