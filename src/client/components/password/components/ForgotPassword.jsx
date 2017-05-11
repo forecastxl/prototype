@@ -1,39 +1,38 @@
 import React, { PropTypes } from 'react'
-import TextField from 'material-ui/TextField'
+import { Field, reduxForm } from 'redux-form'
+import { onSubmitActions } from 'redux-form-submit-saga'
 import RaisedButton from 'material-ui/RaisedButton'
 import { Alert } from '../../alert'
-import { Card } from '../../card'
-import { Title } from '../../title'
+import { TextField } from '../../form'
 
-function ForgotPassword({ onSubmit, onChange, email, errors }) {
+function ForgotPasswordForm({ handleSubmit, pristine, submitting, error }) {
   return (
-    <Card>
-      <Title>Reset your password</Title>
-      {errors && errors.base && <Alert messages={errors.base} />}
-      <form action="/" onSubmit={onSubmit}>
-        <p>
-          Vraag hier een reset van uw wachtwoord aan. Als het emailadres bij ons gekoppeld is aan
-          een account ontvangt u op het opgegeven adres een email met verdere instructies.
-        </p>
-        <TextField
-          floatingLabelText="Email"
-          name="email"
-          value={email}
-          onChange={onChange}
-          fullWidth
-          errorText={errors && errors.email && <Alert messages={errors.email} />}
-        />
-        <RaisedButton type="submit" label="Reset password" primary fullWidth />
-      </form>
-    </Card>
+    <form onSubmit={handleSubmit}>
+      {error && <Alert message={error} type={'error'} />}
+      <Field name="email" component={TextField} label="Email" fullWidth />
+      <RaisedButton
+        type="submit"
+        label="Reset password"
+        primary
+        fullWidth
+        disabled={pristine || submitting}
+      />
+    </form>
   )
 }
 
-ForgotPassword.propTypes = {
-  email: PropTypes.string.isRequired,
-  errors: PropTypes.object.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+ForgotPasswordForm.propTypes = {
+  error: PropTypes.string,
+  handleSubmit: PropTypes.func.isRequired,
+  pristine: PropTypes.bool.isRequired,
+  submitting: PropTypes.bool.isRequired
 }
 
-export default ForgotPassword
+ForgotPasswordForm.defaultProps = {
+  error: ''
+}
+
+export default reduxForm({
+  form: 'forgot-password',
+  onSubmit: onSubmitActions('LOGIN_SUBMIT', 'LOGIN_SUCCESS', 'LOGIN_VALIDATION_FAILURE')
+})(ForgotPasswordForm)
