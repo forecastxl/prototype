@@ -3,13 +3,12 @@ import Checkbox from 'material-ui/Checkbox'
 import TextField from 'material-ui/TextField'
 import { Spacer } from '../../spacer'
 import { Alert } from '../../alert'
-import { Dialog, DialogBody, DialogHeader, DialogButton } from '../../dialog'
 
 function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }) {
   return (
-    <Dialog>
-      <DialogHeader title="Maak een account aan bij ForecastXL" titleColor="white" />
-      <DialogBody>
+    <div>
+      <div title="Maak een account aan bij ForecastXL" titleColor="white" />
+      <div>
         {errors && errors.base && <Alert messages={errors.base} />}
         <form action="/" onSubmit={onSubmit}>
           <Spacer size={'2rem'} bottom>
@@ -105,10 +104,10 @@ function LoginForm({ onSubmit, onTextChange, onCheckboxChange, account, errors }
           {errors &&
             errors.agreedToGeneralTerms &&
             <Alert messages={errors.agreedToGeneralTerms} />}
-          <DialogButton type="submit" label="Maak account aan" primary fullWidth />
+          <button type="submit" label="Maak account aan" primary fullWidth />
         </form>
-      </DialogBody>
-    </Dialog>
+      </div>
+    </div>
   )
 }
 
