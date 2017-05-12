@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
-import MaterialTextField from 'material-ui/TextField'
+import TextField from 'material-ui/TextField'
 
-function TextField({ input, label, meta: { touched, error }, ...custom }) {
+function TextFieldWrapper({ input, label, meta: { touched, error }, ...custom }) {
   return (
-    <MaterialTextField
+    <TextField
       hintText={label}
       floatingLabelText={label}
       errorText={touched && error}
@@ -13,10 +13,10 @@ function TextField({ input, label, meta: { touched, error }, ...custom }) {
   )
 }
 
-TextField.propTypes = {
+TextFieldWrapper.propTypes = {
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
   meta: PropTypes.object.isRequired
 }
 
-export default TextField
+export default TextFieldWrapper
