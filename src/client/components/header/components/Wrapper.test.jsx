@@ -8,7 +8,7 @@ import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 import { DumbWrapper } from './Wrapper'
 
-describe('<Wrapper />', () => {
+describe('<DumbWrapper />', () => {
   it('renders correctly', () => {
     const theme = {
       palette: {

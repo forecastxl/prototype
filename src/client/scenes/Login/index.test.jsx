@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 import { DumbLogin } from './index'
 
-describe('<Login />', () => {
+describe('<DumbLogin />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(<DumbLogin session={{}} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()

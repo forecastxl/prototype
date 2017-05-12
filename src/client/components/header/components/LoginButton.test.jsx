@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 import { DumbLoginButton } from './LoginButton'
 
-describe('<LoginButton />', () => {
+describe('<DumbLoginButton />', () => {
   it('renders correctly', () => {
     const theme = {
       palette: {

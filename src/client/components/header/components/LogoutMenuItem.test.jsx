@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 import { DumbLogoutMenuItem } from './LogoutMenuItem'
 
-describe('<LogoutMenuItem />', () => {
+describe('<DumbLogoutMenuItem />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(<DumbLogoutMenuItem destroySession={() => {}} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
