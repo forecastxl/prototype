@@ -1,8 +1,8 @@
 import React from 'react'
-import { ResetPasswordContainer } from '../../components/password'
+import { ResetPasswordForm } from '../../components/password'
 
 function ResetPassword() {
-  return <ResetPasswordContainer />
+  return <ResetPasswordForm />
 }
 
 export default ResetPassword

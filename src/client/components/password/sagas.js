@@ -6,7 +6,9 @@ import api from '../../services/api'
 import { RESET_PASSWORD, REQUEST_RESET_PASSWORD } from './actionTypes'
 import {
   resetPasswordSuccess,
-  resetPasswordFailure,
+  resetPasswordValidationFailure,
+  resetPasswordClientFailure,
+  resetPasswordServerFailure,
   requestResetPasswordSuccess,
   requestResetPasswordValidationFailure,
   requestResetPasswordClientFailure,
@@ -22,7 +24,13 @@ export function* resetPassword({ payload }) {
     yield put(resetPasswordSuccess())
     yield put(push('/'))
   } catch (error) {
-    yield put(resetPasswordFailure(error))
+    if (error.name === 'SubmissionError') {
+      yield put(resetPasswordValidationFailure(error.errors))
+    } else if (error.name === 'ClientError') {
+      yield put(resetPasswordClientFailure(error))
+    } else {
+      yield put(resetPasswordServerFailure(error))
+    }
   }
 }
 
