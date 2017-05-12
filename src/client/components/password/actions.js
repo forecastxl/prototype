@@ -15,4 +15,6 @@ export const requestResetPasswordServerFailure = createAction(
 
 export const resetPassword = createAction(types.RESET_PASSWORD)
 export const resetPasswordSuccess = createAction(types.RESET_PASSWORD_SUCCESS)
-export const resetPasswordFailure = createAction(types.RESET_PASSWORD_FAILURE)
+export const resetPasswordValidationFailure = createAction(types.RESET_PASSWORD_VALIDATION_FAILURE)
+export const resetPasswordClientFailure = createAction(types.RESET_PASSWORD_CLIENT_FAILURE)
+export const resetPasswordServerFailure = createAction(types.RESET_PASSWORD_SERVER_FAILURE)

@@ -1,12 +1,12 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import ResetPassword from './ResetPassword'
+import { DumbResetPasswordForm } from './ResetPasswordForm'
 
-describe('<ResetPassword />', () => {
+describe('<DumbResetPasswordForm />', () => {
   it('warns of a missing token', () => {
     const wrapper = shallow(
-      <ResetPassword
+      <DumbResetPasswordForm
         hasToken={false}
         errors={{}}
         onSubmit={() => {}}
@@ -20,7 +20,7 @@ describe('<ResetPassword />', () => {
 
   it('renders correctly', () => {
     const wrapper = shallow(
-      <ResetPassword
+      <DumbResetPasswordForm
         hasToken
         errors={{}}
         onSubmit={() => {}}
