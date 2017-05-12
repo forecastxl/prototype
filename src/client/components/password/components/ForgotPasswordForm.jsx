@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import { Alert } from '../../alert'
 import { TextField } from '../../form'
 
-function ForgotPasswordForm({ handleSubmit, pristine, submitting, error }) {
+export function DumbForgotPasswordForm({ handleSubmit, pristine, submitting, error }) {
   return (
     <form onSubmit={handleSubmit}>
       {error && <Alert message={error} type={'error'} />}
@@ -21,18 +21,22 @@ function ForgotPasswordForm({ handleSubmit, pristine, submitting, error }) {
   )
 }
 
-ForgotPasswordForm.propTypes = {
+DumbForgotPasswordForm.propTypes = {
   error: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired
 }
 
-ForgotPasswordForm.defaultProps = {
+DumbForgotPasswordForm.defaultProps = {
   error: ''
 }
 
 export default reduxForm({
   form: 'forgot-password',
-  onSubmit: onSubmitActions('LOGIN_SUBMIT', 'LOGIN_SUCCESS', 'LOGIN_VALIDATION_FAILURE')
-})(ForgotPasswordForm)
+  onSubmit: onSubmitActions(
+    'REQUEST_RESET_PASSWORD',
+    'REQUEST_RESET_PASSWORD_SUCCESS',
+    'REQUEST_RESET_PASSWORD_VALIDATION_FAILURE'
+  )
+})(DumbForgotPasswordForm)

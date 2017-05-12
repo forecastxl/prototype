@@ -8,7 +8,9 @@ import {
   resetPasswordSuccess,
   resetPasswordFailure,
   requestResetPasswordSuccess,
-  requestResetPasswordFailure
+  requestResetPasswordValidationFailure,
+  requestResetPasswordClientFailure,
+  requestResetPasswordServerFailure
 } from './actions'
 
 export function* resetPassword({ payload }) {
@@ -43,7 +45,13 @@ export function* requestResetPassword({ payload }) {
     )
     yield put(push('/login'))
   } catch (error) {
-    yield put(requestResetPasswordFailure(error))
+    if (error.name === 'SubmissionError') {
+      yield put(requestResetPasswordValidationFailure(error.errors))
+    } else if (error.name === 'ClientError') {
+      yield put(requestResetPasswordClientFailure(error))
+    } else {
+      yield put(requestResetPasswordServerFailure(error))
+    }
   }
 }
 

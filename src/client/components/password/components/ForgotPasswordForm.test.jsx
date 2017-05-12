@@ -1,12 +1,12 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import ForgotPassword from './ForgotPassword'
+import { DumbForgotPasswordForm } from './ForgotPasswordForm'
 
-describe('<ForgotPassword />', () => {
+describe('<ForgotPasswordForm />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(
-      <ForgotPassword onSubmit={() => {}} onChange={() => {}} email={''} errors={{}} />
+      <DumbForgotPasswordForm onSubmit={() => {}} onChange={() => {}} email={''} errors={{}} />
     )
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
