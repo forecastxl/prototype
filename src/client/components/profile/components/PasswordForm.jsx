@@ -55,8 +55,8 @@ DumbPasswordForm.defaultProps = {
 export default reduxForm({
   form: 'profile',
   onSubmit: onSubmitActions(
-    'REQUEST_RESET_PASSWORD',
-    'REQUEST_RESET_PASSWORD_SUCCESS',
-    'REQUEST_RESET_PASSWORD_VALIDATION_FAILURE'
+    'UPDATE_PASSWORD',
+    'UPDATE_PASSWORD_SUCCESS',
+    'UPDATE_PASSWORD_VALIDATION_FAILURE'
   )
 })(DumbPasswordForm)
