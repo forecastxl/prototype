@@ -2,8 +2,19 @@ import { call, put, select, takeLatest } from 'redux-saga/effects'
 import { selectors as sessionSelectors } from '../../data/session'
 import api from '../../services/api'
 import endpoints from '../../services/endpoints'
-import * as actions from './actions'
-import * as types from './actionTypes'
+import { FETCH_PROFILE, UPDATE_PROFILE, UPDATE_PASSWORD } from './actionTypes'
+import {
+  fetchProfileSuccess,
+  fetchProfileFailure,
+  updateProfileSuccess,
+  updateProfileValidationFailure,
+  updateProfileClientFailure,
+  updateProfileServerFailure,
+  updatePasswordSuccess,
+  updatePasswordValidationFailure,
+  updatePasswordClientFailure,
+  updatePasswordServerFailure
+} from './actions'
 
 export function* fetchProfile() {
   const endpoint = endpoints.constant.PROFILE
@@ -11,14 +22,14 @@ export function* fetchProfile() {
   try {
     const token = yield select(sessionSelectors.getToken)
     const response = yield call(api.get, { endpoint, token })
-    yield put(actions.fetchProfileSuccess(response.data))
+    yield put(fetchProfileSuccess(response.data))
   } catch (error) {
-    yield put(actions.fetchProfileFailure(error))
+    yield put(fetchProfileFailure(error))
   }
 }
 
 export function* watchFetchProfile() {
-  yield takeLatest(types.FETCH_PROFILE, fetchProfile)
+  yield takeLatest(FETCH_PROFILE, fetchProfile)
 }
 
 export function* updateProfile({ payload }) {
@@ -28,12 +39,41 @@ export function* updateProfile({ payload }) {
   try {
     const token = yield select(sessionSelectors.getToken)
     yield call(api.put, { endpoint, data, token })
-    yield put(actions.updateProfileSuccess())
+    yield put(updateProfileSuccess())
   } catch (error) {
-    yield put(actions.updateProfileFailure(error))
+    if (error.name === 'SubmissionError') {
+      yield put(updateProfileValidationFailure(error.errors))
+    } else if (error.name === 'ClientError') {
+      yield put(updateProfileClientFailure(error))
+    } else {
+      yield put(updateProfileServerFailure(error))
+    }
   }
 }
 
 export function* watchUpdateProfile() {
-  yield takeLatest(types.UPDATE_PROFILE, updateProfile)
+  yield takeLatest(UPDATE_PROFILE, updateProfile)
+}
+
+export function* updatePassword({ payload }) {
+  const endpoint = endpoints.dynamic.user(payload.id)
+  const data = payload
+
+  try {
+    const token = yield select(sessionSelectors.getToken)
+    yield call(api.put, { endpoint, data, token })
+    yield put(updatePasswordSuccess())
+  } catch (error) {
+    if (error.name === 'SubmissionError') {
+      yield put(updatePasswordValidationFailure(error.errors))
+    } else if (error.name === 'ClientError') {
+      yield put(updatePasswordClientFailure(error))
+    } else {
+      yield put(updatePasswordServerFailure(error))
+    }
+  }
+}
+
+export function* watchUpdatePassword() {
+  yield takeLatest(UPDATE_PASSWORD, updatePassword)
 }
