@@ -1,12 +1,12 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import Profile from './Profile'
+import { DumbProfileForm } from './ProfileForm'
 
-describe('<Profile />', () => {
+describe('<DumbProfileForm />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(
-      <Profile
+      <DumbProfileForm
         errors={{}}
         onChange={() => {}}
         onSubmit={() => {}}
