@@ -9,13 +9,3 @@ exports[`<DumbUserIcon /> renders correctly 1`] = `
   }
 />
 `;
-
-exports[`<UserIcon /> renders correctly 1`] = `
-<SocialPerson
-  style={
-    Object {
-      "color": "blue",
-    }
-  }
-/>
-`;

@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import { TextField, Checkbox } from '../../form'
 import { Alert } from '../../alert'
 
-function DumbSignupForm({ handleSubmit, pristine, submitting, error }) {
+export function DumbSignupForm({ handleSubmit, pristine, submitting, error }) {
   return (
     <form onSubmit={handleSubmit}>
       {error && <Alert message={error} type={'error'} />}
