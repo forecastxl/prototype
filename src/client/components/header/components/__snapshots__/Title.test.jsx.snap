@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<DumbTitle /> renders correctly 1`] = `
+.CZTRT {
+  color: blue;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+<h1
+  className="sc-bdVaJa CZTRT"
+/>
+`;
+
 exports[`<Title /> renders correctly 1`] = `
 .CZTRT {
   color: blue;

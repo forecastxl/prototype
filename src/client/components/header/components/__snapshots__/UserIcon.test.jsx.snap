@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<DumbUserIcon /> renders correctly 1`] = `
+<SocialPerson
+  style={
+    Object {
+      "color": "blue",
+    }
+  }
+/>
+`;
+
 exports[`<UserIcon /> renders correctly 1`] = `
 <SocialPerson
   style={

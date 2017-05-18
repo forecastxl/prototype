@@ -6,7 +6,7 @@ import { Alert } from '../../alert'
 import { TextField } from '../../form'
 import getUrlParameter from '../../../services/getUrlParameter'
 
-function DumbResetPasswordForm({ handleSubmit, pristine, submitting, error }) {
+export function DumbResetPasswordForm({ handleSubmit, pristine, submitting, error }) {
   const token = getUrlParameter('token')
 
   if (!token) {
