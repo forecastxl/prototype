@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<DumbProfileForm /> renders correctly 1`] = `
-<form>
+<form
+  onSubmit={[Function]}
+>
   <Field
     component={[Function]}
     fullWidth={true}
@@ -21,7 +23,7 @@ exports[`<DumbProfileForm /> renders correctly 1`] = `
     name="email"
   />
   <RaisedButton
-    disabled={false}
+    disabled={true}
     fullWidth={true}
     label="Wijzig profiel"
     labelPosition="after"
