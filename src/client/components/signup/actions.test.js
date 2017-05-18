@@ -14,9 +14,21 @@ describe('actioncreators', () => {
     })
   })
 
-  it('should create a CREATE_ACCOUNT_FAILURE action', () => {
-    expect(actions.createAccountFailure()).toEqual({
-      type: types.CREATE_ACCOUNT_FAILURE
+  it('should create a CREATE_ACCOUNT_VALIDATION_FAILURE action', () => {
+    expect(actions.createAccountValidationFailure()).toEqual({
+      type: types.CREATE_ACCOUNT_VALIDATION_FAILURE
+    })
+  })
+
+  it('should create a CREATE_ACCOUNT_CLIENT_FAILURE action', () => {
+    expect(actions.createAccountClientFailure()).toEqual({
+      type: types.CREATE_ACCOUNT_CLIENT_FAILURE
+    })
+  })
+
+  it('should create a CREATE_ACCOUNT_SERVER_FAILURE action', () => {
+    expect(actions.createAccountServerFailure()).toEqual({
+      type: types.CREATE_ACCOUNT_SERVER_FAILURE
     })
   })
 

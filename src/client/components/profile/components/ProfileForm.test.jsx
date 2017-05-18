@@ -5,21 +5,7 @@ import { DumbProfileForm } from './ProfileForm'
 
 describe('<DumbProfileForm />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(
-      <DumbProfileForm
-        errors={{}}
-        onChange={() => {}}
-        onSubmit={() => {}}
-        profile={{
-          firstName: '',
-          lastName: '',
-          email: '',
-          currentPassword: '',
-          newPassword: '',
-          newPasswordConfirmation: ''
-        }}
-      />
-    )
+    const wrapper = shallow(<DumbProfileForm handleSubmit={() => {}} pristine submitting={false} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })
