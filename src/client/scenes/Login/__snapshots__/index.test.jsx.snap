@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Login /> renders client errors 1`] = `
+exports[`<DumbLogin /> renders client errors 1`] = `
 <ClientError
   errorMessage="Client error"
 />
 `;
 
-exports[`<Login /> renders correctly 1`] = `<ReduxForm />`;
+exports[`<DumbLogin /> renders correctly 1`] = `<ReduxForm />`;
 
-exports[`<Login /> renders server errors 1`] = `
+exports[`<DumbLogin /> renders server errors 1`] = `
 <ServerError
   errorMessage="Server error"
 />

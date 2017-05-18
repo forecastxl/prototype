@@ -1,150 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SignupForm /> renders correctly 1`] = `
-<Styled(Card)>
-  <MuiComponent
-    title="Maak een account aan bij ForecastXL"
-    titleColor="white"
+exports[`<DumbSignupForm /> renders correctly 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <h2>
+    Beheerder
+  </h2>
+  <p>
+    Gegevens van de beheerder van dit account. Deze persoon kan bedrijven bewerken, toevoegen en verwijderen.
+  </p>
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Voornaam"
+    name="firstName"
   />
-  <CardText>
-    <form
-      action="/"
-      onSubmit={[Function]}
-    >
-      <styled.div
-        bottom={true}
-        size="2rem"
-      >
-        <h2>
-          Beheerder
-        </h2>
-        <p>
-          Gegevens van de beheerder van dit account. Deze persoon kan bedrijven bewerken, toevoegen en verwijderen.
-        </p>
-        <TextField
-          disabled={false}
-          floatingLabelFixed={false}
-          floatingLabelText="Voornaam"
-          fullWidth={true}
-          multiLine={false}
-          name="firstName"
-          onChange={[Function]}
-          rows={1}
-          type="text"
-          underlineShow={true}
-          value=""
-        />
-        <br />
-        <TextField
-          disabled={false}
-          floatingLabelFixed={false}
-          floatingLabelText="Achternaam"
-          fullWidth={true}
-          multiLine={false}
-          name="lastName"
-          onChange={[Function]}
-          rows={1}
-          type="text"
-          underlineShow={true}
-          value=""
-        />
-        <br />
-        <TextField
-          disabled={false}
-          floatingLabelFixed={false}
-          floatingLabelText="Email"
-          fullWidth={true}
-          multiLine={false}
-          name="email"
-          onChange={[Function]}
-          rows={1}
-          type="email"
-          underlineShow={true}
-          value=""
-        />
-        <br />
-        <TextField
-          disabled={false}
-          floatingLabelFixed={false}
-          floatingLabelText="Wachtwoord"
-          fullWidth={true}
-          multiLine={false}
-          name="password"
-          onChange={[Function]}
-          rows={1}
-          type="password"
-          underlineShow={true}
-          value=""
-        />
-        <br />
-        <TextField
-          disabled={false}
-          floatingLabelFixed={false}
-          floatingLabelText="Herhaal wachtwoord"
-          fullWidth={true}
-          multiLine={false}
-          name="passwordConfirmation"
-          onChange={[Function]}
-          rows={1}
-          type="password"
-          underlineShow={true}
-          value=""
-        />
-        <br />
-      </styled.div>
-      <styled.div
-        bottom={true}
-        size="2rem"
-      >
-        <h2>
-          Bedrijfsgegevens
-        </h2>
-        <p>
-          Bedrijfsgegevens voor de facturatie. Op basis van deze gegevens maken wij voor u ook alvast een voorbeeld bedrijf aan.
-        </p>
-        <TextField
-          disabled={false}
-          floatingLabelFixed={false}
-          floatingLabelText="Bedrijfsnaam"
-          fullWidth={true}
-          multiLine={false}
-          name="companyName"
-          onChange={[Function]}
-          rows={1}
-          type="text"
-          underlineShow={true}
-          value=""
-        />
-        <br />
-        <TextField
-          disabled={false}
-          floatingLabelFixed={false}
-          floatingLabelText="Telefoonnummer"
-          fullWidth={true}
-          multiLine={false}
-          name="phoneNumber"
-          onChange={[Function]}
-          rows={1}
-          type="tel"
-          underlineShow={true}
-          value=""
-        />
-      </styled.div>
-      <Checkbox
-        checked={false}
-        disabled={false}
-        label="Ik ga akkoord met de voorwaarden"
-        labelPosition="right"
-        name="agreedToGeneralTerms"
-        onCheck={[Function]}
-      />
-      <DialogButton
-        fullWidth={true}
-        label="Maak account aan"
-        primary={true}
-        type="submit"
-      />
-    </form>
-  </CardText>
-</Styled(Card)>
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Achternaam"
+    name="lastName"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Wachtwoord"
+    name="password"
+    type="password"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Herhaal wachtwoord"
+    name="passwordConfirmation"
+    type="password"
+  />
+  <h2>
+    Bedrijfsgegevens
+  </h2>
+  <p>
+    Bedrijfsgegevens voor de facturatie. Op basis van deze gegevens maken wij voor u ook alvast een voorbeeld bedrijf aan.
+  </p>
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Bedrijfsnaam"
+    name="companyName"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Telefoonnummer"
+    name="phoneNumber"
+  />
+  <Field
+    component={[Function]}
+    label="Ik ga akkoord met de algemene voorwaarden"
+    name="agreedToGeneralTerms"
+  />
+  <RaisedButton
+    disabled={true}
+    fullWidth={true}
+    label="Maak account aan"
+    labelPosition="after"
+    primary={true}
+    secondary={false}
+    type="submit"
+  />
+</form>
 `;

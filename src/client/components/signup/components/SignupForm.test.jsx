@@ -1,28 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import SignupForm from './SignupForm'
+import { DumbSignupForm } from './SignupForm'
 
-describe('<SignupForm />', () => {
+describe('<DumbSignupForm />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(
-      <SignupForm
-        errors={{}}
-        onTextChange={() => {}}
-        onCheckboxChange={() => {}}
-        onSubmit={() => {}}
-        account={{
-          firstName: '',
-          lastName: '',
-          companyName: '',
-          phoneNumber: '',
-          email: '',
-          password: '',
-          passwordConfirmation: '',
-          agreedToGeneralTerms: false
-        }}
-      />
-    )
+    const wrapper = shallow(<DumbSignupForm handleSubmit={() => {}} pristine submitting={false} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })
