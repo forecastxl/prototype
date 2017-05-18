@@ -55,10 +55,36 @@ describe('resetPassword', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put resetPasswordFailure on errors', () => {
+  it('should put requestResetPasswordValidationFailure on validation errors', () => {
     const error = new Error('error')
+    error.name = 'SubmissionError'
+    error.errors = 'Validation errors'
+    const generator = sagas.requestResetPassword(action)
+    const expected = put(actions.requestResetPasswordValidationFailure(error.errors))
+
+    generator.next()
+    const actual = generator.throw(error).value
+
+    expect(actual).toEqual(expected)
+  })
+
+  it('should put resetPasswordClientFailure on client errors', () => {
+    const error = new Error('error')
+    error.name = 'ClientError'
     const generator = sagas.resetPassword(action)
-    const expected = put(actions.resetPasswordFailure(error))
+    const expected = put(actions.resetPasswordClientFailure(error))
+
+    generator.next()
+    const actual = generator.throw(error).value
+
+    expect(actual).toEqual(expected)
+  })
+
+  it('should put resetPasswordServerFailure on server errors', () => {
+    const error = new Error('error')
+    error.name = 'ServerError'
+    const generator = sagas.resetPassword(action)
+    const expected = put(actions.resetPasswordServerFailure(error))
 
     generator.next()
     const actual = generator.throw(error).value
@@ -131,10 +157,36 @@ describe('requestResetPassword', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put requestResetPasswordFailure on errors', () => {
+  it('should put requestResetPasswordValidationFailure on validation errors', () => {
     const error = new Error('error')
+    error.name = 'SubmissionError'
+    error.errors = 'Validation errors'
     const generator = sagas.requestResetPassword(action)
-    const expected = put(actions.requestResetPasswordFailure(error))
+    const expected = put(actions.requestResetPasswordValidationFailure(error.errors))
+
+    generator.next()
+    const actual = generator.throw(error).value
+
+    expect(actual).toEqual(expected)
+  })
+
+  it('should put requestResetPasswordClientFailure on client errors', () => {
+    const error = new Error('error')
+    error.name = 'ClientError'
+    const generator = sagas.requestResetPassword(action)
+    const expected = put(actions.requestResetPasswordClientFailure(error))
+
+    generator.next()
+    const actual = generator.throw(error).value
+
+    expect(actual).toEqual(expected)
+  })
+
+  it('should put requestResetPasswordServerFailure on server errors', () => {
+    const error = new Error('error')
+    error.name = 'ServerError'
+    const generator = sagas.requestResetPassword(action)
+    const expected = put(actions.requestResetPasswordServerFailure(error))
 
     generator.next()
     const actual = generator.throw(error).value

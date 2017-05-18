@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DumbProfileForm /> renders correctly 1`] = `
+<form>
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Voornaam"
+    name="firstName"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Achternaam"
+    name="lastName"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Email"
+    name="email"
+  />
+  <RaisedButton
+    disabled={false}
+    fullWidth={true}
+    label="Wijzig profiel"
+    labelPosition="after"
+    primary={true}
+    secondary={false}
+    type="submit"
+  />
+</form>
+`;

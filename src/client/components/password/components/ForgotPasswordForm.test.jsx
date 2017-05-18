@@ -6,7 +6,7 @@ import { DumbForgotPasswordForm } from './ForgotPasswordForm'
 describe('<DumbForgotPasswordForm />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(
-      <DumbForgotPasswordForm onSubmit={() => {}} onChange={() => {}} email={''} errors={{}} />
+      <DumbForgotPasswordForm handleSubmit={() => {}} pristine submitting={false} />
     )
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })

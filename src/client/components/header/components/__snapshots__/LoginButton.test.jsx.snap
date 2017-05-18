@@ -1,5 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<DumbLoginButton /> renders correctly 1`] = `
+<Link
+  replace={false}
+  to="/login"
+>
+  <FlatButton
+    disabled={false}
+    fullWidth={false}
+    label="Login"
+    labelPosition="after"
+    labelStyle={Object {}}
+    onKeyboardFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onTouchStart={[Function]}
+    primary={false}
+    secondary={false}
+    style={
+      Object {
+        "color": "blue",
+      }
+    }
+  />
+</Link>
+`;
+
 exports[`<LoginButton /> renders correctly 1`] = `
 <Link
   replace={false}
