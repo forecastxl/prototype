@@ -1,30 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LoginForm /> renders correctly 1`] = `
-<form
-  onSubmit={[Function]}
+<CardWithTitle
+  padding="2em"
+  size="small"
+  title="Login"
 >
-  <Field
-    component={[Function]}
-    fullWidth={true}
-    label="Email"
-    name="email"
-  />
-  <Field
-    component={[Function]}
-    fullWidth={true}
-    label="Wachtwoord"
-    name="password"
-    type="password"
-  />
-  <RaisedButton
-    disabled={false}
-    fullWidth={true}
-    label="Inloggen"
-    labelPosition="after"
-    primary={true}
-    secondary={false}
-    type="submit"
-  />
-</form>
+  <form
+    onSubmit={[Function]}
+  >
+    <Field
+      component={[Function]}
+      fullWidth={true}
+      label="Email"
+      name="email"
+      validate={[Function]}
+    />
+    <Field
+      component={[Function]}
+      fullWidth={true}
+      label="Wachtwoord"
+      name="password"
+      type="password"
+      validate={[Function]}
+    />
+    <RaisedButton
+      disabled={true}
+      fullWidth={true}
+      label="Inloggen"
+      labelPosition="after"
+      primary={true}
+      secondary={false}
+      type="submit"
+    />
+  </form>
+</CardWithTitle>
 `;
