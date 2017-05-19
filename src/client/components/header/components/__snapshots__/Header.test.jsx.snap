@@ -1,19 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> renders correctly when it does not have a token 1`] = `
-<MuiComponent>
-  <MuiComponent>
-    ForecastXL
-  </MuiComponent>
-  <MuiComponent />
-</MuiComponent>
-`;
-
-exports[`<Header /> renders correctly when it has a token 1`] = `
-<MuiComponent>
-  <MuiComponent>
-    ForecastXL
-  </MuiComponent>
-  <UserNavigation />
-</MuiComponent>
+exports[`<Header /> renders correctly 1`] = `
+<styled.header>
+  <Logo />
+</styled.header>
 `;

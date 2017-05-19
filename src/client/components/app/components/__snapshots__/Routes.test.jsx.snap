@@ -2,7 +2,7 @@
 
 exports[`<Routes /> renders correctly 1`] = `
 <div>
-  <Connect(Header) />
+  <Header />
   <Switch>
     <Route
       component={[Function]}
