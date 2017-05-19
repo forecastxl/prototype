@@ -14,5 +14,11 @@ exports[`<DumbLogoutMenuItem /> renders correctly 1`] = `
   focusState="none"
   insetChildren={false}
   onClick={[Function]}
+  targetOrigin={
+    Object {
+      "horizontal": "left",
+      "vertical": "top",
+    }
+  }
 />
 `;
