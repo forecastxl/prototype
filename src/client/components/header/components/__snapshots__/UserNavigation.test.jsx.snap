@@ -51,6 +51,12 @@ exports[`<UserNavigation /> renders correctly 1`] = `
     disabled={false}
     focusState="none"
     insetChildren={false}
+    targetOrigin={
+      Object {
+        "horizontal": "left",
+        "vertical": "top",
+      }
+    }
   >
     <Styled(Link)
       to="/profile"
