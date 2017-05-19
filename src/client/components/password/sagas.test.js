@@ -55,12 +55,12 @@ describe('resetPassword', () => {
     expect(actual).toEqual(expected)
   })
 
-  it('should put requestResetPasswordValidationFailure on validation errors', () => {
+  it('should put resetPasswordValidationFailure on validation errors', () => {
     const error = new Error('error')
     error.name = 'SubmissionError'
     error.errors = 'Validation errors'
-    const generator = sagas.requestResetPassword(action)
-    const expected = put(actions.requestResetPasswordValidationFailure(error.errors))
+    const generator = sagas.resetPassword(action)
+    const expected = put(actions.resetPasswordValidationFailure(error.errors))
 
     generator.next()
     const actual = generator.throw(error).value
