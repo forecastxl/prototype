@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Scene /> renders correctly 1`] = `
+exports[`<Profile /> renders correctly 1`] = `
 <div>
   <ReduxForm />
   <ReduxForm />
