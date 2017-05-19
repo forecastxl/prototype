@@ -9,7 +9,7 @@ import { shallowToJson } from 'enzyme-to-json'
 import Title from './Title'
 
 describe('<Title />', () => {
-  it('renders an error correctly', () => {
+  it('renders correctly', () => {
     const wrapper = shallow(<Title />)
     expect(shallowToJson(wrapper)).toMatchStyledComponentsSnapshot()
   })

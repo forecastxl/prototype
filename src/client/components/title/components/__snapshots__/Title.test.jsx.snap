@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Title /> renders an error correctly 1`] = `
+exports[`<Title /> renders correctly 1`] = `
 .ftwuTT {
   font-size: 2rem;
 }
