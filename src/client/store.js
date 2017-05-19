@@ -5,8 +5,9 @@ import { addFormSubmitSagaTo as formSaga } from 'redux-form-submit-saga'
 import rootReducer from './rootReducer'
 import rootSaga from './rootSaga'
 
-// Initialize devtools
-const devTools = window.devToolsExtension ? window.devToolsExtension() : f => f
+// Initialize devtools when available
+// eslint-disable-next-line no-underscore-dangle
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 // Returns a store and accepts an initial state
 const configureStore = (preloadedState, history) => {
@@ -14,7 +15,7 @@ const configureStore = (preloadedState, history) => {
   const store = createStore(
     connectRouter(history)(rootReducer),
     preloadedState,
-    compose(applyMiddleware(sagaMiddleware, routerMiddleware(history)), devTools)
+    composeEnhancers(applyMiddleware(sagaMiddleware, routerMiddleware(history)))
   )
 
   sagaMiddleware.run(rootSaga)
