@@ -16,6 +16,7 @@ export function DumbSignupForm({ handleSubmit, pristine, submitting, error }) {
       </p>
       <Field name="firstName" component={TextField} label="Voornaam" fullWidth />
       <Field name="lastName" component={TextField} label="Achternaam" fullWidth />
+      <Field name="email" component={TextField} label="Email" fullWidth />
       <Field name="password" component={TextField} label="Wachtwoord" type="password" fullWidth />
       <Field
         name="passwordConfirmation"

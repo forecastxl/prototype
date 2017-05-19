@@ -6,7 +6,15 @@ import Checkbox from './Checkbox'
 describe('<Checkbox />', () => {
   it('renders correctly', () => {
     const input = { value: 'Input', onChange: () => {} }
-    const wrapper = shallow(<Checkbox label="Label" input={input} />)
+    const meta = { touched: false, error: '' }
+    const wrapper = shallow(<Checkbox label="Label" input={input} meta={meta} />)
+    expect(shallowToJson(wrapper)).toMatchSnapshot()
+  })
+
+  it('renders errors correctly', () => {
+    const input = { value: 'Input', onChange: () => {} }
+    const meta = { touched: true, error: 'Error' }
+    const wrapper = shallow(<Checkbox label="Label" input={input} meta={meta} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })

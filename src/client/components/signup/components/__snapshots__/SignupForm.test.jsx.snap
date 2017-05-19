@@ -25,6 +25,12 @@ exports[`<DumbSignupForm /> renders correctly 1`] = `
   <Field
     component={[Function]}
     fullWidth={true}
+    label="Email"
+    name="email"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
     label="Wachtwoord"
     name="password"
     type="password"
