@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> renders correctly 1`] = `
+.iWwYFm {
+  margin: 5rem auto 0;
+  width: 25rem;
+}
+
+<Card
+  className="sc-bdVaJa iWwYFm"
+  marginTop="5rem"
+  width="25rem"
+/>
+`;

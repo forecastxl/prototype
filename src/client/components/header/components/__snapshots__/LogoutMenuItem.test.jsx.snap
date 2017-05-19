@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LogoutMenuItem /> renders correctly 1`] = `
+exports[`<DumbLogoutMenuItem /> renders correctly 1`] = `
 <MenuItem
   anchorOrigin={
     Object {

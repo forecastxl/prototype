@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Title /> renders correctly 1`] = `
+exports[`<DumbTitle /> renders correctly 1`] = `
 .CZTRT {
   color: blue;
   font-size: 1.25rem;

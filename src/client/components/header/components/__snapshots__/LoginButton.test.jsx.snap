@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LoginButton /> renders correctly 1`] = `
+exports[`<DumbLoginButton /> renders correctly 1`] = `
 <Link
   replace={false}
   to="/login"

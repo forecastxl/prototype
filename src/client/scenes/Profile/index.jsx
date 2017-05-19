@@ -1,8 +1,13 @@
 import React from 'react'
-import { ProfileContainer } from '../../components/profile'
+import { ProfileForm, PasswordForm } from '../../components/profile'
 
 function Profile() {
-  return <ProfileContainer />
+  return (
+    <div>
+      <ProfileForm />
+      <PasswordForm />
+    </div>
+  )
 }
 
 export default Profile

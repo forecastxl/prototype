@@ -26,7 +26,7 @@ describe('sagas', () => {
   describe('createAccount', () => {
     const action = { payload: 'account' }
     const endpoint = endpoints.constant.CREATE_ACCOUNT
-    const data = { account: action.payload }
+    const data = action.payload
 
     it('should post the account data', () => {
       const generator = sagas.createAccount(action)
@@ -64,10 +64,36 @@ describe('sagas', () => {
       expect(actual).toEqual(expected)
     })
 
-    it('should put createAccountFailure on errors', () => {
+    it('should put createAccountValidationFailure on validation errors', () => {
       const error = new Error('error')
+      error.name = 'SubmissionError'
+      error.errors = 'Validation errors'
       const generator = sagas.createAccount(action)
-      const expected = put(actions.createAccountFailure(error))
+      const expected = put(actions.createAccountValidationFailure(error.errors))
+
+      generator.next()
+      const actual = generator.throw(error).value
+
+      expect(actual).toEqual(expected)
+    })
+
+    it('should put createAccountClientFailure on client errors', () => {
+      const error = new Error('error')
+      error.name = 'ClientError'
+      const generator = sagas.createAccount(action)
+      const expected = put(actions.createAccountClientFailure(error))
+
+      generator.next()
+      const actual = generator.throw(error).value
+
+      expect(actual).toEqual(expected)
+    })
+
+    it('should put createAccountServerFailure on server errors', () => {
+      const error = new Error('error')
+      error.name = 'ServerError'
+      const generator = sagas.createAccount(action)
+      const expected = put(actions.createAccountServerFailure(error))
 
       generator.next()
       const actual = generator.throw(error).value

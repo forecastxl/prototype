@@ -1,8 +1,8 @@
 import React from 'react'
-import { SignupFormContainer } from '../../components/signup'
+import { SignupForm } from '../../components/signup'
 
 function Signup() {
-  return <SignupFormContainer />
+  return <SignupForm />
 }
 
 export default Signup

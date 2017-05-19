@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { onSubmitActions } from 'redux-form-submit-saga'
+import RaisedButton from 'material-ui/RaisedButton'
 import { Alert } from '../../alert'
-import { Button, TextField } from '../../form'
+import { TextField } from '../../form'
 
 export function LoginForm({ handleSubmit, pristine, submitting, error }) {
   return (
@@ -10,7 +11,13 @@ export function LoginForm({ handleSubmit, pristine, submitting, error }) {
       {error && <Alert message={error} type={'error'} />}
       <Field name="email" component={TextField} label="Email" fullWidth />
       <Field name="password" component={TextField} label="Wachtwoord" type="password" fullWidth />
-      <Button type="submit" label="Inloggen" primary fullWidth disabled={pristine || submitting} />
+      <RaisedButton
+        type="submit"
+        label="Inloggen"
+        primary
+        fullWidth
+        disabled={pristine || submitting}
+      />
     </form>
   )
 }

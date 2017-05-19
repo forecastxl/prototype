@@ -6,9 +6,13 @@ import api from '../../services/api'
 import { RESET_PASSWORD, REQUEST_RESET_PASSWORD } from './actionTypes'
 import {
   resetPasswordSuccess,
-  resetPasswordFailure,
+  resetPasswordValidationFailure,
+  resetPasswordClientFailure,
+  resetPasswordServerFailure,
   requestResetPasswordSuccess,
-  requestResetPasswordFailure
+  requestResetPasswordValidationFailure,
+  requestResetPasswordClientFailure,
+  requestResetPasswordServerFailure
 } from './actions'
 
 export function* resetPassword({ payload }) {
@@ -20,7 +24,13 @@ export function* resetPassword({ payload }) {
     yield put(resetPasswordSuccess())
     yield put(push('/'))
   } catch (error) {
-    yield put(resetPasswordFailure(error))
+    if (error.name === 'SubmissionError') {
+      yield put(resetPasswordValidationFailure(error.errors))
+    } else if (error.name === 'ClientError') {
+      yield put(resetPasswordClientFailure(error))
+    } else {
+      yield put(resetPasswordServerFailure(error))
+    }
   }
 }
 
@@ -43,7 +53,13 @@ export function* requestResetPassword({ payload }) {
     )
     yield put(push('/login'))
   } catch (error) {
-    yield put(requestResetPasswordFailure(error))
+    if (error.name === 'SubmissionError') {
+      yield put(requestResetPasswordValidationFailure(error.errors))
+    } else if (error.name === 'ClientError') {
+      yield put(requestResetPasswordClientFailure(error))
+    } else {
+      yield put(requestResetPasswordServerFailure(error))
+    }
   }
 }
 

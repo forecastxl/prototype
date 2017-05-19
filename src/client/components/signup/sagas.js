@@ -5,11 +5,16 @@ import endpoints from '../../services/endpoints'
 import api from '../../services/api'
 import { actions as sessionActions } from '../../data/session'
 import { CREATE_ACCOUNT, CONFIRM_ACCOUNT } from './actionTypes'
-import { createAccountFailure, confirmAccountFailure } from './actions'
+import {
+  createAccountValidationFailure,
+  createAccountClientFailure,
+  createAccountServerFailure,
+  confirmAccountFailure
+} from './actions'
 
 export function* createAccount({ payload }) {
   const endpoint = endpoints.constant.CREATE_ACCOUNT
-  const data = { account: payload }
+  const data = payload
 
   try {
     yield call(api.post, { endpoint, data })
@@ -21,7 +26,13 @@ export function* createAccount({ payload }) {
     )
     yield put(push('/'))
   } catch (error) {
-    yield put(createAccountFailure(error))
+    if (error.name === 'SubmissionError') {
+      yield put(createAccountValidationFailure(error.errors))
+    } else if (error.name === 'ClientError') {
+      yield put(createAccountClientFailure(error))
+    } else {
+      yield put(createAccountServerFailure(error))
+    }
   }
 }
 

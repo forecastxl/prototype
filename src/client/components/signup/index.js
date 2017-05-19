@@ -4,4 +4,4 @@ import * as sagas from './sagas'
 
 export { actionTypes, actions, sagas }
 export { default as SignupConfirmContainer } from './components/SignupConfirmContainer'
-export { default as SignupFormContainer } from './components/SignupFormContainer'
+export { default as SignupForm } from './components/SignupForm'

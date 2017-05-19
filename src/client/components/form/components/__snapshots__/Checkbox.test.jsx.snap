@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Checkbox /> renders correctly 1`] = `
+<span>
+  <Checkbox
+    checked={true}
+    disabled={false}
+    label="Label"
+    labelPosition="right"
+    onCheck={[Function]}
+  />
+</span>
+`;
+
+exports[`<Checkbox /> renders errors correctly 1`] = `
+<span>
+  <Alert
+    message="Error"
+    type="error"
+  />
+  <Checkbox
+    checked={true}
+    disabled={false}
+    label="Label"
+    labelPosition="right"
+    onCheck={[Function]}
+  />
+</span>
+`;

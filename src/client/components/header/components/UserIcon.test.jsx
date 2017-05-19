@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 import { DumbUserIcon } from './UserIcon'
 
-describe('<UserIcon />', () => {
+describe('<DumbUserIcon />', () => {
   it('renders correctly', () => {
     const theme = {
       palette: {

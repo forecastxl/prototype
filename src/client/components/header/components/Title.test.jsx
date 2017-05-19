@@ -8,7 +8,7 @@ import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
 import { DumbTitle } from './Title'
 
-describe('<Title />', () => {
+describe('<DumbTitle />', () => {
   it('renders correctly', () => {
     const theme = {
       palette: {
