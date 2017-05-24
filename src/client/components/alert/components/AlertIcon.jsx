@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { oneOf } from 'prop-types'
 import SuccessIcon from 'material-ui/svg-icons/action/check-circle'
 import InfoIcon from 'material-ui/svg-icons/action/info'
 import ErrorIcon from 'material-ui/svg-icons/alert/error'
@@ -21,7 +22,7 @@ function AlertIcon({ type }) {
 }
 
 AlertIcon.propTypes = {
-  type: PropTypes.oneOf(['error', 'warning', 'info', 'success']).isRequired
+  type: oneOf(['error', 'warning', 'info', 'success']).isRequired
 }
 
 export default AlertIcon

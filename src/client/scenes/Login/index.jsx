@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { object } from 'prop-types'
 import { connect } from 'react-redux'
 import { selectors } from '../../data/session'
 import { ClientError, ServerError } from '../../components/errors'
@@ -17,7 +18,7 @@ export function DumbLogin({ session }) {
 }
 
 DumbLogin.propTypes = {
-  session: PropTypes.object.isRequired
+  session: object.isRequired
 }
 
 const mapStateToProps = state => ({

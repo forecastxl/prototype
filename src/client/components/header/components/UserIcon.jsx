@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { object } from 'prop-types'
 import SocialPerson from 'material-ui/svg-icons/social/person'
 import muiThemeable from 'material-ui/styles/muiThemeable'
 
@@ -7,7 +8,7 @@ export function DumbUserIcon({ muiTheme }) {
 }
 
 DumbUserIcon.propTypes = {
-  muiTheme: PropTypes.object.isRequired
+  muiTheme: object.isRequired
 }
 
 export default muiThemeable()(DumbUserIcon)

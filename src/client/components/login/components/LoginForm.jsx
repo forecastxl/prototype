@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { string, func, bool } from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
 import { onSubmitActions } from 'redux-form-submit-saga'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -23,10 +24,10 @@ export function LoginForm({ handleSubmit, pristine, submitting, error }) {
 }
 
 LoginForm.propTypes = {
-  error: PropTypes.string,
-  handleSubmit: PropTypes.func.isRequired,
-  pristine: PropTypes.bool.isRequired,
-  submitting: PropTypes.bool.isRequired
+  error: string,
+  handleSubmit: func.isRequired,
+  pristine: bool.isRequired,
+  submitting: bool.isRequired
 }
 
 LoginForm.defaultProps = {

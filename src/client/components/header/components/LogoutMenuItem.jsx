@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { func } from 'prop-types'
 import { connect } from 'react-redux'
 import MenuItem from 'material-ui/MenuItem'
 import { actions } from '../../../data/session'
@@ -8,7 +9,7 @@ export function DumbLogoutMenuItem({ destroySession, ...rest }) {
 }
 
 DumbLogoutMenuItem.propTypes = {
-  destroySession: PropTypes.func.isRequired
+  destroySession: func.isRequired
 }
 
 export default connect(null, { destroySession: actions.destroySession })(DumbLogoutMenuItem)

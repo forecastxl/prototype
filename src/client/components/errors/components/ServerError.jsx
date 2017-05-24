@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { string } from 'prop-types'
 
 function ServerError({ errorMessage }) {
   return (
@@ -9,7 +10,7 @@ function ServerError({ errorMessage }) {
 }
 
 ServerError.propTypes = {
-  errorMessage: PropTypes.string.isRequired
+  errorMessage: string.isRequired
 }
 
 export default ServerError

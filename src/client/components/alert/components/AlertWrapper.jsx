@@ -1,4 +1,4 @@
-import { PropTypes } from 'react'
+import { oneOf } from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import styles from '../../../styles'
 
@@ -42,7 +42,7 @@ const AlertWrapper = styled.div`
 `
 
 AlertWrapper.propTypes = {
-  type: PropTypes.oneOf(['error', 'warning', 'info', 'success']).isRequired
+  type: oneOf(['error', 'warning', 'info', 'success']).isRequired
 }
 
 export default AlertWrapper

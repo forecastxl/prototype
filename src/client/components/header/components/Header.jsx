@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { bool } from 'prop-types'
 import { connect } from 'react-redux'
 import { selectors } from '../../../data/session'
 import Wrapper from './Wrapper'
@@ -16,7 +17,7 @@ export function Header({ hasToken }) {
 }
 
 Header.propTypes = {
-  hasToken: PropTypes.bool.isRequired
+  hasToken: bool.isRequired
 }
 
 const mapStateToProps = state => ({

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { bool } from 'prop-types'
 
 function SignupConfirm({ hasToken, isFetching }) {
   if (!hasToken) {
@@ -13,8 +14,8 @@ function SignupConfirm({ hasToken, isFetching }) {
 }
 
 SignupConfirm.propTypes = {
-  hasToken: PropTypes.bool.isRequired,
-  isFetching: PropTypes.bool.isRequired
+  hasToken: bool.isRequired,
+  isFetching: bool.isRequired
 }
 
 export default SignupConfirm
