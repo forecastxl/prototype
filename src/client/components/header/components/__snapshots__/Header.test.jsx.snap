@@ -3,5 +3,14 @@
 exports[`<Header /> renders correctly 1`] = `
 <styled.header>
   <Logo />
+  <RaisedButton
+    disabled={false}
+    fullWidth={false}
+    label="Inloggen"
+    labelPosition="after"
+    primary={true}
+    secondary={false}
+    type="submit"
+  />
 </styled.header>
 `;

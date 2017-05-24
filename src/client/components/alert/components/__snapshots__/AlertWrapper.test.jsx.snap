@@ -79,17 +79,17 @@ exports[`<AlertWrapper /> renders an error correctly 1`] = `
 `;
 
 exports[`<AlertWrapper /> renders info correctly 1`] = `
-.dOrRHF {
+.hAPJKi {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   -webkit-animation: eMLfYp 200ms linear;
   animation: eMLfYp 200ms linear;
-  background: #85c5e9;
+  background: #3498DB;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  color: #1571a0;
+  color: #2C3E50;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -99,7 +99,7 @@ exports[`<AlertWrapper /> renders info correctly 1`] = `
 }
 
 <div
-  className="sc-bdVaJa dOrRHF"
+  className="sc-bdVaJa hAPJKi"
   type="info"
 />
 `;

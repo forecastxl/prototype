@@ -11,10 +11,10 @@ const iconStyles = {
 }
 
 const map = {
-  error: <ErrorIcon style={{ ...iconStyles, fill: colors.errorText }} />,
-  warning: <WarningIcon style={{ ...iconStyles, fill: colors.warningText }} />,
-  info: <InfoIcon style={{ ...iconStyles, fill: colors.infoText }} />,
-  success: <SuccessIcon style={{ ...iconStyles, fill: colors.successText }} />
+  error: <ErrorIcon style={{ ...iconStyles, fill: colors.darkRed }} />,
+  warning: <WarningIcon style={{ ...iconStyles, fill: colors.darkYellow }} />,
+  info: <InfoIcon style={{ ...iconStyles, fill: colors.darkBlue }} />,
+  success: <SuccessIcon style={{ ...iconStyles, fill: colors.darkGreen }} />
 }
 
 function AlertIcon({ type }) {

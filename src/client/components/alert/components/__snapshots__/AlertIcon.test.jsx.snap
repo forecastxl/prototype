@@ -37,7 +37,7 @@ exports[`<AlertIcon /> renders info correctly 1`] = `
 <ActionInfo
   style={
     Object {
-      "fill": "#1571a0",
+      "fill": "#2C3E50",
       "marginRight": "0.5em",
     }
   }

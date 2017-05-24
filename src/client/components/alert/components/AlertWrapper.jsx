@@ -9,10 +9,10 @@ const fadeIn = keyframes`
 
 const setBackground = props => {
   const map = {
-    error: colors.errorBackground,
-    warning: colors.warningBackground,
-    info: colors.infoBackground,
-    success: colors.successBackground
+    error: colors.red,
+    warning: colors.yellow,
+    info: colors.blue,
+    success: colors.green
   }
 
   return map[props.type]
@@ -20,10 +20,10 @@ const setBackground = props => {
 
 const setColor = props => {
   const map = {
-    error: colors.errorText,
-    warning: colors.warningText,
-    info: colors.infoText,
-    success: colors.successText
+    error: colors.darkRed,
+    warning: colors.darkYellow,
+    info: colors.darkBlue,
+    success: colors.darkGreen
   }
 
   return map[props.type]
