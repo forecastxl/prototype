@@ -22,6 +22,10 @@ Docker containers of this project are built automatically and can be found on [D
 
 * clone and run `yarn`
 
+## credits
+
+A thank you to [Browserstack](https://www.browserstack.com) for the open-source account on which we do our cross-browser testing.
+
 ## license
 
 [MIT](LICENSE.md)
