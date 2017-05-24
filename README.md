@@ -22,6 +22,10 @@ Docker containers of this project are built automatically and can be found on [D
 
 * clone and run `yarn`
 
+## license
+
+[MIT](LICENSE.md)
+
 [greenkeeper-badge]: https://badges.greenkeeper.io/forecastxl/prototype.svg
 [greenkeeper-url]: https://greenkeeper.io/
 [build-badge]: https://travis-ci.org/forecastxl/prototype.svg?branch=develop
