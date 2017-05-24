@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { colors } from '../../../styles'
 
 const Heading = styled.h1`
   font-size: 1.25rem;
@@ -8,11 +9,11 @@ const Heading = styled.h1`
 `
 
 const Blue = styled.span`
-  color: blue;
+  color: ${colors.blue};
 `
 
 const White = styled.span`
-  color: white;
+  color: ${colors.white};
 `
 
 function Logo() {
