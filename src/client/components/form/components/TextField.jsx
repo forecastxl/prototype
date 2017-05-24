@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { string, object } from 'prop-types'
 import TextField from 'material-ui/TextField'
 
 function TextFieldWrapper({ input, label, meta: { touched, error }, ...custom }) {
@@ -14,9 +15,9 @@ function TextFieldWrapper({ input, label, meta: { touched, error }, ...custom })
 }
 
 TextFieldWrapper.propTypes = {
-  input: PropTypes.object.isRequired,
-  label: PropTypes.string.isRequired,
-  meta: PropTypes.object.isRequired
+  input: object.isRequired,
+  label: string.isRequired,
+  meta: object.isRequired
 }
 
 export default TextFieldWrapper

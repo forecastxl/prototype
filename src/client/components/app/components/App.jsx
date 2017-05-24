@@ -1,5 +1,6 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { object } from 'prop-types'
 import { ConnectedRouter } from 'connected-react-router'
 import { Provider } from 'react-redux'
 import Routes from './Routes'
@@ -17,8 +18,8 @@ function App({ store, history }) {
 }
 
 App.propTypes = {
-  store: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
+  store: object.isRequired,
+  history: object.isRequired
 }
 
 export default App

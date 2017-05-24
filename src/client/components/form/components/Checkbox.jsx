@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import { object, string } from 'prop-types'
 import Checkbox from 'material-ui/Checkbox'
 import { Alert } from '../../alert'
 
@@ -12,9 +13,9 @@ function CheckboxWrapper({ input, label, meta: { touched, error } }) {
 }
 
 CheckboxWrapper.propTypes = {
-  input: PropTypes.object.isRequired,
-  label: PropTypes.string.isRequired,
-  meta: PropTypes.object.isRequired
+  input: object.isRequired,
+  label: string.isRequired,
+  meta: object.isRequired
 }
 
 export default CheckboxWrapper

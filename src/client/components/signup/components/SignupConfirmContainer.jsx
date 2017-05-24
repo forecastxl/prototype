@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import { func } from 'prop-types'
 import { connect } from 'react-redux'
 import getUrlParameter from '../../../services/getUrlParameter'
 import { confirmAccount } from '../actions'
@@ -40,7 +41,7 @@ export class SignupConfirmContainer extends Component {
 }
 
 SignupConfirmContainer.propTypes = {
-  confirmAccount: PropTypes.func.isRequired
+  confirmAccount: func.isRequired
 }
 
 export default connect(null, { confirmAccount })(SignupConfirmContainer)
