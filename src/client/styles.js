@@ -3,12 +3,12 @@ export const colors = {
   blue: '#3498DB',
   lightBlue: '#ECF0F1',
   white: '#FFFFFF',
-  red: '#e27c79',
-  darkRed: '#9f2723',
-  yellow: '#ebc063',
-  darkYellow: '#a07415',
-  green: '#91cf91',
-  darkGreen: '#3d8b3d'
+  red: '#E74C3C',
+  darkRed: '#9F2723',
+  yellow: '#F1C40F',
+  darkYellow: '#A07415',
+  green: '#27AE60',
+  darkGreen: '#3D8B3D'
 }
 
 export const boxShadow = '0 1px 3px rgba(0,0,0,0.3)'

@@ -4,7 +4,7 @@ exports[`<AlertIcon /> renders a success correctly 1`] = `
 <ActionCheckCircle
   style={
     Object {
-      "fill": "#3d8b3d",
+      "fill": "#3D8B3D",
       "marginRight": "0.5em",
     }
   }
@@ -15,7 +15,7 @@ exports[`<AlertIcon /> renders a warning correctly 1`] = `
 <AlertWarning
   style={
     Object {
-      "fill": "#a07415",
+      "fill": "#A07415",
       "marginRight": "0.5em",
     }
   }
@@ -26,7 +26,7 @@ exports[`<AlertIcon /> renders an error correctly 1`] = `
 <AlertError
   style={
     Object {
-      "fill": "#9f2723",
+      "fill": "#9F2723",
       "marginRight": "0.5em",
     }
   }
