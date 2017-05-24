@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DumbWrapper /> renders correctly 1`] = `
-.kHFwzF {
+exports[`<Wrapper /> renders correctly 1`] = `
+.kLCWqp {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: ;
+  background: #2C3E50;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -20,6 +20,6 @@ exports[`<DumbWrapper /> renders correctly 1`] = `
 }
 
 <header
-  className="sc-bdVaJa kHFwzF"
+  className="sc-bdVaJa kLCWqp"
 />
 `;

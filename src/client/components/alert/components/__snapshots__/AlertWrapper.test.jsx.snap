@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AlertWrapper /> renders a success correctly 1`] = `
-.fnCatB {
+.cNOMov {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   -webkit-animation: eMLfYp 200ms linear;
   animation: eMLfYp 200ms linear;
-  background: #91cf91;
+  background: #27AE60;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  color: #3d8b3d;
+  color: #3D8B3D;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21,23 +21,23 @@ exports[`<AlertWrapper /> renders a success correctly 1`] = `
 }
 
 <div
-  className="sc-bdVaJa fnCatB"
+  className="sc-bdVaJa cNOMov"
   type="success"
 />
 `;
 
 exports[`<AlertWrapper /> renders a warning correctly 1`] = `
-.fdBvYH {
+.ceLxOw {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   -webkit-animation: eMLfYp 200ms linear;
   animation: eMLfYp 200ms linear;
-  background: #ebc063;
+  background: #F1C40F;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  color: #a07415;
+  color: #A07415;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -47,23 +47,23 @@ exports[`<AlertWrapper /> renders a warning correctly 1`] = `
 }
 
 <div
-  className="sc-bdVaJa fdBvYH"
+  className="sc-bdVaJa ceLxOw"
   type="warning"
 />
 `;
 
 exports[`<AlertWrapper /> renders an error correctly 1`] = `
-.ibAmxU {
+.ejMfTa {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   -webkit-animation: eMLfYp 200ms linear;
   animation: eMLfYp 200ms linear;
-  background: #e27c79;
+  background: #E74C3C;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  color: #9f2723;
+  color: #9F2723;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -73,23 +73,23 @@ exports[`<AlertWrapper /> renders an error correctly 1`] = `
 }
 
 <div
-  className="sc-bdVaJa ibAmxU"
+  className="sc-bdVaJa ejMfTa"
   type="error"
 />
 `;
 
 exports[`<AlertWrapper /> renders info correctly 1`] = `
-.dOrRHF {
+.hAPJKi {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   -webkit-animation: eMLfYp 200ms linear;
   animation: eMLfYp 200ms linear;
-  background: #85c5e9;
+  background: #3498DB;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  color: #1571a0;
+  color: #2C3E50;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -99,7 +99,7 @@ exports[`<AlertWrapper /> renders info correctly 1`] = `
 }
 
 <div
-  className="sc-bdVaJa dOrRHF"
+  className="sc-bdVaJa hAPJKi"
   type="info"
 />
 `;

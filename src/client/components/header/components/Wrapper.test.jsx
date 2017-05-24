@@ -6,16 +6,11 @@ import 'jest-styled-components'
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import { DumbWrapper } from './Wrapper'
+import Wrapper from './Wrapper'
 
-describe('<DumbWrapper />', () => {
+describe('<Wrapper />', () => {
   it('renders correctly', () => {
-    const theme = {
-      palette: {
-        alternateTextColor: 'blue'
-      }
-    }
-    const wrapper = shallow(<DumbWrapper muiTheme={theme} />)
+    const wrapper = shallow(<Wrapper />)
     expect(shallowToJson(wrapper)).toMatchStyledComponentsSnapshot()
   })
 })

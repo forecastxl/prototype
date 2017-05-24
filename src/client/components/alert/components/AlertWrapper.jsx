@@ -1,6 +1,6 @@
 import { oneOf } from 'prop-types'
 import styled, { keyframes } from 'styled-components'
-import styles from '../../../styles'
+import { boxShadow, colors } from '../../../styles'
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -9,10 +9,10 @@ const fadeIn = keyframes`
 
 const setBackground = props => {
   const map = {
-    error: styles.colors.errorBackground,
-    warning: styles.colors.warningBackground,
-    info: styles.colors.infoBackground,
-    success: styles.colors.successBackground
+    error: colors.red,
+    warning: colors.yellow,
+    info: colors.blue,
+    success: colors.green
   }
 
   return map[props.type]
@@ -20,10 +20,10 @@ const setBackground = props => {
 
 const setColor = props => {
   const map = {
-    error: styles.colors.errorText,
-    warning: styles.colors.warningText,
-    info: styles.colors.infoText,
-    success: styles.colors.successText
+    error: colors.darkRed,
+    warning: colors.darkYellow,
+    info: colors.darkBlue,
+    success: colors.darkGreen
   }
 
   return map[props.type]
@@ -34,7 +34,7 @@ const AlertWrapper = styled.div`
   animation: ${fadeIn} 200ms linear;
   background: ${setBackground};
   border-radius: 3px;
-  box-shadow: ${styles.boxShadow};
+  box-shadow: ${boxShadow};
   color: ${setColor};
   display: flex;
   margin-bottom: 0.5rem;
