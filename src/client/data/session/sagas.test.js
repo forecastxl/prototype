@@ -19,7 +19,7 @@ describe('watchLoginSubmit', () => {
 describe('login', () => {
   const action = { payload: 'user' }
   const endpoint = endpoints.constant.LOGIN
-  const data = { user: action.payload }
+  const data = action.payload
 
   it('should post the user data', () => {
     const generator = sagas.login(action)
