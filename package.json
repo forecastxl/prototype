@@ -142,6 +142,6 @@
     "redux-form": "^6.6.0",
     "redux-form-submit-saga": "^1.1.3",
     "redux-saga": "^0.15.1",
-    "styled-components": "rc"
+    "styled-components": "^2.0.0"
   }
 }
