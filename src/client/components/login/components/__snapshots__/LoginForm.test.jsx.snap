@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LoginForm /> renders correctly 1`] = `
+exports[`<LoginForm /> renders a disabled submit button when invalid 1`] = `
 <Card
   padding="2rem"
   size="small"
@@ -9,6 +9,92 @@ exports[`<LoginForm /> renders correctly 1`] = `
   <form
     onSubmit={[Function]}
   >
+    <Alert
+      message="Some error"
+      type="error"
+    />
+    <Field
+      component={[Function]}
+      fullWidth={true}
+      label="Email"
+      name="email"
+      validate={[Function]}
+    />
+    <Field
+      component={[Function]}
+      fullWidth={true}
+      label="Wachtwoord"
+      name="password"
+      type="password"
+      validate={[Function]}
+    />
+    <RaisedButton
+      backgroundColor="#27AE60"
+      disabled={false}
+      fullWidth={true}
+      label="Inloggen"
+      labelColor="#FFFFFF"
+      labelPosition="after"
+      primary={false}
+      secondary={false}
+      type="submit"
+    />
+  </form>
+</Card>
+`;
+
+exports[`<LoginForm /> renders a submittable form when not submitting 1`] = `
+<Card
+  padding="2rem"
+  size="small"
+  title="Login"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <Field
+      component={[Function]}
+      fullWidth={true}
+      label="Email"
+      name="email"
+      validate={[Function]}
+    />
+    <Field
+      component={[Function]}
+      fullWidth={true}
+      label="Wachtwoord"
+      name="password"
+      type="password"
+      validate={[Function]}
+    />
+    <RaisedButton
+      backgroundColor="#27AE60"
+      disabled={true}
+      fullWidth={true}
+      label="Inloggen"
+      labelColor="#FFFFFF"
+      labelPosition="after"
+      primary={false}
+      secondary={false}
+      type="submit"
+    />
+  </form>
+</Card>
+`;
+
+exports[`<LoginForm /> renders an error message when given an error 1`] = `
+<Card
+  padding="2rem"
+  size="small"
+  title="Login"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <Alert
+      message="Some error"
+      type="error"
+    />
     <Field
       component={[Function]}
       fullWidth={true}
