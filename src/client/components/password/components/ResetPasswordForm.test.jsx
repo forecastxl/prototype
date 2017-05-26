@@ -24,6 +24,7 @@ describe('<DumbResetPasswordForm />', () => {
   })
 
   it('renders errors', () => {
+    getUrlParameter.mockImplementationOnce(() => 'token')
     const wrapper = shallow(
       <DumbResetPasswordForm handleSubmit={() => {}} pristine submitting={false} error="Error" />
     )
@@ -31,6 +32,7 @@ describe('<DumbResetPasswordForm />', () => {
   })
 
   it('enables the submit button when touched and not submitting', () => {
+    getUrlParameter.mockImplementationOnce(() => 'token')
     const wrapper = shallow(
       <DumbResetPasswordForm handleSubmit={() => {}} pristine={false} submitting={false} />
     )
