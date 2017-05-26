@@ -22,4 +22,18 @@ describe('<DumbResetPasswordForm />', () => {
     )
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
+
+  it('renders errors', () => {
+    const wrapper = shallow(
+      <DumbResetPasswordForm handleSubmit={() => {}} pristine submitting={false} error="Error" />
+    )
+    expect(shallowToJson(wrapper)).toMatchSnapshot()
+  })
+
+  it('enables the submit button when touched and not submitting', () => {
+    const wrapper = shallow(
+      <DumbResetPasswordForm handleSubmit={() => {}} pristine={false} submitting={false} />
+    )
+    expect(shallowToJson(wrapper)).toMatchSnapshot()
+  })
 })
