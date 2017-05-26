@@ -44,7 +44,6 @@ LoginForm.defaultProps = {
   error: ''
 }
 
-/* istanbul ignore next: decorator isn't tested */
 export default reduxForm({
   form: 'login',
   onSubmit: onSubmitActions('LOGIN_SUBMIT', 'LOGIN_SUCCESS', 'LOGIN_VALIDATION_FAILURE')

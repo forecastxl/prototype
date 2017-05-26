@@ -47,7 +47,6 @@ DumbResetPasswordForm.defaultProps = {
   error: ''
 }
 
-/* istanbul ignore next: decorator isn't tested */
 export default reduxForm({
   form: 'reset-password',
   onSubmit: onSubmitActions(
