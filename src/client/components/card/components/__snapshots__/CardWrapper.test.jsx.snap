@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CardWrapper /> renders correctly 1`] = `
+exports[`<CardWrapper /> renders a card wrapper at 100% width by default 1`] = `
 .fnzPNO {
   margin: 5rem auto 0;
   padding: 1rem;
@@ -11,5 +11,65 @@ exports[`<CardWrapper /> renders correctly 1`] = `
   className="sc-bdVaJa fnzPNO"
   marginTop="5rem"
   padding="1rem"
+/>
+`;
+
+exports[`<CardWrapper /> renders a card wrapper at a specific width when given a width 1`] = `
+.ljQsVH {
+  margin: 5rem auto 0;
+  padding: 1rem;
+  width: 20rem;
+}
+
+<Card
+  className="sc-bdVaJa ljQsVH"
+  marginTop="5rem"
+  padding="1rem"
+  width="20rem"
+/>
+`;
+
+exports[`<CardWrapper /> renders a card wrapper at large size when given size = large 1`] = `
+.kkckIN {
+  margin: 5rem auto 0;
+  padding: 1rem;
+  width: 90rem;
+}
+
+<Card
+  className="sc-bdVaJa kkckIN"
+  marginTop="5rem"
+  padding="1rem"
+  size="large"
+/>
+`;
+
+exports[`<CardWrapper /> renders a card wrapper at medium size when given size = medium 1`] = `
+.jyfWop {
+  margin: 5rem auto 0;
+  padding: 1rem;
+  width: 60rem;
+}
+
+<Card
+  className="sc-bdVaJa jyfWop"
+  marginTop="5rem"
+  padding="1rem"
+  size="medium"
+/>
+`;
+
+exports[`<CardWrapper /> renders a card wrapper at small size when given size = small 1`] = `
+.jWDGKL {
+  margin: 5rem auto 0;
+  padding: 1rem;
+  width: 40rem;
+}
+
+<Card
+  className="sc-bdVaJa jWDGKL"
+  marginTop="5rem"
+  padding="1rem"
+  size="small"
 />
 `;

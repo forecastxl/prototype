@@ -33,7 +33,6 @@ const CardWrapper = styled(MuiCard)`
 `
 
 CardWrapper.propTypes = {
-  title: PropTypes.string,
   marginTop: PropTypes.string,
   padding: PropTypes.string,
   width: PropTypes.string,
