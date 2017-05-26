@@ -5,9 +5,7 @@ import { LoginForm } from './LoginForm'
 
 describe('<LoginForm />', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(
-      <LoginForm handleSubmit={() => {}} submitting={false} valid={false} />
-    )
+    const wrapper = shallow(<LoginForm handleSubmit={() => {}} submitting={false} valid={false} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })
