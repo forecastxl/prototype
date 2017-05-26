@@ -19,6 +19,7 @@ const determineCardWidth = ({ width, size }) => {
       case 'large':
         cssWidth = '90rem'
         break
+      /* istanbul ignore next */
       default:
         throw new Error(`Unknown size '${size}'`)
     }
