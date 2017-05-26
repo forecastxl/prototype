@@ -1,61 +1,18 @@
-import React, { PropTypes } from 'react'
-import { Card } from 'material-ui/Card'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-
-const SIZE = { small: 'small', medium: 'medium', large: 'large' }
-
-// Determine the width based on either a fixed width or a relative size indicator.
-const determineWidth = ({ width, size }) => {
-  let cssWidth = '100%'
-  if (width) {
-    cssWidth = width
-  } else if (size) {
-    // Note: these should change based on the viewport (should be responsive)
-    switch (size) {
-      case SIZE.small:
-        cssWidth = '40rem'
-        break
-      case SIZE.medium:
-        cssWidth = '60rem'
-        break
-      case SIZE.large:
-        cssWidth = '90rem'
-        break
-      default:
-        throw new Error(`Unknown size ${size}`)
-    }
-  }
-  return cssWidth
-}
-
-const CardWrapper = styled(Card)`
-  margin: ${props => props.marginTop} auto 0;
-  padding: ${props => props.padding};
-  width: ${props => determineWidth(props)};
-`
-
-CardWrapper.propTypes = {
-  title: PropTypes.string,
-  marginTop: PropTypes.string,
-  padding: PropTypes.string,
-  width: PropTypes.string,
-  size: PropTypes.oneOf(Object.values(SIZE))
-}
-
-CardWrapper.defaultProps = {
-  marginTop: '5rem',
-  padding: '2rem'
-}
+import { colors } from '../../../styles'
+import CardWrapper from './CardWrapper'
 
 const CardTitle = styled.div`
-  background: #2c3e50;
-  color: #fff;
+  background: ${colors.darkBlue};
+  color: ${colors.white};
   font-size: 1.6rem;
   padding: 1rem;
   text-align: center;
 `
 
-const CardWithTitle = props => {
+const Card = props => {
   if (props.title) {
     return (
       <CardWrapper {...props} padding="0">
@@ -66,21 +23,20 @@ const CardWithTitle = props => {
       </CardWrapper>
     )
   }
-  return CardWrapper
+  return <CardWrapper {...props} />
 }
 
-CardWithTitle.propTypes = {
-  children: PropTypes.node.isRequired,
+Card.propTypes = {
+  children: PropTypes.node,
   title: PropTypes.string,
   padding: PropTypes.string
 }
 
-CardWithTitle.defaultProps = {
+// The following are left undefined, so as to let CardWrapper handle the defaults
+Card.defaultProps = {
+  children: undefined,
   title: undefined,
   padding: undefined
 }
 
-// Expose the SIZE enum directly on the component
-CardWithTitle.SIZE = SIZE
-
-export default CardWithTitle
+export default Card

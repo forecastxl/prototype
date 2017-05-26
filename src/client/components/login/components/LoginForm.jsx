@@ -7,10 +7,11 @@ import { Card } from '../../card'
 import { Alert } from '../../alert'
 import { TextField } from '../../form'
 import { required } from '../../form/validators'
+import { colors } from '../../../styles'
 
 export function LoginForm({ handleSubmit, submitting, valid, error }) {
   return (
-    <Card padding="2em" size={Card.SIZE.small} title="Login">
+    <Card padding="2rem" size="small" title="Login">
       <form onSubmit={handleSubmit}>
         {error && <Alert message={error} type="error" />}
         <Field name="email" component={TextField} label="Email" fullWidth validate={required} />
@@ -23,9 +24,10 @@ export function LoginForm({ handleSubmit, submitting, valid, error }) {
           validate={required}
         />
         <RaisedButton
+          backgroundColor={colors.green}
+          labelColor={colors.white}
           type="submit"
           label="Inloggen"
-          primary
           fullWidth
           disabled={!valid || submitting}
         />

@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LoginForm /> renders correctly 1`] = `
-<CardWithTitle
-  padding="2em"
+<Card
+  padding="2rem"
   size="small"
   title="Login"
 >
@@ -25,14 +25,16 @@ exports[`<LoginForm /> renders correctly 1`] = `
       validate={[Function]}
     />
     <RaisedButton
+      backgroundColor="#27AE60"
       disabled={true}
       fullWidth={true}
       label="Inloggen"
+      labelColor="#FFFFFF"
       labelPosition="after"
-      primary={true}
+      primary={false}
       secondary={false}
       type="submit"
     />
   </form>
-</CardWithTitle>
+</Card>
 `;

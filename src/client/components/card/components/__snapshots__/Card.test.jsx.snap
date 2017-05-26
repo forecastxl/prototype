@@ -1,14 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Card /> renders correctly 1`] = `
-.iWwYFm {
-  margin: 5rem auto 0;
-  width: 25rem;
-}
-
-<Card
-  className="sc-bdVaJa iWwYFm"
+<Styled(Card)
   marginTop="5rem"
-  width="25rem"
+  padding="1rem"
 />
+`;
+
+exports[`<Card /> renders with card header if a title is specified 1`] = `
+<Styled(Card)
+  marginTop="5rem"
+  padding="0"
+  title="My Title"
+>
+  <styled.div>
+    My Title
+  </styled.div>
+  <div
+    style={
+      Object {
+        "padding": undefined,
+      }
+    }
+  />
+</Styled(Card)>
 `;

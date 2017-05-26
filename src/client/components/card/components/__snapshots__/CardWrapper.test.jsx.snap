@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CardWrapper /> renders correctly 1`] = `
+.fnzPNO {
+  margin: 5rem auto 0;
+  padding: 1rem;
+  width: 100%;
+}
+
+<Card
+  className="sc-bdVaJa fnzPNO"
+  marginTop="5rem"
+  padding="1rem"
+/>
+`;
