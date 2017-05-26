@@ -76,3 +76,84 @@ exports[`<DumbSignupForm /> renders correctly 1`] = `
   />
 </form>
 `;
+
+exports[`<DumbSignupForm /> renders errors 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <Alert
+    message="Error"
+    type="error"
+  />
+  <h2>
+    Beheerder
+  </h2>
+  <p>
+    Gegevens van de beheerder van dit account. Deze persoon kan bedrijven bewerken, toevoegen en verwijderen.
+  </p>
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Voornaam"
+    name="firstName"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Achternaam"
+    name="lastName"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Email"
+    name="email"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Wachtwoord"
+    name="password"
+    type="password"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Herhaal wachtwoord"
+    name="passwordConfirmation"
+    type="password"
+  />
+  <h2>
+    Bedrijfsgegevens
+  </h2>
+  <p>
+    Bedrijfsgegevens voor de facturatie. Op basis van deze gegevens maken wij voor u ook alvast een voorbeeld bedrijf aan.
+  </p>
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Bedrijfsnaam"
+    name="companyName"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Telefoonnummer"
+    name="phoneNumber"
+  />
+  <Field
+    component={[Function]}
+    label="Ik ga akkoord met de algemene voorwaarden"
+    name="agreedToGeneralTerms"
+  />
+  <RaisedButton
+    disabled={true}
+    fullWidth={true}
+    label="Maak account aan"
+    labelPosition="after"
+    primary={true}
+    secondary={false}
+    type="submit"
+  />
+</form>
+`;
