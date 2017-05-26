@@ -7,7 +7,7 @@ import * as types from './actionTypes'
 
 export function* login({ payload }) {
   const endpoint = endpoints.constant.LOGIN
-  const data = { user: payload }
+  const data = payload
 
   try {
     const response = yield call(api.post, { endpoint, data })

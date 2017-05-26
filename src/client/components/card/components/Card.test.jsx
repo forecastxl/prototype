@@ -1,8 +1,3 @@
-/**
- * @jest-environment node
- */
-
-import 'jest-styled-components'
 import React from 'react'
 import { shallow } from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
@@ -15,6 +10,11 @@ jest.mock('material-ui/Card', () => ({
 describe('<Card />', () => {
   it('renders correctly', () => {
     const wrapper = shallow(<Card />)
-    expect(shallowToJson(wrapper)).toMatchStyledComponentsSnapshot()
+    expect(shallowToJson(wrapper)).toMatchSnapshot()
+  })
+
+  it('renders with card header if a title is specified', () => {
+    const wrapper = shallow(<Card title="My Title" />)
+    expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
 })
