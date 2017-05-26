@@ -6,7 +6,15 @@ exports[`<DumbLogin /> renders client errors 1`] = `
 />
 `;
 
-exports[`<DumbLogin /> renders correctly 1`] = `<ReduxForm />`;
+exports[`<DumbLogin /> renders correctly 1`] = `
+<Card
+  padding="2rem"
+  size="small"
+  title="Login"
+>
+  <ReduxForm />
+</Card>
+`;
 
 exports[`<DumbLogin /> renders server errors 1`] = `
 <ServerError

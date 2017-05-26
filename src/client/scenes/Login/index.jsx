@@ -3,6 +3,7 @@ import { object } from 'prop-types'
 import { connect } from 'react-redux'
 import { selectors } from '../../data/session'
 import { ClientError, ServerError } from '../../components/errors'
+import { Card } from '../../components/card'
 import { LoginForm } from '../../components/login'
 
 export function DumbLogin({ session }) {
@@ -14,7 +15,11 @@ export function DumbLogin({ session }) {
     return <ServerError errorMessage={session.errorMessage} />
   }
 
-  return <LoginForm />
+  return (
+    <Card padding="2rem" size="small" title="Login">
+      <LoginForm />
+    </Card>
+  )
 }
 
 DumbLogin.propTypes = {
