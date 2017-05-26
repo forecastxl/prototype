@@ -9,4 +9,10 @@ describe('<TextField />', () => {
     const wrapper = shallow(<TextField input={{}} label={'label'} meta={meta} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
+
+  it('renders errors', () => {
+    const meta = { touched: true, error: 'error' }
+    const wrapper = shallow(<TextField input={{}} label={'label'} meta={meta} />)
+    expect(shallowToJson(wrapper)).toMatchSnapshot()
+  })
 })

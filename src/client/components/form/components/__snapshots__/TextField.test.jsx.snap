@@ -14,3 +14,18 @@ exports[`<TextField /> renders correctly 1`] = `
   underlineShow={true}
 />
 `;
+
+exports[`<TextField /> renders errors 1`] = `
+<TextField
+  disabled={false}
+  errorText="error"
+  floatingLabelFixed={false}
+  floatingLabelText="label"
+  fullWidth={false}
+  hintText="label"
+  multiLine={false}
+  rows={1}
+  type="text"
+  underlineShow={true}
+/>
+`;
