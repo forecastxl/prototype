@@ -24,4 +24,12 @@ describe('transformErrorArraysToString', () => {
 
     expect(actual).toEqual(expected)
   })
+
+  it('should return the data unmodified if errors are missing', () => {
+    const data = { notErrors: {} }
+    const expected = { notErrors: {} }
+    const actual = transformErrorArraysToString(data)
+
+    expect(actual).toEqual(expected)
+  })
 })
