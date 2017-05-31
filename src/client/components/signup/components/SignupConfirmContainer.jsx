@@ -26,7 +26,7 @@ export class SignupConfirmContainer extends Component {
   }
 
   render() {
-    return <SignupConfirm hasToken={!!this.state.token} errors={{}} isFetching />
+    return <SignupConfirm hasToken={!!this.state.token} isFetching />
   }
 }
 
