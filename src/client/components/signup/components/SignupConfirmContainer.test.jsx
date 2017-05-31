@@ -11,7 +11,7 @@ describe('<SignupConfirmContainer />', () => {
     getUrlParameter.mockImplementationOnce(() => 'token')
 
     const spy = jest.fn()
-    mount(<SignupConfirmContainer confirmAccount={spy} errors={{}} isFetching={false} />)
+    mount(<SignupConfirmContainer confirmAccount={spy} isFetching={false} />)
 
     expect(spy).toBeCalledWith('token')
   })
@@ -19,32 +19,12 @@ describe('<SignupConfirmContainer />', () => {
   it('renders a warning on a missing token', () => {
     getUrlParameter.mockImplementationOnce(() => false)
 
-    const wrapper = mount(
-      <SignupConfirmContainer confirmAccount={() => {}} errors={{}} isFetching={false} />
-    )
+    const wrapper = mount(<SignupConfirmContainer confirmAccount={() => {}} isFetching={false} />)
     expect(mountToJson(wrapper)).toMatchSnapshot()
   })
 
   it('renders a message while fetching', () => {
-    const wrapper = mount(
-      <SignupConfirmContainer confirmAccount={() => {}} errors={{}} isFetching />
-    )
-
-    wrapper.setState({
-      token: 'token'
-    })
-
-    expect(mountToJson(wrapper)).toMatchSnapshot()
-  })
-
-  it('renders errors', () => {
-    const wrapper = mount(
-      <SignupConfirmContainer
-        confirmAccount={() => {}}
-        errors={{ base: ['error message'] }}
-        isFetching={false}
-      />
-    )
+    const wrapper = mount(<SignupConfirmContainer confirmAccount={() => {}} isFetching />)
 
     wrapper.setState({
       token: 'token'
@@ -56,9 +36,7 @@ describe('<SignupConfirmContainer />', () => {
   it('renders a message on success', () => {
     getUrlParameter.mockImplementationOnce(() => 'token')
 
-    const wrapper = mount(
-      <SignupConfirmContainer confirmAccount={() => {}} errors={{}} isFetching={false} />
-    )
+    const wrapper = mount(<SignupConfirmContainer confirmAccount={() => {}} isFetching={false} />)
 
     wrapper.setState({
       token: 'token'
