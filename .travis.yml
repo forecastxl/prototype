@@ -1,6 +1,5 @@
 sudo: required
 language: node_js
-cache: yarn
 node_js:
   - node
 notifications:
@@ -8,17 +7,17 @@ notifications:
 services:
   - docker
 script:
-  - yarn run test:coverage
-  - yarn run lint:js
-  - yarn run lint:css
-  - yarn run lint:whitespace
-  - yarn run lint:prettier
+  - npm run test:coverage
+  - npm run lint:js
+  - npm run lint:css
+  - npm run lint:whitespace
+  - npm run lint:prettier
 after_success:
-  - yarn run build:server
+  - npm run build:server
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
-  - if [ "$BRANCH" == "master" ]; then yarn run build:client:master; fi
-  - if [ "$BRANCH" == "staging" ]; then yarn run build:client:staging; fi
-  - if [ "$BRANCH" == "develop" ]; then yarn run build:client:develop; fi
+  - if [ "$BRANCH" == "master" ]; then npm run build:client:master; fi
+  - if [ "$BRANCH" == "staging" ]; then npm run build:client:staging; fi
+  - if [ "$BRANCH" == "develop" ]; then npm run build:client:develop; fi
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - export REPO=forecastxl/prototype
   - if [ "$BRANCH" == "master" ] || [ "$BRANCH" == "staging" ] || [ "$BRANCH" == "develop" ]; then docker build -f Dockerfile -t $REPO:$BRANCH .; fi
