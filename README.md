@@ -7,8 +7,7 @@
 
 ## requirements
 
-* [node](https://github.com/nodejs/node)
-* [yarn](https://github.com/yarnpkg/yarn)
+* [node 8](https://github.com/nodejs/node)
 * [editorconfig](http://editorconfig.org/)
 
 ## containers
@@ -20,7 +19,7 @@ Docker containers of this project are built automatically and can be found on [D
 
 ## install
 
-* clone and run `yarn`
+* clone and run `npm install`
 
 ## credits
 
