@@ -36,6 +36,9 @@ exports[`<Routes /> renders correctly 1`] = `
       component={[Function]}
       path="/profile"
     />
+    <Route
+      component={[Function]}
+    />
   </Switch>
   <Connect(NotificationsContainer) />
 </div>
