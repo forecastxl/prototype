@@ -9,6 +9,7 @@ import Profile from '../../../scenes/Profile'
 import Signup from '../../../scenes/Signup'
 import SignupConfirmContainer from '../../../scenes/SignupConfirm'
 import ResetPassword from '../../../scenes/ResetPassword'
+import Missing from '../../../scenes/Missing'
 
 function Routes() {
   return (
@@ -29,6 +30,8 @@ function Routes() {
         {/* Profile */}
         <Route path="/profile" component={Profile} />
 
+        {/* 404 */}
+        <Route component={Missing} />
       </Switch>
       <NotificationsContainer />
     </div>
