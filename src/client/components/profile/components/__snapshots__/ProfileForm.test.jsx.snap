@@ -1,9 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<DumbProfileForm /> enables the submit button when touched and not submitting 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Voornaam"
+    name="firstName"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Achternaam"
+    name="lastName"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Email"
+    name="email"
+  />
+  <RaisedButton
+    disabled={false}
+    fullWidth={true}
+    label="Wijzig profiel"
+    labelPosition="after"
+    primary={true}
+    secondary={false}
+    type="submit"
+  />
+</form>
+`;
+
 exports[`<DumbProfileForm /> renders correctly 1`] = `
 <form
   onSubmit={[Function]}
 >
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Voornaam"
+    name="firstName"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Achternaam"
+    name="lastName"
+  />
+  <Field
+    component={[Function]}
+    fullWidth={true}
+    label="Email"
+    name="email"
+  />
+  <RaisedButton
+    disabled={true}
+    fullWidth={true}
+    label="Wijzig profiel"
+    labelPosition="after"
+    primary={true}
+    secondary={false}
+    type="submit"
+  />
+</form>
+`;
+
+exports[`<DumbProfileForm /> renders errors 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <Alert
+    message="Error"
+    type="error"
+  />
   <Field
     component={[Function]}
     fullWidth={true}

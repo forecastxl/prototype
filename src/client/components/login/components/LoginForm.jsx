@@ -8,7 +8,7 @@ import { TextField } from '../../form'
 import { required } from '../../form/validators'
 import { colors } from '../../../styles'
 
-export function LoginForm({ handleSubmit, submitting, valid, error }) {
+export function DumbLoginForm({ handleSubmit, submitting, valid, error }) {
   return (
     <form onSubmit={handleSubmit}>
       {error && <Alert message={error} type="error" />}
@@ -33,18 +33,18 @@ export function LoginForm({ handleSubmit, submitting, valid, error }) {
   )
 }
 
-LoginForm.propTypes = {
+DumbLoginForm.propTypes = {
   error: string,
   handleSubmit: func.isRequired,
   valid: bool.isRequired,
   submitting: bool.isRequired
 }
 
-LoginForm.defaultProps = {
+DumbLoginForm.defaultProps = {
   error: ''
 }
 
 export default reduxForm({
   form: 'login',
   onSubmit: onSubmitActions('LOGIN_SUBMIT', 'LOGIN_SUCCESS', 'LOGIN_VALIDATION_FAILURE')
-})(LoginForm)
+})(DumbLoginForm)

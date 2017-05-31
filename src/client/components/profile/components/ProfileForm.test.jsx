@@ -8,4 +8,18 @@ describe('<DumbProfileForm />', () => {
     const wrapper = shallow(<DumbProfileForm handleSubmit={() => {}} pristine submitting={false} />)
     expect(shallowToJson(wrapper)).toMatchSnapshot()
   })
+
+  it('renders errors', () => {
+    const wrapper = shallow(
+      <DumbProfileForm handleSubmit={() => {}} pristine submitting={false} error="Error" />
+    )
+    expect(shallowToJson(wrapper)).toMatchSnapshot()
+  })
+
+  it('enables the submit button when touched and not submitting', () => {
+    const wrapper = shallow(
+      <DumbProfileForm handleSubmit={() => {}} pristine={false} submitting={false} />
+    )
+    expect(shallowToJson(wrapper)).toMatchSnapshot()
+  })
 })

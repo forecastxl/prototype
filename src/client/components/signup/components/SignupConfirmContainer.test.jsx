@@ -1,21 +1,14 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { mountToJson } from 'enzyme-to-json'
+import getUrlParameter from '../../../services/getUrlParameter'
 import { SignupConfirmContainer } from './SignupConfirmContainer'
 
-describe('<SignupConfirmContainer />', () => {
-  afterEach(() => {
-    Object.defineProperty(window.location, 'search', {
-      writable: true,
-      value: ''
-    })
-  })
+jest.mock('../../../services/getUrlParameter', () => jest.fn())
 
+describe('<SignupConfirmContainer />', () => {
   it('confirms the account when mounted', () => {
-    Object.defineProperty(window.location, 'search', {
-      writable: true,
-      value: '?token=token'
-    })
+    getUrlParameter.mockImplementationOnce(() => 'token')
 
     const spy = jest.fn()
     mount(<SignupConfirmContainer confirmAccount={spy} errors={{}} isFetching={false} />)
@@ -24,6 +17,8 @@ describe('<SignupConfirmContainer />', () => {
   })
 
   it('renders a warning on a missing token', () => {
+    getUrlParameter.mockImplementationOnce(() => false)
+
     const wrapper = mount(
       <SignupConfirmContainer confirmAccount={() => {}} errors={{}} isFetching={false} />
     )
@@ -36,7 +31,6 @@ describe('<SignupConfirmContainer />', () => {
     )
 
     wrapper.setState({
-      parsedToken: true,
       token: 'token'
     })
 
@@ -53,7 +47,6 @@ describe('<SignupConfirmContainer />', () => {
     )
 
     wrapper.setState({
-      parsedToken: true,
       token: 'token'
     })
 
@@ -61,12 +54,13 @@ describe('<SignupConfirmContainer />', () => {
   })
 
   it('renders a message on success', () => {
+    getUrlParameter.mockImplementationOnce(() => 'token')
+
     const wrapper = mount(
       <SignupConfirmContainer confirmAccount={() => {}} errors={{}} isFetching={false} />
     )
 
     wrapper.setState({
-      parsedToken: true,
       token: 'token'
     })
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LoginForm /> renders a disabled submit button when invalid 1`] = `
+exports[`<DumbLoginForm /> renders a disabled submit button when invalid 1`] = `
 <form
   onSubmit={[Function]}
 >
@@ -37,7 +37,7 @@ exports[`<LoginForm /> renders a disabled submit button when invalid 1`] = `
 </form>
 `;
 
-exports[`<LoginForm /> renders a submittable form when not submitting 1`] = `
+exports[`<DumbLoginForm /> renders correctly 1`] = `
 <form
   onSubmit={[Function]}
 >
@@ -70,7 +70,7 @@ exports[`<LoginForm /> renders a submittable form when not submitting 1`] = `
 </form>
 `;
 
-exports[`<LoginForm /> renders an error message when given an error 1`] = `
+exports[`<DumbLoginForm /> renders errors 1`] = `
 <form
   onSubmit={[Function]}
 >

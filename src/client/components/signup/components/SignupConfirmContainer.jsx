@@ -9,34 +9,24 @@ export class SignupConfirmContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      parsedToken: false,
-      token: false
+      token: ''
     }
   }
 
   componentWillMount() {
-    if (!this.state.parsedToken) {
-      this.setState({
-        parsedToken: true,
-        token: getUrlParameter('token')
-      })
-    }
+    this.setState({
+      token: getUrlParameter('token')
+    })
   }
 
   componentDidMount() {
-    if (this.state.parsedToken && this.state.token) {
+    if (this.state.token) {
       this.props.confirmAccount(this.state.token)
     }
   }
 
   render() {
-    return (
-      <SignupConfirm
-        hasToken={this.state.parsedToken && !!this.state.token}
-        errors={{}}
-        isFetching
-      />
-    )
+    return <SignupConfirm hasToken={!!this.state.token} errors={{}} isFetching />
   }
 }
 
