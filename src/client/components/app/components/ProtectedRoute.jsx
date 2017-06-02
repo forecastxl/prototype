@@ -8,8 +8,9 @@ const mapStateToProps = state => ({
   hasAuth: selectors.hasToken(state)
 })
 
-export const DumbProtectedRoute = ({ hasAuth, ...props }) =>
-  hasAuth ? <Route {...props} /> : <Redirect to="/login" />
+export function DumbProtectedRoute({ hasAuth, ...props }) {
+  return hasAuth ? <Route {...props} /> : <Redirect to="/login" />
+}
 
 DumbProtectedRoute.propTypes = {
   hasAuth: PropTypes.bool.isRequired
