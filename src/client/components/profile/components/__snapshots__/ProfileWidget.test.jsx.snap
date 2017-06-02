@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DumbProfileWidget /> renders correctly 1`] = `
+<IconMenu
+  anchorOrigin={
+    Object {
+      "horizontal": "right",
+      "vertical": "bottom",
+    }
+  }
+  animated={true}
+  iconButtonElement={
+    <div>
+      <styled.div>
+        <Avatar
+          size={35}
+          src="http://i.pravatar.cc/150?u=a042581f4e290267014f"
+        />
+        <styled.span>
+          John Doe
+        </styled.span>
+        <HardwareKeyboardArrowDown
+          color="#FFFFFF"
+          style={
+            Object {
+              "marginLeft": "2px",
+              "marginTop": "2px",
+            }
+          }
+        />
+      </styled.div>
+    </div>
+  }
+  multiple={false}
+  onItemTouchTap={[Function]}
+  onKeyboardFocus={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onRequestChange={[Function]}
+  onTouchTap={[Function]}
+  open={null}
+  targetOrigin={
+    Object {
+      "horizontal": "right",
+      "vertical": "top",
+    }
+  }
+  touchTapCloseDelay={200}
+  useLayerForClickAway={false}
+>
+  <MenuItem
+    anchorOrigin={
+      Object {
+        "horizontal": "right",
+        "vertical": "top",
+      }
+    }
+    checked={false}
+    desktop={false}
+    disabled={false}
+    focusState="none"
+    insetChildren={false}
+    leftIcon={<ActionSettings />}
+    onTouchTap={[Function]}
+    primaryText="Instellingen"
+    targetOrigin={
+      Object {
+        "horizontal": "left",
+        "vertical": "top",
+      }
+    }
+  />
+  <MenuItem
+    anchorOrigin={
+      Object {
+        "horizontal": "right",
+        "vertical": "top",
+      }
+    }
+    checked={false}
+    desktop={false}
+    disabled={false}
+    focusState="none"
+    insetChildren={false}
+    leftIcon={<ActionExitToApp />}
+    onTouchTap={[Function]}
+    primaryText="Uitloggen"
+    targetOrigin={
+      Object {
+        "horizontal": "left",
+        "vertical": "top",
+      }
+    }
+  />
+</IconMenu>
+`;

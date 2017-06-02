@@ -27,7 +27,7 @@ const LoginButton = ({ onLogin }) => (
 
 LoginButton.propTypes = { onLogin: PropTypes.func.isRequired }
 
-const DumbHeader = ({ hasAuth, history }) => (
+export const DumbHeader = ({ hasAuth, history }) => (
   <Wrapper>
     <Logo />
     {hasAuth

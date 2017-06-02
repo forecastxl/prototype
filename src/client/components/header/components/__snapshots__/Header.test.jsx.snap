@@ -1,7 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> renders correctly 1`] = `
+exports[`<DumbHeader /> renders with a profile widget when we are authenticated 1`] = `
 <styled.header>
   <Logo />
+  <Connect(withRouter(DumbProfileWidget)) />
+</styled.header>
+`;
+
+exports[`<DumbHeader /> renders with login button when we are not authenticated 1`] = `
+<styled.header>
+  <Logo />
+  <LoginButton
+    onLogin={[Function]}
+  />
 </styled.header>
 `;

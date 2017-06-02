@@ -32,7 +32,7 @@ const ProfileWidgetContent = styled.div`
   }
 `
 
-class ProfileWidget extends React.Component {
+export class DumbProfileWidget extends React.Component {
   componentWillMount() {
     this.props.fetchProfile()
   }
@@ -77,11 +77,11 @@ class ProfileWidget extends React.Component {
   }
 }
 
-ProfileWidget.propTypes = {
+DumbProfileWidget.propTypes = {
   history: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
   fetchProfile: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired
 }
 
-export default connect(mapStateToProps, mapStateToDispatch)(withRouter(ProfileWidget))
+export default connect(mapStateToProps, mapStateToDispatch)(withRouter(DumbProfileWidget))
