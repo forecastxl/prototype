@@ -1,14 +1,16 @@
 import * as types from './actionTypes'
 
 const initialState = {
-  errorMessage: ''
+  message: '',
+  status: ''
 }
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case types.CATCH_ERROR:
       return {
-        errorMessage: action.payload
+        message: action.payload.message || 'No message was provided',
+        status: action.payload.status || ''
       }
     default:
       return state

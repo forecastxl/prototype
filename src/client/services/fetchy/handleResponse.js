@@ -34,10 +34,13 @@ function handleResponse(response) {
    */
 
   if (response.status >= 400 && response.status <= 499) {
-    return response
-      .json()
-      .then(transformResponseData)
-      .then(data => Promise.reject(new Error(data.errors.base)))
+    return response.json().then(transformResponseData).then(data => {
+      // Include the status in the error
+      // eslint-disable-next-line no-underscore-dangle
+      const error = new Error(data.errors._error)
+      error.status = response.status
+      return Promise.reject(error)
+    })
   }
 
   /**
@@ -45,7 +48,10 @@ function handleResponse(response) {
    * Returns a promise that rejects with an error
    */
 
-  return Promise.reject(new Error(response.statusText || 'No message was provided'))
+  // Include the status in the error
+  const error = new Error(response.statusText)
+  error.status = response.status
+  return Promise.reject(error)
 }
 
 export default handleResponse

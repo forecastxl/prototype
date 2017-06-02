@@ -3,10 +3,10 @@ import { reducer as form } from 'redux-form'
 import { reducer as notifications } from 'react-notification-system-redux'
 import { reducer as profile } from './components/profile'
 import { reducer as session } from './data/session'
-import { reducer as errors } from './data/errors'
+import { reducer as error } from './data/error'
 
 export default combineReducers({
-  errors,
+  error,
   form,
   notifications,
   profile,
