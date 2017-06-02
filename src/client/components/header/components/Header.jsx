@@ -15,25 +15,17 @@ const mapStateToProps = state => ({
   hasAuth: selectors.hasToken(state)
 })
 
-const LoginButton = ({ onLogin }) => (
-  <RaisedButton
-    label="Inloggen"
-    labelColor={colors.white}
-    backgroundColor={colors.green}
-    style={{ backgroundColor: 'none' }}
-    onTouchTap={onLogin}
-  />
-)
-
-LoginButton.propTypes = { onLogin: PropTypes.func.isRequired }
-
 export const DumbHeader = ({ hasAuth, history }) => (
   <Wrapper>
     <Logo />
     {hasAuth
       ? <ProfileWidget />
-      : <LoginButton
-          onLogin={() => {
+      : <RaisedButton
+          label="Inloggen"
+          labelColor={colors.white}
+          backgroundColor={colors.green}
+          style={{ backgroundColor: 'none' }}
+          onTouchTap={() => {
             history.push('/login')
           }}
         />}
