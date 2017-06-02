@@ -4,6 +4,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router'
 import { addFormSubmitSagaTo as formSaga } from 'redux-form-submit-saga'
 import rootReducer from './rootReducer'
 import rootSaga from './rootSaga'
+import { middleware as errorMiddleware } from './data/error'
 
 // Initialize devtools when available
 // eslint-disable-next-line no-underscore-dangle
@@ -15,7 +16,7 @@ const configureStore = (preloadedState, history) => {
   const store = createStore(
     connectRouter(history)(rootReducer),
     preloadedState,
-    composeEnhancers(applyMiddleware(sagaMiddleware, routerMiddleware(history)))
+    composeEnhancers(applyMiddleware(sagaMiddleware, routerMiddleware(history), errorMiddleware))
   )
 
   sagaMiddleware.run(rootSaga)

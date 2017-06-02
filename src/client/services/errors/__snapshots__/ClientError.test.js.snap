@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`ClientError should fall back to a default message 1`] = `"Something went wrong but no message was provided"`;

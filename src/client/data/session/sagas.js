@@ -14,13 +14,7 @@ export function* login({ payload }) {
     yield put(actions.loginSuccess(response.token))
     yield put(push('/'))
   } catch (error) {
-    if (error.name === 'SubmissionError') {
-      yield put(actions.loginValidationFailure(error.errors))
-    } else if (error.name === 'ClientError') {
-      yield put(actions.loginClientFailure(error))
-    } else {
-      yield put(actions.loginServerFailure(error))
-    }
+    yield put(actions.loginFailure(error))
   }
 }
 
