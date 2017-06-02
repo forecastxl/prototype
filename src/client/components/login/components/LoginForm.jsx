@@ -46,5 +46,5 @@ DumbLoginForm.defaultProps = {
 
 export default reduxForm({
   form: 'login',
-  onSubmit: onSubmitActions('LOGIN_SUBMIT', 'LOGIN_SUCCESS', 'LOGIN_VALIDATION_FAILURE')
+  onSubmit: onSubmitActions('LOGIN_SUBMIT', 'LOGIN_SUCCESS', 'LOGIN_FAILURE')
 })(DumbLoginForm)

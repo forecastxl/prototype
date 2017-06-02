@@ -21,24 +21,10 @@ export default function reducer(state = initialState, action) {
         isFetching: false,
         token: action.payload
       }
-    case types.LOGIN_VALIDATION_FAILURE:
+    case types.LOGIN_FAILURE:
       return {
         errorMessage: '',
         errorName: '',
-        isFetching: false,
-        token: ''
-      }
-    case types.LOGIN_CLIENT_FAILURE:
-      return {
-        errorMessage: action.payload.message,
-        errorName: 'ClientError',
-        isFetching: false,
-        token: ''
-      }
-    case types.LOGIN_SERVER_FAILURE:
-      return {
-        errorMessage: action.payload.message,
-        errorName: 'ServerError',
         isFetching: false,
         token: ''
       }

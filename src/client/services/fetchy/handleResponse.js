@@ -1,6 +1,5 @@
 import { SubmissionError } from 'redux-form'
 import { transformResponseData } from '../transform'
-import { ClientError, ServerError } from '../errors'
 
 /**
  * Processes fetch responses and always returns a promise. Generic fetch errors will
@@ -31,22 +30,22 @@ function handleResponse(response) {
 
   /**
    * 400 - 499
-   * Returns a promise that rejects with a ClientError
+   * Returns a promise that rejects with an error
    */
 
   if (response.status >= 400 && response.status <= 499) {
     return response
       .json()
       .then(transformResponseData)
-      .then(data => Promise.reject(new ClientError(data.errors.base)))
+      .then(data => Promise.reject(new Error(data.errors.base)))
   }
 
   /**
    * 300 - 399 and 500 - 599
-   * Returns a promise that rejects with a ServerError
+   * Returns a promise that rejects with an error
    */
 
-  return Promise.reject(new ServerError(response.statusText))
+  return Promise.reject(new Error(response.statusText || 'No message was provided'))
 }
 
 export default handleResponse
