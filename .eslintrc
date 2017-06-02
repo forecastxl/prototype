@@ -4,6 +4,7 @@
   ],
   "rules": {
     "arrow-parens": 0,
+    "no-confusing-arrow": 0,
     "comma-dangle": 0,
     "func-names": ["error", "as-needed"],
     "import/no-extraneous-dependencies": 0,
