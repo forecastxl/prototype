@@ -10,32 +10,32 @@ import Signup from '../../../scenes/Signup'
 import SignupConfirmContainer from '../../../scenes/SignupConfirm'
 import ResetPassword from '../../../scenes/ResetPassword'
 import Missing from '../../../scenes/Missing'
+import ProtectedRoute from './ProtectedRoute'
 
-function Routes() {
-  return (
-    <div>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Home} />
+const Routes = () => (
+  <div>
+    <Header />
+    <Switch>
+      {/* Login */}
+      <Route exact path="/login" component={Login} />
+      <Route path="/login/forgot-password" component={ForgotPassword} />
+      <Route path="/login/reset-password" component={ResetPassword} />
 
-        {/* Login */}
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/login/forgot-password" component={ForgotPassword} />
-        <Route path="/login/reset-password" component={ResetPassword} />
+      {/* Signup */}
+      <Route exact path="/signup" component={Signup} />
+      <Route path="/signup/confirm" component={SignupConfirmContainer} />
 
-        {/* Signup */}
-        <Route exact path="/signup" component={Signup} />
-        <Route path="/signup/confirm" component={SignupConfirmContainer} />
+      {/* Home */}
+      <ProtectedRoute exact path="/" component={Home} />
 
-        {/* Profile */}
-        <Route path="/profile" component={Profile} />
+      {/* Profile */}
+      <ProtectedRoute path="/profile" component={Profile} />
 
-        {/* 404 */}
-        <Route component={Missing} />
-      </Switch>
-      <NotificationsContainer />
-    </div>
-  )
-}
+      {/* 404 */}
+      <Route component={Missing} />
+    </Switch>
+    <NotificationsContainer />
+  </div>
+)
 
 export default Routes

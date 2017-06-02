@@ -1,7 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> renders correctly 1`] = `
+exports[`<DumbHeader /> renders with a profile widget when we are authenticated 1`] = `
 <styled.header>
   <Logo />
+  <Connect(withRouter(DumbProfileWidget)) />
+</styled.header>
+`;
+
+exports[`<DumbHeader /> renders with login button when we are not authenticated 1`] = `
+<styled.header>
+  <Logo />
+  <RaisedButton
+    backgroundColor="#27AE60"
+    disabled={false}
+    fullWidth={false}
+    label="Inloggen"
+    labelColor="#FFFFFF"
+    labelPosition="after"
+    onTouchTap={[Function]}
+    primary={false}
+    secondary={false}
+    style={
+      Object {
+        "backgroundColor": "none",
+      }
+    }
+  />
 </styled.header>
 `;

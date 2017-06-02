@@ -2,13 +2,8 @@
 
 exports[`<Routes /> renders correctly 1`] = `
 <div>
-  <Header />
+  <Connect(withRouter()) />
   <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/"
-    />
     <Route
       component={[Function]}
       exact={true}
@@ -16,7 +11,6 @@ exports[`<Routes /> renders correctly 1`] = `
     />
     <Route
       component={[Function]}
-      exact={true}
       path="/login/forgot-password"
     />
     <Route
@@ -32,7 +26,12 @@ exports[`<Routes /> renders correctly 1`] = `
       component={[Function]}
       path="/signup/confirm"
     />
-    <Route
+    <Connect(DumbProtectedRoute)
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Connect(DumbProtectedRoute)
       component={[Function]}
       path="/profile"
     />
