@@ -12,6 +12,8 @@ export default function reducer(state = initialState, action) {
         message: action.payload.message || 'No message was provided',
         status: action.payload.status || ''
       }
+    case types.RESOLVE_ERROR:
+      return initialState
     default:
       return state
   }

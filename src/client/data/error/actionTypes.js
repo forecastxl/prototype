@@ -1,1 +1,2 @@
 export const CATCH_ERROR = 'CATCH_ERROR'
+export const RESOLVE_ERROR = 'RESOLVE_ERROR'
